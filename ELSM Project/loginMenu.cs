@@ -17,7 +17,7 @@ namespace ELSM_Project
     public partial class loginMenu : Form
     {
 
-        public static string IPAddress, Forename, Surname, CompanyName, EmailAddress, ProfileImage, Role;
+        public static string IPAddress, Forename, Surname, CompanyID, EmailAddress, ProfileImage, Role, UserID;
         public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; // Temp login credentials to remotely hosted MySQL database.
         // Want cheap, reliable and powerful MySQL and web hosting? Check out https://www.elhostingservices.com - Shameless plug. Login information and this comment to be removed at a later date.
 
@@ -57,11 +57,12 @@ namespace ELSM_Project
             if (checkpointReached == true) // If the Valid variable earlier could be set and the flag was changed to true, run code.
             {
                 var databasePassword = Convert.ToString(rdr[2]); // Set databasePassword equal to the value in the database for the user.
+                loginMenu.UserID = Convert.ToString(rdr[0]);
                 loginMenu.Forename = Convert.ToString(rdr[3]);
                 loginMenu.Surname = Convert.ToString(rdr[4]);
                 loginMenu.EmailAddress = Convert.ToString(rdr[5]);
                 loginMenu.ProfileImage = Convert.ToString(rdr[6]);
-                loginMenu.CompanyName = Convert.ToString(rdr[7]);
+                loginMenu.CompanyID = Convert.ToString(rdr[7]);
                 loginMenu.Role = Convert.ToString(rdr[8]);
                 conn.Close();
                 if (userPassword != databasePassword) // If databasevalue doesn't match what the user entered, run code. Else run another block of code.

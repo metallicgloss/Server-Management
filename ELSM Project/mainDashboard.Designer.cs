@@ -79,9 +79,9 @@
             this.lblWelcomeBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblWelcomeBack.Location = new System.Drawing.Point(444, 35);
             this.lblWelcomeBack.Name = "lblWelcomeBack";
-            this.lblWelcomeBack.Size = new System.Drawing.Size(307, 19);
+            this.lblWelcomeBack.Size = new System.Drawing.Size(131, 19);
             this.lblWelcomeBack.TabIndex = 3;
-            this.lblWelcomeBack.Text = "Welcome Back Placeholder Text Here!";
+            this.lblWelcomeBack.Text = "Welcome Back!";
             // 
             // lblCurrentIP
             // 

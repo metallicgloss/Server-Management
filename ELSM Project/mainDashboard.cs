@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
     public partial class mainDashboard : Form
     {
+
+        public static Boolean IsOwner;
+
         public mainDashboard()
         {
             InitializeComponent();
@@ -19,13 +24,27 @@ namespace ELSM_Project
 
         private void DashboardFRM_Load(object sender, EventArgs e)
         {
-            lblCurrentCompany.Text = "Company: " + loginMenu.CompanyName;
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
-            lblCurrentIP.Text = "Position: " + loginMenu.Role;
+            lblPosition.Text = "Position: " + loginMenu.Role;
             lblWelcomeBack.Text = "Welcome Back " + loginMenu.Forename + "!";
             pctProfilePhoto.ImageLocation = loginMenu.ProfileImage;
             pctProfilePhoto.SizeMode = PictureBoxSizeMode.CenterImage;
             pctProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
+            conn.Open();
+            string sql = "SELECT * FROM userCompanies WHERE companyID = @companyID";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.Add("@companyID", loginMenu.CompanyID);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+            string temp = Convert.ToString(rdr[2]);
+            lblCurrentCompany.Text = "Company: " + temp;
+            if (loginMenu.UserID == Convert.ToString(rdr[1]))
+            {
+                IsOwner = true;
+            }
+            rdr.Read();
+            conn.Close();
         }
 
         private void lblMetallicGloss_Click(object sender, EventArgs e)
