@@ -49,16 +49,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="loginFRM.cs">
+    <Compile Include="mainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loginFRM.Designer.cs">
-      <DependentUpon>loginFRM.cs</DependentUpon>
+    <Compile Include="mainDashboard.Designer.cs">
+      <DependentUpon>mainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginMenu.Designer.cs">
+      <DependentUpon>loginMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageAccount.Designer.cs">
+      <DependentUpon>manageAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageLocations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageLocations.Designer.cs">
+      <DependentUpon>manageLocations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageServers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageServers.Designer.cs">
+      <DependentUpon>manageServers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="loginFRM.resx">
-      <DependentUpon>loginFRM.cs</DependentUpon>
+    <Compile Include="serverControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControl.Designer.cs">
+      <DependentUpon>serverControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="mainDashboard.resx">
+      <DependentUpon>mainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginMenu.resx">
+      <DependentUpon>loginMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageAccount.resx">
+      <DependentUpon>manageAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageLocations.resx">
+      <DependentUpon>manageLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageServers.resx">
+      <DependentUpon>manageServers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -70,6 +112,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="serverControl.resx">
+      <DependentUpon>serverControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,6 +144,8 @@
     <Content Include="imgBackground.png" />
     <Content Include="imgIcon.ico" />
     <Content Include="imgLogo.png" />
+    <Content Include="imgLoading.gif" />
+    <Content Include="imgLogoPurple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

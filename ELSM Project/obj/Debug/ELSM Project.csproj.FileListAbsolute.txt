@@ -15,9 +15,14 @@ C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM P
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\bin\Debug\MySql.Data.dll
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\bin\Debug\MySql.Data.xml
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM Project.csprojResolveAssemblyReference.cache
-C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.loginFRM.resources
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.Properties.Resources.resources
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM Project.csproj.GenerateResource.Cache
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM Project.csproj.CoreCompileInputs.cache
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM Project.exe
 C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM Project.pdb
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.mainDashboard.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.loginMenu.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.manageAccount.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.manageServers.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.manageLocations.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\ELSM\ELSM Project\obj\Debug\ELSM_Project.serverControl.resources
