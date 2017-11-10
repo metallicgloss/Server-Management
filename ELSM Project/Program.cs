@@ -19,7 +19,7 @@ namespace ELSM_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginFRM());
+            Application.Run(new loginMenu());
         }
     }
 }
