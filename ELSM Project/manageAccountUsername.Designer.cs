@@ -112,6 +112,7 @@
             this.btnChangeUsername.TabIndex = 32;
             this.btnChangeUsername.Text = "Process Username Change";
             this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
             // btnCancel
             // 

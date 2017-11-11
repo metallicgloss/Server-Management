@@ -29,27 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(manageAccountPassword));
-            this.lblCurrentPassword = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
-            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblCurrentPassword = new System.Windows.Forms.Label();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // lblCurrentPassword
-            // 
-            this.lblCurrentPassword.AutoSize = true;
-            this.lblCurrentPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentPassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblCurrentPassword.Location = new System.Drawing.Point(33, 34);
-            this.lblCurrentPassword.Name = "lblCurrentPassword";
-            this.lblCurrentPassword.Size = new System.Drawing.Size(133, 18);
-            this.lblCurrentPassword.TabIndex = 26;
-            this.lblCurrentPassword.Text = "Current Password:";
             // 
             // lblNewPassword
             // 
@@ -74,14 +62,6 @@
             this.lblConfirmPassword.Size = new System.Drawing.Size(136, 18);
             this.lblConfirmPassword.TabIndex = 28;
             this.lblConfirmPassword.Text = "Confirm Password:";
-            // 
-            // txtCurrentPassword
-            // 
-            this.txtCurrentPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentPassword.Location = new System.Drawing.Point(178, 33);
-            this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.Size = new System.Drawing.Size(310, 20);
-            this.txtCurrentPassword.TabIndex = 29;
             // 
             // txtNewPassword
             // 
@@ -126,6 +106,26 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblCurrentPassword
+            // 
+            this.lblCurrentPassword.AutoSize = true;
+            this.lblCurrentPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentPassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCurrentPassword.Location = new System.Drawing.Point(33, 34);
+            this.lblCurrentPassword.Name = "lblCurrentPassword";
+            this.lblCurrentPassword.Size = new System.Drawing.Size(133, 18);
+            this.lblCurrentPassword.TabIndex = 26;
+            this.lblCurrentPassword.Text = "Current Password:";
+            // 
+            // txtCurrentPassword
+            // 
+            this.txtCurrentPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentPassword.Location = new System.Drawing.Point(178, 33);
+            this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.Size = new System.Drawing.Size(310, 20);
+            this.txtCurrentPassword.TabIndex = 29;
+            // 
             // manageAccountPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,14 +156,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCurrentPassword;
         private System.Windows.Forms.Label lblNewPassword;
         private System.Windows.Forms.Label lblConfirmPassword;
-        private System.Windows.Forms.TextBox txtCurrentPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblCurrentPassword;
+        private System.Windows.Forms.TextBox txtCurrentPassword;
     }
 }

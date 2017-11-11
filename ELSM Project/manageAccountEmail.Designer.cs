@@ -32,10 +32,10 @@
             this.lblCurrentUsername = new System.Windows.Forms.Label();
             this.lblNewUsername = new System.Windows.Forms.Label();
             this.lblConfirmUsername = new System.Windows.Forms.Label();
-            this.txtCurrentUsername = new System.Windows.Forms.TextBox();
-            this.txtNewUsername = new System.Windows.Forms.TextBox();
-            this.txtConfirmNewUsername = new System.Windows.Forms.TextBox();
-            this.btnChangeUsername = new System.Windows.Forms.Button();
+            this.txtCurrentEmail = new System.Windows.Forms.TextBox();
+            this.txtNewEmail = new System.Windows.Forms.TextBox();
+            this.txtConfirmEmail = new System.Windows.Forms.TextBox();
+            this.btnChangeEmail = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -75,43 +75,44 @@
             this.lblConfirmUsername.TabIndex = 28;
             this.lblConfirmUsername.Text = "Confirm Email:";
             // 
-            // txtCurrentUsername
+            // txtCurrentEmail
             // 
-            this.txtCurrentUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentUsername.Location = new System.Drawing.Point(178, 33);
-            this.txtCurrentUsername.Name = "txtCurrentUsername";
-            this.txtCurrentUsername.ReadOnly = true;
-            this.txtCurrentUsername.Size = new System.Drawing.Size(310, 20);
-            this.txtCurrentUsername.TabIndex = 29;
+            this.txtCurrentEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentEmail.Location = new System.Drawing.Point(178, 33);
+            this.txtCurrentEmail.Name = "txtCurrentEmail";
+            this.txtCurrentEmail.ReadOnly = true;
+            this.txtCurrentEmail.Size = new System.Drawing.Size(310, 20);
+            this.txtCurrentEmail.TabIndex = 29;
             // 
-            // txtNewUsername
+            // txtNewEmail
             // 
-            this.txtNewUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNewUsername.Location = new System.Drawing.Point(178, 71);
-            this.txtNewUsername.Name = "txtNewUsername";
-            this.txtNewUsername.Size = new System.Drawing.Size(310, 20);
-            this.txtNewUsername.TabIndex = 30;
+            this.txtNewEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNewEmail.Location = new System.Drawing.Point(178, 71);
+            this.txtNewEmail.Name = "txtNewEmail";
+            this.txtNewEmail.Size = new System.Drawing.Size(310, 20);
+            this.txtNewEmail.TabIndex = 30;
             // 
-            // txtConfirmNewUsername
+            // txtConfirmEmail
             // 
-            this.txtConfirmNewUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtConfirmNewUsername.Location = new System.Drawing.Point(178, 109);
-            this.txtConfirmNewUsername.Name = "txtConfirmNewUsername";
-            this.txtConfirmNewUsername.Size = new System.Drawing.Size(310, 20);
-            this.txtConfirmNewUsername.TabIndex = 31;
+            this.txtConfirmEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfirmEmail.Location = new System.Drawing.Point(178, 109);
+            this.txtConfirmEmail.Name = "txtConfirmEmail";
+            this.txtConfirmEmail.Size = new System.Drawing.Size(310, 20);
+            this.txtConfirmEmail.TabIndex = 31;
             // 
-            // btnChangeUsername
+            // btnChangeEmail
             // 
-            this.btnChangeUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
-            this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeUsername.Location = new System.Drawing.Point(36, 145);
-            this.btnChangeUsername.Name = "btnChangeUsername";
-            this.btnChangeUsername.Size = new System.Drawing.Size(206, 31);
-            this.btnChangeUsername.TabIndex = 32;
-            this.btnChangeUsername.Text = "Process Email Change";
-            this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnChangeEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangeEmail.FlatAppearance.BorderSize = 0;
+            this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeEmail.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeEmail.Location = new System.Drawing.Point(36, 145);
+            this.btnChangeEmail.Name = "btnChangeEmail";
+            this.btnChangeEmail.Size = new System.Drawing.Size(206, 31);
+            this.btnChangeEmail.TabIndex = 32;
+            this.btnChangeEmail.Text = "Process Email Change";
+            this.btnChangeEmail.UseVisualStyleBackColor = false;
+            this.btnChangeEmail.Click += new System.EventHandler(this.btnChangeEmail_Click);
             // 
             // btnCancel
             // 
@@ -135,10 +136,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(528, 203);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnChangeUsername);
-            this.Controls.Add(this.txtConfirmNewUsername);
-            this.Controls.Add(this.txtNewUsername);
-            this.Controls.Add(this.txtCurrentUsername);
+            this.Controls.Add(this.btnChangeEmail);
+            this.Controls.Add(this.txtConfirmEmail);
+            this.Controls.Add(this.txtNewEmail);
+            this.Controls.Add(this.txtCurrentEmail);
             this.Controls.Add(this.lblConfirmUsername);
             this.Controls.Add(this.lblNewUsername);
             this.Controls.Add(this.lblCurrentUsername);
@@ -151,6 +152,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Email";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountEmail_FormClosing);
+            this.Load += new System.EventHandler(this.manageAccountEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +163,10 @@
         private System.Windows.Forms.Label lblCurrentUsername;
         private System.Windows.Forms.Label lblNewUsername;
         private System.Windows.Forms.Label lblConfirmUsername;
-        private System.Windows.Forms.TextBox txtCurrentUsername;
-        private System.Windows.Forms.TextBox txtNewUsername;
-        private System.Windows.Forms.TextBox txtConfirmNewUsername;
-        private System.Windows.Forms.Button btnChangeUsername;
+        private System.Windows.Forms.TextBox txtCurrentEmail;
+        private System.Windows.Forms.TextBox txtNewEmail;
+        private System.Windows.Forms.TextBox txtConfirmEmail;
+        private System.Windows.Forms.Button btnChangeEmail;
         private System.Windows.Forms.Button btnCancel;
     }
 }
