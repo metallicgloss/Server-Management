@@ -78,6 +78,7 @@
             // txtCurrentEmail
             // 
             this.txtCurrentEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentEmail.Cursor = System.Windows.Forms.Cursors.No;
             this.txtCurrentEmail.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentEmail.Name = "txtCurrentEmail";
             this.txtCurrentEmail.ReadOnly = true;
@@ -103,6 +104,7 @@
             // btnChangeEmail
             // 
             this.btnChangeEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangeEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangeEmail.FlatAppearance.BorderSize = 0;
             this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeEmail.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,6 +119,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -78,6 +78,7 @@
             // txtCurrentUsername
             // 
             this.txtCurrentUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCurrentUsername.Cursor = System.Windows.Forms.Cursors.No;
             this.txtCurrentUsername.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentUsername.Name = "txtCurrentUsername";
             this.txtCurrentUsername.ReadOnly = true;
@@ -103,6 +104,7 @@
             // btnChangeUsername
             // 
             this.btnChangeUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangeUsername.FlatAppearance.BorderSize = 0;
             this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,6 +119,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
