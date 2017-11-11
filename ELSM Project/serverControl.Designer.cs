@@ -43,42 +43,59 @@
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuBackground
+            // lblMetallicGloss
             // 
-            this.menuBackground.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.menuBackground.Location = new System.Drawing.Point(0, -1);
-            this.menuBackground.Name = "menuBackground";
-            this.menuBackground.Size = new System.Drawing.Size(293, 609);
-            this.menuBackground.TabIndex = 7;
-            this.menuBackground.TabStop = false;
+            this.lblMetallicGloss.AutoSize = true;
+            this.lblMetallicGloss.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMetallicGloss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMetallicGloss.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMetallicGloss.Location = new System.Drawing.Point(51, 561);
+            this.lblMetallicGloss.Name = "lblMetallicGloss";
+            this.lblMetallicGloss.Size = new System.Drawing.Size(208, 26);
+            this.lblMetallicGloss.TabIndex = 16;
+            this.lblMetallicGloss.Text = "Originally developed by William Phillips.\r\nMetallicGloss.com";
+            this.lblMetallicGloss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMetallicGloss.Click += new System.EventHandler(this.lblMetallicGloss_Click);
             // 
-            // btnHome
+            // lblTitle
             // 
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(0, 294);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(293, 43);
-            this.btnHome.TabIndex = 1;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(216, 50);
+            this.lblTitle.TabIndex = 14;
+            this.lblTitle.Text = "Encrypted Laser\r\nServer Management";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnServerControl
+            // btnLogout
             // 
-            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0;
-            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
-            this.btnServerControl.Name = "btnServerControl";
-            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
-            this.btnServerControl.TabIndex = 2;
-            this.btnServerControl.Text = "Server Control";
-            this.btnServerControl.UseVisualStyleBackColor = true;
-            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(0, 504);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(293, 43);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnManageAccount
+            // 
+            this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageAccount.FlatAppearance.BorderSize = 0;
+            this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
+            this.btnManageAccount.Name = "btnManageAccount";
+            this.btnManageAccount.Size = new System.Drawing.Size(293, 43);
+            this.btnManageAccount.TabIndex = 5;
+            this.btnManageAccount.Text = "Manage Account";
+            this.btnManageAccount.UseVisualStyleBackColor = true;
+            this.btnManageAccount.Click += new System.EventHandler(this.btnManageAccount_Click);
             // 
             // btnManageServers
             // 
@@ -108,58 +125,33 @@
             this.btnManageLocations.UseVisualStyleBackColor = true;
             this.btnManageLocations.Click += new System.EventHandler(this.btnManageLocations_Click);
             // 
-            // btnManageAccount
+            // btnServerControl
             // 
-            this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageAccount.FlatAppearance.BorderSize = 0;
-            this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
-            this.btnManageAccount.Name = "btnManageAccount";
-            this.btnManageAccount.Size = new System.Drawing.Size(293, 43);
-            this.btnManageAccount.TabIndex = 5;
-            this.btnManageAccount.Text = "Manage Account";
-            this.btnManageAccount.UseVisualStyleBackColor = true;
-            this.btnManageAccount.Click += new System.EventHandler(this.btnManageAccount_Click);
+            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerControl.FlatAppearance.BorderSize = 0;
+            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
+            this.btnServerControl.Name = "btnServerControl";
+            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
+            this.btnServerControl.TabIndex = 2;
+            this.btnServerControl.Text = "Server Control";
+            this.btnServerControl.UseVisualStyleBackColor = true;
+            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
             // 
-            // btnLogout
+            // btnHome
             // 
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(0, 504);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(293, 43);
-            this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(213, 48);
-            this.lblTitle.TabIndex = 14;
-            this.lblTitle.Text = "Encrypted Laser\r\nServer Management";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMetallicGloss
-            // 
-            this.lblMetallicGloss.AutoSize = true;
-            this.lblMetallicGloss.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblMetallicGloss.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetallicGloss.Location = new System.Drawing.Point(51, 561);
-            this.lblMetallicGloss.Name = "lblMetallicGloss";
-            this.lblMetallicGloss.Size = new System.Drawing.Size(192, 28);
-            this.lblMetallicGloss.TabIndex = 16;
-            this.lblMetallicGloss.Text = "Originally developed by William Phillips.\r\nMetallicGloss.com";
-            this.lblMetallicGloss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMetallicGloss.Click += new System.EventHandler(this.lblMetallicGloss_Click);
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(0, 294);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(293, 43);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // ELHSLogo
             // 

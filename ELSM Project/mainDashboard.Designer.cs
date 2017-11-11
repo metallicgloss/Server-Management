@@ -216,6 +216,7 @@
             // 
             this.lblMetallicGloss.AutoSize = true;
             this.lblMetallicGloss.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMetallicGloss.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMetallicGloss.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetallicGloss.Location = new System.Drawing.Point(51, 561);
             this.lblMetallicGloss.Name = "lblMetallicGloss";

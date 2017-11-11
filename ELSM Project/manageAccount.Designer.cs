@@ -39,46 +39,85 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
+            this.btnChangeUsername = new System.Windows.Forms.Button();
+            this.lblManageAccountTitle = new System.Windows.Forms.Label();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnChangeEmailAddress = new System.Windows.Forms.Button();
+            this.largeProfileImage = new System.Windows.Forms.PictureBox();
+            this.lblUserID = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblSurname = new System.Windows.Forms.Label();
+            this.lblForename = new System.Windows.Forms.Label();
+            this.lblCompanyPosition = new System.Windows.Forms.Label();
+            this.lblProfileURL = new System.Windows.Forms.Label();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblEmailAddress = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblCurrentIP = new System.Windows.Forms.Label();
+            this.lblWelcomeBack = new System.Windows.Forms.Label();
+            this.pctProfilePhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.largeProfileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuBackground
+            // lblMetallicGloss
             // 
-            this.menuBackground.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.menuBackground.Location = new System.Drawing.Point(0, -1);
-            this.menuBackground.Name = "menuBackground";
-            this.menuBackground.Size = new System.Drawing.Size(293, 609);
-            this.menuBackground.TabIndex = 7;
-            this.menuBackground.TabStop = false;
+            this.lblMetallicGloss.AutoSize = true;
+            this.lblMetallicGloss.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblMetallicGloss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMetallicGloss.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMetallicGloss.Location = new System.Drawing.Point(51, 561);
+            this.lblMetallicGloss.Name = "lblMetallicGloss";
+            this.lblMetallicGloss.Size = new System.Drawing.Size(208, 26);
+            this.lblMetallicGloss.TabIndex = 16;
+            this.lblMetallicGloss.Text = "Originally developed by William Phillips.\r\nMetallicGloss.com";
+            this.lblMetallicGloss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMetallicGloss.Click += new System.EventHandler(this.lblMetallicGloss_Click);
             // 
-            // btnHome
+            // lblTitle
             // 
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(0, 294);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(293, 43);
-            this.btnHome.TabIndex = 1;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(216, 50);
+            this.lblTitle.TabIndex = 14;
+            this.lblTitle.Text = "Encrypted Laser\r\nServer Management";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnServerControl
+            // btnLogout
             // 
-            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0;
-            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
-            this.btnServerControl.Name = "btnServerControl";
-            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
-            this.btnServerControl.TabIndex = 2;
-            this.btnServerControl.Text = "Server Control";
-            this.btnServerControl.UseVisualStyleBackColor = true;
-            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(0, 504);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(293, 43);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnManageAccount
+            // 
+            this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageAccount.FlatAppearance.BorderSize = 0;
+            this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
+            this.btnManageAccount.Name = "btnManageAccount";
+            this.btnManageAccount.Size = new System.Drawing.Size(293, 43);
+            this.btnManageAccount.TabIndex = 5;
+            this.btnManageAccount.Text = "Manage Account";
+            this.btnManageAccount.UseVisualStyleBackColor = true;
+            this.btnManageAccount.Click += new System.EventHandler(this.btnManageAccount_Click);
             // 
             // btnManageServers
             // 
@@ -108,58 +147,33 @@
             this.btnManageLocations.UseVisualStyleBackColor = true;
             this.btnManageLocations.Click += new System.EventHandler(this.btnManageLocations_Click);
             // 
-            // btnManageAccount
+            // btnServerControl
             // 
-            this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageAccount.FlatAppearance.BorderSize = 0;
-            this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
-            this.btnManageAccount.Name = "btnManageAccount";
-            this.btnManageAccount.Size = new System.Drawing.Size(293, 43);
-            this.btnManageAccount.TabIndex = 5;
-            this.btnManageAccount.Text = "Manage Account";
-            this.btnManageAccount.UseVisualStyleBackColor = true;
-            this.btnManageAccount.Click += new System.EventHandler(this.btnManageAccount_Click);
+            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerControl.FlatAppearance.BorderSize = 0;
+            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
+            this.btnServerControl.Name = "btnServerControl";
+            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
+            this.btnServerControl.TabIndex = 2;
+            this.btnServerControl.Text = "Server Control";
+            this.btnServerControl.UseVisualStyleBackColor = true;
+            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
             // 
-            // btnLogout
+            // btnHome
             // 
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(0, 504);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(293, 43);
-            this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(213, 48);
-            this.lblTitle.TabIndex = 14;
-            this.lblTitle.Text = "Encrypted Laser\r\nServer Management";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMetallicGloss
-            // 
-            this.lblMetallicGloss.AutoSize = true;
-            this.lblMetallicGloss.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblMetallicGloss.Font = new System.Drawing.Font("Raleway Light", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetallicGloss.Location = new System.Drawing.Point(51, 561);
-            this.lblMetallicGloss.Name = "lblMetallicGloss";
-            this.lblMetallicGloss.Size = new System.Drawing.Size(192, 28);
-            this.lblMetallicGloss.TabIndex = 16;
-            this.lblMetallicGloss.Text = "Originally developed by William Phillips.\r\nMetallicGloss.com";
-            this.lblMetallicGloss.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMetallicGloss.Click += new System.EventHandler(this.lblMetallicGloss_Click);
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(0, 294);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(293, 43);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // ELHSLogo
             // 
@@ -181,6 +195,230 @@
             this.menuBackground.TabIndex = 18;
             this.menuBackground.TabStop = false;
             // 
+            // btnChangeUsername
+            // 
+            this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
+            this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeUsername.Location = new System.Drawing.Point(402, 493);
+            this.btnChangeUsername.Name = "btnChangeUsername";
+            this.btnChangeUsername.Size = new System.Drawing.Size(206, 46);
+            this.btnChangeUsername.TabIndex = 19;
+            this.btnChangeUsername.Text = "Change Username";
+            this.btnChangeUsername.UseVisualStyleBackColor = true;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
+            // 
+            // lblManageAccountTitle
+            // 
+            this.lblManageAccountTitle.AutoSize = true;
+            this.lblManageAccountTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblManageAccountTitle.Font = new System.Drawing.Font("Raleway ExtraBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageAccountTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblManageAccountTitle.Location = new System.Drawing.Point(552, 205);
+            this.lblManageAccountTitle.Name = "lblManageAccountTitle";
+            this.lblManageAccountTitle.Size = new System.Drawing.Size(354, 29);
+            this.lblManageAccountTitle.TabIndex = 20;
+            this.lblManageAccountTitle.Text = "Manage Account Information";
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Location = new System.Drawing.Point(614, 493);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(206, 46);
+            this.btnChangePassword.TabIndex = 21;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // btnChangeEmailAddress
+            // 
+            this.btnChangeEmailAddress.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeEmailAddress.FlatAppearance.BorderSize = 0;
+            this.btnChangeEmailAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeEmailAddress.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeEmailAddress.Location = new System.Drawing.Point(826, 493);
+            this.btnChangeEmailAddress.Name = "btnChangeEmailAddress";
+            this.btnChangeEmailAddress.Size = new System.Drawing.Size(206, 46);
+            this.btnChangeEmailAddress.TabIndex = 22;
+            this.btnChangeEmailAddress.Text = "Change Email Address";
+            this.btnChangeEmailAddress.UseVisualStyleBackColor = true;
+            this.btnChangeEmailAddress.Click += new System.EventHandler(this.btnChangeEmailAddress_Click);
+            // 
+            // largeProfileImage
+            // 
+            this.largeProfileImage.Location = new System.Drawing.Point(402, 273);
+            this.largeProfileImage.Name = "largeProfileImage";
+            this.largeProfileImage.Size = new System.Drawing.Size(206, 206);
+            this.largeProfileImage.TabIndex = 23;
+            this.largeProfileImage.TabStop = false;
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserID.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUserID.Location = new System.Drawing.Point(634, 280);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(62, 18);
+            this.lblUserID.TabIndex = 25;
+            this.lblUserID.Text = "User ID:";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUsername.Location = new System.Drawing.Point(634, 305);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(83, 18);
+            this.lblUsername.TabIndex = 26;
+            this.lblUsername.Text = "Username:";
+            // 
+            // lblSurname
+            // 
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.BackColor = System.Drawing.Color.Transparent;
+            this.lblSurname.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSurname.Location = new System.Drawing.Point(634, 355);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(74, 18);
+            this.lblSurname.TabIndex = 28;
+            this.lblSurname.Text = "Surname:";
+            // 
+            // lblForename
+            // 
+            this.lblForename.AutoSize = true;
+            this.lblForename.BackColor = System.Drawing.Color.Transparent;
+            this.lblForename.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForename.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblForename.Location = new System.Drawing.Point(634, 330);
+            this.lblForename.Name = "lblForename";
+            this.lblForename.Size = new System.Drawing.Size(82, 18);
+            this.lblForename.TabIndex = 27;
+            this.lblForename.Text = "Forename:";
+            // 
+            // lblCompanyPosition
+            // 
+            this.lblCompanyPosition.AutoSize = true;
+            this.lblCompanyPosition.BackColor = System.Drawing.Color.Transparent;
+            this.lblCompanyPosition.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompanyPosition.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCompanyPosition.Location = new System.Drawing.Point(634, 455);
+            this.lblCompanyPosition.Name = "lblCompanyPosition";
+            this.lblCompanyPosition.Size = new System.Drawing.Size(65, 18);
+            this.lblCompanyPosition.TabIndex = 32;
+            this.lblCompanyPosition.Text = "Position:";
+            // 
+            // lblProfileURL
+            // 
+            this.lblProfileURL.AutoSize = true;
+            this.lblProfileURL.BackColor = System.Drawing.Color.Transparent;
+            this.lblProfileURL.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfileURL.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblProfileURL.Location = new System.Drawing.Point(634, 430);
+            this.lblProfileURL.Name = "lblProfileURL";
+            this.lblProfileURL.Size = new System.Drawing.Size(41, 18);
+            this.lblProfileURL.TabIndex = 31;
+            this.lblProfileURL.Text = "URL:";
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.BackColor = System.Drawing.Color.Transparent;
+            this.lblCompany.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompany.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCompany.Location = new System.Drawing.Point(634, 405);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(78, 18);
+            this.lblCompany.TabIndex = 30;
+            this.lblCompany.Text = "Company:";
+            // 
+            // lblEmailAddress
+            // 
+            this.lblEmailAddress.AutoSize = true;
+            this.lblEmailAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailAddress.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailAddress.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblEmailAddress.Location = new System.Drawing.Point(634, 380);
+            this.lblEmailAddress.Name = "lblEmailAddress";
+            this.lblEmailAddress.Size = new System.Drawing.Size(109, 18);
+            this.lblEmailAddress.TabIndex = 29;
+            this.lblEmailAddress.Text = "Email Address:";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox2.Location = new System.Drawing.Point(292, 158);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(838, 1);
+            this.pictureBox2.TabIndex = 38;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.BackColor = System.Drawing.Color.Transparent;
+            this.lblPosition.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblPosition.Location = new System.Drawing.Point(444, 73);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(65, 18);
+            this.lblPosition.TabIndex = 37;
+            this.lblPosition.Text = "Position:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(444, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 18);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Company:";
+            // 
+            // lblCurrentIP
+            // 
+            this.lblCurrentIP.AutoSize = true;
+            this.lblCurrentIP.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentIP.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentIP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCurrentIP.Location = new System.Drawing.Point(444, 111);
+            this.lblCurrentIP.Name = "lblCurrentIP";
+            this.lblCurrentIP.Size = new System.Drawing.Size(84, 18);
+            this.lblCurrentIP.TabIndex = 35;
+            this.lblCurrentIP.Text = "IP Address:";
+            // 
+            // lblWelcomeBack
+            // 
+            this.lblWelcomeBack.AutoSize = true;
+            this.lblWelcomeBack.BackColor = System.Drawing.Color.Transparent;
+            this.lblWelcomeBack.Font = new System.Drawing.Font("Raleway SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblWelcomeBack.Location = new System.Drawing.Point(444, 35);
+            this.lblWelcomeBack.Name = "lblWelcomeBack";
+            this.lblWelcomeBack.Size = new System.Drawing.Size(131, 19);
+            this.lblWelcomeBack.TabIndex = 34;
+            this.lblWelcomeBack.Text = "Welcome Back!";
+            // 
+            // pctProfilePhoto
+            // 
+            this.pctProfilePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctProfilePhoto.Location = new System.Drawing.Point(333, 33);
+            this.pctProfilePhoto.Name = "pctProfilePhoto";
+            this.pctProfilePhoto.Size = new System.Drawing.Size(96, 94);
+            this.pctProfilePhoto.TabIndex = 33;
+            this.pctProfilePhoto.TabStop = false;
+            // 
             // manageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +426,25 @@
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblPosition);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblCurrentIP);
+            this.Controls.Add(this.lblWelcomeBack);
+            this.Controls.Add(this.pctProfilePhoto);
+            this.Controls.Add(this.lblCompanyPosition);
+            this.Controls.Add(this.lblProfileURL);
+            this.Controls.Add(this.lblCompany);
+            this.Controls.Add(this.lblEmailAddress);
+            this.Controls.Add(this.lblSurname);
+            this.Controls.Add(this.lblForename);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblUserID);
+            this.Controls.Add(this.largeProfileImage);
+            this.Controls.Add(this.btnChangeEmailAddress);
+            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.lblManageAccountTitle);
+            this.Controls.Add(this.btnChangeUsername);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -206,8 +463,12 @@
             this.Name = "manageAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Account";
+            this.Load += new System.EventHandler(this.manageAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.largeProfileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +486,24 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
+        private System.Windows.Forms.Button btnChangeUsername;
+        private System.Windows.Forms.Label lblManageAccountTitle;
+        private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnChangeEmailAddress;
+        private System.Windows.Forms.PictureBox largeProfileImage;
+        private System.Windows.Forms.Label lblUserID;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblSurname;
+        private System.Windows.Forms.Label lblForename;
+        private System.Windows.Forms.Label lblCompanyPosition;
+        private System.Windows.Forms.Label lblProfileURL;
+        private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Label lblEmailAddress;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblPosition;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCurrentIP;
+        private System.Windows.Forms.Label lblWelcomeBack;
+        private System.Windows.Forms.PictureBox pctProfilePhoto;
     }
 }

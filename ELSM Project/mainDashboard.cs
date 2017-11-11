@@ -16,6 +16,7 @@ namespace ELSM_Project
     {
 
         public static Boolean IsOwner;
+        public static string CompanyName;
 
         public mainDashboard()
         {
@@ -37,8 +38,8 @@ namespace ELSM_Project
             cmd.Parameters.Add("@companyID", loginMenu.CompanyID);
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
-            string temp = Convert.ToString(rdr[2]);
-            lblCurrentCompany.Text = "Company: " + temp;
+            CompanyName = Convert.ToString(rdr[2]);
+            lblCurrentCompany.Text = "Company: " + CompanyName;
             if (loginMenu.UserID == Convert.ToString(rdr[1]))
             {
                 IsOwner = true;

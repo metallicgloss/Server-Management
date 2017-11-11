@@ -67,6 +67,24 @@
     <Compile Include="manageAccount.Designer.cs">
       <DependentUpon>manageAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="manageAccountEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageAccountEmail.Designer.cs">
+      <DependentUpon>manageAccountEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageAccountPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageAccountPassword.Designer.cs">
+      <DependentUpon>manageAccountPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageAccountUsername.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageAccountUsername.Designer.cs">
+      <DependentUpon>manageAccountUsername.cs</DependentUpon>
+    </Compile>
     <Compile Include="manageLocations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +113,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="manageAccount.resx">
       <DependentUpon>manageAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageAccountEmail.resx">
+      <DependentUpon>manageAccountEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageAccountPassword.resx">
+      <DependentUpon>manageAccountPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageAccountUsername.resx">
+      <DependentUpon>manageAccountUsername.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageLocations.resx">
       <DependentUpon>manageLocations.cs</DependentUpon>
