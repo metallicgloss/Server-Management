@@ -138,6 +138,7 @@
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(528, 203);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnChangeEmail);
             this.Controls.Add(this.txtConfirmEmail);

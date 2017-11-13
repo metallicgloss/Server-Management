@@ -180,6 +180,7 @@
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
+            this.ControlBox = false;
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);

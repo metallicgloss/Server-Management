@@ -17,7 +17,7 @@ namespace ELSM_Project
     public partial class loginMenu : Form
     {
 
-        public static string IPAddress, Forename, Surname, CompanyID, EmailAddress, ProfileImage, Role, UserID, Username;
+        public static string IPAddress, Forename, Surname, CompanyID, EmailAddress, ProfileImage, Role, UserID, Username, Password;
         public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; // Temp login credentials to remotely hosted MySQL database.
         // Want cheap, reliable and powerful MySQL and web hosting? Check out https://www.elhostingservices.com - Shameless plug. Login information and this comment to be removed at a later date.
 
@@ -59,6 +59,7 @@ namespace ELSM_Project
                 var databasePassword = Convert.ToString(rdr[2]); // Set databasePassword equal to the value in the database for the user.
                 loginMenu.UserID = Convert.ToString(rdr[0]);
                 loginMenu.Username = Convert.ToString(rdr[1]);
+                loginMenu.Password = Convert.ToString(rdr[2]);
                 loginMenu.Forename = Convert.ToString(rdr[3]);
                 loginMenu.Surname = Convert.ToString(rdr[4]);
                 loginMenu.EmailAddress = Convert.ToString(rdr[5]);
@@ -66,7 +67,8 @@ namespace ELSM_Project
                 loginMenu.CompanyID = Convert.ToString(rdr[7]);
                 loginMenu.Role = Convert.ToString(rdr[8]);
                 conn.Close();
-                if (userPassword != databasePassword) // If databasevalue doesn't match what the user entered, run code. Else run another block of code.
+                String EnteredPassword = CodeShare.Cryptography.SHA.GenerateSHA512String(txtPassword.Text);
+                if (EnteredPassword != databasePassword) // If databasevalue doesn't match what the user entered, run code. Else run another block of code.
                 {
                     System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
                     txtUsername.Text = "";

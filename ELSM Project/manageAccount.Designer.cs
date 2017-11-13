@@ -426,6 +426,7 @@
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
+            this.ControlBox = false;
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.label8);

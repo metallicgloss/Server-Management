@@ -22,15 +22,11 @@ namespace ELSM_Project
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
-            manageAccount Account = new manageAccount();
-            Account.ShowDialog();
         }
 
         private void manageAccountEmail_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide();
-            manageAccount Account = new manageAccount();
-            Account.ShowDialog();
         }
 
         private void manageAccountEmail_Load(object sender, EventArgs e)
@@ -47,6 +43,9 @@ namespace ELSM_Project
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userEmailAddress = @email", conn);
                 command.Parameters.Add("@attemptIP", txtNewEmail.Text);
                 command.ExecuteNonQuery();
+                Hide();
+                manageAccount Account = new manageAccount();
+                Account.ShowDialog();
             }
             else
             {

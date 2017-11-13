@@ -27,15 +27,11 @@ namespace ELSM_Project
         private void manageAccountUsername_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide();
-            manageAccount Account = new manageAccount();
-            Account.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide();
-            manageAccount Account = new manageAccount();
-            Account.ShowDialog();
         }
 
         private void btnChangeUsername_Click(object sender, EventArgs e)

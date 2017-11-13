@@ -92,7 +92,7 @@ namespace ELSM_Project
             Hide();
             manageAccountUsername username = new manageAccountUsername();
             username.ShowDialog();
-            lblUsername.Text = "Username: " + loginMenu.Username;
+            Show();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace ELSM_Project
             Hide();
             manageAccountEmail Email = new manageAccountEmail();
             Email.ShowDialog();
-            lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
+            Show();
         }
     }
 }

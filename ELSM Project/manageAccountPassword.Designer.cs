@@ -92,6 +92,7 @@
             this.btnChangePassword.TabIndex = 32;
             this.btnChangePassword.Text = "Process Password Change";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // btnCancel
             // 
@@ -135,6 +136,7 @@
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(528, 203);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtNewPassword);
