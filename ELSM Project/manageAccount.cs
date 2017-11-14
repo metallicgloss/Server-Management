@@ -89,25 +89,22 @@ namespace ELSM_Project
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
-            Hide();
             manageAccountUsername username = new manageAccountUsername();
             username.ShowDialog();
-            Show();
+            lblUsername.Text = "Username: " + loginMenu.Username;
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            Hide();
             manageAccountPassword password = new manageAccountPassword();
             password.ShowDialog();
         }
 
         private void btnChangeEmailAddress_Click(object sender, EventArgs e)
         {
-            Hide();
             manageAccountEmail Email = new manageAccountEmail();
             Email.ShowDialog();
-            Show();
+            lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
         }
     }
 }

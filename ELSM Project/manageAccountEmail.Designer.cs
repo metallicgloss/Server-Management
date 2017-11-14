@@ -155,7 +155,6 @@
             this.Name = "manageAccountEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Email";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountEmail_FormClosing);
             this.Load += new System.EventHandler(this.manageAccountEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

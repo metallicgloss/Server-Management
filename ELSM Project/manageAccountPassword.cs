@@ -44,14 +44,18 @@ namespace ELSM_Project
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
                 command.Parameters.Add("@pass", NewPassword);
                 command.ExecuteNonQuery();
+                loginMenu.Password = txtNewPassword.Text;
                 Hide();
-                manageAccount Account = new manageAccount();
-                Account.ShowDialog();
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your email address and try again.");
             }
+        }
+
+        private void manageAccountPassword_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

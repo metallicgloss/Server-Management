@@ -43,9 +43,8 @@ namespace ELSM_Project
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userLogin = @newUsername", conn);
                 command.Parameters.Add("@newUsername", txtNewUsername.Text);
                 command.ExecuteNonQuery();
+                loginMenu.Username = txtNewUsername.Text;
                 Hide();
-                manageAccount Account = new manageAccount();
-                Account.ShowDialog();
             }
             else
             {
