@@ -69,7 +69,7 @@ namespace ELSM_Project
         {
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
-            lblWelcomeBack.Text = "Welcome Back " + loginMenu.Forename + "!";
+            lblYourName.Text = loginMenu.Forename + " " + loginMenu.Surname;
             pctProfilePhoto.ImageLocation = loginMenu.ProfileImage;
             pctProfilePhoto.SizeMode = PictureBoxSizeMode.CenterImage;
             pctProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage;

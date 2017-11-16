@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainDashboard));
-            this.pctProfilePhoto = new System.Windows.Forms.PictureBox();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.lblWelcomeBack = new System.Windows.Forms.Label();
             this.lblCurrentIP = new System.Windows.Forms.Label();
@@ -37,28 +36,20 @@
             this.menuBackground = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnServerControl = new System.Windows.Forms.Button();
-            this.btnManageServers = new System.Windows.Forms.Button();
-            this.btnManageLocations = new System.Windows.Forms.Button();
             this.btnManageAccount = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblMetallicGloss = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).BeginInit();
+            this.pctProfilePhoto = new System.Windows.Forms.PictureBox();
+            this.btnManageServers = new System.Windows.Forms.Button();
+            this.btnManageLocations = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pctProfilePhoto
-            // 
-            this.pctProfilePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pctProfilePhoto.Location = new System.Drawing.Point(333, 33);
-            this.pctProfilePhoto.Name = "pctProfilePhoto";
-            this.pctProfilePhoto.Size = new System.Drawing.Size(96, 94);
-            this.pctProfilePhoto.TabIndex = 0;
-            this.pctProfilePhoto.TabStop = false;
             // 
             // ELHSLogo
             // 
@@ -144,34 +135,6 @@
             this.btnServerControl.UseVisualStyleBackColor = true;
             this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
             // 
-            // btnManageServers
-            // 
-            this.btnManageServers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageServers.FlatAppearance.BorderSize = 0;
-            this.btnManageServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageServers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageServers.Location = new System.Drawing.Point(0, 378);
-            this.btnManageServers.Name = "btnManageServers";
-            this.btnManageServers.Size = new System.Drawing.Size(293, 43);
-            this.btnManageServers.TabIndex = 3;
-            this.btnManageServers.Text = "Manage Servers";
-            this.btnManageServers.UseVisualStyleBackColor = true;
-            this.btnManageServers.Click += new System.EventHandler(this.btnManageServers_Click);
-            // 
-            // btnManageLocations
-            // 
-            this.btnManageLocations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageLocations.FlatAppearance.BorderSize = 0;
-            this.btnManageLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageLocations.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageLocations.Location = new System.Drawing.Point(0, 420);
-            this.btnManageLocations.Name = "btnManageLocations";
-            this.btnManageLocations.Size = new System.Drawing.Size(293, 43);
-            this.btnManageLocations.TabIndex = 4;
-            this.btnManageLocations.Text = "Manage Locations";
-            this.btnManageLocations.UseVisualStyleBackColor = true;
-            this.btnManageLocations.Click += new System.EventHandler(this.btnManageLocations_Click);
-            // 
             // btnManageAccount
             // 
             this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -182,7 +145,7 @@
             this.btnManageAccount.Name = "btnManageAccount";
             this.btnManageAccount.Size = new System.Drawing.Size(293, 43);
             this.btnManageAccount.TabIndex = 5;
-            this.btnManageAccount.Text = "Manage Account";
+            this.btnManageAccount.Text = "My Account";
             this.btnManageAccount.UseVisualStyleBackColor = true;
             this.btnManageAccount.Click += new System.EventHandler(this.btnManageAccount_Click);
             // 
@@ -247,6 +210,43 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // pctProfilePhoto
+            // 
+            this.pctProfilePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pctProfilePhoto.Location = new System.Drawing.Point(333, 33);
+            this.pctProfilePhoto.Name = "pctProfilePhoto";
+            this.pctProfilePhoto.Size = new System.Drawing.Size(96, 94);
+            this.pctProfilePhoto.TabIndex = 0;
+            this.pctProfilePhoto.TabStop = false;
+            // 
+            // btnManageServers
+            // 
+            this.btnManageServers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageServers.FlatAppearance.BorderSize = 0;
+            this.btnManageServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageServers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageServers.Location = new System.Drawing.Point(0, 378);
+            this.btnManageServers.Name = "btnManageServers";
+            this.btnManageServers.Size = new System.Drawing.Size(293, 43);
+            this.btnManageServers.TabIndex = 3;
+            this.btnManageServers.Text = "Manage Servers";
+            this.btnManageServers.UseVisualStyleBackColor = true;
+            this.btnManageServers.Click += new System.EventHandler(this.btnManageServers_Click);
+            // 
+            // btnManageLocations
+            // 
+            this.btnManageLocations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageLocations.FlatAppearance.BorderSize = 0;
+            this.btnManageLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageLocations.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageLocations.Location = new System.Drawing.Point(0, 420);
+            this.btnManageLocations.Name = "btnManageLocations";
+            this.btnManageLocations.Size = new System.Drawing.Size(293, 43);
+            this.btnManageLocations.TabIndex = 4;
+            this.btnManageLocations.Text = "Manage Locations";
+            this.btnManageLocations.UseVisualStyleBackColor = true;
+            this.btnManageLocations.Click += new System.EventHandler(this.btnManageLocations_Click);
+            // 
             // mainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,18 +280,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mainDashboard";
             this.Load += new System.EventHandler(this.DashboardFRM_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pctProfilePhoto;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.Label lblWelcomeBack;
         private System.Windows.Forms.Label lblCurrentIP;
@@ -299,13 +297,14 @@
         private System.Windows.Forms.PictureBox menuBackground;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnServerControl;
-        private System.Windows.Forms.Button btnManageServers;
-        private System.Windows.Forms.Button btnManageLocations;
         private System.Windows.Forms.Button btnManageAccount;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblMetallicGloss;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pctProfilePhoto;
+        private System.Windows.Forms.Button btnManageServers;
+        private System.Windows.Forms.Button btnManageLocations;
     }
 }

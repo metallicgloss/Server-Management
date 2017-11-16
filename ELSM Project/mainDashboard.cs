@@ -27,10 +27,6 @@ namespace ELSM_Project
         {
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
-            lblWelcomeBack.Text = "Welcome Back " + loginMenu.Forename + "!";
-            pctProfilePhoto.ImageLocation = loginMenu.ProfileImage;
-            pctProfilePhoto.SizeMode = PictureBoxSizeMode.CenterImage;
-            pctProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage;
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
             conn.Open();
             string sql = "SELECT * FROM userCompanies WHERE companyID = @companyID";

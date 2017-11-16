@@ -56,7 +56,7 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblCurrentIP = new System.Windows.Forms.Label();
-            this.lblWelcomeBack = new System.Windows.Forms.Label();
+            this.lblYourName = new System.Windows.Forms.Label();
             this.pctProfilePhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
@@ -398,17 +398,17 @@
             this.lblCurrentIP.TabIndex = 35;
             this.lblCurrentIP.Text = "IP Address:";
             // 
-            // lblWelcomeBack
+            // lblYourName
             // 
-            this.lblWelcomeBack.AutoSize = true;
-            this.lblWelcomeBack.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcomeBack.Font = new System.Drawing.Font("Raleway SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblWelcomeBack.Location = new System.Drawing.Point(444, 35);
-            this.lblWelcomeBack.Name = "lblWelcomeBack";
-            this.lblWelcomeBack.Size = new System.Drawing.Size(131, 19);
-            this.lblWelcomeBack.TabIndex = 34;
-            this.lblWelcomeBack.Text = "Welcome Back!";
+            this.lblYourName.AutoSize = true;
+            this.lblYourName.BackColor = System.Drawing.Color.Transparent;
+            this.lblYourName.Font = new System.Drawing.Font("Raleway SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblYourName.Location = new System.Drawing.Point(444, 35);
+            this.lblYourName.Name = "lblYourName";
+            this.lblYourName.Size = new System.Drawing.Size(95, 19);
+            this.lblYourName.TabIndex = 34;
+            this.lblYourName.Text = "Your Name";
             // 
             // pctProfilePhoto
             // 
@@ -431,7 +431,7 @@
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblCurrentIP);
-            this.Controls.Add(this.lblWelcomeBack);
+            this.Controls.Add(this.lblYourName);
             this.Controls.Add(this.pctProfilePhoto);
             this.Controls.Add(this.lblCompanyPosition);
             this.Controls.Add(this.lblProfileURL);
@@ -504,7 +504,7 @@
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblCurrentIP;
-        private System.Windows.Forms.Label lblWelcomeBack;
+        private System.Windows.Forms.Label lblYourName;
         private System.Windows.Forms.PictureBox pctProfilePhoto;
     }
 }
