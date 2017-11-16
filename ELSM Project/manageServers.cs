@@ -62,5 +62,54 @@ namespace ELSM_Project
                 this.Close();
             }
         }
+
+        private void manageServers_Load(object sender, EventArgs e)
+        {
+            if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
+            {
+                btnHome.Top += 129;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+                btnServerControl.Visible = false;
+            }
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 129;
+                btnManageServers.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageLocations.Visible = false;
+            }
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewServers == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if ((loginMenu.permViewServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Top += 86;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permControlServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Visible = false;
+            }
+            else if (loginMenu.permViewServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permViewLocations == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Top += 43;
+                btnManageLocations.Visible = false;
+            }
+        }
     }
 }

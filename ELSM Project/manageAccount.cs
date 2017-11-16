@@ -83,8 +83,66 @@ namespace ELSM_Project
             lblSurname.Text = "Surname: " + loginMenu.Surname;
             lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
             lblProfileURL.Text = "URL: " + loginMenu.ProfileImage;
-            lblCompany.Text = "Company: " + mainDashboard.CompanyName;
+            lblCompany.Text = "Company: " + loginMenu.CompanyName;
             lblCompanyPosition.Text = "Position: " + loginMenu.Role;
+            if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
+            {
+                btnHome.Top += 129;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+                btnServerControl.Visible = false;
+            }
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 129;
+                btnManageServers.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageLocations.Visible = false;
+            }
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewServers == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if ((loginMenu.permViewServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Top += 86;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permControlServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Visible = false;
+            }
+            else if (loginMenu.permViewServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permViewLocations == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Top += 43;
+                btnManageLocations.Visible = false;
+            }
+
+            if (loginMenu.permChangeEmail == false)
+            {
+                btnChangeEmailAddress.Enabled = false;
+            }
+            if (loginMenu.permChangeUsername == false)
+            {
+                btnChangeUsername.Enabled = false;
+            }
+            if (loginMenu.permChangePassword == false)
+            {
+                btnChangePassword.Enabled = false;
+            }
         }
 
         private void btnChangeUsername_Click(object sender, EventArgs e)

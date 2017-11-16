@@ -199,6 +199,7 @@
             this.Name = "serverControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server Control";
+            this.Load += new System.EventHandler(this.serverControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
             this.ResumeLayout(false);

@@ -17,7 +17,8 @@ namespace ELSM_Project
     public partial class loginMenu : Form
     {
 
-        public static string IPAddress, Forename, Surname, CompanyID, EmailAddress, ProfileImage, Role, UserID, Username, Password;
+        public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password;
+        public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers;
         public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; // Temp login credentials to remotely hosted MySQL database.
         // Want cheap, reliable and powerful MySQL and web hosting? Check out https://www.elhostingservices.com - Shameless plug. Login information and this comment to be removed at a later date.
 
@@ -68,34 +69,82 @@ namespace ELSM_Project
                 loginMenu.Role = Convert.ToString(rdr[8]);
                 conn.Close();
                 String EnteredPassword = CodeShare.Cryptography.SHA.GenerateSHA512String(txtPassword.Text);
+
+                rdr.Close();
                 if (EnteredPassword != databasePassword) // If databasevalue doesn't match what the user entered, run code. Else run another block of code.
                 {
                     System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
                     txtUsername.Text = "";
                     txtPassword.Text = "";
                     conn.Open();
-                    MySqlCommand command = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn); // Set MySQL query.
-                    command.Parameters.Add("@attemptUsername", txtUsername.Text);
-                    command.Parameters.Add("@attemptIP", loginMenu.IPAddress);
-                    command.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
-                    command.ExecuteNonQuery(); // Process query.
+                    MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn); // Set MySQL query.
+                    failedCMD.Parameters.Add("@attemptUsername", txtUsername.Text);
+                    failedCMD.Parameters.Add("@attemptIP", loginMenu.IPAddress);
+                    failedCMD.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
+                    failedCMD.ExecuteNonQuery(); // Process query.
                 }
                 else
                 {
                     conn.Open();
-                    MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", conn); // Set MySQL query.
-                    command.Parameters.Add("@attemptIP", ELSM_Project.loginMenu.IPAddress);
-                    command.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
-                    command.ExecuteNonQuery(); // Process query.
+                    MySqlCommand accountCMD = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", conn); // Set MySQL query.
+                    accountCMD.Parameters.Add("@attemptIP", ELSM_Project.loginMenu.IPAddress);
+                    accountCMD.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
+                    accountCMD.ExecuteNonQuery(); // Process query.
+                    string permissionQuery = "SELECT * FROM userPermissions WHERE permID = @permid";
+
+                    MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", conn);
+                    permissionCommand.Parameters.Add("@permid", Role);
+                    MySqlDataReader permissionRDR = permissionCommand.ExecuteReader();
+                    permissionRDR.Read();
+                    permChangePassword = Convert.ToBoolean(permissionRDR[4]);
+                    permChangeUsername = Convert.ToBoolean(permissionRDR[5]);
+                    permChangeEmail = Convert.ToBoolean(permissionRDR[6]);
+                    permViewServers = Convert.ToBoolean(permissionRDR[7]);
+                    permEditServers = Convert.ToBoolean(permissionRDR[8]);
+                    permDeleteServers = Convert.ToBoolean(permissionRDR[9]);
+                    permViewLocations = Convert.ToBoolean(permissionRDR[10]);
+                    permEditLocations = Convert.ToBoolean(permissionRDR[11]);
+                    permDeleteLocations = Convert.ToBoolean(permissionRDR[12]);
+                    permCreateTicket = Convert.ToBoolean(permissionRDR[13]);
+                    permAdminTicket = Convert.ToBoolean(permissionRDR[14]);
+                    permCloseTicket = Convert.ToBoolean(permissionRDR[15]);
+                    permViewServerPass = Convert.ToBoolean(permissionRDR[16]);
+                    permEditServerPass = Convert.ToBoolean(permissionRDR[17]);
+                    permAddAction = Convert.ToBoolean(permissionRDR[18]);
+                    permEditAction = Convert.ToBoolean(permissionRDR[19]);
+                    permDeleteAction = Convert.ToBoolean(permissionRDR[20]);
+                    permRunUpdate = Convert.ToBoolean(permissionRDR[21]);
+                    permRunReboot = Convert.ToBoolean(permissionRDR[22]);
+                    permAddServerNote = Convert.ToBoolean(permissionRDR[23]);
+                    permRunCustomAction = Convert.ToBoolean(permissionRDR[24]);
+                    permAdminViewUsers = Convert.ToBoolean(permissionRDR[25]);
+                    permAdminEditUserInfo = Convert.ToBoolean(permissionRDR[26]);
+                    permAdminForcePassReset = Convert.ToBoolean(permissionRDR[27]);
+                    permAdminAddUser = Convert.ToBoolean(permissionRDR[28]);
+                    permAdminDelUser = Convert.ToBoolean(permissionRDR[29]);
+                    permAdminChangePermissions = Convert.ToBoolean(permissionRDR[30]);
+                    permControlServers = Convert.ToBoolean(permissionRDR[31]);
+                    permissionRDR.Close();
+
+                    MySqlCommand companyCMD = new MySqlCommand("SELECT * FROM userCompanies WHERE companyID = @companyID", conn);
+                    companyCMD.Parameters.Add("@companyID", CompanyID);
+                    MySqlDataReader companyRDR = companyCMD.ExecuteReader();
+                    companyRDR.Read();
+                    CompanyName = Convert.ToString(companyRDR[2]);
+                    conn.Close();
+                    companyRDR.Close();
+
                     Hide();
+
                     mainDashboard loginMenu = new mainDashboard();
                     loginMenu.ShowDialog();
+
                     txtUsername.Text = "";
                     txtPassword.Text = "";
+
                     Show();
                 }
             }
-            rdr.Close();
             conn.Close();
         }
 

@@ -199,6 +199,7 @@
             this.Name = "manageServers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Servers";
+            this.Load += new System.EventHandler(this.manageServers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
             this.ResumeLayout(false);

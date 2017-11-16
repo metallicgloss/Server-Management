@@ -15,9 +15,6 @@ namespace ELSM_Project
     public partial class mainDashboard : Form
     {
 
-        public static Boolean IsOwner;
-        public static string CompanyName;
-
         public mainDashboard()
         {
             InitializeComponent();
@@ -27,21 +24,51 @@ namespace ELSM_Project
         {
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
-            conn.Open();
-            string sql = "SELECT * FROM userCompanies WHERE companyID = @companyID";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add("@companyID", loginMenu.CompanyID);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            rdr.Read();
-            CompanyName = Convert.ToString(rdr[2]);
-            lblCurrentCompany.Text = "Company: " + CompanyName;
-            if (loginMenu.UserID == Convert.ToString(rdr[1]))
+            if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
             {
-                IsOwner = true;
+                btnHome.Top += 129;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+                btnServerControl.Visible = false;
             }
-            rdr.Read();
-            conn.Close();
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 129;
+                btnManageServers.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageLocations.Visible = false;
+            }
+            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewServers == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if ((loginMenu.permViewServers == false) && (loginMenu.permViewLocations == false))
+            {
+                btnHome.Top += 86;
+                btnServerControl.Top += 86;
+                btnManageLocations.Visible = false;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permControlServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Visible = false;
+            }
+            else if (loginMenu.permViewServers == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Visible = false;
+            }
+            else if (loginMenu.permViewLocations == false)
+            {
+                btnHome.Top += 43;
+                btnServerControl.Top += 43;
+                btnManageServers.Top += 43;
+                btnManageLocations.Visible = false;
+            }
         }
 
         private void lblMetallicGloss_Click(object sender, EventArgs e)

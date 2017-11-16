@@ -199,6 +199,7 @@
             this.Name = "manageLocations";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Locations";
+            this.Load += new System.EventHandler(this.manageLocations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
             this.ResumeLayout(false);
