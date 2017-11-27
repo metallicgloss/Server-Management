@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(manageLocations));
             this.lblMetallicGloss = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -39,8 +40,16 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnDeleteLocation = new System.Windows.Forms.Button();
+            this.btnEditLocation = new System.Windows.Forms.Button();
+            this.btnAddLocation = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblManageLocations = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMetallicGloss
@@ -173,6 +182,102 @@
             this.menuBackground.TabIndex = 38;
             this.menuBackground.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.Location = new System.Drawing.Point(361, 163);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.ShowCellErrors = false;
+            this.dataGridView1.ShowCellToolTips = false;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.ShowRowErrors = false;
+            this.dataGridView1.Size = new System.Drawing.Size(723, 174);
+            this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.VirtualMode = true;
+            // 
+            // btnDeleteLocation
+            // 
+            this.btnDeleteLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteLocation.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteLocation.Location = new System.Drawing.Point(844, 498);
+            this.btnDeleteLocation.Name = "btnDeleteLocation";
+            this.btnDeleteLocation.Size = new System.Drawing.Size(240, 46);
+            this.btnDeleteLocation.TabIndex = 42;
+            this.btnDeleteLocation.Text = "Delete Location";
+            this.btnDeleteLocation.UseVisualStyleBackColor = true;
+            // 
+            // btnEditLocation
+            // 
+            this.btnEditLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditLocation.FlatAppearance.BorderSize = 0;
+            this.btnEditLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditLocation.Location = new System.Drawing.Point(844, 449);
+            this.btnEditLocation.Name = "btnEditLocation";
+            this.btnEditLocation.Size = new System.Drawing.Size(240, 46);
+            this.btnEditLocation.TabIndex = 41;
+            this.btnEditLocation.Text = "Edit Location";
+            this.btnEditLocation.UseVisualStyleBackColor = true;
+            // 
+            // btnAddLocation
+            // 
+            this.btnAddLocation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddLocation.FlatAppearance.BorderSize = 0;
+            this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddLocation.Location = new System.Drawing.Point(844, 400);
+            this.btnAddLocation.Name = "btnAddLocation";
+            this.btnAddLocation.Size = new System.Drawing.Size(240, 46);
+            this.btnAddLocation.TabIndex = 40;
+            this.btnAddLocation.Text = "Add Location";
+            this.btnAddLocation.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox2.Location = new System.Drawing.Point(361, 112);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(723, 1);
+            this.pictureBox2.TabIndex = 44;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblManageLocations
+            // 
+            this.lblManageLocations.AutoSize = true;
+            this.lblManageLocations.BackColor = System.Drawing.Color.Transparent;
+            this.lblManageLocations.Font = new System.Drawing.Font("Raleway ExtraBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageLocations.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblManageLocations.Location = new System.Drawing.Point(554, 66);
+            this.lblManageLocations.Name = "lblManageLocations";
+            this.lblManageLocations.Size = new System.Drawing.Size(366, 29);
+            this.lblManageLocations.TabIndex = 43;
+            this.lblManageLocations.Text = "Manage Datacentre Locations";
+            this.lblManageLocations.Click += new System.EventHandler(this.lblManageAccountTitle_Click);
+            // 
             // manageLocations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +286,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblManageLocations);
+            this.Controls.Add(this.btnDeleteLocation);
+            this.Controls.Add(this.btnEditLocation);
+            this.Controls.Add(this.btnAddLocation);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -202,6 +313,8 @@
             this.Load += new System.EventHandler(this.manageLocations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +332,11 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnDeleteLocation;
+        private System.Windows.Forms.Button btnEditLocation;
+        private System.Windows.Forms.Button btnAddLocation;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblManageLocations;
     }
 }

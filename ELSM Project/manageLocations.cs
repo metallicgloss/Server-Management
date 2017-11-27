@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
@@ -110,6 +112,31 @@ namespace ELSM_Project
                 btnManageServers.Top += 43;
                 btnManageLocations.Visible = false;
             }
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
+
+        private void lblManageAccountTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

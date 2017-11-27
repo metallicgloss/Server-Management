@@ -67,12 +67,6 @@ namespace ELSM_Project
 
         private void manageAccount_Load(object sender, EventArgs e)
         {
-            lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
-            lblPosition.Text = "Position: " + loginMenu.Role;
-            lblYourName.Text = loginMenu.Forename + " " + loginMenu.Surname;
-            pctProfilePhoto.ImageLocation = loginMenu.ProfileImage;
-            pctProfilePhoto.SizeMode = PictureBoxSizeMode.CenterImage;
-            pctProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage;
             largeProfileImage.ImageLocation = loginMenu.ProfileImage;
             largeProfileImage.SizeMode = PictureBoxSizeMode.CenterImage;
             largeProfileImage.SizeMode = PictureBoxSizeMode.StretchImage;

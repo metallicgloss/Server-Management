@@ -90,7 +90,6 @@ namespace ELSM_Project
                     accountCMD.Parameters.Add("@attemptIP", ELSM_Project.loginMenu.IPAddress);
                     accountCMD.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
                     accountCMD.ExecuteNonQuery(); // Process query.
-                    string permissionQuery = "SELECT * FROM userPermissions WHERE permID = @permid";
 
                     MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", conn);
                     permissionCommand.Parameters.Add("@permid", Role);
