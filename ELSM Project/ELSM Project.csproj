@@ -91,6 +91,24 @@
     <Compile Include="manageLocations.Designer.cs">
       <DependentUpon>manageLocations.cs</DependentUpon>
     </Compile>
+    <Compile Include="manageLocationsCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageLocationsCreate.Designer.cs">
+      <DependentUpon>manageLocationsCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageLocationsDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageLocationsDelete.Designer.cs">
+      <DependentUpon>manageLocationsDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageLocationsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manageLocationsEdit.Designer.cs">
+      <DependentUpon>manageLocationsEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="manageServers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +143,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="manageLocations.resx">
       <DependentUpon>manageLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageLocationsCreate.resx">
+      <DependentUpon>manageLocationsCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageLocationsDelete.resx">
+      <DependentUpon>manageLocationsDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageLocationsEdit.resx">
+      <DependentUpon>manageLocationsEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageServers.resx">
       <DependentUpon>manageServers.cs</DependentUpon>
