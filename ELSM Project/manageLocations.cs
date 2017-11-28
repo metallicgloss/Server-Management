@@ -138,5 +138,83 @@ namespace ELSM_Project
         {
 
         }
+
+        private void btnAddLocation_Click(object sender, EventArgs e)
+        {
+            manageLocationsCreate Create = new manageLocationsCreate();
+            Create.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
+
+        private void btnEditLocation_Click(object sender, EventArgs e)
+        {
+            manageLocationsEdit Edit = new manageLocationsEdit();
+            Edit.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
+
+        private void btnDeleteLocation_Click(object sender, EventArgs e)
+        {
+            manageLocationsDelete Delete = new manageLocationsDelete();
+            Delete.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
     }
 }

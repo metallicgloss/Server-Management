@@ -52,6 +52,7 @@
             this.btnCancel.TabIndex = 45;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnNewLocation
             // 
@@ -66,6 +67,7 @@
             this.btnNewLocation.TabIndex = 44;
             this.btnNewLocation.Text = "Process New Location";
             this.btnNewLocation.UseVisualStyleBackColor = false;
+            this.btnNewLocation.Click += new System.EventHandler(this.btnNewLocation_Click);
             // 
             // txtLatitude
             // 
@@ -89,7 +91,6 @@
             this.txtLocationName.Cursor = System.Windows.Forms.Cursors.No;
             this.txtLocationName.Location = new System.Drawing.Point(178, 33);
             this.txtLocationName.Name = "txtLocationName";
-            this.txtLocationName.ReadOnly = true;
             this.txtLocationName.Size = new System.Drawing.Size(310, 20);
             this.txtLocationName.TabIndex = 41;
             // 

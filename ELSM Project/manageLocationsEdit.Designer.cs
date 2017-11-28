@@ -54,6 +54,7 @@
             this.btnCancel.TabIndex = 45;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditLocation
             // 
@@ -68,6 +69,7 @@
             this.btnEditLocation.TabIndex = 44;
             this.btnEditLocation.Text = "Process Location Edit";
             this.btnEditLocation.UseVisualStyleBackColor = false;
+            this.btnEditLocation.Click += new System.EventHandler(this.btnEditLocation_Click);
             // 
             // txtLongitude
             // 
@@ -128,6 +130,8 @@
             this.cmboExisting.Name = "cmboExisting";
             this.cmboExisting.Size = new System.Drawing.Size(310, 21);
             this.cmboExisting.TabIndex = 47;
+            this.cmboExisting.Text = "Select Location";
+            this.cmboExisting.SelectedIndexChanged += new System.EventHandler(this.cmboExisting_SelectedIndexChanged);
             // 
             // txtLatitude
             // 
@@ -174,6 +178,7 @@
             this.Name = "manageLocationsEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Location";
+            this.Load += new System.EventHandler(this.manageLocationsEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

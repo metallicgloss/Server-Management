@@ -229,6 +229,7 @@
             this.btnDeleteLocation.TabIndex = 42;
             this.btnDeleteLocation.Text = "Delete Location";
             this.btnDeleteLocation.UseVisualStyleBackColor = true;
+            this.btnDeleteLocation.Click += new System.EventHandler(this.btnDeleteLocation_Click);
             // 
             // btnEditLocation
             // 
@@ -242,6 +243,7 @@
             this.btnEditLocation.TabIndex = 41;
             this.btnEditLocation.Text = "Edit Location";
             this.btnEditLocation.UseVisualStyleBackColor = true;
+            this.btnEditLocation.Click += new System.EventHandler(this.btnEditLocation_Click);
             // 
             // btnAddLocation
             // 
@@ -255,6 +257,7 @@
             this.btnAddLocation.TabIndex = 40;
             this.btnAddLocation.Text = "Add Location";
             this.btnAddLocation.UseVisualStyleBackColor = true;
+            this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
             // 
             // pictureBox2
             // 

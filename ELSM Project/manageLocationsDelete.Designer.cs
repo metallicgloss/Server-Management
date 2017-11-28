@@ -32,7 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnChangeUsername = new System.Windows.Forms.Button();
             this.lblCurrentUsername = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmboExisting = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -48,6 +48,7 @@
             this.btnCancel.TabIndex = 45;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnChangeUsername
             // 
@@ -62,6 +63,7 @@
             this.btnChangeUsername.TabIndex = 44;
             this.btnChangeUsername.Text = "Process Location Deletion";
             this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
             // lblCurrentUsername
             // 
@@ -75,13 +77,13 @@
             this.lblCurrentUsername.TabIndex = 38;
             this.lblCurrentUsername.Text = "Location:";
             // 
-            // comboBox1
+            // cmboExisting
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(178, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 21);
-            this.comboBox1.TabIndex = 46;
+            this.cmboExisting.FormattingEnabled = true;
+            this.cmboExisting.Location = new System.Drawing.Point(178, 33);
+            this.cmboExisting.Name = "cmboExisting";
+            this.cmboExisting.Size = new System.Drawing.Size(310, 21);
+            this.cmboExisting.TabIndex = 46;
             // 
             // manageLocationsDelete
             // 
@@ -94,7 +96,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnChangeUsername);
             this.Controls.Add(this.lblCurrentUsername);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmboExisting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(544, 178);
@@ -102,6 +104,7 @@
             this.Name = "manageLocationsDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delete Location";
+            this.Load += new System.EventHandler(this.manageLocationsDelete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +115,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnChangeUsername;
         private System.Windows.Forms.Label lblCurrentUsername;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmboExisting;
     }
 }
