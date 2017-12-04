@@ -304,6 +304,7 @@
             this.btnCreateServer.TabIndex = 48;
             this.btnCreateServer.Text = "Create Server";
             this.btnCreateServer.UseVisualStyleBackColor = true;
+            this.btnCreateServer.Click += new System.EventHandler(this.btnCreateServer_Click);
             // 
             // manageServers
             // 
