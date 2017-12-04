@@ -41,7 +41,7 @@ namespace ELSM_Project
         private void btnManageServers_Click(object sender, EventArgs e)
         {
             Hide();
-            manageLocations manageS = new manageLocations();
+            manageServers manageS = new manageServers();
             manageS.ShowDialog();
         }
 

@@ -213,7 +213,7 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(723, 174);
+            this.dataGridView1.Size = new System.Drawing.Size(723, 300);
             this.dataGridView1.TabIndex = 39;
             this.dataGridView1.VirtualMode = true;
             // 
@@ -223,7 +223,7 @@
             this.btnDeleteLocation.FlatAppearance.BorderSize = 0;
             this.btnDeleteLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteLocation.Location = new System.Drawing.Point(844, 498);
+            this.btnDeleteLocation.Location = new System.Drawing.Point(845, 498);
             this.btnDeleteLocation.Name = "btnDeleteLocation";
             this.btnDeleteLocation.Size = new System.Drawing.Size(240, 46);
             this.btnDeleteLocation.TabIndex = 42;
@@ -237,7 +237,7 @@
             this.btnEditLocation.FlatAppearance.BorderSize = 0;
             this.btnEditLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditLocation.Location = new System.Drawing.Point(844, 449);
+            this.btnEditLocation.Location = new System.Drawing.Point(603, 498);
             this.btnEditLocation.Name = "btnEditLocation";
             this.btnEditLocation.Size = new System.Drawing.Size(240, 46);
             this.btnEditLocation.TabIndex = 41;
@@ -251,7 +251,7 @@
             this.btnAddLocation.FlatAppearance.BorderSize = 0;
             this.btnAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddLocation.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddLocation.Location = new System.Drawing.Point(844, 400);
+            this.btnAddLocation.Location = new System.Drawing.Point(361, 498);
             this.btnAddLocation.Name = "btnAddLocation";
             this.btnAddLocation.Size = new System.Drawing.Size(240, 46);
             this.btnAddLocation.TabIndex = 40;
