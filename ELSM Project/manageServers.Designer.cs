@@ -40,15 +40,14 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
-            this.btnChangeEmailAddress = new System.Windows.Forms.Button();
-            this.btnChangePassword = new System.Windows.Forms.Button();
-            this.btnChangeUsername = new System.Windows.Forms.Button();
+            this.btnServerSpecs = new System.Windows.Forms.Button();
+            this.btnServerNote = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblManageServers = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteServer = new System.Windows.Forms.Button();
+            this.btnEditServer = new System.Windows.Forms.Button();
+            this.btnCreateServer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -185,44 +184,31 @@
             this.menuBackground.TabIndex = 28;
             this.menuBackground.TabStop = false;
             // 
-            // btnChangeEmailAddress
+            // btnServerSpecs
             // 
-            this.btnChangeEmailAddress.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeEmailAddress.FlatAppearance.BorderSize = 0;
-            this.btnChangeEmailAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeEmailAddress.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeEmailAddress.Location = new System.Drawing.Point(845, 501);
-            this.btnChangeEmailAddress.Name = "btnChangeEmailAddress";
-            this.btnChangeEmailAddress.Size = new System.Drawing.Size(240, 46);
-            this.btnChangeEmailAddress.TabIndex = 31;
-            this.btnChangeEmailAddress.Text = "Change Email Address";
-            this.btnChangeEmailAddress.UseVisualStyleBackColor = true;
+            this.btnServerSpecs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerSpecs.FlatAppearance.BorderSize = 0;
+            this.btnServerSpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerSpecs.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerSpecs.Location = new System.Drawing.Point(725, 501);
+            this.btnServerSpecs.Name = "btnServerSpecs";
+            this.btnServerSpecs.Size = new System.Drawing.Size(359, 46);
+            this.btnServerSpecs.TabIndex = 30;
+            this.btnServerSpecs.Text = "Server Specifications";
+            this.btnServerSpecs.UseVisualStyleBackColor = true;
             // 
-            // btnChangePassword
+            // btnServerNote
             // 
-            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangePassword.FlatAppearance.BorderSize = 0;
-            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangePassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(603, 501);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(240, 46);
-            this.btnChangePassword.TabIndex = 30;
-            this.btnChangePassword.Text = "Change Password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            // 
-            // btnChangeUsername
-            // 
-            this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
-            this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeUsername.Location = new System.Drawing.Point(361, 501);
-            this.btnChangeUsername.Name = "btnChangeUsername";
-            this.btnChangeUsername.Size = new System.Drawing.Size(240, 46);
-            this.btnChangeUsername.TabIndex = 29;
-            this.btnChangeUsername.Text = "Change Username";
-            this.btnChangeUsername.UseVisualStyleBackColor = true;
+            this.btnServerNote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerNote.FlatAppearance.BorderSize = 0;
+            this.btnServerNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerNote.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerNote.Location = new System.Drawing.Point(361, 501);
+            this.btnServerNote.Name = "btnServerNote";
+            this.btnServerNote.Size = new System.Drawing.Size(361, 46);
+            this.btnServerNote.TabIndex = 29;
+            this.btnServerNote.Text = "Server Note Management";
+            this.btnServerNote.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -280,44 +266,44 @@
             this.dataGridView1.TabIndex = 45;
             this.dataGridView1.VirtualMode = true;
             // 
-            // button1
+            // btnDeleteServer
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(845, 453);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 46);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Change Email Address";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDeleteServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteServer.FlatAppearance.BorderSize = 0;
+            this.btnDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteServer.Location = new System.Drawing.Point(845, 453);
+            this.btnDeleteServer.Name = "btnDeleteServer";
+            this.btnDeleteServer.Size = new System.Drawing.Size(240, 46);
+            this.btnDeleteServer.TabIndex = 50;
+            this.btnDeleteServer.Text = "Delete Server";
+            this.btnDeleteServer.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnEditServer
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(603, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 46);
-            this.button2.TabIndex = 49;
-            this.button2.Text = "Change Password";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditServer.FlatAppearance.BorderSize = 0;
+            this.btnEditServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditServer.Location = new System.Drawing.Point(603, 453);
+            this.btnEditServer.Name = "btnEditServer";
+            this.btnEditServer.Size = new System.Drawing.Size(240, 46);
+            this.btnEditServer.TabIndex = 49;
+            this.btnEditServer.Text = "Edit Server";
+            this.btnEditServer.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnCreateServer
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(361, 453);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(240, 46);
-            this.button3.TabIndex = 48;
-            this.button3.Text = "Change Username";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCreateServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateServer.FlatAppearance.BorderSize = 0;
+            this.btnCreateServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateServer.Location = new System.Drawing.Point(361, 453);
+            this.btnCreateServer.Name = "btnCreateServer";
+            this.btnCreateServer.Size = new System.Drawing.Size(240, 46);
+            this.btnCreateServer.TabIndex = 48;
+            this.btnCreateServer.Text = "Create Server";
+            this.btnCreateServer.UseVisualStyleBackColor = true;
             // 
             // manageServers
             // 
@@ -327,15 +313,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDeleteServer);
+            this.Controls.Add(this.btnEditServer);
+            this.Controls.Add(this.btnCreateServer);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblManageServers);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnChangeEmailAddress);
-            this.Controls.Add(this.btnChangePassword);
-            this.Controls.Add(this.btnChangeUsername);
+            this.Controls.Add(this.btnServerSpecs);
+            this.Controls.Add(this.btnServerNote);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -376,14 +361,13 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
-        private System.Windows.Forms.Button btnChangeEmailAddress;
-        private System.Windows.Forms.Button btnChangePassword;
-        private System.Windows.Forms.Button btnChangeUsername;
+        private System.Windows.Forms.Button btnServerSpecs;
+        private System.Windows.Forms.Button btnServerNote;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblManageServers;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteServer;
+        private System.Windows.Forms.Button btnEditServer;
+        private System.Windows.Forms.Button btnCreateServer;
     }
 }
