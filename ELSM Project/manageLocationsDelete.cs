@@ -24,7 +24,7 @@ namespace ELSM_Project
             Hide();
         }
 
-        private void btnChangeUsername_Click(object sender, EventArgs e)
+        private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
             
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.

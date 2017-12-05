@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnChangeUsername = new System.Windows.Forms.Button();
-            this.lblCurrentUsername = new System.Windows.Forms.Label();
-            this.cmboExisting = new System.Windows.Forms.ComboBox();
+            this.btnDeleteServer = new System.Windows.Forms.Button();
+            this.lblHostname = new System.Windows.Forms.Label();
+            this.cmboHostname = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -48,39 +48,40 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // btnChangeUsername
+            // btnDeleteServer
             // 
-            this.btnChangeUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
-            this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeUsername.Location = new System.Drawing.Point(36, 84);
-            this.btnChangeUsername.Name = "btnChangeUsername";
-            this.btnChangeUsername.Size = new System.Drawing.Size(206, 31);
-            this.btnChangeUsername.TabIndex = 44;
-            this.btnChangeUsername.Text = "Process Location Deletion";
-            this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnDeleteServer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDeleteServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteServer.FlatAppearance.BorderSize = 0;
+            this.btnDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteServer.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteServer.Location = new System.Drawing.Point(36, 84);
+            this.btnDeleteServer.Name = "btnDeleteServer";
+            this.btnDeleteServer.Size = new System.Drawing.Size(206, 31);
+            this.btnDeleteServer.TabIndex = 44;
+            this.btnDeleteServer.Text = "Process Server Deletion";
+            this.btnDeleteServer.UseVisualStyleBackColor = false;
+            this.btnDeleteServer.Click += new System.EventHandler(this.btnDeleteServer_Click);
             // 
-            // lblCurrentUsername
+            // lblHostname
             // 
-            this.lblCurrentUsername.AutoSize = true;
-            this.lblCurrentUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblCurrentUsername.Location = new System.Drawing.Point(33, 34);
-            this.lblCurrentUsername.Name = "lblCurrentUsername";
-            this.lblCurrentUsername.Size = new System.Drawing.Size(71, 18);
-            this.lblCurrentUsername.TabIndex = 38;
-            this.lblCurrentUsername.Text = "Location:";
+            this.lblHostname.AutoSize = true;
+            this.lblHostname.BackColor = System.Drawing.Color.Transparent;
+            this.lblHostname.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHostname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblHostname.Location = new System.Drawing.Point(33, 34);
+            this.lblHostname.Name = "lblHostname";
+            this.lblHostname.Size = new System.Drawing.Size(83, 18);
+            this.lblHostname.TabIndex = 38;
+            this.lblHostname.Text = "Hostname:";
             // 
-            // cmboExisting
+            // cmboHostname
             // 
-            this.cmboExisting.FormattingEnabled = true;
-            this.cmboExisting.Location = new System.Drawing.Point(178, 33);
-            this.cmboExisting.Name = "cmboExisting";
-            this.cmboExisting.Size = new System.Drawing.Size(310, 21);
-            this.cmboExisting.TabIndex = 46;
+            this.cmboHostname.FormattingEnabled = true;
+            this.cmboHostname.Location = new System.Drawing.Point(178, 33);
+            this.cmboHostname.Name = "cmboHostname";
+            this.cmboHostname.Size = new System.Drawing.Size(310, 21);
+            this.cmboHostname.TabIndex = 46;
             // 
             // manageServersDelete
             // 
@@ -91,9 +92,9 @@
             this.ClientSize = new System.Drawing.Size(528, 139);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnChangeUsername);
-            this.Controls.Add(this.lblCurrentUsername);
-            this.Controls.Add(this.cmboExisting);
+            this.Controls.Add(this.btnDeleteServer);
+            this.Controls.Add(this.lblHostname);
+            this.Controls.Add(this.cmboHostname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(544, 178);
             this.MinimumSize = new System.Drawing.Size(544, 178);
@@ -109,8 +110,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnChangeUsername;
-        private System.Windows.Forms.Label lblCurrentUsername;
-        private System.Windows.Forms.ComboBox cmboExisting;
+        private System.Windows.Forms.Button btnDeleteServer;
+        private System.Windows.Forms.Label lblHostname;
+        private System.Windows.Forms.ComboBox cmboHostname;
     }
 }
