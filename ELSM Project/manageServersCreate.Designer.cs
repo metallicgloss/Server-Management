@@ -82,8 +82,9 @@
             this.btnNewServer.Name = "btnNewServer";
             this.btnNewServer.Size = new System.Drawing.Size(206, 31);
             this.btnNewServer.TabIndex = 44;
-            this.btnNewServer.Text = "Process New Location";
+            this.btnNewServer.Text = "Process New Server";
             this.btnNewServer.UseVisualStyleBackColor = false;
+            this.btnNewServer.Click += new System.EventHandler(this.btnNewServer_Click);
             // 
             // txtHostname
             // 
@@ -334,7 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(528, 551);
+            this.ClientSize = new System.Drawing.Size(542, 551);
             this.ControlBox = false;
             this.Controls.Add(this.txtTransfer);
             this.Controls.Add(this.txtRAM);

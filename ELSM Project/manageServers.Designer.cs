@@ -291,6 +291,7 @@
             this.btnEditServer.TabIndex = 49;
             this.btnEditServer.Text = "Edit Server";
             this.btnEditServer.UseVisualStyleBackColor = true;
+            this.btnEditServer.Click += new System.EventHandler(this.btnEditServer_Click);
             // 
             // btnCreateServer
             // 

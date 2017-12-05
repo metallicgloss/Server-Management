@@ -192,6 +192,9 @@
     <EmbeddedResource Include="manageServersDelete.resx">
       <DependentUpon>manageServersDelete.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="manageServersEdit.resx">
+      <DependentUpon>manageServersEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
