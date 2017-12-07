@@ -28,7 +28,7 @@ namespace ELSM_Project
         {
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
-            string sql = "SELECT * FROM serverInformation WHERE companyID = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; // Create a string with the query command to run.
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.Add("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
@@ -48,6 +48,12 @@ namespace ELSM_Project
             serverCMD.Parameters.Add("@Hostname", cmboHostname.Text);
             serverCMD.ExecuteNonQuery(); // Process query.
             conn.Close();
+            Hide();
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }
