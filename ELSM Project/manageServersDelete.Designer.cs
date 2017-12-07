@@ -47,7 +47,7 @@
             this.btnCancel.TabIndex = 45;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDeleteServer
             // 
@@ -101,7 +101,7 @@
             this.MinimumSize = new System.Drawing.Size(544, 178);
             this.Name = "manageServersDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Delete Location";
+            this.Text = "Delete Server";
             this.Load += new System.EventHandler(this.manageServersDelete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

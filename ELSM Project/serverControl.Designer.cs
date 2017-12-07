@@ -40,15 +40,14 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
-            this.btnDeleteServer = new System.Windows.Forms.Button();
-            this.btnEditServer = new System.Windows.Forms.Button();
-            this.btnCreateServer = new System.Windows.Forms.Button();
+            this.btnDeleteCommand = new System.Windows.Forms.Button();
+            this.btnEditCommand = new System.Windows.Forms.Button();
+            this.btnCreateCommand = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblServerControl = new System.Windows.Forms.Label();
-            this.btnServerSpecs = new System.Windows.Forms.Button();
-            this.btnServerNote = new System.Windows.Forms.Button();
+            this.btnServerStatus = new System.Windows.Forms.Button();
+            this.btnRunCommand = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -185,44 +184,44 @@
             this.menuBackground.TabIndex = 48;
             this.menuBackground.TabStop = false;
             // 
-            // btnDeleteServer
+            // btnDeleteCommand
             // 
-            this.btnDeleteServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteServer.FlatAppearance.BorderSize = 0;
-            this.btnDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteServer.Location = new System.Drawing.Point(845, 453);
-            this.btnDeleteServer.Name = "btnDeleteServer";
-            this.btnDeleteServer.Size = new System.Drawing.Size(240, 46);
-            this.btnDeleteServer.TabIndex = 57;
-            this.btnDeleteServer.Text = "Delete Server";
-            this.btnDeleteServer.UseVisualStyleBackColor = true;
+            this.btnDeleteCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteCommand.FlatAppearance.BorderSize = 0;
+            this.btnDeleteCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCommand.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCommand.Location = new System.Drawing.Point(845, 453);
+            this.btnDeleteCommand.Name = "btnDeleteCommand";
+            this.btnDeleteCommand.Size = new System.Drawing.Size(240, 46);
+            this.btnDeleteCommand.TabIndex = 57;
+            this.btnDeleteCommand.Text = "Delete Command";
+            this.btnDeleteCommand.UseVisualStyleBackColor = true;
             // 
-            // btnEditServer
+            // btnEditCommand
             // 
-            this.btnEditServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditServer.FlatAppearance.BorderSize = 0;
-            this.btnEditServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditServer.Location = new System.Drawing.Point(603, 453);
-            this.btnEditServer.Name = "btnEditServer";
-            this.btnEditServer.Size = new System.Drawing.Size(240, 46);
-            this.btnEditServer.TabIndex = 56;
-            this.btnEditServer.Text = "Edit Server";
-            this.btnEditServer.UseVisualStyleBackColor = true;
+            this.btnEditCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditCommand.FlatAppearance.BorderSize = 0;
+            this.btnEditCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCommand.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCommand.Location = new System.Drawing.Point(603, 453);
+            this.btnEditCommand.Name = "btnEditCommand";
+            this.btnEditCommand.Size = new System.Drawing.Size(240, 46);
+            this.btnEditCommand.TabIndex = 56;
+            this.btnEditCommand.Text = "Edit Command";
+            this.btnEditCommand.UseVisualStyleBackColor = true;
             // 
-            // btnCreateServer
+            // btnCreateCommand
             // 
-            this.btnCreateServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateServer.FlatAppearance.BorderSize = 0;
-            this.btnCreateServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateServer.Location = new System.Drawing.Point(361, 453);
-            this.btnCreateServer.Name = "btnCreateServer";
-            this.btnCreateServer.Size = new System.Drawing.Size(240, 46);
-            this.btnCreateServer.TabIndex = 55;
-            this.btnCreateServer.Text = "Create Server";
-            this.btnCreateServer.UseVisualStyleBackColor = true;
+            this.btnCreateCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateCommand.FlatAppearance.BorderSize = 0;
+            this.btnCreateCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateCommand.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCommand.Location = new System.Drawing.Point(361, 453);
+            this.btnCreateCommand.Name = "btnCreateCommand";
+            this.btnCreateCommand.Size = new System.Drawing.Size(240, 46);
+            this.btnCreateCommand.TabIndex = 55;
+            this.btnCreateCommand.Text = "Create Command";
+            this.btnCreateCommand.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -245,31 +244,31 @@
             this.lblServerControl.TabIndex = 53;
             this.lblServerControl.Text = "Server Control";
             // 
-            // btnServerSpecs
+            // btnServerStatus
             // 
-            this.btnServerSpecs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerSpecs.FlatAppearance.BorderSize = 0;
-            this.btnServerSpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerSpecs.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerSpecs.Location = new System.Drawing.Point(725, 501);
-            this.btnServerSpecs.Name = "btnServerSpecs";
-            this.btnServerSpecs.Size = new System.Drawing.Size(359, 46);
-            this.btnServerSpecs.TabIndex = 52;
-            this.btnServerSpecs.Text = "Server Specifications";
-            this.btnServerSpecs.UseVisualStyleBackColor = true;
+            this.btnServerStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerStatus.FlatAppearance.BorderSize = 0;
+            this.btnServerStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerStatus.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerStatus.Location = new System.Drawing.Point(725, 501);
+            this.btnServerStatus.Name = "btnServerStatus";
+            this.btnServerStatus.Size = new System.Drawing.Size(359, 46);
+            this.btnServerStatus.TabIndex = 52;
+            this.btnServerStatus.Text = "Server Status";
+            this.btnServerStatus.UseVisualStyleBackColor = true;
             // 
-            // btnServerNote
+            // btnRunCommand
             // 
-            this.btnServerNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerNote.FlatAppearance.BorderSize = 0;
-            this.btnServerNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerNote.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerNote.Location = new System.Drawing.Point(361, 501);
-            this.btnServerNote.Name = "btnServerNote";
-            this.btnServerNote.Size = new System.Drawing.Size(361, 46);
-            this.btnServerNote.TabIndex = 51;
-            this.btnServerNote.Text = "Server Note Management";
-            this.btnServerNote.UseVisualStyleBackColor = true;
+            this.btnRunCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRunCommand.FlatAppearance.BorderSize = 0;
+            this.btnRunCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRunCommand.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunCommand.Location = new System.Drawing.Point(361, 501);
+            this.btnRunCommand.Name = "btnRunCommand";
+            this.btnRunCommand.Size = new System.Drawing.Size(361, 46);
+            this.btnRunCommand.TabIndex = 51;
+            this.btnRunCommand.Text = "Run Command";
+            this.btnRunCommand.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -302,22 +301,9 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(723, 143);
+            this.dataGridView1.Size = new System.Drawing.Size(723, 258);
             this.dataGridView1.TabIndex = 58;
             this.dataGridView1.VirtualMode = true;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(844, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 46);
-            this.button1.TabIndex = 59;
-            this.button1.Text = "Create Server";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // serverControl
             // 
@@ -327,15 +313,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnDeleteServer);
-            this.Controls.Add(this.btnEditServer);
-            this.Controls.Add(this.btnCreateServer);
+            this.Controls.Add(this.btnDeleteCommand);
+            this.Controls.Add(this.btnEditCommand);
+            this.Controls.Add(this.btnCreateCommand);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblServerControl);
-            this.Controls.Add(this.btnServerSpecs);
-            this.Controls.Add(this.btnServerNote);
+            this.Controls.Add(this.btnServerStatus);
+            this.Controls.Add(this.btnRunCommand);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -376,14 +361,13 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
-        private System.Windows.Forms.Button btnDeleteServer;
-        private System.Windows.Forms.Button btnEditServer;
-        private System.Windows.Forms.Button btnCreateServer;
+        private System.Windows.Forms.Button btnDeleteCommand;
+        private System.Windows.Forms.Button btnEditCommand;
+        private System.Windows.Forms.Button btnCreateCommand;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblServerControl;
-        private System.Windows.Forms.Button btnServerSpecs;
-        private System.Windows.Forms.Button btnServerNote;
+        private System.Windows.Forms.Button btnServerStatus;
+        private System.Windows.Forms.Button btnRunCommand;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
     }
 }

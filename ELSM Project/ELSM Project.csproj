@@ -158,6 +158,30 @@
     <Compile Include="serverControl.Designer.cs">
       <DependentUpon>serverControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="serverControlCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControlCreate.Designer.cs">
+      <DependentUpon>serverControlCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serverControlDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControlDelete.Designer.cs">
+      <DependentUpon>serverControlDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serverControlEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControlEdit.Designer.cs">
+      <DependentUpon>serverControlEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serverControlRunCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControlRunCommand.Designer.cs">
+      <DependentUpon>serverControlRunCommand.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="mainDashboard.resx">
       <DependentUpon>mainDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +236,12 @@
     </Compile>
     <EmbeddedResource Include="serverControl.resx">
       <DependentUpon>serverControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serverControlCreate.resx">
+      <DependentUpon>serverControlCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serverControlDelete.resx">
+      <DependentUpon>serverControlDelete.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
