@@ -1,0 +1,30 @@
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\ELSM Project.exe.config
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\ELSM Project.exe
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\ELSM Project.pdb
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\MySql.Data.dll
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\MySql.Data.xml
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM Project.csprojResolveAssemblyReference.cache
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.mainDashboard.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.loginMenu.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageAccount.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageLocations.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageServers.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.Properties.Resources.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.serverControl.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM Project.csproj.GenerateResource.Cache
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM Project.csproj.CoreCompileInputs.cache
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM Project.exe
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM Project.pdb
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageAccountUsername.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageAccountEmail.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageAccountPassword.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageLocationsCreate.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageLocationsDelete.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageLocationsEdit.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageServersCreate.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageServersDelete.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.manageServersEdit.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\Renci.SshNet.dll
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\bin\Debug\Renci.SshNet.xml
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.serverControlCreate.resources
+C:\Users\WPhillips\Desktop\Computer Science\Year 2\ELSM - Coursework\Project\Server-Management\ELSM Project\obj\Debug\ELSM_Project.serverControlDelete.resources
