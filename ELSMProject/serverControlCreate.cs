@@ -19,6 +19,8 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
+        public static int loopnum, createloop;
+
         private void serverControlCreate_Load(object sender, EventArgs e)
         {
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
@@ -26,7 +28,7 @@ namespace ELSM_Project
             string os = "SELECT * FROM serverOperatingSystems"; // Create a string with the query command to run.
             MySqlCommand oscmd = new MySqlCommand(os, conn);
             MySqlDataReader osrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
-            int loopnum, height, width, button1x, button1y, button2x, button2y;
+            int height, width, button1x, button1y, button2x, button2y;
             width = 1182;
             height = 206;
             button1x = 36;
@@ -103,6 +105,44 @@ namespace ELSM_Project
             }
         }
 
-        
+        private void btnNewCommand_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            conn.Open();
+            createloop = 0;
+            while (loopnum != createloop)
+            {
+                string name = Convert.ToString(createloop);
+                string inputname = "Value" + name;
+                var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
+                MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
+                oscmd.Parameters.Add("@os", "CentOS 5.10"); //Update when able to pull name from list
+                MySqlDataReader osrdr = oscmd.ExecuteReader();
+                osrdr.Read();
+                var os = Convert.ToString(osrdr[0]);
+                osrdr.Close();
+                try
+                {
+                    if (text.Text != "")
+                    {
+                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); // Set MySQL query.
+                        newCommand.Parameters.Add("@serverCommand", text.Text);
+                        newCommand.Parameters.Add("@commandName", txtCommandName.Text);
+                        newCommand.Parameters.Add("@serverOS", os);
+                        newCommand.Parameters.Add("@serverCompany", loginMenu.CompanyID);
+                        newCommand.ExecuteNonQuery(); // Process query.
+                    }
+                    
+                }
+                catch (Exception exception)
+                {
+                    
+                }
+                createloop += 1;
+            }
+
+            conn.Close();
+            Hide();
+        }
     }
 }

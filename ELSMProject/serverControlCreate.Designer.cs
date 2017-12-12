@@ -30,7 +30,7 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewCommand = new System.Windows.Forms.Button();
-            this.txtServerName = new System.Windows.Forms.TextBox();
+            this.txtCommandName = new System.Windows.Forms.TextBox();
             this.lblCommandName = new System.Windows.Forms.Label();
             this.pnlConfiguration = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -63,15 +63,16 @@
             this.btnNewCommand.TabIndex = 44;
             this.btnNewCommand.Text = "Process New Server";
             this.btnNewCommand.UseVisualStyleBackColor = false;
+            this.btnNewCommand.Click += new System.EventHandler(this.btnNewCommand_Click);
             // 
-            // txtServerName
+            // txtCommandName
             // 
-            this.txtServerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtServerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtServerName.Location = new System.Drawing.Point(271, 30);
-            this.txtServerName.Name = "txtServerName";
-            this.txtServerName.Size = new System.Drawing.Size(849, 20);
-            this.txtServerName.TabIndex = 49;
+            this.txtCommandName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCommandName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCommandName.Location = new System.Drawing.Point(271, 30);
+            this.txtCommandName.Name = "txtCommandName";
+            this.txtCommandName.Size = new System.Drawing.Size(849, 20);
+            this.txtCommandName.TabIndex = 49;
             // 
             // lblCommandName
             // 
@@ -101,7 +102,7 @@
             this.ClientSize = new System.Drawing.Size(1166, 167);
             this.ControlBox = false;
             this.Controls.Add(this.pnlConfiguration);
-            this.Controls.Add(this.txtServerName);
+            this.Controls.Add(this.txtCommandName);
             this.Controls.Add(this.lblCommandName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNewCommand);
@@ -119,7 +120,7 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnNewCommand;
-        private System.Windows.Forms.TextBox txtServerName;
+        private System.Windows.Forms.TextBox txtCommandName;
         private System.Windows.Forms.Label lblCommandName;
         private System.Windows.Forms.Panel pnlConfiguration;
     }
