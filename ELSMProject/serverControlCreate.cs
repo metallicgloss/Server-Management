@@ -47,22 +47,22 @@ namespace ELSM_Project
                 pnlConfiguration.Height += 20;
                 CheckBox box;
                 box = new CheckBox();
-                box.Tag = loopnum;
+                box.Name = Convert.ToString(loopnum);
                 box.Text = value;
                 box.CheckedChanged += new System.EventHandler(valueChecked);
                 box.AutoSize = true;
-                box.Location = new Point(10, loopnum * 23);
+                box.Location = new Point(10, loopnum * 20);
                 pnlConfiguration.Controls.Add(box);
                 loopnum += 1;
             }
             int pointX = 235;
             int pointY = 20;
             int loopnum2 = 0;
-            for (int i = 0; i < loopnum; i++)
+            for (int i = 0; i < loopnum - 1; i++)
             {
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
-                a.Tag = "Value" + loopnum2;
+                a.Name = "Value" + loopnum2;
                 a.Width = 849;
                 a.Enabled = false;
                 pnlConfiguration.Controls.Add(a);
@@ -84,10 +84,23 @@ namespace ELSM_Project
 
         private void valueChecked(object sender, EventArgs e)
         {
-            string name = this.Name;
+            string name = ((CheckBox)sender).Name;
+            int nameint = Convert.ToInt16(name);
+            nameint -= 1;
+            name = Convert.ToString(nameint);
             string inputname = "Value" + name;
             var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
-            text.Enabled = true;
+
+            CheckBox chbxName = (CheckBox)sender;
+            if (chbxName.Checked == true)
+            {
+                text.Enabled = true;
+
+            }
+            else
+            {
+                text.Enabled = false;
+            }
         }
 
         

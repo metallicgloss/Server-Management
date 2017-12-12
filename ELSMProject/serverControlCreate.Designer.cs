@@ -67,7 +67,7 @@
             // txtServerName
             // 
             this.txtServerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtServerName.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtServerName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtServerName.Location = new System.Drawing.Point(271, 30);
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Size = new System.Drawing.Size(849, 20);
