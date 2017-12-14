@@ -49,7 +49,7 @@ namespace ELSM_Project
                 pnlConfiguration.Height += 20;
                 CheckBox box;
                 box = new CheckBox();
-                box.Name = Convert.ToString(loopnum);
+                box.Name = "chkOS" + Convert.ToString(loopnum);
                 box.Text = value;
                 box.CheckedChanged += new System.EventHandler(valueChecked);
                 box.AutoSize = true;
@@ -64,7 +64,7 @@ namespace ELSM_Project
             {
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
-                a.Name = "Value" + loopnum2;
+                a.Name = "txtInput" + loopnum2;
                 a.Width = 849;
                 a.Enabled = false;
                 pnlConfiguration.Controls.Add(a);
@@ -87,17 +87,16 @@ namespace ELSM_Project
         private void valueChecked(object sender, EventArgs e)
         {
             string name = ((CheckBox)sender).Name;
-            int nameint = Convert.ToInt16(name);
-            nameint -= 1;
-            name = Convert.ToString(nameint);
-            string inputname = "Value" + name;
+            name = name.Replace("chkOS", string.Empty);
+            int OSNumber = Convert.ToInt16(name);
+            OSNumber -= 1;
+            string inputname = "txtInput" + OSNumber;
             var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
 
             CheckBox chbxName = (CheckBox)sender;
             if (chbxName.Checked == true)
             {
                 text.Enabled = true;
-
             }
             else
             {
@@ -112,24 +111,35 @@ namespace ELSM_Project
             createloop = 0;
             while (loopnum != createloop)
             {
-                string name = Convert.ToString(createloop);
-                string inputname = "Value" + name;
+                string chkname = "chkOS" + Convert.ToString(createloop);
+                string inputname = "txtInput" + Convert.ToString(createloop - 1);
+                var os = "";
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
-                MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
-                oscmd.Parameters.Add("@os", "CentOS 5.10"); //Update when able to pull name from list
-                MySqlDataReader osrdr = oscmd.ExecuteReader();
-                osrdr.Read();
-                var os = Convert.ToString(osrdr[0]);
-                osrdr.Close();
+                var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
+                try
+                {
+                    string checkBoxText = checkBox.Text;
+                    MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
+                    oscmd.Parameters.AddWithValue("@os", checkBoxText);
+                    MySqlDataReader osrdr = oscmd.ExecuteReader();
+                    osrdr.Read();
+                    os = Convert.ToString(osrdr[0]);
+                    osrdr.Close();
+                }
+                catch (Exception exception)
+                {
+                    
+                }
+                
                 try
                 {
                     if (text.Text != "")
                     {
                         MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); // Set MySQL query.
-                        newCommand.Parameters.Add("@serverCommand", text.Text);
-                        newCommand.Parameters.Add("@commandName", txtCommandName.Text);
-                        newCommand.Parameters.Add("@serverOS", os);
-                        newCommand.Parameters.Add("@serverCompany", loginMenu.CompanyID);
+                        newCommand.Parameters.AddWithValue("@serverCommand", text.Text);
+                        newCommand.Parameters.AddWithValue("@commandName", txtCommandName.Text);
+                        newCommand.Parameters.AddWithValue("@serverOS", os);
+                        newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
                         newCommand.ExecuteNonQuery(); // Process query.
                     }
                     

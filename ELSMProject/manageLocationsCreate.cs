@@ -24,10 +24,10 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("INSERT INTO serverLocations (locationName, companyID, locationLongitude, locationLatitude) VALUES (@locationName, @companyID, @locationLongitude, @locationLatitude)", conn); // Set MySQL query.
-            locationCMD.Parameters.Add("@locationName", txtLocationName.Text);
-            locationCMD.Parameters.Add("@locationLongitude", txtLongitude.Text);
-            locationCMD.Parameters.Add("@companyID", loginMenu.CompanyID);
-            locationCMD.Parameters.Add("@locationLatitude", txtLatitude.Text); // Replace text in string with variables.
+            locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
+            locationCMD.Parameters.AddWithValue("@locationLongitude", txtLongitude.Text);
+            locationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
+            locationCMD.Parameters.AddWithValue("@locationLatitude", txtLatitude.Text); // Replace text in string with variables.
             locationCMD.ExecuteNonQuery(); // Process query.
             conn.Close();
             txtLatitude.Text = "";

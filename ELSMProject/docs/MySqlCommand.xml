@@ -611,7 +611,7 @@
       <code lang="VB.NET">
         public sub PrepareExample()
         Dim cmd as New MySqlCommand("INSERT INTO mytable VALUES (@val)", myConnection)
-        cmd.Parameters.Add( "@val", 10 )
+        cmd.Parameters.AddWithValue( "@val", 10 )
         cmd.Prepare()
         cmd.ExecuteNonQuery()
 
@@ -623,7 +623,7 @@
         private void PrepareExample()
         {
         MySqlCommand cmd = new MySqlCommand("INSERT INTO mytable VALUES (@val)", myConnection);
-        cmd.Parameters.Add( "@val", 10 );
+        cmd.Parameters.AddWithValue( "@val", 10 );
         cmd.Prepare();
         cmd.ExecuteNonQuery();
 
@@ -862,10 +862,10 @@
         Dim myCommand As New MySqlCommand(mySelectQuery, myConnection)
         myCommand.CommandText = "SELECT id, name FROM mytable WHERE age=@age"
         myCommand.UpdatedRowSource = UpdateRowSource.Both
-        myCommand.Parameters.Add(myParamArray)
+        myCommand.Parameters.AddWithValue(myParamArray)
         Dim j As Integer
         For j = 0 To myCommand.Parameters.Count - 1
-        myCommand.Parameters.Add(myParamArray(j))
+        myCommand.Parameters.AddWithValue(myParamArray(j))
         Next j
         Dim myMessage As String = ""
         Dim i As Integer
@@ -881,10 +881,10 @@
         {
         MySqlCommand myCommand = new MySqlCommand(mySelectQuery, myConnection);
         myCommand.CommandText = "SELECT id, name FROM mytable WHERE age=@age";
-        myCommand.Parameters.Add(myParamArray);
+        myCommand.Parameters.AddWithValue(myParamArray);
         for (int j=0; j&lt;myParamArray.Length; j++)
         {
-        myCommand.Parameters.Add(myParamArray[j]) ;
+        myCommand.Parameters.AddWithValue(myParamArray[j]) ;
         }
         string myMessage = "";
         for (int i = 0; i &lt; myCommand.Parameters.Count; i++)

@@ -30,7 +30,7 @@ namespace ELSM_Project
             conn.Open();
             string sql = "SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID"; // Create a string with the query command to run.
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
             while (rdr.Read())
             {
@@ -44,13 +44,13 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
             MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", conn); // Set MySQL query.
-            serverCMD.Parameters.Add("@Name", cmboName.Text);
-            serverCMD.Parameters.Add("@Company", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
+            serverCMD.Parameters.AddWithValue("@Name", cmboName.Text);
+            serverCMD.Parameters.AddWithValue("@Company", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             serverCMD.ExecuteNonQuery(); // Process query.
             cmboName.Items.Clear();
             string sql = "SELECT * FROM serverCommands WHERE serverCompany = @companyID"; // Create a string with the query command to run.
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
             while (rdr.Read())
             {

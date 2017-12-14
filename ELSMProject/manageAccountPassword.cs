@@ -42,7 +42,7 @@ namespace ELSM_Project
                 MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
-                command.Parameters.Add("@pass", NewPassword);
+                command.Parameters.AddWithValue("@pass", NewPassword);
                 command.ExecuteNonQuery();
                 loginMenu.Password = txtNewPassword.Text;
                 Hide();

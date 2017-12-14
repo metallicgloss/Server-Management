@@ -36,7 +36,7 @@ namespace ELSM_Project
                 MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userEmailAddress = @email", conn);
-                command.Parameters.Add("@email", txtNewEmail.Text);
+                command.Parameters.AddWithValue("@email", txtNewEmail.Text);
                 command.ExecuteNonQuery();
                 loginMenu.EmailAddress = txtNewEmail.Text;
                 Hide();

@@ -16,8 +16,8 @@
         ' ...
         ' create myDataSet and myDataAdapter
         ' ...
-        myDataAdapter.SelectCommand.Parameters.Add("@CategoryName", MySqlDbType.VarChar, 80).Value = "toasters"
-        myDataAdapter.SelectCommand.Parameters.Add("@SerialNum", MySqlDbType.Long).Value = 239
+        myDataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryName", MySqlDbType.VarChar, 80).Value = "toasters"
+        myDataAdapter.SelectCommand.Parameters.AddWithValue("@SerialNum", MySqlDbType.Long).Value = 239
 
         myDataAdapter.Fill(myDataSet)
         End Sub 'AddSqlParameters
@@ -29,8 +29,8 @@
         // create myDataSet and myDataAdapter
         // ...
 
-        myDataAdapter.SelectCommand.Parameters.Add("@CategoryName", MySqlDbType.VarChar, 80).Value = "toasters";
-        myDataAdapter.SelectCommand.Parameters.Add("@SerialNum", MySqlDbType.Long).Value = 239;
+        myDataAdapter.SelectCommand.Parameters.AddWithValue("@CategoryName", MySqlDbType.VarChar, 80).Value = "toasters";
+        myDataAdapter.SelectCommand.Parameters.AddWithValue("@SerialNum", MySqlDbType.Long).Value = 239;
         myDataAdapter.Fill(myDataSet);
 
         }

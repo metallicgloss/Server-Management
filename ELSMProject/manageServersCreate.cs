@@ -25,7 +25,7 @@ namespace ELSM_Project
             conn.Open();
             string locations = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
             MySqlCommand locationscmd = new MySqlCommand(locations, conn);
-            locationscmd.Parameters.Add("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
+            locationscmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader locationrdr = locationscmd.ExecuteReader(); // Process the query command and feedback data to reader.
             while (locationrdr.Read())
             {
@@ -61,36 +61,36 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
             MySqlCommand locationcmd = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", conn);
-            locationcmd.Parameters.Add("@location", cmboLocation.Text);
+            locationcmd.Parameters.AddWithValue("@location", cmboLocation.Text);
             MySqlDataReader locationrdr = locationcmd.ExecuteReader();
             locationrdr.Read();
             var location = Convert.ToString(locationrdr[0]);
             locationrdr.Close();
             MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
-            oscmd.Parameters.Add("@os", cmboOS.Text);
+            oscmd.Parameters.AddWithValue("@os", cmboOS.Text);
             MySqlDataReader osrdr = oscmd.ExecuteReader();
             osrdr.Read();
             var os = Convert.ToString(osrdr[0]);
             osrdr.Close();
             MySqlCommand networkcmd = new MySqlCommand("SELECT * FROM serverPort WHERE portSpeed = @port", conn);
-            networkcmd.Parameters.Add("@port", cmboNetwork.Text);
+            networkcmd.Parameters.AddWithValue("@port", cmboNetwork.Text);
             MySqlDataReader networkrdr = networkcmd.ExecuteReader();
             networkrdr.Read();
             var network = Convert.ToString(networkrdr[0]);
             networkrdr.Close();
             MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", conn); // Set MySQL query.
-            serverCMD.Parameters.Add("@serverCompany", loginMenu.CompanyID);
-            serverCMD.Parameters.Add("@serverLocation", location);
-            serverCMD.Parameters.Add("@serverHostname", txtHostname.Text);
-            serverCMD.Parameters.Add("@serverUsername", txtUsername.Text);
-            serverCMD.Parameters.Add("@serverPassword", txtPassword.Text);
-            serverCMD.Parameters.Add("@serverKey", txtKey.Text);
-            serverCMD.Parameters.Add("@serverOS", os);
-            serverCMD.Parameters.Add("@serverIP", txtIP.Text);
-            serverCMD.Parameters.Add("@serverProcessor", txtProcessor.Text);
-            serverCMD.Parameters.Add("@serverRAM", txtRAM.Text);
-            serverCMD.Parameters.Add("@serverPort", network);
-            serverCMD.Parameters.Add("@serverTransfer", txtTransfer.Text);
+            serverCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
+            serverCMD.Parameters.AddWithValue("@serverLocation", location);
+            serverCMD.Parameters.AddWithValue("@serverHostname", txtHostname.Text);
+            serverCMD.Parameters.AddWithValue("@serverUsername", txtUsername.Text);
+            serverCMD.Parameters.AddWithValue("@serverPassword", txtPassword.Text);
+            serverCMD.Parameters.AddWithValue("@serverKey", txtKey.Text);
+            serverCMD.Parameters.AddWithValue("@serverOS", os);
+            serverCMD.Parameters.AddWithValue("@serverIP", txtIP.Text);
+            serverCMD.Parameters.AddWithValue("@serverProcessor", txtProcessor.Text);
+            serverCMD.Parameters.AddWithValue("@serverRAM", txtRAM.Text);
+            serverCMD.Parameters.AddWithValue("@serverPort", network);
+            serverCMD.Parameters.AddWithValue("@serverTransfer", txtTransfer.Text);
             serverCMD.ExecuteNonQuery(); // Process query.
             conn.Close();
             txtHostname.Text = "";

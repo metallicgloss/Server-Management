@@ -30,7 +30,7 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn); // Set MySQL query.
-            locationCMD.Parameters.Add("@locationName", cmboExisting.Text);
+            locationCMD.Parameters.AddWithValue("@locationName", cmboExisting.Text);
             locationCMD.ExecuteNonQuery(); // Process query.
             conn.Close();
 
@@ -43,7 +43,7 @@ namespace ELSM_Project
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
             while (rdr.Read())
             {

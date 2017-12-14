@@ -38,7 +38,7 @@ namespace ELSM_Project
             conn.Open();
             string sql = "SELECT * FROM userAccounts WHERE userLogin = @userLogin"; // Create a string with the query command to run.
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.Add("@userLogin", userLogin); // Replace variable @userLogin with the variable collected earlier from the user.
+            cmd.Parameters.AddWithValue("@userLogin", userLogin); // Replace variable @userLogin with the variable collected earlier from the user.
             MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
             rdr.Read();
             
@@ -78,21 +78,21 @@ namespace ELSM_Project
                     txtPassword.Text = "";
                     conn.Open();
                     MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn); // Set MySQL query.
-                    failedCMD.Parameters.Add("@attemptUsername", txtUsername.Text);
-                    failedCMD.Parameters.Add("@attemptIP", loginMenu.IPAddress);
-                    failedCMD.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
+                    failedCMD.Parameters.AddWithValue("@attemptUsername", txtUsername.Text);
+                    failedCMD.Parameters.AddWithValue("@attemptIP", loginMenu.IPAddress);
+                    failedCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
                     failedCMD.ExecuteNonQuery(); // Process query.
                 }
                 else
                 {
                     conn.Open();
                     MySqlCommand accountCMD = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", conn); // Set MySQL query.
-                    accountCMD.Parameters.Add("@attemptIP", ELSM_Project.loginMenu.IPAddress);
-                    accountCMD.Parameters.Add("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
+                    accountCMD.Parameters.AddWithValue("@attemptIP", ELSM_Project.loginMenu.IPAddress);
+                    accountCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
                     accountCMD.ExecuteNonQuery(); // Process query.
 
                     MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", conn);
-                    permissionCommand.Parameters.Add("@permid", Role);
+                    permissionCommand.Parameters.AddWithValue("@permid", Role);
                     MySqlDataReader permissionRDR = permissionCommand.ExecuteReader();
                     permissionRDR.Read();
                     permChangePassword = Convert.ToBoolean(permissionRDR[4]);
@@ -126,7 +126,7 @@ namespace ELSM_Project
                     permissionRDR.Close();
 
                     MySqlCommand companyCMD = new MySqlCommand("SELECT * FROM userCompanies WHERE companyID = @companyID", conn);
-                    companyCMD.Parameters.Add("@companyID", CompanyID);
+                    companyCMD.Parameters.AddWithValue("@companyID", CompanyID);
                     MySqlDataReader companyRDR = companyCMD.ExecuteReader();
                     companyRDR.Read();
                     CompanyName = Convert.ToString(companyRDR[2]);
