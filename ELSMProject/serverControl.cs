@@ -143,5 +143,11 @@ namespace ELSM_Project
             serverControlEdit Edit = new serverControlEdit();
             Edit.ShowDialog();
         }
+
+        private void btnDeleteCommand_Click(object sender, EventArgs e)
+        {
+            serverControlDelete Delete = new serverControlDelete(();
+            Delete.ShowDialog();
+        }
     }
 }

@@ -196,6 +196,7 @@
             this.btnDeleteCommand.TabIndex = 57;
             this.btnDeleteCommand.Text = "Delete Command";
             this.btnDeleteCommand.UseVisualStyleBackColor = true;
+            this.btnDeleteCommand.Click += new System.EventHandler(this.btnDeleteCommand_Click);
             // 
             // btnEditCommand
             // 
