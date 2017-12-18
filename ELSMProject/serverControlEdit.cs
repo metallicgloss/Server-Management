@@ -76,6 +76,7 @@ namespace ELSM_Project
                 else
                 {
                     text.Enabled = false;
+                    text.Text = "";
                 }
             } 
         }
@@ -177,8 +178,10 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
             createloop = 0;
-            loopnum = 0;
-
+            MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); // Set MySQL query.
+            newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
+            newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
+            newDeleteCommand.ExecuteNonQuery(); // Process query.
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
@@ -186,10 +189,7 @@ namespace ELSM_Project
                 var os = "";
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
                 var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
-                MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); // Set MySQL query.
-                newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
-                newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-                newDeleteCommand.ExecuteNonQuery(); // Process query.
+                
                 try
                 {
                     string checkBoxText = checkBox.Text;

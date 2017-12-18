@@ -101,6 +101,7 @@ namespace ELSM_Project
             else
             {
                 text.Enabled = false;
+                text.Text = "";
             }
         }
 
