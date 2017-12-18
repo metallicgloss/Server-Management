@@ -146,7 +146,7 @@ namespace ELSM_Project
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            serverControlDelete Delete = new serverControlDelete(();
+            serverControlDelete Delete = new serverControlDelete();
             Delete.ShowDialog();
         }
     }
