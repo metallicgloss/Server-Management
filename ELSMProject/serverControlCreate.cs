@@ -25,7 +25,7 @@ namespace ELSM_Project
         {
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
             conn.Open();
-            string os = "SELECT * FROM serverOperatingSystems"; // Create a string with the query command to run.
+            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; // Create a string with the query command to run.
             MySqlCommand oscmd = new MySqlCommand(os, conn);
             MySqlDataReader osrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
             int height, width, button1x, button1y, button2x, button2y;

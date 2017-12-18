@@ -137,5 +137,11 @@ namespace ELSM_Project
             serverControlCreate Create = new serverControlCreate();
             Create.ShowDialog();
         }
+
+        private void btnEditCommand_Click(object sender, EventArgs e)
+        {
+            serverControlEdit Edit = new serverControlEdit();
+            Edit.ShowDialog();
+        }
     }
 }

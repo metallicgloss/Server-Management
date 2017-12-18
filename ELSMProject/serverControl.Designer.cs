@@ -209,6 +209,7 @@
             this.btnEditCommand.TabIndex = 56;
             this.btnEditCommand.Text = "Edit Command";
             this.btnEditCommand.UseVisualStyleBackColor = true;
+            this.btnEditCommand.Click += new System.EventHandler(this.btnEditCommand_Click);
             // 
             // btnCreateCommand
             // 

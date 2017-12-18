@@ -61,7 +61,7 @@
             this.btnNewCommand.Name = "btnNewCommand";
             this.btnNewCommand.Size = new System.Drawing.Size(540, 31);
             this.btnNewCommand.TabIndex = 44;
-            this.btnNewCommand.Text = "Process New Server";
+            this.btnNewCommand.Text = "Process New Command";
             this.btnNewCommand.UseVisualStyleBackColor = false;
             this.btnNewCommand.Click += new System.EventHandler(this.btnNewCommand_Click);
             // 
@@ -109,7 +109,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "serverControlCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Server";
+            this.Text = "Create Command";
             this.Load += new System.EventHandler(this.serverControlCreate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
