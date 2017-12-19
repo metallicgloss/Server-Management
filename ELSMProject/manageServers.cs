@@ -21,7 +21,7 @@ namespace ELSM_Project
 
         private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+            System.Diagnostics.Process.Start("https:
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace ELSM_Project
                 btnManageServers.Top += 43;
                 btnManageLocations.Visible = false;
             }
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             try
             {
@@ -135,7 +135,7 @@ namespace ELSM_Project
         {
             manageServersCreate Create = new manageServersCreate();
             Create.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             try
             {
@@ -161,7 +161,7 @@ namespace ELSM_Project
         {
             manageServersEdit Edit = new manageServersEdit();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             try
             {

@@ -19,8 +19,8 @@ namespace ELSM_Project
 
         public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password;
         public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers;
-        public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; // Temp login credentials to remotely hosted MySQL database.
-        // Want cheap, reliable and powerful MySQL and web hosting? Check out https://www.elhostingservices.com - Shameless plug. Login information and this comment to be removed at a later date.
+        public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; 
+        
 
 
         public loginMenu()
@@ -30,24 +30,24 @@ namespace ELSM_Project
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            var userLogin = txtUsername.Text; // Set userLogin variable to the user input.
-            var userPassword = txtPassword.Text; // Set userPassword variable to the user input.
-            var checkpointReached = false; // Setup variable for use later on in the login stage to catch a MySQL error.
+            var userLogin = txtUsername.Text; 
+            var userPassword = txtPassword.Text; 
+            var checkpointReached = false; 
 
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT * FROM userAccounts WHERE userLogin = @userLogin"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM userAccounts WHERE userLogin = @userLogin"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@userLogin", userLogin); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@userLogin", userLogin); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             rdr.Read();
             
             try
             {
-                var Valid = Convert.ToString(rdr[0]); // Attempting to create a random variable and set it to value from the database.
-                checkpointReached = true; // If the re was no error set the flag to true.
+                var Valid = Convert.ToString(rdr[0]); 
+                checkpointReached = true; 
             }
-            catch (Exception) // If variable was unable to be set to a value from the database and threw an error, process catch section.
+            catch (Exception) 
             {
                 System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
                 txtUsername.Text = "";
@@ -55,9 +55,9 @@ namespace ELSM_Project
                 rdr.Close();
                 conn.Close();
             }
-            if (checkpointReached == true) // If the Valid variable earlier could be set and the flag was changed to true, run code.
+            if (checkpointReached == true) 
             {
-                var databasePassword = Convert.ToString(rdr[2]); // Set databasePassword equal to the value in the database for the user.
+                var databasePassword = Convert.ToString(rdr[2]); 
                 loginMenu.UserID = Convert.ToString(rdr[0]);
                 loginMenu.Username = Convert.ToString(rdr[1]);
                 loginMenu.Password = Convert.ToString(rdr[2]);
@@ -71,25 +71,25 @@ namespace ELSM_Project
                 String EnteredPassword = CodeShare.Cryptography.SHA.GenerateSHA512String(txtPassword.Text);
 
                 rdr.Close();
-                if (EnteredPassword != databasePassword) // If databasevalue doesn't match what the user entered, run code. Else run another block of code.
+                if (EnteredPassword != databasePassword) 
                 {
                     System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
                     txtUsername.Text = "";
                     txtPassword.Text = "";
                     conn.Open();
-                    MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn); // Set MySQL query.
+                    MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn); 
                     failedCMD.Parameters.AddWithValue("@attemptUsername", txtUsername.Text);
                     failedCMD.Parameters.AddWithValue("@attemptIP", loginMenu.IPAddress);
-                    failedCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
-                    failedCMD.ExecuteNonQuery(); // Process query.
+                    failedCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); 
+                    failedCMD.ExecuteNonQuery(); 
                 }
                 else
                 {
                     conn.Open();
-                    MySqlCommand accountCMD = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", conn); // Set MySQL query.
+                    MySqlCommand accountCMD = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", conn); 
                     accountCMD.Parameters.AddWithValue("@attemptIP", ELSM_Project.loginMenu.IPAddress);
-                    accountCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace text in string with variables.
-                    accountCMD.ExecuteNonQuery(); // Process query.
+                    accountCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); 
+                    accountCMD.ExecuteNonQuery(); 
 
                     MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", conn);
                     permissionCommand.Parameters.AddWithValue("@permid", Role);
@@ -149,9 +149,9 @@ namespace ELSM_Project
 
         private void loginFRM_Load(object sender, EventArgs e)
         {
-            string externalIP; // Define variable to be used.
-            externalIP = (new WebClient()).DownloadString("http://checkip.dyndns.org/"); // Get download from URL about computer information.
-            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString(); // Truncate and convert kickback string 
+            string externalIP; 
+            externalIP = (new WebClient()).DownloadString("http:
+            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString(); 
             loginMenu.IPAddress = externalIP;
         }
 

@@ -27,24 +27,24 @@ namespace ELSM_Project
         private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
             
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn); // Set MySQL query.
+            MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", cmboExisting.Text);
-            locationCMD.ExecuteNonQuery(); // Process query.
+            locationCMD.ExecuteNonQuery(); 
             conn.Close();
 
-            // Something to update in the future, hidden ID variable as will delete multiple rows if the name is the same.
+            
         }
 
         private void manageLocationsDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));

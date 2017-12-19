@@ -21,28 +21,28 @@ namespace ELSM_Project
 
         private void manageServersCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string locations = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
+            string locations = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand locationscmd = new MySqlCommand(locations, conn);
-            locationscmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader locationrdr = locationscmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            locationscmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader locationrdr = locationscmd.ExecuteReader(); 
             while (locationrdr.Read())
             {
                 cmboLocation.Items.Add(locationrdr.GetString("locationName"));
             }
             locationrdr.Close();
-            string os = "SELECT * FROM serverOperatingSystems"; // Create a string with the query command to run.
+            string os = "SELECT * FROM serverOperatingSystems"; 
             MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader osrdr = oscmd.ExecuteReader(); 
             while (osrdr.Read())
             {
                 cmboOS.Items.Add(osrdr.GetString("operatingSystemsName"));
             }
             osrdr.Close();
-            string port = "SELECT * FROM serverPort"; // Create a string with the query command to run.
+            string port = "SELECT * FROM serverPort"; 
             MySqlCommand portcmd = new MySqlCommand(port, conn);
-            MySqlDataReader portrdr = portcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader portrdr = portcmd.ExecuteReader(); 
             while (portrdr.Read())
             {
                 cmboNetwork.Items.Add(portrdr.GetString("portSpeed"));
@@ -58,7 +58,7 @@ namespace ELSM_Project
 
         private void btnNewServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             MySqlCommand locationcmd = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", conn);
             locationcmd.Parameters.AddWithValue("@location", cmboLocation.Text);
@@ -78,7 +78,7 @@ namespace ELSM_Project
             networkrdr.Read();
             var network = Convert.ToString(networkrdr[0]);
             networkrdr.Close();
-            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", conn); // Set MySQL query.
+            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", conn); 
             serverCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
             serverCMD.Parameters.AddWithValue("@serverLocation", location);
             serverCMD.Parameters.AddWithValue("@serverHostname", txtHostname.Text);
@@ -91,7 +91,7 @@ namespace ELSM_Project
             serverCMD.Parameters.AddWithValue("@serverRAM", txtRAM.Text);
             serverCMD.Parameters.AddWithValue("@serverPort", network);
             serverCMD.Parameters.AddWithValue("@serverTransfer", txtTransfer.Text);
-            serverCMD.ExecuteNonQuery(); // Process query.
+            serverCMD.ExecuteNonQuery(); 
             conn.Close();
             txtHostname.Text = "";
             txtIP.Text = "";

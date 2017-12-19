@@ -26,12 +26,12 @@ namespace ELSM_Project
 
         private void serverControlDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboName.Items.Add(rdr.GetString("commandName"));
@@ -41,17 +41,17 @@ namespace ELSM_Project
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", conn); // Set MySQL query.
+            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", conn); 
             serverCMD.Parameters.AddWithValue("@Name", cmboName.Text);
-            serverCMD.Parameters.AddWithValue("@Company", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            serverCMD.ExecuteNonQuery(); // Process query.
+            serverCMD.Parameters.AddWithValue("@Company", loginMenu.CompanyID); 
+            serverCMD.ExecuteNonQuery(); 
             cmboName.Items.Clear();
-            string sql = "SELECT * FROM serverCommands WHERE serverCompany = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverCommands WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboName.Items.Add(rdr.GetString("commandName"));

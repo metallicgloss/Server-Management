@@ -21,7 +21,7 @@ namespace ELSM_Project
 		
 		private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+            System.Diagnostics.Process.Start("https:
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -113,7 +113,7 @@ namespace ELSM_Project
                 btnManageLocations.Visible = false;
             }
 
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             try
             {

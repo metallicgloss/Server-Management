@@ -28,19 +28,19 @@ namespace ELSM_Project
 
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             MySqlCommand oscmd = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
             oscmd.Parameters.AddWithValue("@company", loginMenu.CompanyID);
-            MySqlDataReader serverrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader serverrdr = oscmd.ExecuteReader(); 
             while (serverrdr.Read())
             {
                 cmboCommands.Items.Add(serverrdr.GetString("commandName"));
             }
             serverrdr.Close();
-            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID ASC"; // Create a string with the query command to run.
+            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID ASC"; 
             MySqlCommand os2cmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = os2cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader osrdr = os2cmd.ExecuteReader(); 
             loopnum = 0;
             while (osrdr.Read())
             {
@@ -83,13 +83,13 @@ namespace ELSM_Project
 
         private void cmboCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             
             MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", conn);
-            commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            commandcmd.Parameters.AddWithValue("@Name", cmboCommands.Text); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); 
+            commandcmd.Parameters.AddWithValue("@Name", cmboCommands.Text); 
+            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); 
             loopnum = 0;
             while (setcommandids.Read())
             {
@@ -97,7 +97,7 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setcommandids.Close();
-            MySqlDataReader setcommandtext = commandcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader setcommandtext = commandcmd.ExecuteReader(); 
             loopnum = 0;
             while (setcommandtext.Read())
             {
@@ -105,7 +105,7 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setcommandtext.Close();
-            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); 
             int height, width, button1x, button1y, button2x, button2y;
             width = 1182;
             height = 206;
@@ -175,13 +175,13 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             createloop = 0;
-            MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); // Set MySQL query.
+            MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); 
             newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
             newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-            newDeleteCommand.ExecuteNonQuery(); // Process query.
+            newDeleteCommand.ExecuteNonQuery(); 
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
@@ -209,12 +209,12 @@ namespace ELSM_Project
                 {
                     if (text.Text != "")
                     {
-                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); // Set MySQL query.
+                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); 
                         newCommand.Parameters.AddWithValue("@serverCommand", text.Text);
                         newCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
                         newCommand.Parameters.AddWithValue("@serverOS", os);
                         newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-                        newCommand.ExecuteNonQuery(); // Process query.
+                        newCommand.ExecuteNonQuery(); 
                     }
 
                 }

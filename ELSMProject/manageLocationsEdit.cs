@@ -26,12 +26,12 @@ namespace ELSM_Project
 
         private void manageLocationsEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
@@ -41,21 +41,21 @@ namespace ELSM_Project
 
         private void btnEditLocation_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            MySqlCommand locationCMD = new MySqlCommand("UPDATE serverLocations SET locationName = @locationName, locationLongitude = @locationLongitude, locationLatitude = @locationLatitude WHERE locationName = @oldLocationName", conn); // Set MySQL query.
+            MySqlCommand locationCMD = new MySqlCommand("UPDATE serverLocations SET locationName = @locationName, locationLongitude = @locationLongitude, locationLatitude = @locationLatitude WHERE locationName = @oldLocationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
             locationCMD.Parameters.AddWithValue("@locationLongitude", txtLongitude.Text);
             locationCMD.Parameters.AddWithValue("@oldLocationName", cmboExisting.Text);
-            locationCMD.Parameters.AddWithValue("@locationLatitude", txtLatitude.Text); // Replace text in string with variables.
-            locationCMD.ExecuteNonQuery(); // Process query.
+            locationCMD.Parameters.AddWithValue("@locationLatitude", txtLatitude.Text); 
+            locationCMD.ExecuteNonQuery(); 
             txtLatitude.Text = "";
             txtLongitude.Text = "";
             txtLocationName.Text = "";
-            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
@@ -65,12 +65,12 @@ namespace ELSM_Project
 
         private void LocationDetails(string name)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT * FROM serverLocations WHERE locationName = @locationName"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverLocations WHERE locationName = @locationName"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@locationName", name); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@locationName", name); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 if (!rdr.HasRows)

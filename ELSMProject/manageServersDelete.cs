@@ -26,12 +26,12 @@ namespace ELSM_Project
 
         private void manageServersDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboHostname.Items.Add(rdr.GetString("serverHostname"));
@@ -41,16 +41,16 @@ namespace ELSM_Project
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverInformation WHERE serverHostname = @Hostname", conn); // Set MySQL query.
+            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverInformation WHERE serverHostname = @Hostname", conn); 
             serverCMD.Parameters.AddWithValue("@Hostname", cmboHostname.Text);
-            serverCMD.ExecuteNonQuery(); // Process query.
+            serverCMD.ExecuteNonQuery(); 
             cmboHostname.Items.Clear();
-            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; // Create a string with the query command to run.
+            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader rdr = cmd.ExecuteReader(); 
             while (rdr.Read())
             {
                 cmboHostname.Items.Add(rdr.GetString("serverHostname"));

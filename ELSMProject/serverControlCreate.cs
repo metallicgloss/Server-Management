@@ -23,11 +23,11 @@ namespace ELSM_Project
 
         private void serverControlCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
-            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; // Create a string with the query command to run.
+            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; 
             MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader osrdr = oscmd.ExecuteReader(); 
             int height, width, button1x, button1y, button2x, button2y;
             width = 1182;
             height = 206;
@@ -107,7 +107,7 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             createloop = 0;
             while (loopnum != createloop)
@@ -136,12 +136,12 @@ namespace ELSM_Project
                 {
                     if (text.Text != "")
                     {
-                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); // Set MySQL query.
+                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); 
                         newCommand.Parameters.AddWithValue("@serverCommand", text.Text);
                         newCommand.Parameters.AddWithValue("@commandName", txtCommandName.Text);
                         newCommand.Parameters.AddWithValue("@serverOS", os);
                         newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-                        newCommand.ExecuteNonQuery(); // Process query.
+                        newCommand.ExecuteNonQuery(); 
                     }
                     
                 }

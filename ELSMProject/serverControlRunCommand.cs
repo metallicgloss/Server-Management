@@ -29,7 +29,7 @@ namespace ELSM_Project
 
         private void cmboCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
 
             
@@ -42,7 +42,7 @@ namespace ELSM_Project
 
         private void btnRunCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             createloop = 0;
             while (loopnum != createloop)
@@ -96,20 +96,20 @@ namespace ELSM_Project
 
         private void serverControlRunCommand_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Turn connection string into MySQL Connection form.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
             conn.Open();
             MySqlCommand oscmd = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
             oscmd.Parameters.AddWithValue("@company", loginMenu.CompanyID);
-            MySqlDataReader serverrdr = oscmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader serverrdr = oscmd.ExecuteReader(); 
             while (serverrdr.Read())
             {
                 cmboCommands.Items.Add(serverrdr.GetString("commandName"));
             }
             serverrdr.Close();
-            string os = "SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC"; // Create a string with the query command to run.
+            string os = "SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC"; 
             MySqlCommand os2cmd = new MySqlCommand(os, conn);
             os2cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader osrdr = os2cmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader osrdr = os2cmd.ExecuteReader(); 
             loopnum = 0;
             while (osrdr.Read())
             {
@@ -118,8 +118,8 @@ namespace ELSM_Project
             }
             osrdr.Close();
             MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @company ORDER BY serverID", conn);
-            commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); // Replace variable @userLogin with the variable collected earlier from the user.
-            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); 
+            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); 
             loopnum = 0;
             while (setcommandids.Read())
             {
@@ -127,7 +127,7 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setcommandids.Close();
-            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); // Process the query command and feedback data to reader.
+            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); 
             int height;
             height = 206;
             loopnum = 0;
