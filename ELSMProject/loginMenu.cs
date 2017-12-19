@@ -150,7 +150,7 @@ namespace ELSM_Project
         private void loginFRM_Load(object sender, EventArgs e)
         {
             string externalIP; 
-            externalIP = (new WebClient()).DownloadString("http:
+            externalIP = (new WebClient()).DownloadString("http://checkip.dyndns.org/");
             externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString(); 
             loginMenu.IPAddress = externalIP;
         }

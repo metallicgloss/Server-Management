@@ -73,7 +73,7 @@ namespace ELSM_Project
 
         private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https:
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");//www.metallicgloss.com");
         }
 
         private void btnHome_Click(object sender, EventArgs e)
