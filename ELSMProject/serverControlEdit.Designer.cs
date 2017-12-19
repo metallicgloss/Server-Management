@@ -79,6 +79,7 @@
             // 
             // pnlConfiguration
             // 
+            this.pnlConfiguration.AutoScroll = true;
             this.pnlConfiguration.Location = new System.Drawing.Point(36, 65);
             this.pnlConfiguration.Name = "pnlConfiguration";
             this.pnlConfiguration.Size = new System.Drawing.Size(1084, 24);
@@ -97,6 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1166, 167);

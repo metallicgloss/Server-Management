@@ -272,6 +272,7 @@
             this.btnRunCommand.TabIndex = 51;
             this.btnRunCommand.Text = "Run Command";
             this.btnRunCommand.UseVisualStyleBackColor = true;
+            this.btnRunCommand.Click += new System.EventHandler(this.btnRunCommand_Click);
             // 
             // dataGridView1
             // 

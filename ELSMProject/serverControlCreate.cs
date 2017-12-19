@@ -45,7 +45,7 @@ namespace ELSM_Project
             {
                 value = Convert.ToString(osrdr[1]);
                 height += 20;
-                this.Height += 20;
+                this.Height += 5;
                 pnlConfiguration.Height += 20;
                 CheckBox box;
                 box = new CheckBox();

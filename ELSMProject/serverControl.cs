@@ -149,5 +149,11 @@ namespace ELSM_Project
             serverControlDelete Delete = new serverControlDelete();
             Delete.ShowDialog();
         }
+
+        private void btnRunCommand_Click(object sender, EventArgs e)
+        {
+            serverControlRunCommand Run = new serverControlRunCommand();
+            Run.ShowDialog();
+        }
     }
 }
