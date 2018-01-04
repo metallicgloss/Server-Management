@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -19,6 +20,7 @@ namespace ELSM_Project
         {
             InitializeComponent();
         }
+
 
         public static int loopnum, createloop;
         public static bool finished;
@@ -72,20 +74,27 @@ namespace ELSM_Project
                     oscommand.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
                     MySqlDataReader osreader = oscommand.ExecuteReader();
                     osreader.Read();
-                    try
+                    string osdada = Convert.ToString(osreader[4]);
+                    new Thread(() =>
                     {
-                        using (var client = new SshClient(ip, username, password))
+                        Thread.CurrentThread.IsBackground = true;
+                        try
                         {
-                            client.Connect();
-                            client.RunCommand(Convert.ToString(osreader[4]));
-                            client.Disconnect();
-                        }
+                            using (var client = new SshClient(ip, username, password))
+                            {
+                                client.Connect();
+                                client.RunCommand(Convert.ToString(osdada));
+                                client.Disconnect();
+                            }
 
-                    }
-                    catch (Exception)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Error");
-                    }
+                        }
+                        catch (Exception)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Error");
+                        }
+                    }).Start();
+                    
+                    
                     osreader.Close();
                 }
                 createloop += 1;
