@@ -99,7 +99,6 @@ namespace ELSM_Project
             txtPassword.Text = "";
             txtProcessor.Text = "";
             txtRAM.Text = "";
-            txtServerName.Text = "";
             txtTransfer.Text = "";
             txtUsername.Text = "";
         }
