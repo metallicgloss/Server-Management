@@ -17,7 +17,7 @@ namespace ELSM_Project
     public partial class loginMenu : Form
     {
 
-        public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password;
+        public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password, externalIP;
         public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers;
         public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; 
         
@@ -149,12 +149,15 @@ namespace ELSM_Project
 
         private void loginFRM_Load(object sender, EventArgs e)
         {
-            string externalIP; 
-            externalIP = (new WebClient()).DownloadString("http://checkip.dyndns.org/");
-            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches(externalIP)[0].ToString(); 
+            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("https://www.metallicgloss.com/functions/ip.php"))[0].ToString(); 
             loginMenu.IPAddress = externalIP;
+        }        
+    }
+    public class Functions
+    {
+        public static string ShowSomeInfo(string text, int number)
+        {
+            return text + ": " + number.ToString();
         }
-
-        
     }
 }

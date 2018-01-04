@@ -105,14 +105,9 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setcommandtext.Close();
-            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); 
-            int height, width, button1x, button1y, button2x, button2y;
-            width = 1182;
+            MySqlDataReader commandrdr = commandcmd.ExecuteReader();
+            int height;
             height = 206;
-            button1x = 36;
-            button1y = 111;
-            button2x = 579;
-            button2y = 111;
             loopnum = 0;
             int pointX = 235;
             int pointY = 20;
@@ -200,7 +195,7 @@ namespace ELSM_Project
                     os = Convert.ToString(osrdr[0]);
                     osrdr.Close();
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
 
                 }
@@ -218,7 +213,7 @@ namespace ELSM_Project
                     }
 
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
 
                 }

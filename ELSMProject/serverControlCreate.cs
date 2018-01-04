@@ -27,14 +27,9 @@ namespace ELSM_Project
             conn.Open();
             string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; 
             MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); 
-            int height, width, button1x, button1y, button2x, button2y;
-            width = 1182;
+            MySqlDataReader osrdr = oscmd.ExecuteReader();
+            int height;
             height = 206;
-            button1x = 36;
-            button1y = 111;
-            button2x = 579;
-            button2y = 111;
             loopnum = 1;
             
             int boxnum = 0;
@@ -127,7 +122,7 @@ namespace ELSM_Project
                     os = Convert.ToString(osrdr[0]);
                     osrdr.Close();
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
                     
                 }
@@ -145,7 +140,7 @@ namespace ELSM_Project
                     }
                     
                 }
-                catch (Exception exception)
+                catch (Exception)
                 {
                     
                 }

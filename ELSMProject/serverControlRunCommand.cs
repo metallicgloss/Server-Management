@@ -82,7 +82,7 @@ namespace ELSM_Project
                         }
 
                     }
-                    catch (Exception exception)
+                    catch (Exception)
                     {
                         System.Windows.Forms.MessageBox.Show("Error");
                     }
