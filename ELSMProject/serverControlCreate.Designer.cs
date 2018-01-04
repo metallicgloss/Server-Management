@@ -110,7 +110,6 @@
             this.Controls.Add(this.btnNewCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "serverControlCreate";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Command";
             this.Load += new System.EventHandler(this.serverControlCreate_Load);
             this.ResumeLayout(false);

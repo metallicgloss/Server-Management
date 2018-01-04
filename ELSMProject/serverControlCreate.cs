@@ -39,9 +39,6 @@ namespace ELSM_Project
             while (osrdr.Read())
             {
                 value = Convert.ToString(osrdr[1]);
-                height += 20;
-                this.Height += 5;
-                pnlConfiguration.Height += 20;
                 CheckBox box;
                 box = new CheckBox();
                 box.Name = "chkOS" + Convert.ToString(loopnum);
@@ -60,7 +57,7 @@ namespace ELSM_Project
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
                 a.Name = "txtInput" + loopnum2;
-                a.Width = 849;
+                a.Width = 800;
                 a.Enabled = false;
                 pnlConfiguration.Controls.Add(a);
                 pnlConfiguration.Show();
@@ -69,9 +66,10 @@ namespace ELSM_Project
                 loopnum2 += 1;
             }
             osrdr.Close();
-            btnNewCommand.Top += loopnum2 * 23;
-            btnCancel.Top += loopnum2 * 23;
-
+            this.Height += loopnum2 * 5;
+            pnlConfiguration.Height += (loopnum2 * 5);
+            btnNewCommand.Top += loopnum2 * 6;
+            btnCancel.Top += loopnum2 * 6;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

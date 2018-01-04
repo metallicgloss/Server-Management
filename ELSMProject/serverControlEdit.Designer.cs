@@ -110,7 +110,6 @@
             this.Controls.Add(this.btnEditCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "serverControlEdit";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Command";
             this.Load += new System.EventHandler(this.serverControlEdit_Load);
             this.ResumeLayout(false);

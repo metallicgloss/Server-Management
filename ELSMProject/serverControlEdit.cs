@@ -113,17 +113,12 @@ namespace ELSM_Project
             int pointY = 20;
             int boxnum = 0;
             string value;
-            pnlConfiguration.Height += 40;
-            this.Height += 40;
             int temploop;
             string yes = "No";
             while (operatingSystemsID[loopnum] != null)
             {
                 value = Convert.ToString(operatingSystems[loopnum]);
                 temploop = 0;
-                height += 20;
-                this.Height += 20;
-                pnlConfiguration.Height += 20;
                 CheckBox box;
                 box = new CheckBox();
                 box.Name = "chkOS" + Convert.ToString(loopnum);
@@ -135,7 +130,7 @@ namespace ELSM_Project
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
                 a.Name = "txtInput" + (loopnum - 1);
-                a.Width = 849;
+                a.Width = 800;
                 temploop = 0;
                 pnlConfiguration.Controls.Add(a);
                 pnlConfiguration.Show();
@@ -162,10 +157,13 @@ namespace ELSM_Project
                 boxnum += 1;
 
             }
+
+            this.Height += loopnum * 5;
+            pnlConfiguration.Height += loopnum * 5;
             commandrdr.Close();
             finished = true;
-            btnEditCommand.Top += loopnum * 23;
-            btnCancel.Top += loopnum * 23;
+            btnEditCommand.Top += loopnum * 5;
+            btnCancel.Top += loopnum * 5;
         }
 
         private void btnNewCommand_Click(object sender, EventArgs e)
