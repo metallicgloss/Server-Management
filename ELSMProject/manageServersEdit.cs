@@ -24,7 +24,7 @@ namespace ELSM_Project
 
         private void manageServersEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string server = "SELECT * FROM serverInformation"; 
             MySqlCommand servercmd = new MySqlCommand(server, conn);
@@ -39,7 +39,7 @@ namespace ELSM_Project
 
         private void cmboHostNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string server = "SELECT * FROM serverInformation WHERE serverHostname = @Hostname"; 
             MySqlCommand servercmd = new MySqlCommand(server, conn);
@@ -135,7 +135,7 @@ namespace ELSM_Project
 
         private void btnNewServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
 
             MySqlCommand locationcmd = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", conn);
@@ -189,12 +189,12 @@ namespace ELSM_Project
             server.Parameters.AddWithValue("@serverPort", network);
             server.Parameters.AddWithValue("@serverTransfer", txtTransfer.Text);
             server.ExecuteNonQuery(); 
-            Hide();
+            Hide(); //Hide form
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
     }
 }

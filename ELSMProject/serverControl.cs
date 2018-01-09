@@ -26,7 +26,7 @@ namespace ELSM_Project
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
@@ -38,21 +38,21 @@ namespace ELSM_Project
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageServers manageS = new manageServers();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageLocations manageL = new manageLocations();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageAccount Account = new manageAccount();
             Account.ShowDialog();
         }
@@ -113,7 +113,7 @@ namespace ELSM_Project
                 btnManageLocations.Visible = false;
             }
 
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             try
             {

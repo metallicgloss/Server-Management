@@ -21,7 +21,7 @@ namespace ELSM_Project
 
         private void manageServersCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string locations = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand locationscmd = new MySqlCommand(locations, conn);
@@ -53,12 +53,12 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void btnNewServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand locationcmd = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", conn);
             locationcmd.Parameters.AddWithValue("@location", cmboLocation.Text);

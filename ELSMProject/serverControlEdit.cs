@@ -28,7 +28,7 @@ namespace ELSM_Project
 
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand oscmd = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
             oscmd.Parameters.AddWithValue("@company", loginMenu.CompanyID);
@@ -46,7 +46,7 @@ namespace ELSM_Project
             {
                 operatingSystemsID[loopnum] = Convert.ToString(osrdr[0]);
                 operatingSystems[loopnum] = Convert.ToString(osrdr[1]);
-                loopnum += 1;
+                loopnum += 1; // Add the value of 1 to the variable
             }
             osrdr.Close();
                 finished = false;
@@ -54,7 +54,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void valueChecked(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace ELSM_Project
 
         private void cmboCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             
             MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", conn);
@@ -94,7 +94,7 @@ namespace ELSM_Project
             while (setcommandids.Read())
             {
                 commandOSID[loopnum] = Convert.ToString(setcommandids[2]);
-                loopnum += 1;
+                loopnum += 1; // Add the value of 1 to the variable
             }
             setcommandids.Close();
             MySqlDataReader setcommandtext = commandcmd.ExecuteReader(); 
@@ -102,7 +102,7 @@ namespace ELSM_Project
             while (setcommandtext.Read())
             {
                 commandText[loopnum] = Convert.ToString(setcommandtext[4]);
-                loopnum += 1;
+                loopnum += 1; // Add the value of 1 to the variable
             }
             setcommandtext.Close();
             MySqlDataReader commandrdr = commandcmd.ExecuteReader();
@@ -144,7 +144,7 @@ namespace ELSM_Project
                         a.Text = Convert.ToString(commandText[temploop]);
                         yes = "Yes";
                     }
-                    temploop += 1;
+                    temploop += 1; // Add the value of 1 to the variable
                 }
                 if (yes != "Yes")
                 {
@@ -152,9 +152,9 @@ namespace ELSM_Project
                     a.Enabled = false;
                 }
                 yes = "No";
-                loopnum += 1;
+                loopnum += 1; // Add the value of 1 to the variable
                 pointY += 20;
-                boxnum += 1;
+                boxnum += 1; // Add the value of 1 to the variable
 
             }
 
@@ -168,7 +168,7 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             createloop = 0;
             MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); 
@@ -215,11 +215,11 @@ namespace ELSM_Project
                 {
 
                 }
-                createloop += 1;
+                createloop += 1; // Add the value of 1 to the variable
             }
 
             conn.Close();
-            Hide();
+            Hide(); //Hide form
         }
     }
 }

@@ -21,12 +21,12 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void manageLocationsEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -41,7 +41,7 @@ namespace ELSM_Project
 
         private void btnEditLocation_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("UPDATE serverLocations SET locationName = @locationName, locationLongitude = @locationLongitude, locationLatitude = @locationLatitude WHERE locationName = @oldLocationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
@@ -65,7 +65,7 @@ namespace ELSM_Project
 
         private void LocationDetails(string name)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE locationName = @locationName"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);

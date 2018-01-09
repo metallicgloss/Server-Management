@@ -83,28 +83,28 @@ namespace ELSM_Project
 
         private void btnServerControl_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             serverControl Servers = new serverControl();
             Servers.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageServers manageS = new manageServers();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageLocations manageL = new manageLocations();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageAccount Account = new manageAccount();
             Account.ShowDialog();
         }

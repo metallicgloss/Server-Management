@@ -34,7 +34,7 @@ namespace ELSM_Project
             var userPassword = txtPassword.Text; 
             var checkpointReached = false; 
 
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string sql = "SELECT * FROM userAccounts WHERE userLogin = @userLogin"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -133,7 +133,7 @@ namespace ELSM_Project
                     conn.Close();
                     companyRDR.Close();
 
-                    Hide();
+                    Hide(); //Hide form
 
                     mainDashboard loginMenu = new mainDashboard();
                     loginMenu.ShowDialog();

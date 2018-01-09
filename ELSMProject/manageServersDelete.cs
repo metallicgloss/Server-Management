@@ -21,12 +21,12 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void manageServersDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -41,7 +41,7 @@ namespace ELSM_Project
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverInformation WHERE serverHostname = @Hostname", conn); 
             serverCMD.Parameters.AddWithValue("@Hostname", cmboHostname.Text);

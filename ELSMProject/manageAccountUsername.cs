@@ -26,25 +26,25 @@ namespace ELSM_Project
 
         private void manageAccountUsername_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
             if (txtNewUsername.Text == txtConfirmNewUsername.Text)
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userLogin = @newUsername", conn);
                 command.Parameters.AddWithValue("@newUsername", txtNewUsername.Text);
                 command.ExecuteNonQuery();
                 loginMenu.Username = txtNewUsername.Text;
-                Hide();
+                Hide(); //Hide form
             }
             else
             {

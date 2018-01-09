@@ -21,12 +21,12 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void serverControlDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string sql = "SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -41,7 +41,7 @@ namespace ELSM_Project
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", conn); 
             serverCMD.Parameters.AddWithValue("@Name", cmboName.Text);

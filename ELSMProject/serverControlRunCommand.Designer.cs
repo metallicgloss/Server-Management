@@ -92,7 +92,6 @@
             this.cmboCommands.Name = "cmboCommands";
             this.cmboCommands.Size = new System.Drawing.Size(849, 21);
             this.cmboCommands.TabIndex = 51;
-            this.cmboCommands.SelectedIndexChanged += new System.EventHandler(this.cmboCommands_SelectedIndexChanged);
             // 
             // serverControlRunCommand
             // 

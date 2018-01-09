@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Renci.SshNet;
 
@@ -20,61 +14,44 @@ namespace ELSM_Project
         {
             InitializeComponent();
         }
-
-
-        public static int loopnum, createloop;
-        public static bool finished;
-        string[] operatingSystemsID = new string[100];
-        string[] operatingSystems = new string[100];
-        string[] commandOSID = new string[100];
-        string[] commandText = new string[100];
-
-        private void cmboCommands_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
-            conn.Open();
-
-            
-        }
+        
+        private static int loopNum, activeLoop = 0;
+        private static bool finished;
+        private static string os, ip, username, password, key, chkBoxName, checkBoxText, commandData, value;
+        private string[] operatingSystemsID = new string[100], operatingSystems = new string[100], commandOSID = new string[100], commandText = new string[100];
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void btnRunCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
-            conn.Open();
-            createloop = 0;
-            while (loopnum != createloop)
+            MySqlConnection runCommandConnection = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL Connection 
+            runCommandConnection.Open(); // Open MySQL Connection 
+            while (loopNum != activeLoop)
             {
-                string chkname = "chkServer" + Convert.ToString(createloop);
-                var os = "";
-                var ip = "";
-                var username = "";
-                var password = "";
-                var key = "";
-                var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
-                string checkBoxText = checkBox.Text;
+                chkBoxName = "chkServer" + Convert.ToString(activeLoop);
+                var checkBox = this.Controls.Find(chkBoxName, true).FirstOrDefault() as CheckBox;
+                checkBoxText = checkBox.Text;
                 if (checkBox.Checked == true)
                 {
-                    MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverInformation WHERE serverHostname = @hostname", conn);
-                    oscmd.Parameters.AddWithValue("@hostname", checkBoxText);
-                    MySqlDataReader osrdr = oscmd.ExecuteReader();
-                    osrdr.Read();
-                    ip = Convert.ToString(osrdr[8]);
-                    username = Convert.ToString(osrdr[4]);
-                    password = Convert.ToString(osrdr[5]);
-                    key = Convert.ToString(osrdr[6]);
-                    os = Convert.ToString(osrdr[7]);
-                    osrdr.Close();
-                    MySqlCommand oscommand = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", conn);
-                    oscommand.Parameters.AddWithValue("@os", os);
-                    oscommand.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
-                    MySqlDataReader osreader = oscommand.ExecuteReader();
-                    osreader.Read();
-                    string osdada = Convert.ToString(osreader[4]);
+                    MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverHostname = @hostname", runCommandConnection);
+                    serverCMD.Parameters.AddWithValue("@hostname", checkBoxText);
+                    MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader();
+                    serverInformationRDR.Read();
+                    ip = Convert.ToString(serverInformationRDR[8]);
+                    username = Convert.ToString(serverInformationRDR[4]);
+                    password = Convert.ToString(serverInformationRDR[5]);
+                    key = Convert.ToString(serverInformationRDR[6]);
+                    os = Convert.ToString(serverInformationRDR[7]);
+                    serverInformationRDR.Close();
+                    MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
+                    osCMD.Parameters.AddWithValue("@os", os);
+                    osCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
+                    MySqlDataReader osRDR = osCMD.ExecuteReader();
+                    osRDR.Read();
+                    commandData = Convert.ToString(osRDR[4]);
                     new Thread(() =>
                     {
                         Thread.CurrentThread.IsBackground = true;
@@ -83,88 +60,82 @@ namespace ELSM_Project
                             using (var client = new SshClient(ip, username, password))
                             {
                                 client.Connect();
-                                client.RunCommand(Convert.ToString(osdada));
+                                client.RunCommand(Convert.ToString(commandData));
                                 client.Disconnect();
                             }
-
                         }
                         catch (Exception)
                         {
                             System.Windows.Forms.MessageBox.Show("Error");
                         }
                     }).Start();
-                    
-                    
-                    osreader.Close();
+                    osRDR.Close();
                 }
-                createloop += 1;
+                activeLoop += 1; // Add the value of 1 to the variable
             }
-            conn.Close();
-            Hide();
+            runCommandConnection.Close();
+            Hide(); //Hide form
         }
 
         private void serverControlRunCommand_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
-            conn.Open();
-            MySqlCommand oscmd = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
-            oscmd.Parameters.AddWithValue("@company", loginMenu.CompanyID);
-            MySqlDataReader serverrdr = oscmd.ExecuteReader(); 
-            while (serverrdr.Read())
+            MySqlConnection commandLoadConnection = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL Connection 
+            commandLoadConnection.Open(); // Open MySQL Connection 
+
+            MySqlCommand commandName = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", commandLoadConnection);
+            commandName.Parameters.AddWithValue("@company", loginMenu.CompanyID);
+            MySqlDataReader commandNameRDR = commandName.ExecuteReader(); 
+            while (commandNameRDR.Read())
             {
-                cmboCommands.Items.Add(serverrdr.GetString("commandName"));
+                cmboCommands.Items.Add(commandNameRDR.GetString("commandName"));
             }
-            serverrdr.Close();
-            string os = "SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC"; 
-            MySqlCommand os2cmd = new MySqlCommand(os, conn);
+            commandNameRDR.Close();
+            
+            MySqlCommand os2cmd = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC", commandLoadConnection);
             os2cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader osrdr = os2cmd.ExecuteReader(); 
-            loopnum = 0;
-            while (osrdr.Read())
+            MySqlDataReader serverInformationRDR = os2cmd.ExecuteReader(); 
+            loopNum = 0;
+            while (serverInformationRDR.Read())
             {
-                operatingSystemsID[loopnum] = Convert.ToString(osrdr[3]);
-                loopnum += 1;
+                operatingSystemsID[loopNum] = Convert.ToString(serverInformationRDR[3]);
+                loopNum += 1; // Add the value of 1 to the variable
             }
-            osrdr.Close();
-            MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @company ORDER BY serverID", conn);
+            serverInformationRDR.Close();
+
+            MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @company ORDER BY serverID", commandLoadConnection);
             commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); 
             MySqlDataReader setcommandids = commandcmd.ExecuteReader(); 
-            loopnum = 0;
+            loopNum = 0;
             while (setcommandids.Read())
             {
-                commandOSID[loopnum] = Convert.ToString(setcommandids[2]);
-                loopnum += 1;
+                commandOSID[loopNum] = Convert.ToString(setcommandids[2]);
+                loopNum += 1; // Add the value of 1 to the variable
             }
             setcommandids.Close();
-            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); 
-            int height;
-            height = 206;
-            loopnum = 0;
-            int boxnum = 0;
-            string value;
-            while (operatingSystemsID[loopnum] != null)
+
+            MySqlDataReader commandrdr = commandcmd.ExecuteReader();
+            loopNum = 0;
+            while (operatingSystemsID[loopNum] != null)
             {
-                value = Convert.ToString(operatingSystemsID[loopnum]);
-                height += 20;
+                value = Convert.ToString(operatingSystemsID[loopNum]);
                 CheckBox box;
                 box = new CheckBox();
-                box.Name = "chkServer" + Convert.ToString(loopnum);
+                box.Name = "chkServer" + Convert.ToString(loopNum);
                 box.Text = value;
                 box.AutoSize = true;
-                box.Location = new Point(10, (loopnum + 1) * 20);
+                box.Location = new Point(10, (loopNum + 1) * 20);
                 pnlConfiguration.Controls.Add(box);
-                loopnum += 1;
-                boxnum += 1;
-
+                loopNum += 1; // Add the value of 1 to the variable
             }
             commandrdr.Close();
+
             finished = true;
-            this.Height += (loopnum * 20) + 40;
-            pnlConfiguration.Height += (loopnum * 20) + 40;
-            loopnum += 1;
-            btnRunCommand.Top += loopnum * 23;
-            btnCancel.Top += loopnum * 23;
-            loopnum -= 1;
+            this.Height += (loopNum * 20) + 40;
+            pnlConfiguration.Height += (loopNum * 20) + 40;
+            loopNum += 1; // Add the value of 1 to the variable
+            btnRunCommand.Top += loopNum * 23;
+            btnCancel.Top += loopNum * 23;
+            loopNum -= 1;
         }
     }
 }

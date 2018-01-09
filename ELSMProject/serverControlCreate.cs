@@ -23,7 +23,7 @@ namespace ELSM_Project
 
         private void serverControlCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; 
             MySqlCommand oscmd = new MySqlCommand(os, conn);
@@ -47,7 +47,7 @@ namespace ELSM_Project
                 box.AutoSize = true;
                 box.Location = new Point(10, loopnum * 20);
                 pnlConfiguration.Controls.Add(box);
-                loopnum += 1;
+                loopnum += 1; // Add the value of 1 to the variable
             }
             int pointX = 235;
             int pointY = 20;
@@ -62,8 +62,8 @@ namespace ELSM_Project
                 pnlConfiguration.Controls.Add(a);
                 pnlConfiguration.Show();
                 pointY += 20;
-                boxnum += 1;
-                loopnum2 += 1;
+                boxnum += 1; // Add the value of 1 to the variable
+                loopnum2 += 1; // Add the value of 1 to the variable
             }
             osrdr.Close();
             this.Height += loopnum2 * 5;
@@ -74,7 +74,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
         }
 
         private void valueChecked(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             createloop = 0;
             while (loopnum != createloop)
@@ -142,11 +142,11 @@ namespace ELSM_Project
                 {
                     
                 }
-                createloop += 1;
+                createloop += 1; // Add the value of 1 to the variable
             }
 
             conn.Close();
-            Hide();
+            Hide(); //Hide form
         }
     }
 }

@@ -26,28 +26,28 @@ namespace ELSM_Project
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnServerControl_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             serverControl Servers = new serverControl();
             Servers.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageServers manageS = new manageServers();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide(); //Hide form
             manageLocations manageL = new manageLocations();
             manageL.ShowDialog();
         }
