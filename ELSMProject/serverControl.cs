@@ -155,5 +155,11 @@ namespace ELSM_Project
             serverControlRunCommand Run = new serverControlRunCommand();
             Run.ShowDialog();
         }
+
+        private void btnServerStatus_Click(object sender, EventArgs e)
+        {
+            serverControlStatus Status = new serverControlStatus();
+            Status.ShowDialog();
+        }
     }
 }

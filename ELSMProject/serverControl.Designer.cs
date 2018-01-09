@@ -259,6 +259,7 @@
             this.btnServerStatus.TabIndex = 52;
             this.btnServerStatus.Text = "Server Status";
             this.btnServerStatus.UseVisualStyleBackColor = true;
+            this.btnServerStatus.Click += new System.EventHandler(this.btnServerStatus_Click);
             // 
             // btnRunCommand
             // 

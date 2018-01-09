@@ -190,6 +190,12 @@
     <Compile Include="serverControlRunCommand.Designer.cs">
       <DependentUpon>serverControlRunCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="serverControlStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="serverControlStatus.Designer.cs">
+      <DependentUpon>serverControlStatus.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="mainDashboard.resx">
       <DependentUpon>mainDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlRunCommand.resx">
       <DependentUpon>serverControlRunCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serverControlStatus.resx">
+      <DependentUpon>serverControlStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
