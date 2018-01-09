@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="webBrowser1.Url" xml:space="preserve">
+    <value>&lt;iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;amp;source=s_q&amp;amp;hl=en&amp;amp;geocode=&amp;amp;q=chennai&amp;amp;sll=37.0625,-95.677068&amp;amp;sspn=56.506174,79.013672&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Chennai,+Tamil+Nadu,+India&amp;amp;t=m&amp;amp;z=11&amp;amp;ll=13.052414,80.250825&amp;amp;output=embed"&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;&lt;a href="https://maps.google.com/maps?f=q&amp;amp;source=embed&amp;amp;hl=en&amp;amp;geocode=&amp;amp;q=chennai&amp;amp;sll=37.0625,-95.677068&amp;amp;sspn=56.506174,79.013672&amp;amp;ie=UTF8&amp;amp;hq=&amp;amp;hnear=Chennai,+Tamil+Nadu,+India&amp;amp;t=m&amp;amp;z=11&amp;amp;ll=13.052414,80.250825" style="color:#0000FF;text-align:left"&gt;View Larger Map&lt;/a&gt;&lt;/small&gt;</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

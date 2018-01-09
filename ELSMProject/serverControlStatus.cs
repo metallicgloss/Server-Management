@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Net.NetworkInformation;
 
@@ -20,8 +13,12 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-
-        public static int loopnum, createloop;
+        private static int loopnum = 1, pointY = 20, pointX = 235;
+        private static string value, pingOutcomeData;
+        private static Label statusLabel = new Label();
+        private static Label statusResult = new Label();
+        private static Ping pingProcess = new Ping();
+        private static PingReply pingResponse;
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -30,56 +27,39 @@ namespace ELSM_Project
 
         private void serverControlStatus_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
-            conn.Open();
-            string os = "SELECT * FROM serverInformation ORDER BY serverID";
-            MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader();
-            int height;
-            height = 206;
-            loopnum = 1;
-
-            int boxnum = 0;
-            string value;
-
-            int pointY = 20;
-            int pointX = 235;
-            pnlConfiguration.Height += 40;
-            this.Height += 40;
-            while (osrdr.Read())
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
+            connectionMySQL.Open();
+            string commandStatus = "SELECT * FROM serverInformation ORDER BY serverID";
+            MySqlCommand statusExecute = new MySqlCommand(commandStatus, connectionMySQL);
+            MySqlDataReader statusOutput = statusExecute.ExecuteReader();
+            while (statusOutput.Read())
             {
-                value = Convert.ToString(osrdr[3]);
-                Label name;
-                name = new Label();
-                name.Name = "lblServer" + Convert.ToString(loopnum);
-                name.Text = value;
-                name.AutoSize = true;
-                name.Location = new Point(10, loopnum * 20);
-                pnlConfiguration.Controls.Add(name);
-                Label a = new Label();
-                a.Location = new Point(pointX, pointY);
-                a.Name = "lblInput" + loopnum;
-                a.Width = 800;
-                a.Height -= 5;
-                a.ForeColor = Color.Black;
-                Ping p = new Ping();
-                PingReply r;
-                string s;
-                s = Convert.ToString(osrdr[8]);
-                r = p.Send(s);
-                if (r.Status == IPStatus.Success)
+                value = Convert.ToString(statusOutput[3]);
+                statusLabel.Name = "lblServerHostname" + Convert.ToString(loopnum);
+                statusLabel.Text = value;
+                statusLabel.AutoSize = true;
+                statusLabel.Location = new Point(10, loopnum * 20);
+                pnlConfiguration.Controls.Add(statusLabel);
+                statusResult.Location = new Point(pointX, pointY);
+                statusResult.Name = "lblStatusOutcome" + loopnum;
+                statusResult.Width = 800;
+                statusResult.Height -= 5;
+                statusResult.ForeColor = Color.Black;
+                pingOutcomeData = Convert.ToString(statusOutput[8]);
+                pingResponse = pingProcess.Send(pingOutcomeData);
+                if (pingResponse.Status == IPStatus.Success)
                 {
-                    a.Text = "Ping to " + s.ToString() + " Successful! "
-                       + " Response Time " + r.RoundtripTime.ToString() + "ms";
+                    statusResult.Text = "Ping to " + pingOutcomeData.ToString() + " Successful! "
+                       + " Response Time " + pingResponse.RoundtripTime.ToString() + "ms";
                 }
-                pnlConfiguration.Controls.Add(a);
-                pnlConfiguration.Show();
+                pnlConfiguration.Controls.Add(statusResult);
+                pnlConfiguration.Height += 40;
                 pointY += 20;
-                boxnum += 1;
                 loopnum += 1;
             }
-            osrdr.Close();
-            this.Height += loopnum * 5;
+            statusOutput.Close();
+            connectionMySQL.Close();
+            this.Height += 40+ (loopnum * 5);
             pnlConfiguration.Height += (loopnum * 5);
             btnCancel.Top += ((loopnum+5) * 6);
         }
