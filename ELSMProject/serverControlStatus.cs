@@ -29,7 +29,7 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
             connectionMySQL.Open(); // Open MySQL connection
             MySqlCommand statusExecute = new MySqlCommand("SELECT * FROM serverInformation ORDER BY serverID", connectionMySQL); // Construct MySQL query into command
-            MySqlDataReader statusOutput = statusExecute.ExecuteReader(); // Process MySQL query, save output in reader
+            MySqlDataReader statusOutput = statusExecute.ExecuteReader(); // Execute MySQL reader query // Process MySQL query, save output in reader
             while (statusOutput.Read()) // While rows available in reader
             {
                 value = Convert.ToString(statusOutput[3]); // Set value to 4th collumn in database

@@ -32,17 +32,17 @@ namespace ELSM_Project
             conn.Open();
             MySqlCommand oscmd = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
             oscmd.Parameters.AddWithValue("@company", loginMenu.CompanyID);
-            MySqlDataReader serverrdr = oscmd.ExecuteReader(); 
-            while (serverrdr.Read())
+            MySqlDataReader serverrdr = oscmd.ExecuteReader(); // Execute MySQL reader query 
+            while (serverrdr.Read()) // While rows in reader
             {
                 cmboCommands.Items.Add(serverrdr.GetString("commandName"));
             }
             serverrdr.Close();
             string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID ASC"; 
             MySqlCommand os2cmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = os2cmd.ExecuteReader(); 
-            loopnum = 0;
-            while (osrdr.Read())
+            MySqlDataReader osrdr = os2cmd.ExecuteReader(); // Execute MySQL reader query 
+            loopnum = 0; // Set variable to 0
+            while (osrdr.Read()) // While rows in reader
             {
                 operatingSystemsID[loopnum] = Convert.ToString(osrdr[0]);
                 operatingSystems[loopnum] = Convert.ToString(osrdr[1]);
@@ -89,36 +89,36 @@ namespace ELSM_Project
             MySqlCommand commandcmd = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", conn);
             commandcmd.Parameters.AddWithValue("@company", loginMenu.CompanyID); 
             commandcmd.Parameters.AddWithValue("@Name", cmboCommands.Text); 
-            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); 
-            loopnum = 0;
-            while (setcommandids.Read())
+            MySqlDataReader setcommandids = commandcmd.ExecuteReader(); // Execute MySQL reader query 
+            loopnum = 0; // Set variable to 0
+            while (setcommandids.Read()) // While rows in reader
             {
                 commandOSID[loopnum] = Convert.ToString(setcommandids[2]);
                 loopnum += 1; // Add the value of 1 to the variable
             }
             setcommandids.Close();
-            MySqlDataReader setcommandtext = commandcmd.ExecuteReader(); 
-            loopnum = 0;
-            while (setcommandtext.Read())
+            MySqlDataReader setcommandtext = commandcmd.ExecuteReader(); // Execute MySQL reader query 
+            loopnum = 0; // Set variable to 0
+            while (setcommandtext.Read()) // While rows in reader
             {
                 commandText[loopnum] = Convert.ToString(setcommandtext[4]);
                 loopnum += 1; // Add the value of 1 to the variable
             }
             setcommandtext.Close();
-            MySqlDataReader commandrdr = commandcmd.ExecuteReader();
+            MySqlDataReader commandrdr = commandcmd.ExecuteReader(); // Execute MySQL reader query
             int height;
             height = 206;
-            loopnum = 0;
+            loopnum = 0; // Set variable to 0
             int pointX = 235;
             int pointY = 20;
-            int boxnum = 0;
+            int boxnum = 0; // Set variable to 0
             string value;
             int temploop;
             string yes = "No";
             while (operatingSystemsID[loopnum] != null)
             {
                 value = Convert.ToString(operatingSystems[loopnum]);
-                temploop = 0;
+                temploop = 0; // Set variable to 0
                 CheckBox box;
                 box = new CheckBox();
                 box.Name = "chkOS" + Convert.ToString(loopnum);
@@ -131,10 +131,10 @@ namespace ELSM_Project
                 a.Location = new Point(pointX, pointY);
                 a.Name = "txtInput" + (loopnum - 1);
                 a.Width = 800;
-                temploop = 0;
+                temploop = 0; // Set variable to 0
                 pnlConfiguration.Controls.Add(a);
                 pnlConfiguration.Show();
-                commandrdr.Read();
+                commandrdr.Read(); // Read data from the reader to become usable
                 while (commandOSID[temploop] != null)
                 {
                     if (Convert.ToString(operatingSystemsID[loopnum]) == Convert.ToString(commandOSID[temploop]))
@@ -170,7 +170,7 @@ namespace ELSM_Project
         {
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
-            createloop = 0;
+            createloop = 0; // Set variable to 0
             MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); 
             newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
             newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
@@ -188,8 +188,8 @@ namespace ELSM_Project
                     string checkBoxText = checkBox.Text;
                     MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
                     oscmd.Parameters.AddWithValue("@os", checkBoxText);
-                    MySqlDataReader osrdr = oscmd.ExecuteReader();
-                    osrdr.Read();
+                    MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
+                    osrdr.Read(); // Read data from the reader to become usable
                     os = Convert.ToString(osrdr[0]);
                     osrdr.Close();
                 }

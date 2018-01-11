@@ -105,7 +105,7 @@
             // 
             this.btnChangeEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChangeEmail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeEmail.FlatAppearance.BorderSize = 0;
+            this.btnChangeEmail.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeEmail.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeEmail.Location = new System.Drawing.Point(36, 145);
@@ -120,7 +120,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 145);

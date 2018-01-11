@@ -83,7 +83,7 @@
             // btnLogout
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(0, 504);
@@ -97,7 +97,7 @@
             // btnManageAccount
             // 
             this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageAccount.FlatAppearance.BorderSize = 0;
+            this.btnManageAccount.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
@@ -111,7 +111,7 @@
             // btnManageServers
             // 
             this.btnManageServers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageServers.FlatAppearance.BorderSize = 0;
+            this.btnManageServers.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnManageServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageServers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageServers.Location = new System.Drawing.Point(0, 378);
@@ -125,7 +125,7 @@
             // btnManageLocations
             // 
             this.btnManageLocations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageLocations.FlatAppearance.BorderSize = 0;
+            this.btnManageLocations.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnManageLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageLocations.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageLocations.Location = new System.Drawing.Point(0, 420);
@@ -139,7 +139,7 @@
             // btnServerControl
             // 
             this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0;
+            this.btnServerControl.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerControl.Location = new System.Drawing.Point(0, 336);
@@ -153,7 +153,7 @@
             // btnHome
             // 
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(0, 294);
@@ -187,7 +187,7 @@
             // btnServerSpecs
             // 
             this.btnServerSpecs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerSpecs.FlatAppearance.BorderSize = 0;
+            this.btnServerSpecs.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnServerSpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerSpecs.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerSpecs.Location = new System.Drawing.Point(725, 501);
@@ -200,7 +200,7 @@
             // btnServerNote
             // 
             this.btnServerNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerNote.FlatAppearance.BorderSize = 0;
+            this.btnServerNote.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnServerNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerNote.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerNote.Location = new System.Drawing.Point(361, 501);
@@ -269,7 +269,7 @@
             // btnDeleteServer
             // 
             this.btnDeleteServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteServer.FlatAppearance.BorderSize = 0;
+            this.btnDeleteServer.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteServer.Location = new System.Drawing.Point(845, 453);
@@ -282,7 +282,7 @@
             // btnEditServer
             // 
             this.btnEditServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditServer.FlatAppearance.BorderSize = 0;
+            this.btnEditServer.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnEditServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditServer.Location = new System.Drawing.Point(603, 453);
@@ -296,7 +296,7 @@
             // btnCreateServer
             // 
             this.btnCreateServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateServer.FlatAppearance.BorderSize = 0;
+            this.btnCreateServer.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnCreateServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateServer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateServer.Location = new System.Drawing.Point(361, 453);

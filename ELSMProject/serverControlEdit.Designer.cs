@@ -39,7 +39,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(579, 111);
@@ -54,7 +54,7 @@
             // 
             this.btnEditCommand.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEditCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditCommand.FlatAppearance.BorderSize = 0;
+            this.btnEditCommand.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnEditCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditCommand.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCommand.Location = new System.Drawing.Point(36, 111);

@@ -39,8 +39,8 @@ namespace ELSM_Project
             string sql = "SELECT * FROM userAccounts WHERE userLogin = @userLogin"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@userLogin", userLogin); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); 
-            rdr.Read();
+            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
+            rdr.Read(); // Read data from the reader to become usable
             
             try
             {
@@ -93,8 +93,8 @@ namespace ELSM_Project
 
                     MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", conn);
                     permissionCommand.Parameters.AddWithValue("@permid", Role);
-                    MySqlDataReader permissionRDR = permissionCommand.ExecuteReader();
-                    permissionRDR.Read();
+                    MySqlDataReader permissionRDR = permissionCommand.ExecuteReader(); // Execute MySQL reader query
+                    permissionRDR.Read(); // Read data from the reader to become usable
                     permChangePassword = Convert.ToBoolean(permissionRDR[4]);
                     permChangeUsername = Convert.ToBoolean(permissionRDR[5]);
                     permChangeEmail = Convert.ToBoolean(permissionRDR[6]);
@@ -127,8 +127,8 @@ namespace ELSM_Project
 
                     MySqlCommand companyCMD = new MySqlCommand("SELECT * FROM userCompanies WHERE companyID = @companyID", conn);
                     companyCMD.Parameters.AddWithValue("@companyID", CompanyID);
-                    MySqlDataReader companyRDR = companyCMD.ExecuteReader();
-                    companyRDR.Read();
+                    MySqlDataReader companyRDR = companyCMD.ExecuteReader(); // Execute MySQL reader query
+                    companyRDR.Read(); // Read data from the reader to become usable
                     CompanyName = Convert.ToString(companyRDR[2]);
                     conn.Close();
                     companyRDR.Close();

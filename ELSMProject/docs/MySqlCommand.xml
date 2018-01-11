@@ -576,10 +576,10 @@
         MySqlCommand myCommand = new MySqlCommand(mySelectQuery, myConnection);
         myConnection.Open();
         MMySqlDataReader myReader;
-        myReader = myCommand.ExecuteReader();
+        myReader = myCommand.ExecuteReader(); // Execute MySQL reader query
         try
         {
-        while(myReader.Read())
+        while(myReader.Read()) // While rows in reader
         {
         Console.WriteLine(myReader.GetString(0));
         }
@@ -887,7 +887,7 @@
         myCommand.Parameters.Add(myParamArray[j]) ;
         }
         string myMessage = "";
-        for (int i = 0; i &lt; myCommand.Parameters.Count; i++)
+        for (int i = 0; // Set variable to 0 i &lt; myCommand.Parameters.Count; i++)
         {
         myMessage += myCommand.Parameters[i].ToString() + "\n";
         }

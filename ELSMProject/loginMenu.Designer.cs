@@ -45,7 +45,7 @@
             this.loginBackgroundBox.Location = new System.Drawing.Point(63, 243);
             this.loginBackgroundBox.Name = "loginBackgroundBox";
             this.loginBackgroundBox.Size = new System.Drawing.Size(715, 146);
-            this.loginBackgroundBox.TabIndex = 0;
+            this.loginBackgroundBox.TabIndex = 0; // Set variable to 0
             this.loginBackgroundBox.TabStop = false;
             // 
             // txtPassword
@@ -75,7 +75,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatAppearance.BorderSize = 0; // Set variable to 0
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(96, 343);

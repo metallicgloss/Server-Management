@@ -44,8 +44,8 @@ namespace ELSM_Project
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); 
-            while (rdr.Read())
+            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
+            while (rdr.Read()) // While rows in reader
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
             }

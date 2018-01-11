@@ -27,16 +27,16 @@ namespace ELSM_Project
             conn.Open();
             string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; 
             MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader();
+            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
             int height;
             height = 206;
             loopnum = 1;
             
-            int boxnum = 0;
+            int boxnum = 0; // Set variable to 0
             string value;
             pnlConfiguration.Height += 40;
             this.Height += 40;
-            while (osrdr.Read())
+            while (osrdr.Read()) // While rows in reader
             {
                 value = Convert.ToString(osrdr[1]);
                 CheckBox box;
@@ -51,8 +51,8 @@ namespace ELSM_Project
             }
             int pointX = 235;
             int pointY = 20;
-            int loopnum2 = 0;
-            for (int i = 0; i < loopnum - 1; i++)
+            int loopnum2 = 0; // Set variable to 0
+            for (int i = 0; i < loopnum - 1; i++)  // Set variable to 0
             {
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
@@ -102,7 +102,7 @@ namespace ELSM_Project
         {
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
-            createloop = 0;
+            createloop = 0; // Set variable to 0
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
@@ -115,8 +115,8 @@ namespace ELSM_Project
                     string checkBoxText = checkBox.Text;
                     MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
                     oscmd.Parameters.AddWithValue("@os", checkBoxText);
-                    MySqlDataReader osrdr = oscmd.ExecuteReader();
-                    osrdr.Read();
+                    MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
+                    osrdr.Read(); // Read data from the reader to become usable
                     os = Convert.ToString(osrdr[0]);
                     osrdr.Close();
                 }
