@@ -26,36 +26,35 @@ namespace ELSM_Project
 
         private void manageServersDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+            MySqlCommand serverInformationCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @companyID", connectionMySQL);
+            serverInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader serverInformationRDR = serverInformationCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (serverInformationRDR.Read()) // While rows in reader
             {
-                cmboHostname.Items.Add(rdr.GetString("serverHostname"));
+                cmboHostname.Items.Add(serverInformationRDR.GetString("serverHostname"));
             }
-            conn.Close();
+            connectionMySQL.Close();
         }
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverInformation WHERE serverHostname = @Hostname", conn); 
-            serverCMD.Parameters.AddWithValue("@Hostname", cmboHostname.Text);
-            serverCMD.ExecuteNonQuery(); 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+            MySqlCommand deleteServerCMD = new MySqlCommand("DELETE FROM serverInformation WHERE serverHostname = @Hostname", connectionMySQL);
+            deleteServerCMD.Parameters.AddWithValue("@Hostname", cmboHostname.Text);
+            deleteServerCMD.ExecuteNonQuery(); 
             cmboHostname.Items.Clear();
-            string sql = "SELECT * FROM serverInformation WHERE serverCompany = @companyID"; 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            
+            MySqlCommand serverInformationCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @companyID", connectionMySQL);
+            serverInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader serverInformationRDR = serverInformationCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (serverInformationRDR.Read()) // While rows in reader
             {
-                cmboHostname.Items.Add(rdr.GetString("serverHostname"));
+                cmboHostname.Items.Add(serverInformationRDR.GetString("serverHostname"));
             }
-            conn.Close();
+            connectionMySQL.Close();
         }
 
     }
