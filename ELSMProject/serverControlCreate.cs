@@ -19,57 +19,42 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        public static int loopnum, createloop;
+        private static int loopnum = 1, createloop = 0, pointX = 235, pointY = 20;
+        private static string value;
 
         private void serverControlCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID"; 
-            MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
-            int height;
-            height = 206;
-            loopnum = 1;
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+
+            MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID", connectionMySQL);
+            MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
             
-            int boxnum = 0; // Set variable to 0
-            string value;
-            pnlConfiguration.Height += 40;
-            this.Height += 40;
-            while (osrdr.Read()) // While rows in reader
+            while (osRDR.Read()) // While rows in reader
             {
-                value = Convert.ToString(osrdr[1]);
-                CheckBox box;
-                box = new CheckBox();
-                box.Name = "chkOS" + Convert.ToString(loopnum);
-                box.Text = value;
-                box.CheckedChanged += new System.EventHandler(valueChecked);
-                box.AutoSize = true;
-                box.Location = new Point(10, loopnum * 20);
-                pnlConfiguration.Controls.Add(box);
+                value = Convert.ToString(osRDR[1]);
+                CheckBox dynamicCheckbox = new CheckBox();
+                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum);
+                dynamicCheckbox.Text = value;
+                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked);
+                dynamicCheckbox.AutoSize = true;
+                dynamicCheckbox.Location = new Point(10, loopnum * 20);
+                pnlConfiguration.Controls.Add(dynamicCheckbox);
+                TextBox dynamicTextBox = new TextBox();
+                dynamicTextBox.Location = new Point(pointX, pointY);
+                dynamicTextBox.Name = "txtInput" + loopnum;
+                dynamicTextBox.Width = 800;
+                dynamicTextBox.Enabled = false;
+                pnlConfiguration.Controls.Add(dynamicTextBox);
+                pnlConfiguration.Show();
                 loopnum += 1; // Add the value of 1 to the variable
             }
-            int pointX = 235;
-            int pointY = 20;
-            int loopnum2 = 0; // Set variable to 0
-            for (int i = 0; i < loopnum - 1; i++)  // Set variable to 0
-            {
-                TextBox a = new TextBox();
-                a.Location = new Point(pointX, pointY);
-                a.Name = "txtInput" + loopnum2;
-                a.Width = 800;
-                a.Enabled = false;
-                pnlConfiguration.Controls.Add(a);
-                pnlConfiguration.Show();
-                pointY += 20;
-                boxnum += 1; // Add the value of 1 to the variable
-                loopnum2 += 1; // Add the value of 1 to the variable
-            }
-            osrdr.Close();
-            this.Height += loopnum2 * 5;
-            pnlConfiguration.Height += (loopnum2 * 5);
-            btnNewCommand.Top += loopnum2 * 6;
-            btnCancel.Top += loopnum2 * 6;
+
+            osRDR.Close();
+            this.Height += 40 +(loopnum * 5);
+            pnlConfiguration.Height += 40 + (loopnum * 5);
+            btnNewCommand.Top += loopnum * 6;
+            btnCancel.Top += loopnum * 6;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -100,9 +85,8 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            createloop = 0; // Set variable to 0
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
@@ -110,42 +94,26 @@ namespace ELSM_Project
                 var os = "";
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
                 var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
-                try
-                {
                     string checkBoxText = checkBox.Text;
-                    MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
-                    oscmd.Parameters.AddWithValue("@os", checkBoxText);
-                    MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
-                    osrdr.Read(); // Read data from the reader to become usable
-                    os = Convert.ToString(osrdr[0]);
-                    osrdr.Close();
-                }
-                catch (Exception)
-                {
-                    
-                }
-                
-                try
-                {
+                    MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
+                    osCMD.Parameters.AddWithValue("@os", checkBoxText);
+                    MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
+                    osRDR.Read(); // Read data from the reader to become usable
+                    os = Convert.ToString(osRDR[0]);
+                    osRDR.Close();
                     if (text.Text != "")
                     {
-                        MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); 
-                        newCommand.Parameters.AddWithValue("@serverCommand", text.Text);
-                        newCommand.Parameters.AddWithValue("@commandName", txtCommandName.Text);
-                        newCommand.Parameters.AddWithValue("@serverOS", os);
-                        newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-                        newCommand.ExecuteNonQuery(); 
+                        MySqlCommand newCommandCMD = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", connectionMySQL);
+                    newCommandCMD.Parameters.AddWithValue("@serverCommand", text.Text);
+                    newCommandCMD.Parameters.AddWithValue("@commandName", txtCommandName.Text);
+                    newCommandCMD.Parameters.AddWithValue("@serverOS", os);
+                    newCommandCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
+                    newCommandCMD.ExecuteNonQuery(); 
                     }
-                    
-                }
-                catch (Exception)
-                {
-                    
-                }
                 createloop += 1; // Add the value of 1 to the variable
             }
 
-            conn.Close();
+            connectionMySQL.Close();
             Hide(); //Hide form
         }
     }

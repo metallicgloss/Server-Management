@@ -66,7 +66,7 @@ namespace ELSM_Project
                 if (EnteredPassword != databasePassword)
                 {
                     System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
-                    MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", conn);
+                    MySqlCommand failedCMD = new MySqlCommand("INSERT INTO failedLoginAttempts (attemptUsername, attemptIP, attemptTimeStamp) VALUES (@attemptUsername, @attemptIP, @attemptTimeStamp)", connectionMySQL);
                     failedCMD.Parameters.AddWithValue("@attemptUsername", txtUsername.Text); // Replace string in query with variable
                     failedCMD.Parameters.AddWithValue("@attemptIP", loginMenu.IPAddress); // Replace string in query with variable
                     failedCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace string in query with variable

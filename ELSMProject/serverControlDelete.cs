@@ -26,37 +26,36 @@ namespace ELSM_Project
 
         private void serverControlDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            string sql = "SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID"; 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+            MySqlCommand commandNameCMD = new MySqlCommand("SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID", connectionMySQL);
+            commandNameCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (commandNameRDR.Read()) // While rows in reader
             {
-                cmboName.Items.Add(rdr.GetString("commandName"));
+                cmboName.Items.Add(commandNameRDR.GetString("commandName"));
             }
-            conn.Close();
+            connectionMySQL.Close();
         }
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            MySqlCommand serverCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", conn); 
-            serverCMD.Parameters.AddWithValue("@Name", cmboName.Text);
-            serverCMD.Parameters.AddWithValue("@Company", loginMenu.CompanyID); 
-            serverCMD.ExecuteNonQuery(); 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+            MySqlCommand deleteCommandCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", connectionMySQL);
+            deleteCommandCMD.Parameters.AddWithValue("@Name", cmboName.Text);
+            deleteCommandCMD.Parameters.AddWithValue("@Company", loginMenu.CompanyID);
+            deleteCommandCMD.ExecuteNonQuery();
             cmboName.Items.Clear();
-            string sql = "SELECT * FROM serverCommands WHERE serverCompany = @companyID"; 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+
+            MySqlCommand commandNameCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @companyID", connectionMySQL);
+            commandNameCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (commandNameRDR.Read()) // While rows in reader
             {
-                cmboName.Items.Add(rdr.GetString("commandName"));
+                cmboName.Items.Add(commandNameRDR.GetString("commandName"));
             }
-            conn.Close();
+            connectionMySQL.Close();
             
 
         }

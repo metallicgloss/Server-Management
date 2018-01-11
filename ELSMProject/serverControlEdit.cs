@@ -88,7 +88,7 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open(); // Open MySQL Connection
             
-            MySqlCommand serverCommandCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", conn);
+            MySqlCommand serverCommandCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", connectionMySQL);
             serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);  // Replace string in query with variable
             serverCommandCMD.Parameters.AddWithValue("@Name", cmboCommands.Text);  // Replace string in query with variable
             MySqlDataReader setCommandIDS = serverCommandCMD.ExecuteReader(); // Execute MySQL reader query 
