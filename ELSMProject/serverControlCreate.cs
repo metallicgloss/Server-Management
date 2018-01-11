@@ -32,25 +32,25 @@ namespace ELSM_Project
             
             while (osRDR.Read()) // While rows in reader
             {
-                value = Convert.ToString(osRDR[1]);
-                CheckBox dynamicCheckbox = new CheckBox();
-                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum);
-                dynamicCheckbox.Text = value;
-                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked);
-                dynamicCheckbox.AutoSize = true;
-                dynamicCheckbox.Location = new Point(10, loopnum * 20);
-                pnlConfiguration.Controls.Add(dynamicCheckbox);
-                TextBox dynamicTextBox = new TextBox();
-                dynamicTextBox.Location = new Point(pointX, pointY);
-                dynamicTextBox.Name = "txtInput" + loopnum;
-                dynamicTextBox.Width = 800;
-                dynamicTextBox.Enabled = false;
-                pnlConfiguration.Controls.Add(dynamicTextBox);
+                value = Convert.ToString(osRDR[1]); // Set variable to reader value
+                CheckBox dynamicCheckbox = new CheckBox(); // Create checbkx
+                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum); // Set checkbox name
+                dynamicCheckbox.Text = value; // Set display value text to variable value
+                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked); // Add event hander event to checkbox
+                dynamicCheckbox.AutoSize = true; // Enable autosize
+                dynamicCheckbox.Location = new Point(10, loopnum * 20); // Set checbox location
+                pnlConfiguration.Controls.Add(dynamicCheckbox); // Display checkbox on window
+                TextBox dynamicTextBox = new TextBox(); // Create textbox
+                dynamicTextBox.Location = new Point(pointX, pointY); // Set textbox location
+                dynamicTextBox.Name = "txtInput" + loopnum; // Set textbox name
+                dynamicTextBox.Width = 800; // Set textbox width
+                dynamicTextBox.Enabled = false; // Set enabled to false
+                pnlConfiguration.Controls.Add(dynamicTextBox); // Display textbox on window
                 pnlConfiguration.Show();
                 loopnum += 1; // Add the value of 1 to the variable
             }
 
-            osRDR.Close();
+            osRDR.Close(); // Close reader
             this.Height += 40 +(loopnum * 5);
             pnlConfiguration.Height += 40 + (loopnum * 5);
             btnNewCommand.Top += loopnum * 6;
@@ -64,12 +64,12 @@ namespace ELSM_Project
 
         private void valueChecked(object sender, EventArgs e)
         {
-            string name = ((CheckBox)sender).Name;
-            name = name.Replace("chkOS", string.Empty);
-            int OSNumber = Convert.ToInt16(name);
-            OSNumber -= 1;
-            string inputname = "txtInput" + OSNumber;
-            var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
+            string name = ((CheckBox)sender).Name; // Set string to name of checkbox name
+            name = name.Replace("chkOS", string.Empty); // Get number in checkbox name
+            int OSNumber = Convert.ToInt16(name); // Convert number from string to int
+            OSNumber -= 1; // Take one from number to combat dodgey code originally
+            string inputname = "txtInput" + OSNumber; // Make string for input box
+            var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox; // Find textbox using string
 
             CheckBox chbxName = (CheckBox)sender;
             if (chbxName.Checked == true)
@@ -96,7 +96,7 @@ namespace ELSM_Project
                 var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
                     string checkBoxText = checkBox.Text;
                     MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
-                    osCMD.Parameters.AddWithValue("@os", checkBoxText);
+                    osCMD.Parameters.AddWithValue("@os", checkBoxText); // Replace string in query with variable
                     MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
                     osRDR.Read(); // Read data from the reader to become usable
                     os = Convert.ToString(osRDR[0]);
@@ -104,11 +104,11 @@ namespace ELSM_Project
                     if (text.Text != "")
                     {
                         MySqlCommand newCommandCMD = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", connectionMySQL);
-                    newCommandCMD.Parameters.AddWithValue("@serverCommand", text.Text);
-                    newCommandCMD.Parameters.AddWithValue("@commandName", txtCommandName.Text);
-                    newCommandCMD.Parameters.AddWithValue("@serverOS", os);
-                    newCommandCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
-                    newCommandCMD.ExecuteNonQuery(); 
+                    newCommandCMD.Parameters.AddWithValue("@serverCommand", text.Text); // Replace string in query with variable
+                    newCommandCMD.Parameters.AddWithValue("@commandName", txtCommandName.Text); // Replace string in query with variable
+                    newCommandCMD.Parameters.AddWithValue("@serverOS", os); // Replace string in query with variable
+                    newCommandCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID); // Replace string in query with variable
+                    newCommandCMD.ExecuteNonQuery();  //Execute query
                     }
                 createloop += 1; // Add the value of 1 to the variable
             }

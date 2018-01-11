@@ -152,12 +152,6 @@
     <Compile Include="manageServersNotes.Designer.cs">
       <DependentUpon>manageServersNotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageServersSpecs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="manageServersSpecs.Designer.cs">
-      <DependentUpon>manageServersSpecs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="serverControl.cs">
