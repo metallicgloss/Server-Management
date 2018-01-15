@@ -21,34 +21,31 @@ namespace ELSM_Project
 
         private void manageServersCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            string locations = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
-            MySqlCommand locationscmd = new MySqlCommand(locations, conn);
-            locationscmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader locationrdr = locationscmd.ExecuteReader(); // Execute MySQL reader query 
-            while (locationrdr.Read()) // While rows in reader
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+            MySqlCommand locationsCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE companyID = @companyID", connectionMySQL);
+            locationsCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
+            MySqlDataReader locationsRDR = locationsCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (locationsRDR.Read()) // While rows in reader
             {
-                cmboLocation.Items.Add(locationrdr.GetString("locationName"));
+                cmboLocation.Items.Add(locationsRDR.GetString("locationName"));
             }
-            locationrdr.Close();
-            string os = "SELECT * FROM serverOperatingSystems"; 
-            MySqlCommand oscmd = new MySqlCommand(os, conn);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query 
-            while (osrdr.Read()) // While rows in reader
+            locationsRDR.Close();
+            MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems", connectionMySQL);
+            MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (osRDR.Read()) // While rows in reader
             {
-                cmboOS.Items.Add(osrdr.GetString("operatingSystemsName"));
+                cmboOS.Items.Add(osRDR.GetString("operatingSystemsName"));
             }
-            osrdr.Close();
-            string port = "SELECT * FROM serverPort"; 
-            MySqlCommand portcmd = new MySqlCommand(port, conn);
-            MySqlDataReader portrdr = portcmd.ExecuteReader(); // Execute MySQL reader query 
-            while (portrdr.Read()) // While rows in reader
+            osRDR.Close();
+            MySqlCommand networkPortCMD = new MySqlCommand("SELECT * FROM serverPort", connectionMySQL);
+            MySqlDataReader networkPortRDR = networkPortCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (networkPortRDR.Read()) // While rows in reader
             {
-                cmboNetwork.Items.Add(portrdr.GetString("portSpeed"));
+                cmboNetwork.Items.Add(networkPortRDR.GetString("portSpeed"));
             }
-            portrdr.Close();
-            conn.Close();
+            networkPortRDR.Close();
+            connectionMySQL.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -58,27 +55,31 @@ namespace ELSM_Project
 
         private void btnNewServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open();
-            MySqlCommand locationcmd = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", conn);
-            locationcmd.Parameters.AddWithValue("@location", cmboLocation.Text);
-            MySqlDataReader locationrdr = locationcmd.ExecuteReader(); // Execute MySQL reader query
-            locationrdr.Read(); // Read data from the reader to become usable
-            var location = Convert.ToString(locationrdr[0]);
-            locationrdr.Close();
-            MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
-            oscmd.Parameters.AddWithValue("@os", cmboOS.Text);
-            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
-            osrdr.Read(); // Read data from the reader to become usable
-            var os = Convert.ToString(osrdr[0]);
-            osrdr.Close();
-            MySqlCommand networkcmd = new MySqlCommand("SELECT * FROM serverPort WHERE portSpeed = @port", conn);
-            networkcmd.Parameters.AddWithValue("@port", cmboNetwork.Text);
-            MySqlDataReader networkrdr = networkcmd.ExecuteReader(); // Execute MySQL reader query
-            networkrdr.Read(); // Read data from the reader to become usable
-            var network = Convert.ToString(networkrdr[0]);
-            networkrdr.Close();
-            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", conn); 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open();
+
+            MySqlCommand locationCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", connectionMySQL);
+            locationCMD.Parameters.AddWithValue("@location", cmboLocation.Text);
+            MySqlDataReader locationRDR = locationCMD.ExecuteReader(); // Execute MySQL reader query
+            locationRDR.Read(); // Read data from the reader to become usable
+            var location = Convert.ToString(locationRDR[0]);
+            locationRDR.Close();
+
+            MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
+            osCMD.Parameters.AddWithValue("@os", cmboOS.Text);
+            MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
+            osRDR.Read(); // Read data from the reader to become usable
+            var os = Convert.ToString(osRDR[0]);
+            osRDR.Close();
+
+            MySqlCommand networkCMD = new MySqlCommand("SELECT * FROM serverPort WHERE portSpeed = @port", connectionMySQL);
+            networkCMD.Parameters.AddWithValue("@port", cmboNetwork.Text);
+            MySqlDataReader networkRDR = networkCMD.ExecuteReader(); // Execute MySQL reader query
+            networkRDR.Read(); // Read data from the reader to become usable
+            var network = Convert.ToString(networkRDR[0]);
+            networkRDR.Close();
+
+            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", connectionMySQL); 
             serverCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
             serverCMD.Parameters.AddWithValue("@serverLocation", location);
             serverCMD.Parameters.AddWithValue("@serverHostname", txtHostname.Text);
@@ -91,8 +92,8 @@ namespace ELSM_Project
             serverCMD.Parameters.AddWithValue("@serverRAM", txtRAM.Text);
             serverCMD.Parameters.AddWithValue("@serverPort", network);
             serverCMD.Parameters.AddWithValue("@serverTransfer", txtTransfer.Text);
-            serverCMD.ExecuteNonQuery(); 
-            conn.Close();
+            serverCMD.ExecuteNonQuery();
+            connectionMySQL.Close();
             txtHostname.Text = "";
             txtIP.Text = "";
             txtKey.Text = "";
