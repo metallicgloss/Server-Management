@@ -45,6 +45,8 @@
             this.pctProfilePhoto = new System.Windows.Forms.PictureBox();
             this.btnManageServers = new System.Windows.Forms.Button();
             this.btnManageLocations = new System.Windows.Forms.Button();
+            this.btnTicketReply = new System.Windows.Forms.Button();
+            this.btnCreateTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,7 +112,7 @@
             // btnHome
             // 
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(0, 294);
@@ -124,7 +126,7 @@
             // btnServerControl
             // 
             this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnServerControl.FlatAppearance.BorderSize = 0;
             this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerControl.Location = new System.Drawing.Point(0, 336);
@@ -138,7 +140,7 @@
             // btnManageAccount
             // 
             this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageAccount.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageAccount.FlatAppearance.BorderSize = 0;
             this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
@@ -152,7 +154,7 @@
             // btnLogout
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(0, 504);
@@ -216,13 +218,13 @@
             this.pctProfilePhoto.Location = new System.Drawing.Point(333, 33);
             this.pctProfilePhoto.Name = "pctProfilePhoto";
             this.pctProfilePhoto.Size = new System.Drawing.Size(96, 94);
-            this.pctProfilePhoto.TabIndex = 0; // Set variable to 0
+            this.pctProfilePhoto.TabIndex = 0;
             this.pctProfilePhoto.TabStop = false;
             // 
             // btnManageServers
             // 
             this.btnManageServers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageServers.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageServers.FlatAppearance.BorderSize = 0;
             this.btnManageServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageServers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageServers.Location = new System.Drawing.Point(0, 378);
@@ -236,7 +238,7 @@
             // btnManageLocations
             // 
             this.btnManageLocations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageLocations.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageLocations.FlatAppearance.BorderSize = 0;
             this.btnManageLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageLocations.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageLocations.Location = new System.Drawing.Point(0, 420);
@@ -247,6 +249,32 @@
             this.btnManageLocations.UseVisualStyleBackColor = true;
             this.btnManageLocations.Click += new System.EventHandler(this.btnManageLocations_Click);
             // 
+            // btnTicketReply
+            // 
+            this.btnTicketReply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTicketReply.FlatAppearance.BorderSize = 0;
+            this.btnTicketReply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicketReply.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicketReply.Location = new System.Drawing.Point(148, -1);
+            this.btnTicketReply.Name = "btnTicketReply";
+            this.btnTicketReply.Size = new System.Drawing.Size(145, 43);
+            this.btnTicketReply.TabIndex = 19;
+            this.btnTicketReply.Text = "View Tickets";
+            this.btnTicketReply.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
+            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTicket.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTicket.Location = new System.Drawing.Point(0, -1);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.Size = new System.Drawing.Size(149, 43);
+            this.btnCreateTicket.TabIndex = 20;
+            this.btnCreateTicket.Text = "New Ticket";
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            // 
             // mainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +283,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCreateTicket);
+            this.Controls.Add(this.btnTicketReply);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.lblMetallicGloss);
@@ -306,5 +336,7 @@
         private System.Windows.Forms.PictureBox pctProfilePhoto;
         private System.Windows.Forms.Button btnManageServers;
         private System.Windows.Forms.Button btnManageLocations;
+        private System.Windows.Forms.Button btnTicketReply;
+        private System.Windows.Forms.Button btnCreateTicket;
     }
 }
