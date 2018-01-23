@@ -45,11 +45,11 @@ namespace ELSM_Project
             var ticketID = newTicket.LastInsertedId;
 
 
-            MySqlCommand newTicketReply = new MySqlCommand("INSERT INTO systemTickets (ticketID, userID, replyContent) VALUES (@ticketID, @userID, @replyContent)", connectionMySQL);
-            newTicket.Parameters.AddWithValue("@ticketID", ticketID);
-            newTicket.Parameters.AddWithValue("@userID", loginMenu.UserID);
-            newTicket.Parameters.AddWithValue("@replyContent", txtContent.Text);
-            newTicket.ExecuteNonQuery();
+            MySqlCommand newTicketReply = new MySqlCommand("INSERT INTO systemReplies (ticketID, userID, replyContent) VALUES (@ticketID, @userID, @replyContent)", connectionMySQL);
+            newTicketReply.Parameters.AddWithValue("@ticketID", ticketID);
+            newTicketReply.Parameters.AddWithValue("@userID", loginMenu.UserID);
+            newTicketReply.Parameters.AddWithValue("@replyContent", txtContent.Text);
+            newTicketReply.ExecuteNonQuery();
             Hide();
         }
     }
