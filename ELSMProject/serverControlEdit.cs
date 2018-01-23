@@ -20,7 +20,7 @@ namespace ELSM_Project
         }
 
         private static int loopnum, createloop, pointX = 235, pointY = 20, boxnum = 0, temploop;
-        private static bool finished;
+        private static bool finished, firstrun = true;
         private static string value, yes = "No";
         string[] operatingSystemsID = new string[100];
         string[] operatingSystems = new string[100];
@@ -110,7 +110,9 @@ namespace ELSM_Project
             setCommandText.Close(); // Close reader
 
             loopnum = 0; // Set variable to 0
-
+            pointX = 235;
+            pointY = 20;
+            pnlConfiguration.Controls.Clear();
             while (operatingSystemsID[loopnum] != null)
             {
                 value = Convert.ToString(operatingSystems[loopnum]);
@@ -150,11 +152,15 @@ namespace ELSM_Project
                 boxnum += 1; // Add the value of 1 to the variable
 
             }
-            this.Height += loopnum * 5;
-            pnlConfiguration.Height += loopnum * 5;
-            finished = true;
-            btnEditCommand.Top += loopnum * 5;
-            btnCancel.Top += loopnum * 5;
+            if (firstrun != false)
+            {
+                this.Height += loopnum * 5;
+                pnlConfiguration.Height += loopnum * 5;
+                    finished = true;
+                btnEditCommand.Top += loopnum * 5;
+             btnCancel.Top += loopnum * 5;
+            }
+            firstrun = false;
 
             connectionMySQL.Close();
         }

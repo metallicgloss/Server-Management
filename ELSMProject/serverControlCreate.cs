@@ -49,12 +49,13 @@ namespace ELSM_Project
                 pnlConfiguration.Show();
                 loopnum += 1; // Add the value of 1 to the variable
             }
-
+            
+                this.Height += 40 + (loopnum * 5);
+                pnlConfiguration.Height += 40 + (loopnum * 5);
+                btnNewCommand.Top += loopnum * 6;
+                btnCancel.Top += loopnum * 6;
             osRDR.Close(); // Close reader
-            this.Height += 40 +(loopnum * 5);
-            pnlConfiguration.Height += 40 + (loopnum * 5);
-            btnNewCommand.Top += loopnum * 6;
-            btnCancel.Top += loopnum * 6;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
