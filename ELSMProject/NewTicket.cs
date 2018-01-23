@@ -38,15 +38,12 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
 
-            MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding) VALUES (@ticketCustomer, @ticketRegarding)", connectionMySQL);
+            MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding) VALUES (@ticketCustomer, @ticketRegarding);", connectionMySQL);
             newTicket.Parameters.AddWithValue("@ticketCustomer", loginMenu.UserID);
             newTicket.Parameters.AddWithValue("@ticketRegarding", cmboRegarding.Text);
             newTicket.ExecuteNonQuery();
+            var ticketID = newTicket.LastInsertedId;
 
-            if (newTicket.LastInsertedId != null) newTicket.Parameters.Add(
-            new MySqlParameter("newId", newTicket.LastInsertedId));
-
-            var ticketID = Convert.ToInt32(newTicket.Parameters["@newId"].Value);
 
             MySqlCommand newTicketReply = new MySqlCommand("INSERT INTO systemTickets (ticketID, userID, replyContent) VALUES (@ticketID, @userID, @replyContent)", connectionMySQL);
             newTicket.Parameters.AddWithValue("@ticketID", ticketID);

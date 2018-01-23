@@ -274,6 +274,7 @@
             this.btnCreateTicket.TabIndex = 20;
             this.btnCreateTicket.Text = "New Ticket";
             this.btnCreateTicket.UseVisualStyleBackColor = true;
+            this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
             // 
             // mainDashboard
             // 

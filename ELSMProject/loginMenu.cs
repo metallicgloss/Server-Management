@@ -31,7 +31,9 @@ namespace ELSM_Project
 
         private void loginFRM_Load(object sender, EventArgs e)
         {
-            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("https://www.metallicgloss.com/functions/ip.php"))[0].ToString();
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("http://www.metallicgloss.com/functions/ip.php"))[0].ToString();
             loginMenu.IPAddress = externalIP;
         }
 
@@ -127,9 +129,10 @@ namespace ELSM_Project
                     Show();
                 }
             }
-            catch (Exception) 
+            catch (Exception ex) 
             {
                 System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
+                System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
                 rdr.Close();
             }
             txtUsername.Text = "";
