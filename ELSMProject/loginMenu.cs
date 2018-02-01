@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Net;
+using System.Xml;
 using System.Text.RegularExpressions;
 
 namespace ELSM_Project
@@ -35,6 +36,23 @@ namespace ELSM_Project
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("http://www.metallicgloss.com/functions/ip.php"))[0].ToString();
             loginMenu.IPAddress = externalIP;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load("setup.xml");
+            string Setup = doc.SelectSingleNode("Settings/Setup").InnerText;
+            if (Setup == "No")
+            {
+                Hide();
+                loginMenu login = new loginMenu();
+                login.ShowDialog();
+            }
+
+            string IP = doc.SelectSingleNode("Settings/IP").InnerText;
+            string DATABASE = doc.SelectSingleNode("Settings/Database").InnerText;
+            string UID = doc.SelectSingleNode("Settings/Username").InnerText;
+            string PASSWORD = doc.SelectSingleNode("Settings/Password").InnerText;
+            ConnectionString = "SERVER=" + IP + ";DATABASE=" + DATABASE + ";UID=" + UID + ";PASSWORD=" + PASSWORD + ";";
+
         }
 
         private void loginBtn_Click(object sender, EventArgs e)

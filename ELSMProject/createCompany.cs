@@ -10,6 +10,7 @@ namespace ELSM_Project
         {
             InitializeComponent();
         }
+        
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -20,6 +21,7 @@ namespace ELSM_Project
             createCompany.ExecuteNonQuery();
             connectionMySQL.Close();
 
+            Hide();
             createUser user = new createUser();
             user.ShowDialog();
         }
