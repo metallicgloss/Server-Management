@@ -13,8 +13,7 @@ namespace ELSM_Project
 
         public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password, externalIP, userLogin, userPassword;
         public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers, checkpointReached;
-        public static string ConnectionString = "SERVER=185.44.78.200;DATABASE=metallic_elsm_test;UID=metallic_testing;PASSWORD=zyRHxVhgdv8zTH2E53;"; 
-        
+        public static string ConnectionString;
 
 
         public loginMenu()
@@ -96,34 +95,34 @@ namespace ELSM_Project
                     permissionCommand.Parameters.AddWithValue("@permid", Role); // Replace string in query with variable
                     MySqlDataReader permissionRDR = permissionCommand.ExecuteReader(); // Execute MySQL reader query
                     permissionRDR.Read(); // Read data from the reader to become usable
-                    permChangePassword = Convert.ToBoolean(permissionRDR[4]); // Set variable equal to item in reader
-                    permChangeUsername = Convert.ToBoolean(permissionRDR[5]); // Set variable equal to item in reader
-                    permChangeEmail = Convert.ToBoolean(permissionRDR[6]); // Set variable equal to item in reader
-                    permViewServers = Convert.ToBoolean(permissionRDR[7]); // Set variable equal to item in reader
-                    permEditServers = Convert.ToBoolean(permissionRDR[8]); // Set variable equal to item in reader
-                    permDeleteServers = Convert.ToBoolean(permissionRDR[9]); // Set variable equal to item in readerv
-                    permViewLocations = Convert.ToBoolean(permissionRDR[10]); // Set variable equal to item in reader
-                    permEditLocations = Convert.ToBoolean(permissionRDR[11]); // Set variable equal to item in reader
-                    permDeleteLocations = Convert.ToBoolean(permissionRDR[12]); // Set variable equal to item in reader
-                    permCreateTicket = Convert.ToBoolean(permissionRDR[13]); // Set variable equal to item in reader
-                    permAdminTicket = Convert.ToBoolean(permissionRDR[14]); // Set variable equal to item in reader
-                    permCloseTicket = Convert.ToBoolean(permissionRDR[15]); // Set variable equal to item in reader
-                    permViewServerPass = Convert.ToBoolean(permissionRDR[16]); // Set variable equal to item in reader
-                    permEditServerPass = Convert.ToBoolean(permissionRDR[17]); // Set variable equal to item in reader
-                    permAddAction = Convert.ToBoolean(permissionRDR[18]); // Set variable equal to item in reader
-                    permEditAction = Convert.ToBoolean(permissionRDR[19]); // Set variable equal to item in reader
-                    permDeleteAction = Convert.ToBoolean(permissionRDR[20]); // Set variable equal to item in reader
-                    permRunUpdate = Convert.ToBoolean(permissionRDR[21]); // Set variable equal to item in reader
-                    permRunReboot = Convert.ToBoolean(permissionRDR[22]); // Set variable equal to item in reader
-                    permAddServerNote = Convert.ToBoolean(permissionRDR[23]); // Set variable equal to item in reader
-                    permRunCustomAction = Convert.ToBoolean(permissionRDR[24]); // Set variable equal to item in reader
-                    permAdminViewUsers = Convert.ToBoolean(permissionRDR[25]); // Set variable equal to item in reader
-                    permAdminEditUserInfo = Convert.ToBoolean(permissionRDR[26]); // Set variable equal to item in reader
-                    permAdminForcePassReset = Convert.ToBoolean(permissionRDR[27]); // Set variable equal to item in reader
-                    permAdminAddUser = Convert.ToBoolean(permissionRDR[28]); // Set variable equal to item in reader
-                    permAdminDelUser = Convert.ToBoolean(permissionRDR[29]); // Set variable equal to item in reader
-                    permAdminChangePermissions = Convert.ToBoolean(permissionRDR[30]); // Set variable equal to item in reader
-                    permControlServers = Convert.ToBoolean(permissionRDR[31]); // Set variable equal to item in reader
+                    permChangePassword = Convert.ToBoolean(permissionRDR[3]); // Set variable equal to item in reader
+                    permChangeUsername = Convert.ToBoolean(permissionRDR[4]); // Set variable equal to item in reader
+                    permChangeEmail = Convert.ToBoolean(permissionRDR[5]); // Set variable equal to item in reader
+                    permViewServers = Convert.ToBoolean(permissionRDR[6]); // Set variable equal to item in reader
+                    permEditServers = Convert.ToBoolean(permissionRDR[7]); // Set variable equal to item in reader
+                    permDeleteServers = Convert.ToBoolean(permissionRDR[8]); // Set variable equal to item in readerv
+                    permViewLocations = Convert.ToBoolean(permissionRDR[9]); // Set variable equal to item in reader
+                    permEditLocations = Convert.ToBoolean(permissionRDR[10]); // Set variable equal to item in reader
+                    permDeleteLocations = Convert.ToBoolean(permissionRDR[11]); // Set variable equal to item in reader
+                    permCreateTicket = Convert.ToBoolean(permissionRDR[12]); // Set variable equal to item in reader
+                    permAdminTicket = Convert.ToBoolean(permissionRDR[13]); // Set variable equal to item in reader
+                    permCloseTicket = Convert.ToBoolean(permissionRDR[14]); // Set variable equal to item in reader
+                    permViewServerPass = Convert.ToBoolean(permissionRDR[15]); // Set variable equal to item in reader
+                    permEditServerPass = Convert.ToBoolean(permissionRDR[16]); // Set variable equal to item in reader
+                    permAddAction = Convert.ToBoolean(permissionRDR[17]); // Set variable equal to item in reader
+                    permEditAction = Convert.ToBoolean(permissionRDR[18]); // Set variable equal to item in reader
+                    permDeleteAction = Convert.ToBoolean(permissionRDR[19]); // Set variable equal to item in reader
+                    permRunUpdate = Convert.ToBoolean(permissionRDR[20]); // Set variable equal to item in reader
+                    permRunReboot = Convert.ToBoolean(permissionRDR[21]); // Set variable equal to item in reader
+                    permAddServerNote = Convert.ToBoolean(permissionRDR[22]); // Set variable equal to item in reader
+                    permRunCustomAction = Convert.ToBoolean(permissionRDR[23]); // Set variable equal to item in reader
+                    permAdminViewUsers = Convert.ToBoolean(permissionRDR[24]); // Set variable equal to item in reader
+                    permAdminEditUserInfo = Convert.ToBoolean(permissionRDR[25]); // Set variable equal to item in reader
+                    permAdminForcePassReset = Convert.ToBoolean(permissionRDR[26]); // Set variable equal to item in reader
+                    permAdminAddUser = Convert.ToBoolean(permissionRDR[27]); // Set variable equal to item in reader
+                    permAdminDelUser = Convert.ToBoolean(permissionRDR[28]); // Set variable equal to item in reader
+                    permAdminChangePermissions = Convert.ToBoolean(permissionRDR[29]); // Set variable equal to item in reader
+                    permControlServers = Convert.ToBoolean(permissionRDR[30]); // Set variable equal to item in reader
                     permissionRDR.Close(); // Close reader
 
                     MySqlCommand companyCMD = new MySqlCommand("SELECT * FROM userCompanies WHERE companyID = @companyID", connectionMySQL);
