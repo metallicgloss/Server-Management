@@ -204,12 +204,6 @@
     <Compile Include="manageServersNotes.Designer.cs">
       <DependentUpon>manageServersNotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="newTicket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newTicket.Designer.cs">
-      <DependentUpon>newTicket.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="serverControl.cs">
@@ -301,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="manageServersEdit.resx">
       <DependentUpon>manageServersEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewTicket.resx">
-      <DependentUpon>newTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
