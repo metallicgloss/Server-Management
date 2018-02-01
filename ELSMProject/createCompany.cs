@@ -19,6 +19,9 @@ namespace ELSM_Project
             createCompany.Parameters.AddWithValue("@companyName", txtName.Text);
             createCompany.ExecuteNonQuery();
             connectionMySQL.Close();
+
+            createUser user = new createUser();
+            user.ShowDialog();
         }
     }
 }
