@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
@@ -19,7 +13,12 @@ namespace ELSM_Project
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+            MySqlConnection connectionMySQL = new MySqlConnection(initialSetup.ConnectionString); // Open MySQL connection 
+            connectionMySQL.Open(); // Open MySQL connection
+            MySqlCommand createCompany = new MySqlCommand("INSERT INTO userCompanies (companyName, OwnerID) VALUES (@companyName, '1')", connectionMySQL);
+            createCompany.Parameters.AddWithValue("@companyName", txtName.Text);
+            createCompany.ExecuteNonQuery();
+            connectionMySQL.Close();
         }
     }
 }
