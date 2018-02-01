@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net;
 using System.Net.Mail;
 
 namespace ELSM_Project
@@ -29,25 +30,25 @@ namespace ELSM_Project
                     createAdmin.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
                     createAdmin.Parameters.AddWithValue("@userCompany", "1");
                     createAdmin.Parameters.AddWithValue("@userRole", "1");
-                    Boolean EmailSent = false;
-                        MailMessage mail = new MailMessage(txtEmail.Text, txtEmail.Text);
-                        SmtpClient client = new SmtpClient();
-                        client.Port = 25;
-                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        client.UseDefaultCredentials = false;
-                        client.Host = "smtp.gmail.com";
-                        mail.Subject = "this is a test email.";
-                        mail.Body = "this is my test email body";
-                        client.Send(mail);
-                        EmailSent = true;
-
-                    if (EmailSent = true) {
+                string fromEmail = txtEmail.Text;
+                MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "Body");
+                SmtpClient smtpClient = new SmtpClient(initialEmail.SMTPServer, Convert.ToInt16(initialEmail.SMTPPort));
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(fromEmail, initialEmail.EmailPass);
+                try
+                {
+                    smtpClient.Send(mailMessage);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
+                }
                         createAdmin.ExecuteNonQuery();
                         connectionMySQL.Close();
                         Hide();
                         loginMenu login = new loginMenu();
                         login.ShowDialog();
-                    }
 
 
             } else {

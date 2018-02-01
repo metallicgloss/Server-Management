@@ -31,15 +31,15 @@
             this.logoImage = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.txtHostname = new System.Windows.Forms.TextBox();
+            this.txtSMTPServer = new System.Windows.Forms.TextBox();
             this.lblHostname = new System.Windows.Forms.Label();
-            this.txtDatabaseName = new System.Windows.Forms.TextBox();
+            this.txtSMTPPort = new System.Windows.Forms.TextBox();
             this.lblDatabaseName = new System.Windows.Forms.Label();
-            this.txtDatabaseUsername = new System.Windows.Forms.TextBox();
-            this.lblDatabaseUsername = new System.Windows.Forms.Label();
-            this.txtDatabasePassword = new System.Windows.Forms.TextBox();
-            this.lblDatabasePassword = new System.Windows.Forms.Label();
             this.btnInstall = new System.Windows.Forms.Button();
+            this.txtEmailPassword = new System.Windows.Forms.TextBox();
+            this.lblDatabasePassword = new System.Windows.Forms.Label();
+            this.txtEmailUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,14 +80,14 @@
     "am Phillips.\r\nCommisioned initially for Encrypted Laser Limited.";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // txtHostname
+            // txtSMTPServer
             // 
-            this.txtHostname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHostname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHostname.Location = new System.Drawing.Point(245, 260);
-            this.txtHostname.Name = "txtHostname";
-            this.txtHostname.Size = new System.Drawing.Size(413, 20);
-            this.txtHostname.TabIndex = 47;
+            this.txtSMTPServer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSMTPServer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSMTPServer.Location = new System.Drawing.Point(245, 260);
+            this.txtSMTPServer.Name = "txtSMTPServer";
+            this.txtSMTPServer.Size = new System.Drawing.Size(413, 20);
+            this.txtSMTPServer.TabIndex = 47;
             // 
             // lblHostname
             // 
@@ -97,18 +97,18 @@
             this.lblHostname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblHostname.Location = new System.Drawing.Point(60, 260);
             this.lblHostname.Name = "lblHostname";
-            this.lblHostname.Size = new System.Drawing.Size(152, 18);
+            this.lblHostname.Size = new System.Drawing.Size(100, 18);
             this.lblHostname.TabIndex = 46;
-            this.lblHostname.Text = "Database Hostname:";
+            this.lblHostname.Text = "SMTP Server:";
             // 
-            // txtDatabaseName
+            // txtSMTPPort
             // 
-            this.txtDatabaseName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatabaseName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDatabaseName.Location = new System.Drawing.Point(245, 286);
-            this.txtDatabaseName.Name = "txtDatabaseName";
-            this.txtDatabaseName.Size = new System.Drawing.Size(413, 20);
-            this.txtDatabaseName.TabIndex = 49;
+            this.txtSMTPPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSMTPPort.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSMTPPort.Location = new System.Drawing.Point(245, 286);
+            this.txtSMTPPort.Name = "txtSMTPPort";
+            this.txtSMTPPort.Size = new System.Drawing.Size(413, 20);
+            this.txtSMTPPort.TabIndex = 49;
             // 
             // lblDatabaseName
             // 
@@ -118,40 +118,34 @@
             this.lblDatabaseName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblDatabaseName.Location = new System.Drawing.Point(60, 286);
             this.lblDatabaseName.Name = "lblDatabaseName";
-            this.lblDatabaseName.Size = new System.Drawing.Size(123, 18);
+            this.lblDatabaseName.Size = new System.Drawing.Size(83, 18);
             this.lblDatabaseName.TabIndex = 48;
-            this.lblDatabaseName.Text = "Database Name:";
+            this.lblDatabaseName.Text = "SMTP Port:";
             // 
-            // txtDatabaseUsername
+            // btnInstall
             // 
-            this.txtDatabaseUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatabaseUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDatabaseUsername.Location = new System.Drawing.Point(245, 312);
-            this.txtDatabaseUsername.Name = "txtDatabaseUsername";
-            this.txtDatabaseUsername.Size = new System.Drawing.Size(413, 20);
-            this.txtDatabaseUsername.TabIndex = 51;
+            this.btnInstall.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInstall.FlatAppearance.BorderSize = 0;
+            this.btnInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInstall.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInstall.Location = new System.Drawing.Point(63, 375);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(595, 31);
+            this.btnInstall.TabIndex = 54;
+            this.btnInstall.Text = "Login";
+            this.btnInstall.UseVisualStyleBackColor = false;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
-            // lblDatabaseUsername
+            // txtEmailPassword
             // 
-            this.lblDatabaseUsername.AutoSize = true;
-            this.lblDatabaseUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblDatabaseUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatabaseUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDatabaseUsername.Location = new System.Drawing.Point(60, 312);
-            this.lblDatabaseUsername.Name = "lblDatabaseUsername";
-            this.lblDatabaseUsername.Size = new System.Drawing.Size(152, 18);
-            this.lblDatabaseUsername.TabIndex = 50;
-            this.lblDatabaseUsername.Text = "Database Username:";
-            // 
-            // txtDatabasePassword
-            // 
-            this.txtDatabasePassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatabasePassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDatabasePassword.Location = new System.Drawing.Point(245, 338);
-            this.txtDatabasePassword.Name = "txtDatabasePassword";
-            this.txtDatabasePassword.PasswordChar = '•';
-            this.txtDatabasePassword.Size = new System.Drawing.Size(413, 20);
-            this.txtDatabasePassword.TabIndex = 53;
+            this.txtEmailPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmailPassword.Location = new System.Drawing.Point(245, 338);
+            this.txtEmailPassword.Name = "txtEmailPassword";
+            this.txtEmailPassword.PasswordChar = '•';
+            this.txtEmailPassword.Size = new System.Drawing.Size(413, 20);
+            this.txtEmailPassword.TabIndex = 53;
             // 
             // lblDatabasePassword
             // 
@@ -161,23 +155,30 @@
             this.lblDatabasePassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblDatabasePassword.Location = new System.Drawing.Point(60, 338);
             this.lblDatabasePassword.Name = "lblDatabasePassword";
-            this.lblDatabasePassword.Size = new System.Drawing.Size(146, 18);
+            this.lblDatabasePassword.Size = new System.Drawing.Size(119, 18);
             this.lblDatabasePassword.TabIndex = 52;
-            this.lblDatabasePassword.Text = "Database Password:";
+            this.lblDatabasePassword.Text = "Email Password:";
             // 
-            // btnInstall
+            // txtEmailUsername
             // 
-            this.btnInstall.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnInstall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInstall.FlatAppearance.BorderSize = 0;
-            this.btnInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInstall.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInstall.Location = new System.Drawing.Point(63, 410);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(595, 31);
-            this.btnInstall.TabIndex = 54;
-            this.btnInstall.Text = "Install/Connect";
-            this.btnInstall.UseVisualStyleBackColor = false;
+            this.txtEmailUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmailUsername.Location = new System.Drawing.Point(245, 312);
+            this.txtEmailUsername.Name = "txtEmailUsername";
+            this.txtEmailUsername.Size = new System.Drawing.Size(413, 20);
+            this.txtEmailUsername.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(60, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 18);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Email Username:";
             // 
             // initialEmail
             // 
@@ -185,16 +186,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(710, 480);
+            this.ClientSize = new System.Drawing.Size(710, 433);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInstall);
-            this.Controls.Add(this.txtDatabasePassword);
+            this.Controls.Add(this.txtEmailPassword);
             this.Controls.Add(this.lblDatabasePassword);
-            this.Controls.Add(this.txtDatabaseUsername);
-            this.Controls.Add(this.lblDatabaseUsername);
-            this.Controls.Add(this.txtDatabaseName);
+            this.Controls.Add(this.txtEmailUsername);
+            this.Controls.Add(this.txtSMTPPort);
             this.Controls.Add(this.lblDatabaseName);
-            this.Controls.Add(this.txtHostname);
+            this.Controls.Add(this.txtSMTPServer);
             this.Controls.Add(this.lblHostname);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblWelcome);
@@ -215,14 +216,14 @@
         private System.Windows.Forms.PictureBox logoImage;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TextBox txtHostname;
+        private System.Windows.Forms.TextBox txtSMTPServer;
         private System.Windows.Forms.Label lblHostname;
-        private System.Windows.Forms.TextBox txtDatabaseName;
+        private System.Windows.Forms.TextBox txtSMTPPort;
         private System.Windows.Forms.Label lblDatabaseName;
-        private System.Windows.Forms.TextBox txtDatabaseUsername;
-        private System.Windows.Forms.Label lblDatabaseUsername;
-        private System.Windows.Forms.TextBox txtDatabasePassword;
-        private System.Windows.Forms.Label lblDatabasePassword;
         private System.Windows.Forms.Button btnInstall;
+        private System.Windows.Forms.TextBox txtEmailPassword;
+        private System.Windows.Forms.Label lblDatabasePassword;
+        private System.Windows.Forms.TextBox txtEmailUsername;
+        private System.Windows.Forms.Label label1;
     }
 }
