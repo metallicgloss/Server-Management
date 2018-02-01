@@ -60,9 +60,9 @@
         MySqlCommand myCommand = new MySqlCommand(mySelectQuery,myConnection);
         myConnection.Open();
         MySqlDataReader myReader;
-        myReader = myCommand.ExecuteReader(); // Execute MySQL reader query
+        myReader = myCommand.ExecuteReader();
         // Always call Read before accessing data.
-        while (myReader.Read()) // While rows in reader {
+        while (myReader.Read()) {
         Console.WriteLine(myReader.GetInt32(0) + ", " + myReader.GetString(1));
         }
         // always call Close when done reading.
