@@ -2,7 +2,7 @@
 {
     partial class createCompany
     {
-        /// <summary>
+        /// <summary
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -77,7 +77,7 @@
             // txtName
             // 
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtName.Location = new System.Drawing.Point(245, 260);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(413, 20);

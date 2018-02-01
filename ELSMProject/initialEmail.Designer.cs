@@ -1,6 +1,6 @@
 ﻿namespace ELSM_Project
 {
-    partial class initialSetup
+    partial class initialEmail
     {
         /// <summary>
         /// Required designer variable.
@@ -178,9 +178,8 @@
             this.btnInstall.TabIndex = 54;
             this.btnInstall.Text = "Install/Connect";
             this.btnInstall.UseVisualStyleBackColor = false;
-            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
-            // initialSetup
+            // initialEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -202,10 +201,9 @@
             this.Controls.Add(this.logoImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(544, 178);
-            this.Name = "initialSetup";
+            this.Name = "initialEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initial Setup";
-            this.Load += new System.EventHandler(this.initialSetup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

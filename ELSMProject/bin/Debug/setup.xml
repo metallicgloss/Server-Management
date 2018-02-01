@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Setup>No</Setup>
-  <IP></IP>
-  <Name></Name>
-  <Username></Username>
-  <Password></Password>
+  <Setup>Yes</Setup>
+  <IP>elhs.co</IP>
+  <Database>metallic_test</Database>
+  <Username>metallic_test</Username>
+  <Password>ue8ZU51DQjPkXy1UmzlTmLaZ</Password>
 </Settings>
