@@ -35,11 +35,6 @@ namespace ELSM_Project
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("http://www.metallicgloss.com/functions/ip.php"))[0].ToString();
             loginMenu.IPAddress = externalIP;
-
-            initialSetup setup = new initialSetup();
-            setup.ShowDialog();
-            Show();
-
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
