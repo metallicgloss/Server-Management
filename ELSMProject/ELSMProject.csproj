@@ -102,6 +102,12 @@
     <Compile Include="createUser.Designer.cs">
       <DependentUpon>createUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="initialEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="initialEmail.Designer.cs">
+      <DependentUpon>initialEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="initialSetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="createUser.resx">
       <DependentUpon>createUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="initialEmail.resx">
+      <DependentUpon>initialEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="initialSetup.resx">
       <DependentUpon>initialSetup.cs</DependentUpon>

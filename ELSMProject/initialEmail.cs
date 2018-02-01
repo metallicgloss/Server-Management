@@ -16,5 +16,19 @@ namespace ELSM_Project
         {
             InitializeComponent();
         }
+
+        public static string SMTPServer, SMTPPort, EmailUsername, EmailPass;
+
+        private void btnInstall_Click(object sender, EventArgs e)
+        {
+            SMTPPort = txtSMTPPort.Text;
+            SMTPServer = txtSMTPServer.Text;
+            EmailPass = txtEmailPassword.Text;
+            EmailUsername = txtEmailUsername.Text;
+
+            Hide();
+            createCompany company = new createCompany();
+            company.ShowDialog();
+        }
     }
 }

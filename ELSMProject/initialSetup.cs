@@ -66,8 +66,8 @@ namespace ELSM_Project
             ConnectionString = "SERVER=" + Hostname + ";DATABASE=" + Name + ";UID=" + Username + ";PASSWORD=" + Password + ";";
 
             Hide();
-            createCompany company = new createCompany();
-            company.ShowDialog();
+            initialEmail email = new initialEmail();
+            email.ShowDialog();
         }
     }
 }
