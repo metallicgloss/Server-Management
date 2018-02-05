@@ -119,6 +119,8 @@ namespace ELSM_Project
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            newTicket ticket = new newTicket();
+            ticket.ShowDialog();
         }
     }
 }
