@@ -24,38 +24,54 @@ namespace ELSM_Project
 
         private void serverControlCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            connectionMySQL.Open();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            conn.Open();
+            string os = "SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID";
+            MySqlCommand oscmd = new MySqlCommand(os, conn);
+            MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
+            int height;
+            height = 206;
+            loopnum = 1;
 
-            MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID", connectionMySQL);
-            MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
-            
-            while (osRDR.Read()) // While rows in reader
+            int boxnum = 0; // Set variable to 0
+            string value;
+            pnlConfiguration.Height += 40;
+            this.Height += 40;
+            while (osrdr.Read()) // While rows in reader
             {
-                value = Convert.ToString(osRDR[1]); // Set variable to reader value
-                CheckBox dynamicCheckbox = new CheckBox(); // Create checbkx
-                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum); // Set checkbox name
-                dynamicCheckbox.Text = value; // Set display value text to variable value
-                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked); // Add event hander event to checkbox
-                dynamicCheckbox.AutoSize = true; // Enable autosize
-                dynamicCheckbox.Location = new Point(10, loopnum * 20); // Set checbox location
-                pnlConfiguration.Controls.Add(dynamicCheckbox); // Display checkbox on window
-                TextBox dynamicTextBox = new TextBox(); // Create textbox
-                dynamicTextBox.Location = new Point(pointX, pointY); // Set textbox location
-                dynamicTextBox.Name = "txtInput" + loopnum; // Set textbox name
-                dynamicTextBox.Width = 800; // Set textbox width
-                dynamicTextBox.Enabled = false; // Set enabled to false
-                pnlConfiguration.Controls.Add(dynamicTextBox); // Display textbox on window
-                pnlConfiguration.Show();
+                value = Convert.ToString(osrdr[1]);
+                CheckBox box;
+                box = new CheckBox();
+                box.Name = "chkOS" + Convert.ToString(loopnum);
+                box.Text = value;
+                box.CheckedChanged += new System.EventHandler(valueChecked);
+                box.AutoSize = true;
+                box.Location = new Point(10, loopnum * 20);
+                pnlConfiguration.Controls.Add(box);
                 loopnum += 1; // Add the value of 1 to the variable
             }
-            
-                this.Height += 40 + (loopnum * 5);
-                pnlConfiguration.Height += 40 + (loopnum * 5);
-                btnNewCommand.Top += loopnum * 6;
-                btnCancel.Top += loopnum * 6;
-            osRDR.Close(); // Close reader
-            
+            int pointX = 235;
+            int pointY = 20;
+            int loopnum2 = 0; // Set variable to 0
+            for (int i = 0; i < loopnum - 1; i++)  // Set variable to 0
+            {
+                TextBox a = new TextBox();
+                a.Location = new Point(pointX, pointY);
+                a.Name = "txtInput" + loopnum2;
+                a.Width = 800;
+                a.Enabled = false;
+                pnlConfiguration.Controls.Add(a);
+                pnlConfiguration.Show();
+                pointY += 20;
+                boxnum += 1; // Add the value of 1 to the variable
+                loopnum2 += 1; // Add the value of 1 to the variable
+            }
+            osrdr.Close();
+            this.Height += loopnum2 * 5;
+            pnlConfiguration.Height += (loopnum2 * 5);
+            btnNewCommand.Top += loopnum2 * 6;
+            btnCancel.Top += loopnum2 * 6;
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
