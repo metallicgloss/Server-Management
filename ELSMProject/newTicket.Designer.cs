@@ -176,7 +176,7 @@
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "newTicket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "0";
+            this.Text = "New Ticket";
             this.Load += new System.EventHandler(this.newTicket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

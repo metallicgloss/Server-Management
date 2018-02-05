@@ -56,5 +56,10 @@ namespace ELSM_Project
             }
             
         }
+
+        private void createUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

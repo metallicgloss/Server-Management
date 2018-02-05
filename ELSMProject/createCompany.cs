@@ -25,5 +25,10 @@ namespace ELSM_Project
             createUser user = new createUser();
             user.ShowDialog();
         }
+
+        private void createCompany_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
