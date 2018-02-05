@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
@@ -38,6 +30,11 @@ namespace ELSM_Project
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
+        }
+
+        private void manageLocationsCreate_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

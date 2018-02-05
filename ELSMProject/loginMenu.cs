@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 using System.Net;
 using System.Xml;
 using System.Text.RegularExpressions;
-using System.Net.Mail;
 
 namespace ELSM_Project
 {
