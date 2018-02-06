@@ -38,14 +38,14 @@ namespace ELSM_Project
             MySqlDataReader serverInformationRDR = serverInformationCMD.ExecuteReader(); // Execute MySQL reader query 
             serverInformationRDR.Read(); // Read data from the reader to become usable
             txtUsername.Text = Convert.ToString(serverInformationRDR[4]);
-            txtIP.Text = Convert.ToString(serverInformationRDR[8]);
-            txtProcessor.Text = Convert.ToString(serverInformationRDR[9]);
-            txtRAM.Text = Convert.ToString(serverInformationRDR[10]);
-            txtTransfer.Text = Convert.ToString(serverInformationRDR[12]);
+            txtIP.Text = Convert.ToString(serverInformationRDR[7]);
+            txtProcessor.Text = Convert.ToString(serverInformationRDR[8]);
+            txtRAM.Text = Convert.ToString(serverInformationRDR[9]);
+            txtTransfer.Text = Convert.ToString(serverInformationRDR[11]);
             serverEdit.password = Convert.ToString(serverInformationRDR[5]);
             var serverLocation = Convert.ToString(serverInformationRDR[2]);
-            var serverOS = Convert.ToString(serverInformationRDR[7]);
-            var serverPort = Convert.ToString(serverInformationRDR[11]);
+            var serverOS = Convert.ToString(serverInformationRDR[6]);
+            var serverPort = Convert.ToString(serverInformationRDR[10]);
             txtPassword.Text = "";
             serverInformationRDR.Close();
 
