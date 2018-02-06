@@ -82,21 +82,21 @@ namespace ELSM_Project
         private void btnManageServers_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
-            manageServers manageS = new manageServers();
+            serverManagement manageS = new serverManagement();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
-            manageLocations manageL = new manageLocations();
+            locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
-            manageAccount Account = new manageAccount();
+            accountManagement Account = new accountManagement();
             Account.ShowDialog();
         }
 
@@ -110,7 +110,7 @@ namespace ELSM_Project
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
-            newTicket ticket = new newTicket();
+            ticketNew ticket = new ticketNew();
             ticket.ShowDialog();
         }
     }
