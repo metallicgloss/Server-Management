@@ -250,6 +250,7 @@
             this.btnDeleteServer.TabIndex = 50;
             this.btnDeleteServer.Text = "Delete Server";
             this.btnDeleteServer.UseVisualStyleBackColor = true;
+            this.btnDeleteServer.Click += new System.EventHandler(this.btnDeleteServer_Click);
             // 
             // btnEditServer
             // 
