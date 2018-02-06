@@ -45,7 +45,7 @@ namespace ELSM_Project
                 statusResult.Width = 800; // Set width of label
                 statusResult.Height -= 5; // Set height of label
                 statusResult.ForeColor = Color.Black; // Set text color to black
-                pingOutcomeData = Convert.ToString(statusOutput[8]); // Set pingOutcomeData variable from database equal to the IP address
+                pingOutcomeData = Convert.ToString(statusOutput[7]); // Set pingOutcomeData variable from database equal to the IP address
                 Ping pingProcess = new Ping(); // Construct a ping variable
                 pingResponse = pingProcess.Send(pingOutcomeData); // Ping variable containing server IP from database row
                 if (pingResponse.Status == IPStatus.Success) // If ping request shows online
