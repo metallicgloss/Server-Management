@@ -71,13 +71,12 @@ namespace ELSM_Project
             var network = Convert.ToString(networkRDR[0]);
             networkRDR.Close();
 
-            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverKey, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverKey, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", connectionMySQL); 
+            MySqlCommand serverCMD = new MySqlCommand("INSERT INTO serverInformation (serverCompany, serverLocation, serverHostname, serverUsername, serverPassword, serverOS, serverIP, serverProcessor, serverRAM, serverPort, serverTransfer) VALUES (@serverCompany, @serverLocation, @serverHostname, @serverUsername, @serverPassword, @serverOS, @serverIP, @serverProcessor, @serverRAM, @serverPort, @serverTransfer)", connectionMySQL); 
             serverCMD.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
             serverCMD.Parameters.AddWithValue("@serverLocation", location);
             serverCMD.Parameters.AddWithValue("@serverHostname", txtHostname.Text);
             serverCMD.Parameters.AddWithValue("@serverUsername", txtUsername.Text);
             serverCMD.Parameters.AddWithValue("@serverPassword", txtPassword.Text);
-            serverCMD.Parameters.AddWithValue("@serverKey", txtKey.Text);
             serverCMD.Parameters.AddWithValue("@serverOS", os);
             serverCMD.Parameters.AddWithValue("@serverIP", txtIP.Text);
             serverCMD.Parameters.AddWithValue("@serverProcessor", txtProcessor.Text);
@@ -88,7 +87,6 @@ namespace ELSM_Project
             connectionMySQL.Close();
             txtHostname.Text = "";
             txtIP.Text = "";
-            txtKey.Text = "";
             txtPassword.Text = "";
             txtProcessor.Text = "";
             txtRAM.Text = "";

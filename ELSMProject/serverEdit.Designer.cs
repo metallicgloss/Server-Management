@@ -32,10 +32,8 @@
             this.btnUpdateServer = new System.Windows.Forms.Button();
             this.lblHostname = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.txtKey = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblKey = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtIP = new System.Windows.Forms.TextBox();
@@ -58,10 +56,10 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(281, 448);
+            this.btnCancel.Location = new System.Drawing.Point(281, 405);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(207, 31);
             this.btnCancel.TabIndex = 45;
@@ -73,10 +71,10 @@
             // 
             this.btnUpdateServer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUpdateServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateServer.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnUpdateServer.FlatAppearance.BorderSize = 0;
             this.btnUpdateServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateServer.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateServer.Location = new System.Drawing.Point(36, 448);
+            this.btnUpdateServer.Location = new System.Drawing.Point(36, 405);
             this.btnUpdateServer.Name = "btnUpdateServer";
             this.btnUpdateServer.Size = new System.Drawing.Size(206, 31);
             this.btnUpdateServer.TabIndex = 44;
@@ -108,16 +106,6 @@
             this.lblLocation.TabIndex = 39;
             this.lblLocation.Text = "Location:";
             // 
-            // txtKey
-            // 
-            this.txtKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtKey.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtKey.Enabled = false;
-            this.txtKey.Location = new System.Drawing.Point(178, 180);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(310, 20);
-            this.txtKey.TabIndex = 51;
-            // 
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -138,18 +126,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(310, 20);
             this.txtUsername.TabIndex = 49;
-            // 
-            // lblKey
-            // 
-            this.lblKey.AutoSize = true;
-            this.lblKey.BackColor = System.Drawing.Color.Transparent;
-            this.lblKey.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKey.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblKey.Location = new System.Drawing.Point(33, 181);
-            this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(38, 18);
-            this.lblKey.TabIndex = 48;
-            this.lblKey.Text = "Key:";
             // 
             // lblPassword
             // 
@@ -180,7 +156,7 @@
             this.txtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIP.Cursor = System.Windows.Forms.Cursors.No;
             this.txtIP.Enabled = false;
-            this.txtIP.Location = new System.Drawing.Point(178, 254);
+            this.txtIP.Location = new System.Drawing.Point(178, 211);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(310, 20);
             this.txtIP.TabIndex = 56;
@@ -191,7 +167,7 @@
             this.lblProcessor.BackColor = System.Drawing.Color.Transparent;
             this.lblProcessor.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProcessor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblProcessor.Location = new System.Drawing.Point(33, 293);
+            this.lblProcessor.Location = new System.Drawing.Point(33, 250);
             this.lblProcessor.Name = "lblProcessor";
             this.lblProcessor.Size = new System.Drawing.Size(125, 18);
             this.lblProcessor.TabIndex = 54;
@@ -203,7 +179,7 @@
             this.lblIP.BackColor = System.Drawing.Color.Transparent;
             this.lblIP.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblIP.Location = new System.Drawing.Point(33, 256);
+            this.lblIP.Location = new System.Drawing.Point(33, 213);
             this.lblIP.Name = "lblIP";
             this.lblIP.Size = new System.Drawing.Size(133, 18);
             this.lblIP.TabIndex = 53;
@@ -215,7 +191,7 @@
             this.lblOS.BackColor = System.Drawing.Color.Transparent;
             this.lblOS.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblOS.Location = new System.Drawing.Point(33, 217);
+            this.lblOS.Location = new System.Drawing.Point(33, 174);
             this.lblOS.Name = "lblOS";
             this.lblOS.Size = new System.Drawing.Size(135, 18);
             this.lblOS.TabIndex = 52;
@@ -227,7 +203,7 @@
             this.lblTransfer.BackColor = System.Drawing.Color.Transparent;
             this.lblTransfer.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTransfer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTransfer.Location = new System.Drawing.Point(33, 405);
+            this.lblTransfer.Location = new System.Drawing.Point(33, 362);
             this.lblTransfer.Name = "lblTransfer";
             this.lblTransfer.Size = new System.Drawing.Size(66, 18);
             this.lblTransfer.TabIndex = 61;
@@ -239,7 +215,7 @@
             this.lblPort.BackColor = System.Drawing.Color.Transparent;
             this.lblPort.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPort.Location = new System.Drawing.Point(33, 366);
+            this.lblPort.Location = new System.Drawing.Point(33, 323);
             this.lblPort.Name = "lblPort";
             this.lblPort.Size = new System.Drawing.Size(103, 18);
             this.lblPort.TabIndex = 60;
@@ -251,7 +227,7 @@
             this.lblRAM.BackColor = System.Drawing.Color.Transparent;
             this.lblRAM.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRAM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblRAM.Location = new System.Drawing.Point(33, 330);
+            this.lblRAM.Location = new System.Drawing.Point(33, 287);
             this.lblRAM.Name = "lblRAM";
             this.lblRAM.Size = new System.Drawing.Size(44, 18);
             this.lblRAM.TabIndex = 58;
@@ -272,7 +248,7 @@
             this.cmboOS.Cursor = System.Windows.Forms.Cursors.No;
             this.cmboOS.Enabled = false;
             this.cmboOS.FormattingEnabled = true;
-            this.cmboOS.Location = new System.Drawing.Point(178, 216);
+            this.cmboOS.Location = new System.Drawing.Point(178, 173);
             this.cmboOS.Name = "cmboOS";
             this.cmboOS.Size = new System.Drawing.Size(310, 21);
             this.cmboOS.TabIndex = 63;
@@ -282,7 +258,7 @@
             this.cmboNetwork.Cursor = System.Windows.Forms.Cursors.No;
             this.cmboNetwork.Enabled = false;
             this.cmboNetwork.FormattingEnabled = true;
-            this.cmboNetwork.Location = new System.Drawing.Point(178, 365);
+            this.cmboNetwork.Location = new System.Drawing.Point(178, 322);
             this.cmboNetwork.Name = "cmboNetwork";
             this.cmboNetwork.Size = new System.Drawing.Size(310, 21);
             this.cmboNetwork.TabIndex = 66;
@@ -292,7 +268,7 @@
             this.txtProcessor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProcessor.Cursor = System.Windows.Forms.Cursors.No;
             this.txtProcessor.Enabled = false;
-            this.txtProcessor.Location = new System.Drawing.Point(178, 291);
+            this.txtProcessor.Location = new System.Drawing.Point(178, 248);
             this.txtProcessor.Name = "txtProcessor";
             this.txtProcessor.Size = new System.Drawing.Size(310, 20);
             this.txtProcessor.TabIndex = 68;
@@ -302,7 +278,7 @@
             this.txtRAM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRAM.Cursor = System.Windows.Forms.Cursors.No;
             this.txtRAM.Enabled = false;
-            this.txtRAM.Location = new System.Drawing.Point(178, 328);
+            this.txtRAM.Location = new System.Drawing.Point(178, 285);
             this.txtRAM.Name = "txtRAM";
             this.txtRAM.Size = new System.Drawing.Size(310, 20);
             this.txtRAM.TabIndex = 69;
@@ -312,7 +288,7 @@
             this.txtTransfer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTransfer.Cursor = System.Windows.Forms.Cursors.No;
             this.txtTransfer.Enabled = false;
-            this.txtTransfer.Location = new System.Drawing.Point(178, 403);
+            this.txtTransfer.Location = new System.Drawing.Point(178, 360);
             this.txtTransfer.Name = "txtTransfer";
             this.txtTransfer.Size = new System.Drawing.Size(310, 20);
             this.txtTransfer.TabIndex = 70;
@@ -326,13 +302,13 @@
             this.cmboHostNames.TabIndex = 71;
             this.cmboHostNames.SelectedIndexChanged += new System.EventHandler(this.cmboHostNames_SelectedIndexChanged);
             // 
-            // manageServersEdit
+            // serverEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(542, 503);
+            this.ClientSize = new System.Drawing.Size(542, 455);
             this.ControlBox = false;
             this.Controls.Add(this.cmboHostNames);
             this.Controls.Add(this.txtTransfer);
@@ -348,10 +324,8 @@
             this.Controls.Add(this.lblProcessor);
             this.Controls.Add(this.lblIP);
             this.Controls.Add(this.lblOS);
-            this.Controls.Add(this.txtKey);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.lblKey);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnCancel);
@@ -361,7 +335,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(558, 542);
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "manageServersEdit";
+            this.Name = "serverEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Server";
             this.Load += new System.EventHandler(this.manageServersEdit_Load);
@@ -376,10 +350,8 @@
         private System.Windows.Forms.Button btnUpdateServer;
         private System.Windows.Forms.Label lblHostname;
         private System.Windows.Forms.Label lblLocation;
-        private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtIP;
