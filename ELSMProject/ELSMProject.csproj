@@ -308,6 +308,12 @@
     <Compile Include="userList.Designer.cs">
       <DependentUpon>userList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="backupNodeCreate.resx">
+      <DependentUpon>backupNodeCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="backupNodeDelete.resx">
+      <DependentUpon>backupNodeDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="backupNodeEdit.resx">
       <DependentUpon>backupNodeEdit.cs</DependentUpon>
     </EmbeddedResource>
