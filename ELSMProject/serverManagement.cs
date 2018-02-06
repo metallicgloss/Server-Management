@@ -175,5 +175,31 @@ namespace ELSM_Project
                 Close();
             }
         }
+
+        private void btnDeleteServer_Click(object sender, EventArgs e)
+        {
+            manageServersDelete Edit = new manageServersDelete();
+            Edit.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT serverID, serverHostname, serverOS, serverIP FROM serverInformation WHERE serverCompany = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
     }
 }

@@ -126,7 +126,7 @@ namespace ELSM_Project
 
         private void btnCreateServer_Click(object sender, EventArgs e)
         {
-            serverCreate Create = new serverCreate();
+            backupNodeCreate Create = new backupNodeCreate();
             Create.ShowDialog();
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
@@ -152,7 +152,33 @@ namespace ELSM_Project
 
         private void btnEditServer_Click(object sender, EventArgs e)
         {
-            serverEdit Edit = new serverEdit();
+            backupNodeEdit Edit = new backupNodeEdit();
+            Edit.ShowDialog();
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM serverInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
+
+        private void btnDeleteServer_Click(object sender, EventArgs e)
+        {
+            backupNodeDelete Edit = new backupNodeDelete();
             Edit.ShowDialog();
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
