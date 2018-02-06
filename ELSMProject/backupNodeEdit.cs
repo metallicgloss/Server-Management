@@ -59,7 +59,7 @@ namespace ELSM_Project
             }
             backupNodeLocationRDR.Close();
 
-            MySqlCommand backupNodeOSCMD = new MySqlCommand("SELECT * FROM backupNodeOperatingSystems", connectionMySQL);
+            MySqlCommand backupNodeOSCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems", connectionMySQL);
             MySqlDataReader backupNodeOSRDR = backupNodeOSCMD.ExecuteReader(); // Execute MySQL reader query 
             while (backupNodeOSRDR.Read()) // While rows in reader
             {
@@ -75,21 +75,21 @@ namespace ELSM_Project
             }
             backupNodeNetworkPortRDR.Close();
 
-            MySqlCommand backupNodeLocationDisplayCMD = new MySqlCommand("SELECT * FROM backupNodeLocations WHERE locationID = @locationID", connectionMySQL);
+            MySqlCommand backupNodeLocationDisplayCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE locationID = @locationID", connectionMySQL);
             backupNodeLocationDisplayCMD.Parameters.AddWithValue("@locationID", backupNodeLocation);
             MySqlDataReader backupNodeLocationDisplayRDR = backupNodeLocationDisplayCMD.ExecuteReader(); // Execute MySQL reader query 
             backupNodeLocationDisplayRDR.Read(); // Read data from the reader to become usable
             cmboLocation.Text = Convert.ToString(backupNodeLocationDisplayRDR.GetString("locationName"));
             backupNodeLocationDisplayRDR.Close();
 
-            MySqlCommand backupNodeOSDisplayCMD = new MySqlCommand("SELECT * FROM backupNodeOperatingSystems WHERE operatingSystemsID = @operatingSystemsID", connectionMySQL);
+            MySqlCommand backupNodeOSDisplayCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsID = @operatingSystemsID", connectionMySQL);
             backupNodeOSDisplayCMD.Parameters.AddWithValue("@operatingSystemsID", backupNodeOS);
             MySqlDataReader backupNodeOSDisplayRDR = backupNodeOSDisplayCMD.ExecuteReader(); // Execute MySQL reader query 
             backupNodeOSDisplayRDR.Read(); // Read data from the reader to become usable
             cmboOS.Text = Convert.ToString(backupNodeOSDisplayRDR[1]);
             backupNodeOSDisplayRDR.Close();
 
-            MySqlCommand backupNodeNetworkPortDisplayCMD = new MySqlCommand("SELECT * FROM backupNodePort WHERE portID = @portID", connectionMySQL);
+            MySqlCommand backupNodeNetworkPortDisplayCMD = new MySqlCommand("SELECT * FROM serverPort WHERE portID = @portID", connectionMySQL);
             backupNodeNetworkPortDisplayCMD.Parameters.AddWithValue("@portID", backupNodePort);
             MySqlDataReader backupNodeNetworkPortDisplayRDR = backupNodeNetworkPortDisplayCMD.ExecuteReader(); // Execute MySQL reader query 
             backupNodeNetworkPortDisplayRDR.Read(); // Read data from the reader to become usable
@@ -124,21 +124,21 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
 
-            MySqlCommand locationsdCMD = new MySqlCommand("SELECT * FROM backupNodeLocations WHERE locationName = @location", connectionMySQL);
+            MySqlCommand locationsdCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", connectionMySQL);
             locationsdCMD.Parameters.AddWithValue("@location", cmboLocation.Text);
             MySqlDataReader locationRDR = locationsdCMD.ExecuteReader(); // Execute MySQL reader query
             locationRDR.Read(); // Read data from the reader to become usable
             var location = Convert.ToString(locationRDR[0]);
             locationRDR.Close();
 
-            MySqlCommand operatingSystemsCMD = new MySqlCommand("SELECT * FROM backupNodeOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
+            MySqlCommand operatingSystemsCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
             operatingSystemsCMD.Parameters.AddWithValue("@os", cmboOS.Text);
             MySqlDataReader osRDR = operatingSystemsCMD.ExecuteReader(); // Execute MySQL reader query
             osRDR.Read(); // Read data from the reader to become usable
             var os = Convert.ToString(osRDR[0]);
             osRDR.Close();
 
-            MySqlCommand networkCMD = new MySqlCommand("SELECT * FROM backupNodePort WHERE portSpeed = @port", connectionMySQL);
+            MySqlCommand networkCMD = new MySqlCommand("SELECT * FROM serverPort WHERE portSpeed = @port", connectionMySQL);
             networkCMD.Parameters.AddWithValue("@port", cmboNetwork.Text);
             MySqlDataReader networkRDR = networkCMD.ExecuteReader(); // Execute MySQL reader query
             networkRDR.Read(); // Read data from the reader to become usable
