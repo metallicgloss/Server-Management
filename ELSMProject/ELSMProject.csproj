@@ -278,6 +278,12 @@
     <Compile Include="serverControlStatus.Designer.cs">
       <DependentUpon>controlServerStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ticketView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ticketView.Designer.cs">
+      <DependentUpon>ticketView.cs</DependentUpon>
+    </Compile>
     <Compile Include="userCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,12 +308,12 @@
     <Compile Include="userList.Designer.cs">
       <DependentUpon>userList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ticketView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ticketView.Designer.cs">
-      <DependentUpon>ticketView.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="backupNodeEdit.resx">
+      <DependentUpon>backupNodeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="backupNodeList.resx">
+      <DependentUpon>backupNodeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="setupCompanyCreate.resx">
       <DependentUpon>setupCompanyCreate.cs</DependentUpon>
     </EmbeddedResource>
