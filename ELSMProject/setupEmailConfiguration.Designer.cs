@@ -39,7 +39,7 @@
             this.txtEmailPassword = new System.Windows.Forms.TextBox();
             this.lblDatabasePassword = new System.Windows.Forms.Label();
             this.txtEmailUsername = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmailUsername = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,19 +168,19 @@
             this.txtEmailUsername.Size = new System.Drawing.Size(413, 20);
             this.txtEmailUsername.TabIndex = 51;
             // 
-            // label1
+            // lblEmailUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(60, 312);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 18);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Email Username:";
+            this.lblEmailUsername.AutoSize = true;
+            this.lblEmailUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmailUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblEmailUsername.Location = new System.Drawing.Point(60, 312);
+            this.lblEmailUsername.Name = "lblEmailUsername";
+            this.lblEmailUsername.Size = new System.Drawing.Size(125, 18);
+            this.lblEmailUsername.TabIndex = 55;
+            this.lblEmailUsername.Text = "Email Username:";
             // 
-            // initialEmail
+            // setupEmailConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,7 +188,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(710, 433);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEmailUsername);
             this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.txtEmailPassword);
             this.Controls.Add(this.lblDatabasePassword);
@@ -202,7 +202,7 @@
             this.Controls.Add(this.logoImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(544, 178);
-            this.Name = "initialEmail";
+            this.Name = "setupEmailConfiguration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initial Setup";
             this.Load += new System.EventHandler(this.initialEmail_Load);
@@ -225,6 +225,6 @@
         private System.Windows.Forms.TextBox txtEmailPassword;
         private System.Windows.Forms.Label lblDatabasePassword;
         private System.Windows.Forms.TextBox txtEmailUsername;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEmailUsername;
     }
 }
