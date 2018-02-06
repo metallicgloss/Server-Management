@@ -90,29 +90,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="createCompany.cs">
+    <Compile Include="backupNodeCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="createCompany.Designer.cs">
-      <DependentUpon>createCompany.cs</DependentUpon>
+    <Compile Include="backupNodeCreate.Designer.cs">
+      <DependentUpon>backupNodeCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="createUser.cs">
+    <Compile Include="backupNodeDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="createUser.Designer.cs">
-      <DependentUpon>createUser.cs</DependentUpon>
+    <Compile Include="backupNodeDelete.Designer.cs">
+      <DependentUpon>backupNodeDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="initialEmail.cs">
+    <Compile Include="backupNodeEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="initialEmail.Designer.cs">
-      <DependentUpon>initialEmail.cs</DependentUpon>
+    <Compile Include="backupNodeEdit.Designer.cs">
+      <DependentUpon>backupNodeEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="initialSetup.cs">
+    <Compile Include="backupNodeList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="initialSetup.Designer.cs">
-      <DependentUpon>initialSetup.cs</DependentUpon>
+    <Compile Include="backupNodeList.Designer.cs">
+      <DependentUpon>backupNodeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="backupRunProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="backupRunProcess.Designer.cs">
+      <DependentUpon>backupRunProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setupCompanyCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setupCompanyCreate.Designer.cs">
+      <DependentUpon>setupCompanyCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setupUserCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setupUserCreate.Designer.cs">
+      <DependentUpon>setupUserCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setupEmailConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setupEmailConfiguration.Designer.cs">
+      <DependentUpon>setupEmailConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setupDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setupDatabase.Designer.cs">
+      <DependentUpon>setupDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="mainDashboard.cs">
       <SubType>Form</SubType>
@@ -126,133 +156,169 @@
     <Compile Include="loginMenu.Designer.cs">
       <DependentUpon>loginMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageAccount.cs">
+    <Compile Include="accountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageAccount.Designer.cs">
-      <DependentUpon>manageAccount.cs</DependentUpon>
+    <Compile Include="accountManagement.Designer.cs">
+      <DependentUpon>accountManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageAccountEmail.cs">
+    <Compile Include="accountEmail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="manageAccountEmail.Designer.cs">
-      <DependentUpon>manageAccountEmail.cs</DependentUpon>
+      <DependentUpon>accountEmail.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageAccountPassword.cs">
+    <Compile Include="accountPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageAccountPassword.Designer.cs">
-      <DependentUpon>manageAccountPassword.cs</DependentUpon>
+    <Compile Include="accountPassword.Designer.cs">
+      <DependentUpon>accountPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageAccountUsername.cs">
+    <Compile Include="accountUsername.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageAccountUsername.Designer.cs">
-      <DependentUpon>manageAccountUsername.cs</DependentUpon>
+    <Compile Include="accountUsername.Designer.cs">
+      <DependentUpon>accountUsername.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageLocations.cs">
+    <Compile Include="locationManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageLocations.Designer.cs">
-      <DependentUpon>manageLocations.cs</DependentUpon>
+    <Compile Include="locationManagement.Designer.cs">
+      <DependentUpon>locationManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageLocationsCreate.cs">
+    <None Include="locationCreate">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="manageLocationsCreate.Designer.cs">
-      <DependentUpon>manageLocationsCreate.cs</DependentUpon>
+      <DependentUpon>locationCreate</DependentUpon>
     </Compile>
-    <Compile Include="manageLocationsDelete.cs">
+    <Compile Include="locationDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageLocationsDelete.Designer.cs">
-      <DependentUpon>manageLocationsDelete.cs</DependentUpon>
+    <Compile Include="locationDelete.Designer.cs">
+      <DependentUpon>locationDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageLocationsEdit.cs">
+    <Compile Include="locationEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageLocationsEdit.Designer.cs">
-      <DependentUpon>manageLocationsEdit.cs</DependentUpon>
+    <Compile Include="locationEdit.Designer.cs">
+      <DependentUpon>locationEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageServers.cs">
+    <Compile Include="serverManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageServers.Designer.cs">
-      <DependentUpon>manageServers.cs</DependentUpon>
+    <Compile Include="serverManagement.Designer.cs">
+      <DependentUpon>serverManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageServersCreate.cs">
+    <Compile Include="serverCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageServersCreate.Designer.cs">
-      <DependentUpon>manageServersCreate.cs</DependentUpon>
+    <Compile Include="serverCreate.Designer.cs">
+      <DependentUpon>serverCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageServersDelete.cs">
+    <Compile Include="serverDelete.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="manageServersDelete.Designer.cs">
-      <DependentUpon>manageServersDelete.cs</DependentUpon>
+      <DependentUpon>serverDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="manageServersEdit.cs">
+    <Compile Include="serverEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageServersEdit.Designer.cs">
-      <DependentUpon>manageServersEdit.cs</DependentUpon>
+    <Compile Include="serverEdit.Designer.cs">
+      <DependentUpon>serverEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="newTicket.cs">
+    <Compile Include="ticketNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newTicket.Designer.cs">
-      <DependentUpon>newTicket.cs</DependentUpon>
+    <Compile Include="ticketNew.Designer.cs">
+      <DependentUpon>ticketNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ticketReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ticketReply.Designer.cs">
+      <DependentUpon>ticketReply.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="serverControl.cs">
+    <Compile Include="controlManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="serverControl.Designer.cs">
-      <DependentUpon>serverControl.cs</DependentUpon>
+      <DependentUpon>controlManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="serverControlCreate.cs">
+    <None Include="controlCommandCreate">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="serverControlCreate.Designer.cs">
-      <DependentUpon>serverControlCreate.cs</DependentUpon>
+      <DependentUpon>controlCommandCreate</DependentUpon>
     </Compile>
-    <Compile Include="serverControlDelete.cs">
+    <None Include="controlCommandDelete">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="serverControlDelete.Designer.cs">
-      <DependentUpon>serverControlDelete.cs</DependentUpon>
+      <DependentUpon>controlCommandDelete</DependentUpon>
     </Compile>
-    <Compile Include="serverControlEdit.cs">
+    <Compile Include="controlCommandEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControlEdit.Designer.cs">
-      <DependentUpon>serverControlEdit.cs</DependentUpon>
+    <Compile Include="controlCommandEdit.Designer.cs">
+      <DependentUpon>controlCommandEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="serverControlRunCommand.cs">
+    <Compile Include="controlCommandRun.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControlRunCommand.Designer.cs">
-      <DependentUpon>serverControlRunCommand.cs</DependentUpon>
+    <Compile Include="controlCommandRun.Designer.cs">
+      <DependentUpon>controlCommandRun.cs</DependentUpon>
     </Compile>
-    <Compile Include="serverControlStatus.cs">
+    <None Include="controlServerStatus">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="serverControlStatus.Designer.cs">
-      <DependentUpon>serverControlStatus.cs</DependentUpon>
+      <DependentUpon>controlServerStatus</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="createCompany.resx">
-      <DependentUpon>createCompany.cs</DependentUpon>
+    <Compile Include="userCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userCreate.Designer.cs">
+      <DependentUpon>userCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userDelete.Designer.cs">
+      <DependentUpon>userDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userEdit.Designer.cs">
+      <DependentUpon>userEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userList.Designer.cs">
+      <DependentUpon>userList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ticketView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ticketView.Designer.cs">
+      <DependentUpon>ticketView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="setupCompanyCreate.resx">
+      <DependentUpon>setupCompanyCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="createUser.resx">
-      <DependentUpon>createUser.cs</DependentUpon>
+    <EmbeddedResource Include="setupUserCreate.resx">
+      <DependentUpon>setupUserCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="initialEmail.resx">
-      <DependentUpon>initialEmail.cs</DependentUpon>
+    <EmbeddedResource Include="setupEmailConfiguration.resx">
+      <DependentUpon>setupEmailConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="initialSetup.resx">
-      <DependentUpon>initialSetup.cs</DependentUpon>
+    <EmbeddedResource Include="setupDatabase.resx">
+      <DependentUpon>setupDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainDashboard.resx">
       <DependentUpon>mainDashboard.cs</DependentUpon>
@@ -260,44 +326,44 @@
     <EmbeddedResource Include="loginMenu.resx">
       <DependentUpon>loginMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageAccount.resx">
-      <DependentUpon>manageAccount.cs</DependentUpon>
+    <EmbeddedResource Include="accountManagement.resx">
+      <DependentUpon>accountManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageAccountEmail.resx">
-      <DependentUpon>manageAccountEmail.cs</DependentUpon>
+      <DependentUpon>accountEmail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageAccountPassword.resx">
-      <DependentUpon>manageAccountPassword.cs</DependentUpon>
+    <EmbeddedResource Include="accountPassword.resx">
+      <DependentUpon>accountPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageAccountUsername.resx">
-      <DependentUpon>manageAccountUsername.cs</DependentUpon>
+    <EmbeddedResource Include="accountUsername.resx">
+      <DependentUpon>accountUsername.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageLocations.resx">
-      <DependentUpon>manageLocations.cs</DependentUpon>
+    <EmbeddedResource Include="locationManagement.resx">
+      <DependentUpon>locationManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageLocationsCreate.resx">
-      <DependentUpon>manageLocationsCreate.cs</DependentUpon>
+      <DependentUpon>locationCreate</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageLocationsDelete.resx">
-      <DependentUpon>manageLocationsDelete.cs</DependentUpon>
+    <EmbeddedResource Include="locationDelete.resx">
+      <DependentUpon>locationDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageLocationsEdit.resx">
-      <DependentUpon>manageLocationsEdit.cs</DependentUpon>
+    <EmbeddedResource Include="locationEdit.resx">
+      <DependentUpon>locationEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageServers.resx">
-      <DependentUpon>manageServers.cs</DependentUpon>
+    <EmbeddedResource Include="serverManagement.resx">
+      <DependentUpon>serverManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageServersCreate.resx">
-      <DependentUpon>manageServersCreate.cs</DependentUpon>
+    <EmbeddedResource Include="serverCreate.resx">
+      <DependentUpon>serverCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageServersDelete.resx">
-      <DependentUpon>manageServersDelete.cs</DependentUpon>
+      <DependentUpon>serverDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageServersEdit.resx">
-      <DependentUpon>manageServersEdit.cs</DependentUpon>
+    <EmbeddedResource Include="serverEdit.resx">
+      <DependentUpon>serverEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newTicket.resx">
-      <DependentUpon>newTicket.cs</DependentUpon>
+    <EmbeddedResource Include="ticketNew.resx">
+      <DependentUpon>ticketNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -310,22 +376,22 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="serverControl.resx">
-      <DependentUpon>serverControl.cs</DependentUpon>
+      <DependentUpon>controlManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlCreate.resx">
-      <DependentUpon>serverControlCreate.cs</DependentUpon>
+      <DependentUpon>controlCommandCreate</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlDelete.resx">
-      <DependentUpon>serverControlDelete.cs</DependentUpon>
+      <DependentUpon>controlCommandDelete</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="serverControlEdit.resx">
-      <DependentUpon>serverControlEdit.cs</DependentUpon>
+    <EmbeddedResource Include="controlCommandEdit.resx">
+      <DependentUpon>controlCommandEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="serverControlRunCommand.resx">
-      <DependentUpon>serverControlRunCommand.cs</DependentUpon>
+    <EmbeddedResource Include="controlCommandRun.resx">
+      <DependentUpon>controlCommandRun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlStatus.resx">
-      <DependentUpon>serverControlStatus.cs</DependentUpon>
+      <DependentUpon>controlServerStatus</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
