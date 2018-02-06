@@ -186,11 +186,11 @@
     <Compile Include="locationManagement.Designer.cs">
       <DependentUpon>locationManagement.cs</DependentUpon>
     </Compile>
-    <None Include="locationCreate">
+    <Compile Include="locationCreate.cs">
       <SubType>Form</SubType>
-    </None>
+    </Compile>
     <Compile Include="manageLocationsCreate.Designer.cs">
-      <DependentUpon>locationCreate</DependentUpon>
+      <DependentUpon>locationCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="locationDelete.cs">
       <SubType>Form</SubType>
@@ -248,17 +248,17 @@
     <Compile Include="serverControl.Designer.cs">
       <DependentUpon>controlManagement.cs</DependentUpon>
     </Compile>
-    <None Include="controlCommandCreate">
+    <Compile Include="controlCommandCreate.cs">
       <SubType>Form</SubType>
-    </None>
-    <Compile Include="serverControlCreate.Designer.cs">
-      <DependentUpon>controlCommandCreate</DependentUpon>
     </Compile>
-    <None Include="controlCommandDelete">
+    <Compile Include="serverControlCreate.Designer.cs">
+      <DependentUpon>controlCommandCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlCommandDelete.cs">
       <SubType>Form</SubType>
-    </None>
+    </Compile>
     <Compile Include="serverControlDelete.Designer.cs">
-      <DependentUpon>controlCommandDelete</DependentUpon>
+      <DependentUpon>controlCommandDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="controlCommandEdit.cs">
       <SubType>Form</SubType>
@@ -272,11 +272,11 @@
     <Compile Include="controlCommandRun.Designer.cs">
       <DependentUpon>controlCommandRun.cs</DependentUpon>
     </Compile>
-    <None Include="controlServerStatus">
+    <Compile Include="controlServerStatus.cs">
       <SubType>Form</SubType>
-    </None>
+    </Compile>
     <Compile Include="serverControlStatus.Designer.cs">
-      <DependentUpon>controlServerStatus</DependentUpon>
+      <DependentUpon>controlServerStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="userCreate.cs">
       <SubType>Form</SubType>
@@ -342,7 +342,7 @@
       <DependentUpon>locationManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="manageLocationsCreate.resx">
-      <DependentUpon>locationCreate</DependentUpon>
+      <DependentUpon>locationCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="locationDelete.resx">
       <DependentUpon>locationDelete.cs</DependentUpon>
@@ -379,10 +379,10 @@
       <DependentUpon>controlManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlCreate.resx">
-      <DependentUpon>controlCommandCreate</DependentUpon>
+      <DependentUpon>controlCommandCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlDelete.resx">
-      <DependentUpon>controlCommandDelete</DependentUpon>
+      <DependentUpon>controlCommandDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controlCommandEdit.resx">
       <DependentUpon>controlCommandEdit.cs</DependentUpon>
@@ -391,7 +391,7 @@
       <DependentUpon>controlCommandRun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverControlStatus.resx">
-      <DependentUpon>controlServerStatus</DependentUpon>
+      <DependentUpon>controlServerStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
