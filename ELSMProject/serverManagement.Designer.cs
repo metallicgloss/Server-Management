@@ -40,7 +40,6 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
-            this.btnServerNote = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblManageServers = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -183,19 +182,6 @@
             this.menuBackground.TabIndex = 28;
             this.menuBackground.TabStop = false;
             // 
-            // btnServerNote
-            // 
-            this.btnServerNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerNote.FlatAppearance.BorderSize = 0;
-            this.btnServerNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerNote.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerNote.Location = new System.Drawing.Point(361, 501);
-            this.btnServerNote.Name = "btnServerNote";
-            this.btnServerNote.Size = new System.Drawing.Size(724, 46);
-            this.btnServerNote.TabIndex = 29;
-            this.btnServerNote.Text = "Server Note Management";
-            this.btnServerNote.UseVisualStyleBackColor = true;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -293,7 +279,7 @@
             this.btnCreateServer.UseVisualStyleBackColor = true;
             this.btnCreateServer.Click += new System.EventHandler(this.btnCreateServer_Click);
             // 
-            // manageServers
+            // serverManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -307,7 +293,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblManageServers);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnServerNote);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -323,7 +308,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1146, 640);
             this.MinimumSize = new System.Drawing.Size(1146, 640);
-            this.Name = "manageServers";
+            this.Name = "serverManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Servers";
             this.Load += new System.EventHandler(this.manageServers_Load);
@@ -348,7 +333,6 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
-        private System.Windows.Forms.Button btnServerNote;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblManageServers;
         private System.Windows.Forms.DataGridView dataGridView1;

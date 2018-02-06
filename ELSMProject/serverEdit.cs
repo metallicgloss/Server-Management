@@ -43,12 +43,10 @@ namespace ELSM_Project
             txtRAM.Text = Convert.ToString(serverInformationRDR[10]);
             txtTransfer.Text = Convert.ToString(serverInformationRDR[12]);
             serverEdit.password = Convert.ToString(serverInformationRDR[5]);
-            serverEdit.key = Convert.ToString(serverInformationRDR[6]);
             var serverLocation = Convert.ToString(serverInformationRDR[2]);
             var serverOS = Convert.ToString(serverInformationRDR[7]);
             var serverPort = Convert.ToString(serverInformationRDR[11]);
             txtPassword.Text = "";
-            txtKey.Text = "";
             serverInformationRDR.Close();
 
             MySqlCommand serverLocationCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE companyID = @companyID", connectionMySQL);
@@ -102,7 +100,6 @@ namespace ELSM_Project
             cmboLocation.Enabled = true;
             txtUsername.Enabled = true;
             txtPassword.Enabled = true;
-            txtKey.Enabled = true;
             cmboOS.Enabled = true;
             txtIP.Enabled = true;
             txtProcessor.Enabled = true;
@@ -113,7 +110,6 @@ namespace ELSM_Project
             cmboLocation.Cursor = Cursors.Hand;
             txtUsername.Cursor = Cursors.Hand;
             txtPassword.Cursor = Cursors.Hand;
-            txtKey.Cursor = Cursors.Hand;
             cmboOS.Cursor = Cursors.Hand;
             txtIP.Cursor = Cursors.Hand;
             txtProcessor.Cursor = Cursors.Hand;
@@ -157,22 +153,12 @@ namespace ELSM_Project
                 var password = txtPassword.Text;
             }
 
-            if (txtKey.Text == "")
-            {
-                var key = serverEdit.key;
-            }
-            else
-            {
-                var key = txtKey.Text;
-            }
-
-            MySqlCommand serverInfoUpdateCMD = new MySqlCommand("UPDATE serverInformation SET serverLocation = @serverLocation, serverHostname = @serverHostname, serverUsername = @serverUsername, serverPassword = @serverPassword, serverKey = @serverKey, serverOS = @serverOS, serverIP = @serverIP, serverProcessor = @serverProcessor, serverRAM = @serverRAM, serverPort = @serverPort, serverTransfer = @serverTransfer WHERE serverHostname = @Hostname", connectionMySQL);
+            MySqlCommand serverInfoUpdateCMD = new MySqlCommand("UPDATE serverInformation SET serverLocation = @serverLocation, serverHostname = @serverHostname, serverUsername = @serverUsername, serverPassword = @serverPassword, serverOS = @serverOS, serverIP = @serverIP, serverProcessor = @serverProcessor, serverRAM = @serverRAM, serverPort = @serverPort, serverTransfer = @serverTransfer WHERE serverHostname = @Hostname", connectionMySQL);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverLocation", location);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverHostname", cmboHostNames.Text);
             serverInfoUpdateCMD.Parameters.AddWithValue("@Hostname", cmboHostNames.Text);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverUsername", txtUsername.Text);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverPassword", password);
-            serverInfoUpdateCMD.Parameters.AddWithValue("@serverKey", key);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverOS", os);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverIP", txtIP.Text);
             serverInfoUpdateCMD.Parameters.AddWithValue("@serverProcessor", txtProcessor.Text);
