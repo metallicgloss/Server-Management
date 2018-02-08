@@ -90,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accountForename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="accountForename.Designer.cs">
+      <DependentUpon>accountForename.cs</DependentUpon>
+    </Compile>
     <Compile Include="backupNodeCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     <Compile Include="userList.Designer.cs">
       <DependentUpon>userList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="accountForename.resx">
+      <DependentUpon>accountForename.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="backupNodeCreate.resx">
       <DependentUpon>backupNodeCreate.cs</DependentUpon>
     </EmbeddedResource>
