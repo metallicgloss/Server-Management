@@ -320,6 +320,9 @@
     <Compile Include="userList.Designer.cs">
       <DependentUpon>userList.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="accountEmail.resx">
+      <DependentUpon>accountEmail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="accountForename.resx">
       <DependentUpon>accountForename.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,6 +340,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="backupNodeList.resx">
       <DependentUpon>backupNodeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlCommandCreate.resx">
+      <DependentUpon>controlCommandCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlCommandDelete.resx">
+      <DependentUpon>controlCommandDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlServerStatus.resx">
+      <DependentUpon>controlServerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="locationCreate.resx">
+      <DependentUpon>locationCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="serverDelete.resx">
+      <DependentUpon>serverDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="setupCompanyCreate.resx">
       <DependentUpon>setupCompanyCreate.cs</DependentUpon>
@@ -359,9 +377,6 @@
     <EmbeddedResource Include="accountManagement.resx">
       <DependentUpon>accountManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="manageAccountEmail.resx">
-      <DependentUpon>accountEmail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="accountPassword.resx">
       <DependentUpon>accountPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,9 +385,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="locationManagement.resx">
       <DependentUpon>locationManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="manageLocationsCreate.resx">
-      <DependentUpon>locationCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="locationDelete.resx">
       <DependentUpon>locationDelete.cs</DependentUpon>
@@ -385,9 +397,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="serverCreate.resx">
       <DependentUpon>serverCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="manageServersDelete.resx">
-      <DependentUpon>serverDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="serverEdit.resx">
       <DependentUpon>serverEdit.cs</DependentUpon>
@@ -408,20 +417,11 @@
     <EmbeddedResource Include="serverControl.resx">
       <DependentUpon>controlManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="serverControlCreate.resx">
-      <DependentUpon>controlCommandCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="serverControlDelete.resx">
-      <DependentUpon>controlCommandDelete.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="controlCommandEdit.resx">
       <DependentUpon>controlCommandEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controlCommandRun.resx">
       <DependentUpon>controlCommandRun.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="serverControlStatus.resx">
-      <DependentUpon>controlServerStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

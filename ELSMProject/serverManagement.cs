@@ -178,7 +178,7 @@ namespace ELSM_Project
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            manageServersDelete Edit = new manageServersDelete();
+            serverDelete Edit = new serverDelete();
             Edit.ShowDialog();
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();

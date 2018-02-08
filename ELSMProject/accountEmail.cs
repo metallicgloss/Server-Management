@@ -4,9 +4,9 @@ using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
-    public partial class manageAccountEmail : Form
+    public partial class accountEmail : Form
     {
-        public manageAccountEmail()
+        public accountEmail()
         {
             InitializeComponent();
         }

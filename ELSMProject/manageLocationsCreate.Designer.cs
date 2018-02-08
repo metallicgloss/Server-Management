@@ -1,6 +1,6 @@
 ﻿namespace ELSM_Project
 {
-    partial class manageLocationsCreate
+    partial class locationCreate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(manageLocationsCreate));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewLocation = new System.Windows.Forms.Button();
             this.txtLatitude = new System.Windows.Forms.TextBox();
@@ -130,7 +129,7 @@
             this.lblLocationName.TabIndex = 38;
             this.lblLocationName.Text = "Location Name:";
             // 
-            // manageLocationsCreate
+            // locationCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,10 +146,9 @@
             this.Controls.Add(this.lblLongitude);
             this.Controls.Add(this.lblLocationName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "manageLocationsCreate";
+            this.Name = "locationCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Location";
             this.Load += new System.EventHandler(this.manageLocationsCreate_Load);

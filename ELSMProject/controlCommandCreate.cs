@@ -6,9 +6,9 @@ using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
-    public partial class serverControlCreate : Form
+    public partial class controlCommandCreate : Form
     {
-        public serverControlCreate()
+        public controlCommandCreate()
         {
             InitializeComponent();
         }

@@ -4,9 +4,9 @@ using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
-    public partial class manageLocationsCreate : Form
+    public partial class locationCreate : Form
     {
-        public manageLocationsCreate()
+        public locationCreate()
         {
             InitializeComponent();
         }

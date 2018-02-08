@@ -6,9 +6,9 @@ using System.Net.NetworkInformation;
 
 namespace ELSM_Project
 {
-    public partial class serverControlStatus : Form
+    public partial class controlServerStatus : Form
     {
-        public serverControlStatus()
+        public controlServerStatus()
         {
             InitializeComponent();
         }

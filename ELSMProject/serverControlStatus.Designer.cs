@@ -1,6 +1,6 @@
 ﻿namespace ELSM_Project
 {
-    partial class serverControlStatus
+    partial class controlServerStatus
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(34, 75);
@@ -55,7 +55,7 @@
             this.pnlConfiguration.Size = new System.Drawing.Size(1084, 24);
             this.pnlConfiguration.TabIndex = 50;
             // 
-            // serverControlStatus
+            // controlServerStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,7 +67,7 @@
             this.Controls.Add(this.pnlConfiguration);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "serverControlStatus";
+            this.Name = "controlServerStatus";
             this.Text = "Server Status";
             this.Load += new System.EventHandler(this.serverControlStatus_Load);
             this.ResumeLayout(false);
