@@ -149,5 +149,17 @@ namespace ELSM_Project
             Email.ShowDialog();
             lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
         }
+
+        private void btnForename_Click(object sender, EventArgs e)
+        {
+            accountForename forename = new accountForename();
+            forename.ShowDialog();
+        }
+
+        private void btnSurname_Click(object sender, EventArgs e)
+        {
+            accountSurname surname = new accountSurname();
+            surname.ShowDialog();
+        }
     }
 }

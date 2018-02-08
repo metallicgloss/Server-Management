@@ -53,6 +53,8 @@
             this.lblEmailAddress = new System.Windows.Forms.Label();
             this.lblCompanyPosition = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSurname = new System.Windows.Forms.Button();
+            this.btnForename = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.largeProfileImage)).BeginInit();
@@ -88,7 +90,7 @@
             // btnLogout
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(0, 504);
@@ -102,7 +104,7 @@
             // btnManageAccount
             // 
             this.btnManageAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageAccount.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageAccount.FlatAppearance.BorderSize = 0;
             this.btnManageAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageAccount.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageAccount.Location = new System.Drawing.Point(0, 462);
@@ -116,7 +118,7 @@
             // btnManageServers
             // 
             this.btnManageServers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageServers.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageServers.FlatAppearance.BorderSize = 0;
             this.btnManageServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageServers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageServers.Location = new System.Drawing.Point(0, 378);
@@ -130,7 +132,7 @@
             // btnManageLocations
             // 
             this.btnManageLocations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManageLocations.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnManageLocations.FlatAppearance.BorderSize = 0;
             this.btnManageLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageLocations.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageLocations.Location = new System.Drawing.Point(0, 420);
@@ -144,7 +146,7 @@
             // btnServerControl
             // 
             this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnServerControl.FlatAppearance.BorderSize = 0;
             this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnServerControl.Location = new System.Drawing.Point(0, 336);
@@ -158,7 +160,7 @@
             // btnHome
             // 
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(0, 294);
@@ -192,7 +194,7 @@
             // btnChangeUsername
             // 
             this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeUsername.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
             this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeUsername.Location = new System.Drawing.Point(361, 408);
@@ -218,7 +220,7 @@
             // btnChangePassword
             // 
             this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangePassword.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.Location = new System.Drawing.Point(603, 408);
@@ -232,7 +234,7 @@
             // btnChangeEmailAddress
             // 
             this.btnChangeEmailAddress.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeEmailAddress.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangeEmailAddress.FlatAppearance.BorderSize = 0;
             this.btnChangeEmailAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeEmailAddress.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeEmailAddress.Location = new System.Drawing.Point(845, 408);
@@ -356,7 +358,35 @@
             this.pictureBox2.TabIndex = 38;
             this.pictureBox2.TabStop = false;
             // 
-            // manageAccount
+            // btnSurname
+            // 
+            this.btnSurname.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSurname.FlatAppearance.BorderSize = 0;
+            this.btnSurname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSurname.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSurname.Location = new System.Drawing.Point(725, 456);
+            this.btnSurname.Name = "btnSurname";
+            this.btnSurname.Size = new System.Drawing.Size(359, 46);
+            this.btnSurname.TabIndex = 54;
+            this.btnSurname.Text = "Edit Surname";
+            this.btnSurname.UseVisualStyleBackColor = true;
+            this.btnSurname.Click += new System.EventHandler(this.btnSurname_Click);
+            // 
+            // btnForename
+            // 
+            this.btnForename.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnForename.FlatAppearance.BorderSize = 0;
+            this.btnForename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnForename.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForename.Location = new System.Drawing.Point(361, 456);
+            this.btnForename.Name = "btnForename";
+            this.btnForename.Size = new System.Drawing.Size(361, 46);
+            this.btnForename.TabIndex = 53;
+            this.btnForename.Text = "Edit Forename";
+            this.btnForename.UseVisualStyleBackColor = true;
+            this.btnForename.Click += new System.EventHandler(this.btnForename_Click);
+            // 
+            // accountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -364,6 +394,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSurname);
+            this.Controls.Add(this.btnForename);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblCompanyPosition);
             this.Controls.Add(this.lblProfileURL);
@@ -393,7 +425,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1146, 640);
             this.MinimumSize = new System.Drawing.Size(1146, 640);
-            this.Name = "manageAccount";
+            this.Name = "accountManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Account";
             this.Load += new System.EventHandler(this.manageAccount_Load);
@@ -432,5 +464,7 @@
         private System.Windows.Forms.Label lblEmailAddress;
         private System.Windows.Forms.Label lblCompanyPosition;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSurname;
+        private System.Windows.Forms.Button btnForename;
     }
 }
