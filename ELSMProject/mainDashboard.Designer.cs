@@ -33,9 +33,8 @@
             this.lblWelcomeBack = new System.Windows.Forms.Label();
             this.lblCurrentIP = new System.Windows.Forms.Label();
             this.lblCurrentCompany = new System.Windows.Forms.Label();
-            this.menuBackground = new System.Windows.Forms.PictureBox();
+            this.btnManageUsers = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnServerControl = new System.Windows.Forms.Button();
             this.btnManageAccount = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -47,8 +46,9 @@
             this.btnManageLocations = new System.Windows.Forms.Button();
             this.btnTicketReply = new System.Windows.Forms.Button();
             this.btnCreateTicket = new System.Windows.Forms.Button();
+            this.btnServerControl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnManageUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.ELHSLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ELHSLogo.BackgroundImage = global::ELSM_Project.Properties.Resources.imgLogoPurple;
             this.ELHSLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ELHSLogo.Location = new System.Drawing.Point(75, 66);
+            this.ELHSLogo.Location = new System.Drawing.Point(75, 85);
             this.ELHSLogo.Name = "ELHSLogo";
             this.ELHSLogo.Size = new System.Drawing.Size(129, 115);
             this.ELHSLogo.TabIndex = 2;
@@ -100,14 +100,14 @@
             this.lblCurrentCompany.TabIndex = 6;
             this.lblCurrentCompany.Text = "Company:";
             // 
-            // menuBackground
+            // btnManageUsers
             // 
-            this.menuBackground.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.menuBackground.Location = new System.Drawing.Point(0, -1);
-            this.menuBackground.Name = "menuBackground";
-            this.menuBackground.Size = new System.Drawing.Size(293, 609);
-            this.menuBackground.TabIndex = 7;
-            this.menuBackground.TabStop = false;
+            this.btnManageUsers.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnManageUsers.Location = new System.Drawing.Point(0, -1);
+            this.btnManageUsers.Name = "btnManageUsers";
+            this.btnManageUsers.Size = new System.Drawing.Size(293, 609);
+            this.btnManageUsers.TabIndex = 7;
+            this.btnManageUsers.TabStop = false;
             // 
             // btnHome
             // 
@@ -122,20 +122,6 @@
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnServerControl
-            // 
-            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0;
-            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
-            this.btnServerControl.Name = "btnServerControl";
-            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
-            this.btnServerControl.TabIndex = 2;
-            this.btnServerControl.Text = "Server Control";
-            this.btnServerControl.UseVisualStyleBackColor = true;
-            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
             // 
             // btnManageAccount
             // 
@@ -170,7 +156,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Location = new System.Drawing.Point(36, 203);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(216, 50);
             this.lblTitle.TabIndex = 14;
@@ -261,6 +247,7 @@
             this.btnTicketReply.TabIndex = 19;
             this.btnTicketReply.Text = "View Tickets";
             this.btnTicketReply.UseVisualStyleBackColor = true;
+            this.btnTicketReply.Click += new System.EventHandler(this.btnTicketReply_Click);
             // 
             // btnCreateTicket
             // 
@@ -275,6 +262,20 @@
             this.btnCreateTicket.Text = "New Ticket";
             this.btnCreateTicket.UseVisualStyleBackColor = true;
             this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
+            // 
+            // btnServerControl
+            // 
+            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnServerControl.FlatAppearance.BorderSize = 0;
+            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
+            this.btnServerControl.Name = "btnServerControl";
+            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
+            this.btnServerControl.TabIndex = 2;
+            this.btnServerControl.Text = "Manage Users";
+            this.btnServerControl.UseVisualStyleBackColor = true;
+            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
             // 
             // mainDashboard
             // 
@@ -301,7 +302,7 @@
             this.Controls.Add(this.lblWelcomeBack);
             this.Controls.Add(this.ELHSLogo);
             this.Controls.Add(this.pctProfilePhoto);
-            this.Controls.Add(this.menuBackground);
+            this.Controls.Add(this.btnManageUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -312,7 +313,7 @@
             this.Text = "mainDashboard";
             this.Load += new System.EventHandler(this.DashboardFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnManageUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).EndInit();
             this.ResumeLayout(false);
@@ -325,9 +326,8 @@
         private System.Windows.Forms.Label lblWelcomeBack;
         private System.Windows.Forms.Label lblCurrentIP;
         private System.Windows.Forms.Label lblCurrentCompany;
-        private System.Windows.Forms.PictureBox menuBackground;
+        private System.Windows.Forms.PictureBox btnManageUsers;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnServerControl;
         private System.Windows.Forms.Button btnManageAccount;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblTitle;
@@ -339,5 +339,6 @@
         private System.Windows.Forms.Button btnManageLocations;
         private System.Windows.Forms.Button btnTicketReply;
         private System.Windows.Forms.Button btnCreateTicket;
+        private System.Windows.Forms.Button btnServerControl;
     }
 }
