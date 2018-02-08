@@ -96,6 +96,12 @@
     <Compile Include="accountForename.Designer.cs">
       <DependentUpon>accountForename.cs</DependentUpon>
     </Compile>
+    <Compile Include="accountSurname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="accountSurname.Designer.cs">
+      <DependentUpon>accountSurname.cs</DependentUpon>
+    </Compile>
     <Compile Include="backupNodeCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </Compile>
     <EmbeddedResource Include="accountForename.resx">
       <DependentUpon>accountForename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="accountSurname.resx">
+      <DependentUpon>accountSurname.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="backupNodeCreate.resx">
       <DependentUpon>backupNodeCreate.cs</DependentUpon>
