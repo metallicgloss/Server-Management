@@ -201,5 +201,12 @@ namespace ELSM_Project
                 Close();
             }
         }
+
+        private void btnControlServers_Click(object sender, EventArgs e)
+        {
+            Hide();
+            controlManagement controlServerFRM = new controlManagement();
+            controlServerFRM.ShowDialog();
+        }
     }
 }
