@@ -46,6 +46,8 @@
             this.btnDeleteServer = new System.Windows.Forms.Button();
             this.btnEditServer = new System.Windows.Forms.Button();
             this.btnCreateServer = new System.Windows.Forms.Button();
+            this.btnControlServers = new System.Windows.Forms.Button();
+            this.btnBackupCentre = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -280,6 +282,33 @@
             this.btnCreateServer.UseVisualStyleBackColor = true;
             this.btnCreateServer.Click += new System.EventHandler(this.btnCreateServer_Click);
             // 
+            // btnControlServers
+            // 
+            this.btnControlServers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnControlServers.FlatAppearance.BorderSize = 0;
+            this.btnControlServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControlServers.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControlServers.Location = new System.Drawing.Point(361, 501);
+            this.btnControlServers.Name = "btnControlServers";
+            this.btnControlServers.Size = new System.Drawing.Size(361, 46);
+            this.btnControlServers.TabIndex = 54;
+            this.btnControlServers.Text = "Control Servers";
+            this.btnControlServers.UseVisualStyleBackColor = true;
+            this.btnControlServers.Click += new System.EventHandler(this.btnControlServers_Click);
+            // 
+            // btnBackupCentre
+            // 
+            this.btnBackupCentre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackupCentre.FlatAppearance.BorderSize = 0;
+            this.btnBackupCentre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackupCentre.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackupCentre.Location = new System.Drawing.Point(724, 501);
+            this.btnBackupCentre.Name = "btnBackupCentre";
+            this.btnBackupCentre.Size = new System.Drawing.Size(361, 46);
+            this.btnBackupCentre.TabIndex = 55;
+            this.btnBackupCentre.Text = "Backup Centre";
+            this.btnBackupCentre.UseVisualStyleBackColor = true;
+            // 
             // serverManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +317,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnBackupCentre);
+            this.Controls.Add(this.btnControlServers);
             this.Controls.Add(this.btnDeleteServer);
             this.Controls.Add(this.btnEditServer);
             this.Controls.Add(this.btnCreateServer);
@@ -340,5 +371,7 @@
         private System.Windows.Forms.Button btnDeleteServer;
         private System.Windows.Forms.Button btnEditServer;
         private System.Windows.Forms.Button btnCreateServer;
+        private System.Windows.Forms.Button btnControlServers;
+        private System.Windows.Forms.Button btnBackupCentre;
     }
 }

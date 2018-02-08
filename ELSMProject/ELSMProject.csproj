@@ -347,6 +347,9 @@
     <EmbeddedResource Include="controlCommandDelete.resx">
       <DependentUpon>controlCommandDelete.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="controlManagement.resx">
+      <DependentUpon>controlManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controlServerStatus.resx">
       <DependentUpon>controlServerStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -414,9 +417,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="serverControl.resx">
-      <DependentUpon>controlManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="controlCommandEdit.resx">
       <DependentUpon>controlCommandEdit.cs</DependentUpon>
     </EmbeddedResource>
