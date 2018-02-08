@@ -4,9 +4,9 @@ using MySql.Data.MySqlClient;
 
 namespace ELSM_Project
 {
-    public partial class manageServersDelete : Form
+    public partial class serverDelete : Form
     {
-        public manageServersDelete()
+        public serverDelete()
         {
             InitializeComponent();
         }

@@ -127,7 +127,7 @@ namespace ELSM_Project
 
         private void btnCreateCommand_Click(object sender, EventArgs e)
         {
-            serverControlCreate Create = new serverControlCreate();
+            controlCommandCreate Create = new controlCommandCreate();
             Create.ShowDialog();
         }
 
@@ -139,7 +139,7 @@ namespace ELSM_Project
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            serverControlDelete Delete = new serverControlDelete();
+            controlCommandDelete Delete = new controlCommandDelete();
             Delete.ShowDialog();
         }
 
@@ -151,7 +151,7 @@ namespace ELSM_Project
 
         private void btnServerStatus_Click(object sender, EventArgs e)
         {
-            serverControlStatus Status = new serverControlStatus();
+            controlServerStatus Status = new controlServerStatus();
             Status.ShowDialog();
         }
     }

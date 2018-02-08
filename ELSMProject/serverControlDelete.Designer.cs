@@ -1,6 +1,6 @@
 ﻿namespace ELSM_Project
 {
-    partial class serverControlDelete
+    partial class controlCommandDelete
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 84);
@@ -53,7 +53,7 @@
             // 
             this.btnDeleteCommand.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDeleteCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteCommand.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnDeleteCommand.FlatAppearance.BorderSize = 0;
             this.btnDeleteCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteCommand.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCommand.Location = new System.Drawing.Point(36, 84);
@@ -84,7 +84,7 @@
             this.cmboName.Size = new System.Drawing.Size(310, 21);
             this.cmboName.TabIndex = 46;
             // 
-            // serverControlDelete
+            // controlCommandDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(544, 178);
             this.MinimumSize = new System.Drawing.Size(544, 178);
-            this.Name = "serverControlDelete";
+            this.Name = "controlCommandDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Delete Command";
             this.Load += new System.EventHandler(this.serverControlDelete_Load);

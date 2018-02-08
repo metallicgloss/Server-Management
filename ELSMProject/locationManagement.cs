@@ -134,7 +134,7 @@ namespace ELSM_Project
 
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
-            manageLocationsCreate Create = new manageLocationsCreate();
+            locationCreate Create = new locationCreate();
             Create.ShowDialog();
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();

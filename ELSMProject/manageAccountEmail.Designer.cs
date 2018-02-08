@@ -1,6 +1,6 @@
 ﻿namespace ELSM_Project
 {
-    partial class manageAccountEmail
+    partial class accountEmail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(manageAccountEmail));
             this.lblCurrentUsername = new System.Windows.Forms.Label();
             this.lblNewUsername = new System.Windows.Forms.Label();
             this.lblConfirmUsername = new System.Windows.Forms.Label();
@@ -105,7 +104,7 @@
             // 
             this.btnChangeEmail.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChangeEmail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeEmail.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangeEmail.FlatAppearance.BorderSize = 0;
             this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeEmail.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeEmail.Location = new System.Drawing.Point(36, 145);
@@ -120,7 +119,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 145);
@@ -131,7 +130,7 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // manageAccountEmail
+            // accountEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,11 +147,10 @@
             this.Controls.Add(this.lblNewUsername);
             this.Controls.Add(this.lblCurrentUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "manageAccountEmail";
+            this.Name = "accountEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Email";
             this.Load += new System.EventHandler(this.manageAccountEmail_Load);

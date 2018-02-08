@@ -145,7 +145,7 @@ namespace ELSM_Project
 
         private void btnChangeEmailAddress_Click(object sender, EventArgs e)
         {
-            manageAccountEmail Email = new manageAccountEmail();
+            accountEmail Email = new accountEmail();
             Email.ShowDialog();
             lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
         }
