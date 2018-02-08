@@ -46,7 +46,7 @@
             this.btnManageLocations = new System.Windows.Forms.Button();
             this.btnTicketReply = new System.Windows.Forms.Button();
             this.btnCreateTicket = new System.Windows.Forms.Button();
-            this.btnServerControl = new System.Windows.Forms.Button();
+            this.btnManageUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnManageUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -263,19 +263,19 @@
             this.btnCreateTicket.UseVisualStyleBackColor = true;
             this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
             // 
-            // btnServerControl
+            // btnManageUsers
             // 
-            this.btnServerControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnServerControl.FlatAppearance.BorderSize = 0;
-            this.btnServerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServerControl.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerControl.Location = new System.Drawing.Point(0, 336);
-            this.btnServerControl.Name = "btnServerControl";
-            this.btnServerControl.Size = new System.Drawing.Size(293, 43);
-            this.btnServerControl.TabIndex = 2;
-            this.btnServerControl.Text = "Manage Users";
-            this.btnServerControl.UseVisualStyleBackColor = true;
-            this.btnServerControl.Click += new System.EventHandler(this.btnServerControl_Click);
+            this.btnManageUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageUsers.FlatAppearance.BorderSize = 0;
+            this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageUsers.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageUsers.Location = new System.Drawing.Point(0, 336);
+            this.btnManageUsers.Name = "btnManageUsers";
+            this.btnManageUsers.Size = new System.Drawing.Size(293, 43);
+            this.btnManageUsers.TabIndex = 2;
+            this.btnManageUsers.Text = "Manage Users";
+            this.btnManageUsers.UseVisualStyleBackColor = true;
+            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
             // mainDashboard
             // 
@@ -295,7 +295,7 @@
             this.Controls.Add(this.btnManageAccount);
             this.Controls.Add(this.btnManageServers);
             this.Controls.Add(this.btnManageLocations);
-            this.Controls.Add(this.btnServerControl);
+            this.Controls.Add(this.btnManageUsers);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.lblCurrentCompany);
             this.Controls.Add(this.lblCurrentIP);
@@ -339,6 +339,6 @@
         private System.Windows.Forms.Button btnManageLocations;
         private System.Windows.Forms.Button btnTicketReply;
         private System.Windows.Forms.Button btnCreateTicket;
-        private System.Windows.Forms.Button btnServerControl;
+        private System.Windows.Forms.Button btnManageUsers;
     }
 }
