@@ -33,7 +33,7 @@
             this.lblWelcomeBack = new System.Windows.Forms.Label();
             this.lblCurrentIP = new System.Windows.Forms.Label();
             this.lblCurrentCompany = new System.Windows.Forms.Label();
-            this.btnManageUsers = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMenu = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnManageAccount = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.btnCreateTicket = new System.Windows.Forms.Button();
             this.btnManageUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnManageUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).BeginInit();
             this.SuspendLayout();
@@ -100,14 +100,14 @@
             this.lblCurrentCompany.TabIndex = 6;
             this.lblCurrentCompany.Text = "Company:";
             // 
-            // btnManageUsers
+            // pictureBoxMenu
             // 
-            this.btnManageUsers.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnManageUsers.Location = new System.Drawing.Point(0, -1);
-            this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(293, 609);
-            this.btnManageUsers.TabIndex = 7;
-            this.btnManageUsers.TabStop = false;
+            this.pictureBoxMenu.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBoxMenu.Location = new System.Drawing.Point(0, -1);
+            this.pictureBoxMenu.Name = "pictureBoxMenu";
+            this.pictureBoxMenu.Size = new System.Drawing.Size(293, 609);
+            this.pictureBoxMenu.TabIndex = 7;
+            this.pictureBoxMenu.TabStop = false;
             // 
             // btnHome
             // 
@@ -302,7 +302,7 @@
             this.Controls.Add(this.lblWelcomeBack);
             this.Controls.Add(this.ELHSLogo);
             this.Controls.Add(this.pctProfilePhoto);
-            this.Controls.Add(this.btnManageUsers);
+            this.Controls.Add(this.pictureBoxMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -313,7 +313,7 @@
             this.Text = "mainDashboard";
             this.Load += new System.EventHandler(this.DashboardFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnManageUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctProfilePhoto)).EndInit();
             this.ResumeLayout(false);
@@ -326,7 +326,7 @@
         private System.Windows.Forms.Label lblWelcomeBack;
         private System.Windows.Forms.Label lblCurrentIP;
         private System.Windows.Forms.Label lblCurrentCompany;
-        private System.Windows.Forms.PictureBox btnManageUsers;
+        private System.Windows.Forms.PictureBox pictureBoxMenu;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnManageAccount;
         private System.Windows.Forms.Button btnLogout;

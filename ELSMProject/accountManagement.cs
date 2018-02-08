@@ -25,8 +25,8 @@ namespace ELSM_Project
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
-            serverControl Servers = new serverControl();
-            Servers.ShowDialog();
+            userList userListForm = new userList();
+            userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
