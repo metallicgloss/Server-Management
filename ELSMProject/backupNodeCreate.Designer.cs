@@ -80,7 +80,7 @@
             this.btnNewServer.Name = "btnNewServer";
             this.btnNewServer.Size = new System.Drawing.Size(206, 31);
             this.btnNewServer.TabIndex = 44;
-            this.btnNewServer.Text = "Process New Server";
+            this.btnNewServer.Text = "Process New Backup Server";
             this.btnNewServer.UseVisualStyleBackColor = false;
             this.btnNewServer.Click += new System.EventHandler(this.btnNewServer_Click);
             // 
@@ -342,7 +342,7 @@
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "backupNodeCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Server";
+            this.Text = "Create Backup Node";
             this.Load += new System.EventHandler(this.manageServersCreate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

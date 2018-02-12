@@ -178,8 +178,8 @@ namespace ELSM_Project
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            backupNodeDelete Edit = new backupNodeDelete();
-            Edit.ShowDialog();
+            backupNodeDelete delete = new backupNodeDelete();
+            delete.ShowDialog();
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             try
