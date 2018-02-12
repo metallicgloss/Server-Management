@@ -107,7 +107,6 @@
             this.txtForename.Enabled = false;
             this.txtForename.Location = new System.Drawing.Point(178, 142);
             this.txtForename.Name = "txtForename";
-            this.txtForename.PasswordChar = '•';
             this.txtForename.Size = new System.Drawing.Size(310, 20);
             this.txtForename.TabIndex = 50;
             // 
@@ -118,6 +117,7 @@
             this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(178, 104);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(310, 20);
             this.txtPassword.TabIndex = 49;
             // 

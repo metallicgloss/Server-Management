@@ -18,11 +18,11 @@ namespace ELSM_Project
         {
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
-            MySqlCommand userCMD = new MySqlCommand("SELECT * FROM userInformation", connectionMySQL);
+            MySqlCommand userCMD = new MySqlCommand("SELECT * FROM userAccounts", connectionMySQL);
             MySqlDataReader userRDR = userCMD.ExecuteReader(); // Execute MySQL reader query 
             while (userRDR.Read()) // While rows in reader
             {
-                cmboUserID.Items.Add(userRDR.GetString("userHostname"));
+                cmboUserID.Items.Add(userRDR.GetString("userID"));
             }
             userRDR.Close();
             connectionMySQL.Close();
@@ -33,18 +33,18 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
 
-            MySqlCommand userInformationCMD = new MySqlCommand("SELECT * FROM userInformation WHERE userCompany = @userCompany", connectionMySQL);
-            userInformationCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
-            MySqlDataReader userInformationRDR = userInformationCMD.ExecuteReader(); // Execute MySQL reader query 
-            userInformationRDR.Read(); // Read data from the reader to become usable
+            MySqlCommand userAccountsCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @userCompany", connectionMySQL);
+            userAccountsCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
+            MySqlDataReader userAccountsRDR = userAccountsCMD.ExecuteReader(); // Execute MySQL reader query 
+            userAccountsRDR.Read(); // Read data from the reader to become usable
 
-            txtUsername.Text = Convert.ToString(userInformationRDR[1]);
-            userEdit.password = Convert.ToString(userInformationRDR[2]);
-            txtForename.Text = Convert.ToString(userInformationRDR[3]);
-            txtSurname.Text = Convert.ToString(userInformationRDR[4]);
-            txtEmailAddress.Text = Convert.ToString(userInformationRDR[5]);
-            txtProfileImage.Text = Convert.ToString(userInformationRDR[6]);
-            userInformationRDR.Close();
+            txtUsername.Text = Convert.ToString(userAccountsRDR[1]);
+            userEdit.password = Convert.ToString(userAccountsRDR[2]);
+            txtForename.Text = Convert.ToString(userAccountsRDR[3]);
+            txtSurname.Text = Convert.ToString(userAccountsRDR[4]);
+            txtEmailAddress.Text = Convert.ToString(userAccountsRDR[5]);
+            txtProfileImage.Text = Convert.ToString(userAccountsRDR[6]);
+            userAccountsRDR.Close();
 
             connectionMySQL.Close();
             txtUsername.Enabled = true;
@@ -78,7 +78,7 @@ namespace ELSM_Project
 
 
 
-            MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userInformation SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
+            MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userAccounts SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
             userInfoUpdateCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userForename", txtForename.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userSurname", txtSurname.Text);
