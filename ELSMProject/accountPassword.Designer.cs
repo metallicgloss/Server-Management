@@ -68,6 +68,7 @@
             this.txtNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNewPassword.Location = new System.Drawing.Point(178, 71);
             this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '•';
             this.txtNewPassword.Size = new System.Drawing.Size(310, 20);
             this.txtNewPassword.TabIndex = 30;
             // 
@@ -76,6 +77,7 @@
             this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtConfirmPassword.Location = new System.Drawing.Point(178, 109);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '•';
             this.txtConfirmPassword.Size = new System.Drawing.Size(310, 20);
             this.txtConfirmPassword.TabIndex = 31;
             // 
@@ -83,7 +85,7 @@
             // 
             this.btnChangePassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangePassword.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.Location = new System.Drawing.Point(36, 145);
@@ -98,7 +100,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 145);
@@ -126,10 +128,11 @@
             this.txtCurrentPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCurrentPassword.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '•';
             this.txtCurrentPassword.Size = new System.Drawing.Size(310, 20);
             this.txtCurrentPassword.TabIndex = 29;
             // 
-            // manageAccountPassword
+            // accountPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +153,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "manageAccountPassword";
+            this.Name = "accountPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Password";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountPassword_FormClosing);
