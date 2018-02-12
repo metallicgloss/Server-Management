@@ -73,7 +73,10 @@ namespace ELSM_Project
             else
             {
                 var password = txtPassword.Text;
+                password = CodeShare.Cryptography.SHA.GenerateSHA512String(password);
             }
+
+
 
             MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userInformation SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
             userInfoUpdateCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
