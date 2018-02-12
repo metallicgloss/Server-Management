@@ -65,15 +65,15 @@ namespace ELSM_Project
         {
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
-
+            string tmppassword;
             if (txtPassword.Text == "")
             {
-                var password = userEdit.password;
+                tmppassword = userEdit.password;
             }
             else
             {
-                var password = txtPassword.Text;
-                password = CodeShare.Cryptography.SHA.GenerateSHA512String(password);
+                tmppassword = txtPassword.Text;
+                userEdit.password = CodeShare.Cryptography.SHA.GenerateSHA512String(tmppassword);
             }
 
 
