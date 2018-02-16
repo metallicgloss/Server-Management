@@ -73,7 +73,7 @@ namespace ELSM_Project
             else
             {
                 tmppassword = txtPassword.Text;
-                userEdit.password = CodeShare.Cryptography.SHA.GenerateSHA512String(tmppassword);
+                userEdit.password = loginMenu.EncryptString(tmppassword, loginMenu.key, loginMenu.iv);
             }
 
 
