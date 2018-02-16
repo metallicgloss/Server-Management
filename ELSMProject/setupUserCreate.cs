@@ -21,7 +21,7 @@ namespace ELSM_Project
                     connectionMySQL.Open(); // Open MySQL connection
                     MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
 
-                    String EnteredPassword = CodeShare.Cryptography.SHA.GenerateSHA512String(txtPassword.Text); // Decrypt Password
+                    String EnteredPassword = loginMenu.EncryptString(txtPassword.Text, loginMenu.key, loginMenu.iv); // Decrypt Password
                     createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
                     createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
                     createAdmin.Parameters.AddWithValue("@userForename", txtForename.Text);
