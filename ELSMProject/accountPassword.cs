@@ -3,7 +3,6 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
-using CodeShare.Cryptography;
 
 
 namespace ELSM_Project
@@ -15,7 +14,7 @@ namespace ELSM_Project
         {
             InitializeComponent();
         }
-
+        
         private void manageAccountPassword_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide(); //Hide form
@@ -28,17 +27,26 @@ namespace ELSM_Project
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            String Currentpassword = SHA.GenerateSHA512String(txtCurrentPassword.Text);
-            String NewPassword = SHA.GenerateSHA512String(txtNewPassword.Text);
+            String Currentpassword = loginMenu.EncryptString(txtCurrentPassword.Text, loginMenu.key, loginMenu.iv);
+            String NewPassword = loginMenu.EncryptString(txtNewPassword.Text, loginMenu.key, loginMenu.iv);
+            String NewPasswordConfirm = loginMenu.EncryptString(txtConfirmPassword.Text, loginMenu.key, loginMenu.iv);
             if (Currentpassword == loginMenu.Password)
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
-                command.Parameters.AddWithValue("@pass", NewPassword);
-                command.ExecuteNonQuery();
-                loginMenu.Password = txtNewPassword.Text;
-                Hide(); //Hide form
+                if (NewPassword == NewPasswordConfirm)
+                {
+                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+                    conn.Open();
+                    MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
+                    command.Parameters.AddWithValue("@pass", NewPassword);
+                    command.ExecuteNonQuery();
+                    loginMenu.Password = txtNewPassword.Text;
+                    Hide(); //Hide form
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("The new password you have entered was not done so correctly. Please make sure you've type it correctly.");
+                }
+                
             }
             else
             {
@@ -50,31 +58,5 @@ namespace ELSM_Project
         {
 
         }
-    }
-}
-
-namespace CodeShare.Cryptography
-{
-    public static class SHA
-    {
-
-        public static string GenerateSHA512String(string inputString)
-        {
-            SHA512 sha512 = SHA512Managed.Create();
-            byte[] bytes = Encoding.UTF8.GetBytes(inputString);
-            byte[] hash = sha512.ComputeHash(bytes);
-            return GetStringFromHash(hash);
-        }
-
-        private static string GetStringFromHash(byte[] hash)
-        {
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                result.Append(hash[i].ToString("X2"));
-            }
-            return result.ToString();
-        }
-
     }
 }

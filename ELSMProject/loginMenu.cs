@@ -4,6 +4,9 @@ using MySql.Data.MySqlClient;
 using System.Net;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace ELSM_Project
 {
@@ -13,6 +16,9 @@ namespace ELSM_Project
         public static string IPAddress, Forename, Surname, CompanyID, CompanyName, EmailAddress, ProfileImage, Role, UserID, Username, Password, externalIP, userLogin, userPassword;
         public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers, checkpointReached;
         public static string ConnectionString;
+        public static SHA256 mySHA256 = SHA256Managed.Create();
+        public static byte[] key = mySHA256.ComputeHash(Encoding.ASCII.GetBytes("rh6Pe7nMdT1ZdoSCbJVEB7xjl4yKKRNtpy4xeePlf60pZrauG8ZQkCFfikN7NJ5yvWhS5zHDK4PbwNeXT1bj67fvI6Ad7rOtCeEA")); // Change the string of text when compiling for a different encryption key. Built directly into the program so the end user configuring the software is not likely to ever see it.
+        public static byte[] iv = new byte[16] { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
 
 
         public loginMenu()
@@ -72,7 +78,9 @@ namespace ELSM_Project
                 loginMenu.ProfileImage = Convert.ToString(rdr[6]); // Set variable equal to item in reader
                 loginMenu.CompanyID = Convert.ToString(rdr[7]); // Set variable equal to item in reader
                 loginMenu.Role = Convert.ToString(rdr[8]); // Set variable equal to item in reader
-                String EnteredPassword = CodeShare.Cryptography.SHA.GenerateSHA512String(txtPassword.Text); // Decrypt Password
+
+                String EnteredPassword = EncryptString(txtPassword.Text, key, iv); // Encrypt Password
+
                 rdr.Close(); // Close reader
                 if (EnteredPassword != databasePassword)
                 {
@@ -86,7 +94,7 @@ namespace ELSM_Project
                 else
                 {
                     MySqlCommand accountCMD = new MySqlCommand("UPDATE `userAccounts` SET userIPAddress = @attemptIP, userLastLogin = @attemptTimeStamp", connectionMySQL);
-                    accountCMD.Parameters.AddWithValue("@attemptIP", ELSM_Project.loginMenu.IPAddress); // Replace string in query with variable
+                    accountCMD.Parameters.AddWithValue("@attemptIP", loginMenu.IPAddress); // Replace string in query with variable
                     accountCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace string in query with variable
                     accountCMD.ExecuteNonQuery();
 
@@ -148,6 +156,51 @@ namespace ELSM_Project
             txtPassword.Text = "";
             connectionMySQL.Close();
         }
-     
+
+        public static string EncryptString(string plainText, byte[] key, byte[] iv)
+        {
+            Aes encryptor = Aes.Create();
+            encryptor.Mode = CipherMode.CBC;
+            encryptor.Key = key;
+            encryptor.IV = iv;
+            MemoryStream memoryStream = new MemoryStream();
+            ICryptoTransform aesEncryptor = encryptor.CreateEncryptor();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, aesEncryptor, CryptoStreamMode.Write);
+            byte[] plainBytes = Encoding.ASCII.GetBytes(plainText);
+            cryptoStream.Write(plainBytes, 0, plainBytes.Length);
+            cryptoStream.FlushFinalBlock();
+            byte[] cipherBytes = memoryStream.ToArray();
+            memoryStream.Close();
+            cryptoStream.Close();
+            string cipherText = Convert.ToBase64String(cipherBytes, 0, cipherBytes.Length);
+            return cipherText;
+        }
+
+        public static string DecryptString(string cipherText, byte[] key, byte[] iv)
+        {
+            Aes encryptor = Aes.Create();
+            encryptor.Mode = CipherMode.CBC;
+            encryptor.Key = key;
+            encryptor.IV = iv;
+            MemoryStream memoryStream = new MemoryStream();
+            ICryptoTransform aesDecryptor = encryptor.CreateDecryptor();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, aesDecryptor, CryptoStreamMode.Write);
+            string plainText = String.Empty;
+            try
+            {
+                byte[] cipherBytes = Convert.FromBase64String(cipherText);
+                cryptoStream.Write(cipherBytes, 0, cipherBytes.Length);
+                cryptoStream.FlushFinalBlock();
+                byte[] plainBytes = memoryStream.ToArray();
+                plainText = Encoding.ASCII.GetString(plainBytes, 0, plainBytes.Length);
+            }
+            finally
+            {
+                memoryStream.Close();
+                cryptoStream.Close();
+            }
+            return plainText;
+        }
+
     }
 }
