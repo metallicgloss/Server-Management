@@ -13,9 +13,7 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        private static int loopnum, createloop, pointX = 235, pointY = 20, boxnum = 0, temploop;
-        private static bool finished, firstrun = true;
-        private static string value, yes = "No";
+        private static int loopnum, pointX = 235, pointY = 20;
         string[] userIDList = new string[100];
         string[] replyContent = new string[100];
 
