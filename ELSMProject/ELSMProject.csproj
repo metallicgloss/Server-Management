@@ -423,6 +423,9 @@
     <EmbeddedResource Include="controlCommandRun.resx">
       <DependentUpon>controlCommandRun.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ticketReply.resx">
+      <DependentUpon>ticketReply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ticketView.resx">
       <DependentUpon>ticketView.cs</DependentUpon>
     </EmbeddedResource>
