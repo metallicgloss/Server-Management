@@ -38,6 +38,8 @@
             this.txtContent = new System.Windows.Forms.TextBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.cmboRegarding = new System.Windows.Forms.ComboBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.lblSubject = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -47,7 +49,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(281, 323);
+            this.btnCancel.Location = new System.Drawing.Point(281, 358);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(207, 31);
             this.btnCancel.TabIndex = 45;
@@ -62,7 +64,7 @@
             this.btnNewTicket.FlatAppearance.BorderSize = 0;
             this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewTicket.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewTicket.Location = new System.Drawing.Point(36, 323);
+            this.btnNewTicket.Location = new System.Drawing.Point(36, 358);
             this.btnNewTicket.Name = "btnNewTicket";
             this.btnNewTicket.Size = new System.Drawing.Size(206, 31);
             this.btnNewTicket.TabIndex = 44;
@@ -95,7 +97,7 @@
             this.lblRegarding.BackColor = System.Drawing.Color.Transparent;
             this.lblRegarding.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegarding.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblRegarding.Location = new System.Drawing.Point(33, 110);
+            this.lblRegarding.Location = new System.Drawing.Point(33, 145);
             this.lblRegarding.Name = "lblRegarding";
             this.lblRegarding.Size = new System.Drawing.Size(82, 18);
             this.lblRegarding.TabIndex = 40;
@@ -128,7 +130,7 @@
             // txtContent
             // 
             this.txtContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContent.Location = new System.Drawing.Point(178, 145);
+            this.txtContent.Location = new System.Drawing.Point(178, 180);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(310, 156);
@@ -140,7 +142,7 @@
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
             this.lblMessage.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblMessage.Location = new System.Drawing.Point(33, 146);
+            this.lblMessage.Location = new System.Drawing.Point(33, 181);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(73, 18);
             this.lblMessage.TabIndex = 46;
@@ -149,19 +151,42 @@
             // cmboRegarding
             // 
             this.cmboRegarding.FormattingEnabled = true;
-            this.cmboRegarding.Location = new System.Drawing.Point(178, 108);
+            this.cmboRegarding.Location = new System.Drawing.Point(178, 143);
             this.cmboRegarding.Name = "cmboRegarding";
             this.cmboRegarding.Size = new System.Drawing.Size(310, 21);
             this.cmboRegarding.TabIndex = 48;
             // 
-            // newTicket
+            // txtSubject
+            // 
+            this.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSubject.Enabled = false;
+            this.txtSubject.Location = new System.Drawing.Point(178, 108);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(310, 20);
+            this.txtSubject.TabIndex = 50;
+            // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.BackColor = System.Drawing.Color.Transparent;
+            this.lblSubject.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSubject.Location = new System.Drawing.Point(33, 110);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(63, 18);
+            this.lblSubject.TabIndex = 49;
+            this.lblSubject.Text = "Subject:";
+            // 
+            // ticketNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(542, 385);
+            this.ClientSize = new System.Drawing.Size(542, 427);
             this.ControlBox = false;
+            this.Controls.Add(this.txtSubject);
+            this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.cmboRegarding);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.lblMessage);
@@ -174,7 +199,7 @@
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "newTicket";
+            this.Name = "ticketNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Ticket";
             this.Load += new System.EventHandler(this.newTicket_Load);
@@ -195,5 +220,7 @@
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.ComboBox cmboRegarding;
+        private System.Windows.Forms.TextBox txtSubject;
+        private System.Windows.Forms.Label lblSubject;
     }
 }

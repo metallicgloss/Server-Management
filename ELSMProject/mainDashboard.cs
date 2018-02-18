@@ -109,7 +109,7 @@ namespace ELSM_Project
         private void btnTicketReply_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
-            ticketNew ticket = new ticketNew();
+            ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
 
