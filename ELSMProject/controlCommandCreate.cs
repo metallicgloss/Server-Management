@@ -25,7 +25,7 @@ namespace ELSM_Project
             MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
             int height;
             height = 206;
-            loopnum = 1;
+            loopnum = 0;
 
             int boxnum = 0; // Set variable to 0
             string value;
@@ -45,9 +45,9 @@ namespace ELSM_Project
                 loopnum += 1; // Add the value of 1 to the variable
             }
             int pointX = 235;
-            int pointY = 20;
+            int pointY = 0;
             int loopnum2 = 0; // Set variable to 0
-            for (int i = 0; i < loopnum - 1; i++)  // Set variable to 0
+            for (int i = 0; i < loopnum; i++)  // Set variable to 0
             {
                 TextBox a = new TextBox();
                 a.Location = new Point(pointX, pointY);
@@ -78,7 +78,6 @@ namespace ELSM_Project
             string name = ((CheckBox)sender).Name; // Set string to name of checkbox name
             name = name.Replace("chkOS", string.Empty); // Get number in checkbox name
             int OSNumber = Convert.ToInt16(name); // Convert number from string to int
-            OSNumber -= 1; // Take one from number to combat dodgey code originally
             string inputname = "txtInput" + OSNumber; // Make string for input box
             var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox; // Find textbox using string
 
@@ -101,17 +100,17 @@ namespace ELSM_Project
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
-                string inputname = "txtInput" + Convert.ToString(createloop - 1);
+                string inputname = "txtInput" + Convert.ToString(createloop);
                 var os = "";
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
                 var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
-                    string checkBoxText = checkBox.Text;
-                    MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
-                    osCMD.Parameters.AddWithValue("@os", checkBoxText); // Replace string in query with variable
-                    MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
-                    osRDR.Read(); // Read data from the reader to become usable
-                    os = Convert.ToString(osRDR[0]);
-                    osRDR.Close();
+                string checkBoxText = checkBox.Text;
+                MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", connectionMySQL);
+                osCMD.Parameters.AddWithValue("@os", checkBoxText); // Replace string in query with variable
+                MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
+                osRDR.Read(); // Read data from the reader to become usable
+                os = Convert.ToString(osRDR[0]);
+                osRDR.Close();
                     if (text.Text != "")
                     {
                         MySqlCommand newCommandCMD = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", connectionMySQL);
