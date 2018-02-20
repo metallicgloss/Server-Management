@@ -45,6 +45,7 @@
             this.btnDeleteServer = new System.Windows.Forms.Button();
             this.btnEditServer = new System.Windows.Forms.Button();
             this.btnCreateServer = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -279,6 +280,20 @@
             this.btnCreateServer.UseVisualStyleBackColor = true;
             this.btnCreateServer.Click += new System.EventHandler(this.btnCreateServer_Click);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.Location = new System.Drawing.Point(361, 501);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(724, 46);
+            this.btnBackup.TabIndex = 51;
+            this.btnBackup.Text = "Run Backup";
+            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
             // backupNodeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +302,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnBackup);
             this.Controls.Add(this.btnDeleteServer);
             this.Controls.Add(this.btnEditServer);
             this.Controls.Add(this.btnCreateServer);
@@ -338,5 +354,6 @@
         private System.Windows.Forms.Button btnDeleteServer;
         private System.Windows.Forms.Button btnEditServer;
         private System.Windows.Forms.Button btnCreateServer;
+        private System.Windows.Forms.Button btnBackup;
     }
 }

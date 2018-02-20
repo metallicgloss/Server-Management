@@ -14,13 +14,13 @@ namespace ELSM_Project
         }
 
         private static int loopnum, pointX = 235, pointY = 20;
-        private static string forename = "", surname = "";
 
 
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
             string[] userIDList = new string[100];
             string[] replyContent = new string[100];
+            string forename = "", surname = "";
 
             loopnum = 0;
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
@@ -98,8 +98,7 @@ namespace ELSM_Project
             newTicketReply.Parameters.AddWithValue("@userID", loginMenu.UserID);
             newTicketReply.Parameters.AddWithValue("@replyContent", txtReply.Text);
             newTicketReply.ExecuteNonQuery();
-
-
+            
             Hide();
         }
     }

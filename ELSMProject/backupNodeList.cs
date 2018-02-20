@@ -110,7 +110,7 @@ namespace ELSM_Project
             try
             {
                 MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNoderIP FROM backupNodeInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
+                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM backupNodeInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
                 DataTable table = new DataTable();
                 MyDA.Fill(table);
                 BindingSource bSource = new BindingSource();
@@ -200,6 +200,12 @@ namespace ELSM_Project
                 MessageBox.Show(ex.Message);
                 Close();
             }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            backupRunProcess backupRunProcessForm = new backupRunProcess();
+            backupRunProcessForm.ShowDialog();
         }
     }
 }
