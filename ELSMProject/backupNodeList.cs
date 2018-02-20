@@ -33,7 +33,9 @@ namespace ELSM_Project
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
+            Hide(); //Hide form
+            serverManagement serverManagementForm = new serverManagement();
+            serverManagementForm.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
