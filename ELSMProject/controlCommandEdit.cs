@@ -14,7 +14,7 @@ namespace ELSM_Project
         }
 
         private static int loopnum, createloop, pointX = 235, pointY = 20, boxnum = 0, temploop;
-        private static bool finished, firstrun = true;
+        private static bool finished, firstrun;
         private static string value, yes = "No";
         string[] operatingSystemsID = new string[100];
         string[] operatingSystems = new string[100];
@@ -23,6 +23,7 @@ namespace ELSM_Project
 
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
+            firstrun = true;
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open(); // Open MySQL connection
 
