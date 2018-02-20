@@ -121,7 +121,10 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPostReply);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1182, 688);
+            this.MinimumSize = new System.Drawing.Size(1182, 688);
             this.Name = "ticketReply";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ticket Management";
             this.Load += new System.EventHandler(this.serverControlEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -14,11 +14,15 @@ namespace ELSM_Project
         }
 
         private static int loopnum, pointX = 235, pointY = 20;
-        string[] userIDList = new string[100];
-        string[] replyContent = new string[100];
+        private static string forename = "", surname = "";
+
 
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
+            string[] userIDList = new string[100];
+            string[] replyContent = new string[100];
+
+            loopnum = 0;
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open(); // Open MySQL Connection
 
@@ -45,8 +49,8 @@ namespace ELSM_Project
                 userDetailsCMD.Parameters.AddWithValue("@userID", userIDList[loopnum]);  // Replace string in query with variable
                 MySqlDataReader userDetailReader = userDetailsCMD.ExecuteReader(); // Execute MySQL reader query 
                 userDetailReader.Read();
-                string forename = Convert.ToString(userDetailReader[3]);
-                string surname = Convert.ToString(userDetailReader[4]);
+                forename = Convert.ToString(userDetailReader[3]);
+                surname = Convert.ToString(userDetailReader[4]);
                 userDetailReader.Close();
                 Label box = new Label();
                 box.Name = "chkOS" + Convert.ToString(loopnum);
@@ -75,6 +79,7 @@ namespace ELSM_Project
             }
             this.Height += loopnum2 * 5;
             pnlConfiguration.Height += (loopnum2 * 5);
+            connectionMySQL.Close(); // Open MySQL Connection
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
