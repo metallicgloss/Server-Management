@@ -26,14 +26,15 @@ namespace ELSM_Project
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
-            userList userListForm = new userList();
-            userListForm.ShowDialog();
+
+            MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
+            Hide(); //Hide form
+            serverManagement serverManagementForm = new serverManagement();
+            serverManagementForm.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
