@@ -341,6 +341,9 @@
     <EmbeddedResource Include="backupNodeList.resx">
       <DependentUpon>backupNodeList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="backupRunProcess.resx">
+      <DependentUpon>backupRunProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controlCommandCreate.resx">
       <DependentUpon>controlCommandCreate.cs</DependentUpon>
     </EmbeddedResource>

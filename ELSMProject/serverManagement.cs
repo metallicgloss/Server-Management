@@ -208,5 +208,12 @@ namespace ELSM_Project
             controlManagement controlServerFRM = new controlManagement();
             controlServerFRM.ShowDialog();
         }
+
+        private void btnBackupCentre_Click(object sender, EventArgs e)
+        {
+            Hide();
+            backupNodeList backupNodeListForm = new backupNodeList();
+            backupNodeListForm.ShowDialog();
+        }
     }
 }

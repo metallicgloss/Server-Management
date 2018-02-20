@@ -17,7 +17,7 @@ namespace ELSM_Project
 
         //  Declare Variables For Use  //
         private static int loopNum, activeLoop = 0;
-        private static string os, ip, username, password, key, chkBoxName, checkBoxText, commandData, value;
+        private static string os, ip, username, password, chkBoxName, checkBoxText, commandData, value;
         private string[] operatingSystemsID = new string[100], operatingSystems = new string[100], commandOSID = new string[100], commandText = new string[100];
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -40,11 +40,10 @@ namespace ELSM_Project
                     serverCMD.Parameters.AddWithValue("@hostname", checkBoxText); // Replace string in query with variable
                     MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader(); // Execute MySQL reader query
                     serverInformationRDR.Read(); // Read data from the reader to become usable
-                    ip = Convert.ToString(serverInformationRDR[8]); // Set variable to data from reader
+                    ip = Convert.ToString(serverInformationRDR[7]); // Set variable to data from reader
                     username = Convert.ToString(serverInformationRDR[4]); // Set variable to data from reader
                     password = Convert.ToString(serverInformationRDR[5]); // Set variable to data from reader
-                    key = Convert.ToString(serverInformationRDR[6]); // Set variable to data from reader
-                    os = Convert.ToString(serverInformationRDR[7]); // Set variable to data from reader
+                    os = Convert.ToString(serverInformationRDR[6]); // Set variable to data from reader
                     serverInformationRDR.Close(); // Close Reader
                     MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
                     osCMD.Parameters.AddWithValue("@os", os); // Replace string in query with variable

@@ -308,6 +308,7 @@
             this.btnBackupCentre.TabIndex = 55;
             this.btnBackupCentre.Text = "Backup Centre";
             this.btnBackupCentre.UseVisualStyleBackColor = true;
+            this.btnBackupCentre.Click += new System.EventHandler(this.btnBackupCentre_Click);
             // 
             // serverManagement
             // 
