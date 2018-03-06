@@ -29,6 +29,7 @@ namespace ELSM_Project
 
         private void loginFRM_Load(object sender, EventArgs e)
         {
+
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             externalIP = (new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")).Matches((new WebClient()).DownloadString("http://www.metallicgloss.com/functions/ip.php"))[0].ToString();
@@ -140,16 +141,21 @@ namespace ELSM_Project
                     companyRDR.Close(); // Close reader
 
                     Hide(); //Hide form
-
-                    mainDashboard mainDashboardDisplay = new mainDashboard();
-                    mainDashboardDisplay.ShowDialog();
+                    try
+                    {
+                        mainDashboard mainDashboardDisplay = new mainDashboard();
+                        mainDashboardDisplay.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
+                    }
                     Show();
                 }
             }
             catch (Exception ex) 
             {
                 System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
-                System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
                 rdr.Close();
             }
             txtUsername.Text = "";
