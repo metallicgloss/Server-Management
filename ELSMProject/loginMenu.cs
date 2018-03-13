@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.IO;
 using System.Text;
+using CodeShare.Cryptography;
 
 namespace ELSM_Project
 {
@@ -17,6 +18,7 @@ namespace ELSM_Project
         public static Boolean permChangePassword, permChangeUsername, permChangeEmail, permViewServers, permEditServers, permDeleteServers, permViewLocations, permEditLocations, permDeleteLocations, permCreateTicket, permAdminTicket, permCloseTicket, permViewServerPass, permEditServerPass, permAddAction, permEditAction, permDeleteAction, permRunUpdate, permRunReboot, permAddServerNote, permRunCustomAction, permAdminViewUsers, permAdminEditUserInfo, permAdminForcePassReset, permAdminAddUser, permAdminDelUser, permAdminChangePermissions, permControlServers, checkpointReached;
         public static string ConnectionString;
         public static SHA256 mySHA256 = SHA256Managed.Create();
+        public static string userSalt = "pFMQk3VmLdES6rw9bzJFyrh2422cyZCpWT9nzNxBAZEKWgc7vnbhFLxPsp4hcYX2FWRQtRVQm6quQ2EtvkgRs9kZjB4pTPvmMGMgZqFFggxUG5TzXGtMHKP7F9svCXnjkTpxyudQVLgKr77UnUwEauLpu9ybmaDyuZpjW95dT5ReE5qU4s68jC8sbtZNda2s8rZ2RdA3Lcyfkmqh5EMjFZsZXD9kFRFvhkwGFD2Y6NJwNy3RxBMkW6b8qjnhe7uNNQUv7rL6eMWUWDytZBgwP4DbX9XxDpuJHPFtxzvTLh6rrrFzmKcBy8hCspcPnGDwkShr8A48yKWtMHpdCv85BJajFJtyEXWjkGfpLeWNT3dLBT6RRadvxRv5u25tvdB8LE56y2468xLhpCDSmxWFNfACnHmkZY2MSKeChJDwNjss27yY8vqLmmmWGf2L6wgUuXngPTLRnAU6jnajF3ZgqsP9G6JutgHmnYxJDJ6rNg5Zwc7hNzFZwnZ6w2eDYTgvzQVW2vWBhnwCbhTz2KRX5uj63buW7HEun8KWzfYdCQQWazLHGL5KxE4aggQWKnD8Dr5Z23rptegS7n3YN5gwkxKnt5VwxWgtUBLcsGdjP3bdZF94ZHZV7yvkvj8n6PPuqHzyWxp6FD2bt6ZkEeAaUhsHwLKqHpntYdPwRN84NvscqzrWtDV3n39KudrJtc5y42gfNR44XCT4Jp2PW3rPcDg7NY2tjBtt4ANe4zRq8v83sa99s6sxmWgSaT4MnrqTgMGs2CuvJYn9RWh5gBzTdeG4nnEuNhpnfBjLPQCu6B3hB2qM3hNvVKzBsu56E2YyNPtSKvrXMXdNafsPDkpSUYjY2qjvfYfa2SYY34j3rVGdCHWBsH5sq2tVFJHEzjqWwy8UVchGpUauJeMrh7F4E9M9dR6ak5JvLaCcYcLPBq3fWn3NETrHWSY58T4WpNzMc2BuMC4hDQeuQfZjSXuHfyZk6mTU69Z2dpd7emB2TRZ8LYV3Bg6zczdUpWXsJ96A";
         public static byte[] key = mySHA256.ComputeHash(Encoding.ASCII.GetBytes("rh6Pe7nMdT1ZdoSCbJVEB7xjl4yKKRNtpy4xeePlf60pZrauG8ZQkCFfikN7NJ5yvWhS5zHDK4PbwNeXT1bj67fvI6Ad7rOtCeEA")); // Change the string of text when compiling for a different encryption key. Built directly into the program so the end user configuring the software is not likely to ever see it.
         public static byte[] iv = new byte[16] { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
 
@@ -41,8 +43,8 @@ namespace ELSM_Project
             if (Setup == "No")
             {
                 Hide();
-                loginMenu login = new loginMenu();
-                login.ShowDialog();
+                setupDatabase setupDatabaseFRM = new setupDatabase();
+                setupDatabaseFRM.ShowDialog();
             }
 
             string IP = doc.SelectSingleNode("Settings/IP").InnerText;
@@ -80,7 +82,7 @@ namespace ELSM_Project
                 loginMenu.CompanyID = Convert.ToString(rdr[7]); // Set variable equal to item in reader
                 loginMenu.Role = Convert.ToString(rdr[8]); // Set variable equal to item in reader
 
-                String EnteredPassword = EncryptString(txtPassword.Text, key, iv); // Encrypt Password
+                String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text); // Encrypt Password
 
                 rdr.Close(); // Close reader
                 if (EnteredPassword != databasePassword)
@@ -163,6 +165,7 @@ namespace ELSM_Project
             connectionMySQL.Close();
         }
 
+        //Encrypt password so that it can be decrypted again.
         public static string EncryptString(string plainText, byte[] key, byte[] iv)
         {
             Aes encryptor = Aes.Create();
@@ -182,6 +185,7 @@ namespace ELSM_Project
             return cipherText;
         }
 
+        //Decript string function for SSH login.
         public static string DecryptString(string cipherText, byte[] key, byte[] iv)
         {
             Aes encryptor = Aes.Create();
@@ -206,6 +210,31 @@ namespace ELSM_Project
                 cryptoStream.Close();
             }
             return plainText;
+        }
+
+    }
+}
+namespace CodeShare.Cryptography
+{
+    public static class SHA
+    {
+
+        public static string GenerateSHA512String(string inputString)
+        {
+            SHA512 sha512 = SHA512Managed.Create();
+            byte[] bytes = Encoding.UTF8.GetBytes(inputString);
+            byte[] hash = sha512.ComputeHash(bytes);
+            return GetStringFromHash(hash);
+        }
+
+        private static string GetStringFromHash(byte[] hash)
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                result.Append(hash[i].ToString("X2"));
+            }
+            return result.ToString();
         }
 
     }

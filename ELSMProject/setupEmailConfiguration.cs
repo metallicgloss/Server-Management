@@ -12,11 +12,6 @@ namespace ELSM_Project
 
         public static string SMTPServer, SMTPPort, EmailUsername, EmailPass;
 
-        private void initialEmail_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnInstall_Click(object sender, EventArgs e)
         {
             SMTPPort = txtSMTPPort.Text;

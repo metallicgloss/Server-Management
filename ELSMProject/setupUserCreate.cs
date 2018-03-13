@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net;
 using System.Net.Mail;
+using CodeShare.Cryptography;
 
 namespace ELSM_Project
 {
@@ -21,7 +22,7 @@ namespace ELSM_Project
                     connectionMySQL.Open(); // Open MySQL connection
                     MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
 
-                    String EnteredPassword = loginMenu.EncryptString(txtPassword.Text, loginMenu.key, loginMenu.iv); // Decrypt Password
+                    String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text); // Decrypt Password
                     createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
                     createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
                     createAdmin.Parameters.AddWithValue("@userForename", txtForename.Text);
@@ -31,13 +32,14 @@ namespace ELSM_Project
                     createAdmin.Parameters.AddWithValue("@userCompany", "1");
                     createAdmin.Parameters.AddWithValue("@userRole", "1");
                 string fromEmail = txtEmail.Text;
-                MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "Body");
-                SmtpClient smtpClient = new SmtpClient(setupEmailConfiguration.SMTPServer, Convert.ToInt16(setupEmailConfiguration.SMTPPort));
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(fromEmail, setupEmailConfiguration.EmailPass);
+                
                 try
                 {
+                    MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "Body");
+                    SmtpClient smtpClient = new SmtpClient(setupEmailConfiguration.SMTPServer, Convert.ToInt16(setupEmailConfiguration.SMTPPort));
+                    smtpClient.EnableSsl = true;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential(fromEmail, setupEmailConfiguration.EmailPass);
                     smtpClient.Send(mailMessage);
                 }
                 catch (Exception ex)
@@ -56,10 +58,6 @@ namespace ELSM_Project
             }
             
         }
-
-        private void createUser_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
