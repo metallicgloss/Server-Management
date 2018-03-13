@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CodeShare.Cryptography;
 
 namespace ELSM_Project
 {
@@ -73,7 +74,7 @@ namespace ELSM_Project
             else
             {
                 tmppassword = txtPassword.Text;
-                userEdit.password = loginMenu.EncryptString(tmppassword, loginMenu.key, loginMenu.iv);
+                userEdit.password = SHA.GenerateSHA512String(loginMenu.userSalt + tmppassword);
             }
 
 
