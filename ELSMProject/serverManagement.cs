@@ -215,5 +215,18 @@ namespace ELSM_Project
             backupNodeList backupNodeListForm = new backupNodeList();
             backupNodeListForm.ShowDialog();
         }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            ticketNew ticket = new ticketNew();
+            ticket.ShowDialog();
+        }
+
+        private void btnTicketReply_Click(object sender, EventArgs e)
+        {
+            Hide(); //Hide form
+            ticketView ticket = new ticketView();
+            ticket.ShowDialog();
+        }
     }
 }
