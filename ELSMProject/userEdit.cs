@@ -26,6 +26,12 @@ namespace ELSM_Project
                 cmboUserID.Items.Add(userRDR.GetString("userID"));
             }
             userRDR.Close();
+            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
+            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (permRDR.Read()) // While rows in reader
+            {
+                cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
+            }
             connectionMySQL.Close();
         }
 
@@ -77,7 +83,12 @@ namespace ELSM_Project
                 userEdit.password = SHA.GenerateSHA512String(loginMenu.userSalt + tmppassword);
             }
 
-
+            MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
+            permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
+            MySqlDataReader permRDR = permRoleCMD.ExecuteReader(); // Execute MySQL reader query
+            permRDR.Read();
+            string permID = Convert.ToString(permRDR.GetString("permID"));
+            permRDR.Close();
 
             MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userAccounts SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
             userInfoUpdateCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
@@ -87,6 +98,8 @@ namespace ELSM_Project
             userInfoUpdateCMD.Parameters.AddWithValue("@userPassword", password);
             userInfoUpdateCMD.Parameters.AddWithValue("@userEmailAddress", txtEmailAddress.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
+            userInfoUpdateCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
+            userInfoUpdateCMD.Parameters.AddWithValue("@userPerm", permID);
             userInfoUpdateCMD.ExecuteNonQuery();
 
             connectionMySQL.Close();
