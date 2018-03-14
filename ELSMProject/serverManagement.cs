@@ -76,6 +76,22 @@ namespace ELSM_Project
             {
                 btnManageServers.Enabled = false;
             }
+            if (loginMenu.permCreateServer == false)
+            {
+                btnCreateServer.Enabled = false;
+            }
+            if (loginMenu.permCreateTicket == false)
+            {
+                btnCreateTicket.Enabled = false;
+            }
+            if (loginMenu.permEditServers == false)
+            {
+                btnEditServer.Enabled = false;
+            }
+            if (loginMenu.permDeleteServers == false)
+            {
+                btnDeleteServer.Enabled = false;
+            }
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             try
