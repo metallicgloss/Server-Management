@@ -46,7 +46,7 @@ namespace ELSM_Project
                 {
                     System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
                 }
-                        createAdmin.ExecuteNonQuery();
+                 createAdmin.ExecuteNonQuery();
                         connectionMySQL.Close();
                         Hide();
                         loginMenu login = new loginMenu();
@@ -58,6 +58,5 @@ namespace ELSM_Project
             }
             
         }
-        
     }
 }

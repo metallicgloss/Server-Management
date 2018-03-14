@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using CodeShare.Cryptography;
 
 namespace ELSM_Project
 {
@@ -17,7 +18,7 @@ namespace ELSM_Project
         {
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
-           userCreate.password = loginMenu.EncryptString(txtPassword.Text, loginMenu.key, loginMenu.iv);
+           userCreate.password = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);
 
 
 
