@@ -44,6 +44,8 @@
             this.cmboUserID = new System.Windows.Forms.ComboBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
+            this.cmboUserPerm = new System.Windows.Forms.ComboBox();
+            this.lblUserRole = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -53,7 +55,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(281, 302);
+            this.btnCancel.Location = new System.Drawing.Point(281, 324);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(207, 31);
             this.btnCancel.TabIndex = 45;
@@ -68,7 +70,7 @@
             this.btnUpdateUser.FlatAppearance.BorderSize = 0;
             this.btnUpdateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateUser.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateUser.Location = new System.Drawing.Point(36, 302);
+            this.btnUpdateUser.Location = new System.Drawing.Point(36, 324);
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(206, 31);
             this.btnUpdateUser.TabIndex = 44;
@@ -113,7 +115,7 @@
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPassword.Location = new System.Drawing.Point(178, 104);
+            this.txtPassword.Location = new System.Drawing.Point(178, 106);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(310, 20);
@@ -137,7 +139,7 @@
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUsername.Location = new System.Drawing.Point(33, 105);
+            this.lblUsername.Location = new System.Drawing.Point(33, 107);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(77, 18);
             this.lblUsername.TabIndex = 46;
@@ -158,7 +160,7 @@
             this.lblProcessor.BackColor = System.Drawing.Color.Transparent;
             this.lblProcessor.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProcessor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblProcessor.Location = new System.Drawing.Point(33, 254);
+            this.lblProcessor.Location = new System.Drawing.Point(33, 251);
             this.lblProcessor.Name = "lblProcessor";
             this.lblProcessor.Size = new System.Drawing.Size(137, 18);
             this.lblProcessor.TabIndex = 54;
@@ -182,7 +184,7 @@
             this.lblOS.BackColor = System.Drawing.Color.Transparent;
             this.lblOS.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOS.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblOS.Location = new System.Drawing.Point(33, 180);
+            this.lblOS.Location = new System.Drawing.Point(33, 178);
             this.lblOS.Name = "lblOS";
             this.lblOS.Size = new System.Drawing.Size(74, 18);
             this.lblOS.TabIndex = 52;
@@ -192,7 +194,7 @@
             // 
             this.txtProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProfileImage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtProfileImage.Location = new System.Drawing.Point(178, 252);
+            this.txtProfileImage.Location = new System.Drawing.Point(178, 249);
             this.txtProfileImage.Name = "txtProfileImage";
             this.txtProfileImage.Size = new System.Drawing.Size(310, 20);
             this.txtProfileImage.TabIndex = 68;
@@ -219,10 +221,30 @@
             // 
             this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSurname.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSurname.Location = new System.Drawing.Point(178, 180);
+            this.txtSurname.Location = new System.Drawing.Point(178, 178);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(310, 20);
             this.txtSurname.TabIndex = 73;
+            // 
+            // cmboUserPerm
+            // 
+            this.cmboUserPerm.FormattingEnabled = true;
+            this.cmboUserPerm.Location = new System.Drawing.Point(178, 282);
+            this.cmboUserPerm.Name = "cmboUserPerm";
+            this.cmboUserPerm.Size = new System.Drawing.Size(310, 21);
+            this.cmboUserPerm.TabIndex = 78;
+            // 
+            // lblUserRole
+            // 
+            this.lblUserRole.AutoSize = true;
+            this.lblUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserRole.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserRole.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUserRole.Location = new System.Drawing.Point(33, 285);
+            this.lblUserRole.Name = "lblUserRole";
+            this.lblUserRole.Size = new System.Drawing.Size(79, 18);
+            this.lblUserRole.TabIndex = 77;
+            this.lblUserRole.Text = "User Role:";
             // 
             // userEdit
             // 
@@ -230,8 +252,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(542, 359);
+            this.ClientSize = new System.Drawing.Size(542, 396);
             this.ControlBox = false;
+            this.Controls.Add(this.cmboUserPerm);
+            this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.cmboUserID);
@@ -278,5 +302,7 @@
         private System.Windows.Forms.ComboBox cmboUserID;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.ComboBox cmboUserPerm;
+        private System.Windows.Forms.Label lblUserRole;
     }
 }
