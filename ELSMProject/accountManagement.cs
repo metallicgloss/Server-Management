@@ -70,52 +70,22 @@ namespace ELSM_Project
             lblProfileURL.Text = "URL: " + loginMenu.ProfileImage;
             lblCompany.Text = "Company: " + loginMenu.CompanyName;
             lblCompanyPosition.Text = "Position: " + loginMenu.Role;
-            if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
+            if (loginMenu.permControlServers == false)
             {
-                btnHome.Top += 129;
-                btnManageLocations.Visible = false;
-                btnManageServers.Visible = false;
-                btnManageUsers.Visible = false;
+                btnManageUsers.Enabled = false;
             }
-            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false))
+            if (loginMenu.permViewLocations == false)
             {
-                btnHome.Top += 129;
-                btnManageServers.Top += 86;
-                btnManageUsers.Visible = false;
-                btnManageLocations.Visible = false;
+                btnManageLocations.Enabled = false;
             }
-            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewServers == false))
+            if (loginMenu.permAdminViewUsers == false)
             {
-                btnHome.Top += 86;
-                btnManageUsers.Visible = false;
-                btnManageServers.Visible = false;
+                btnManageUsers.Enabled = false;
             }
-            else if ((loginMenu.permViewServers == false) && (loginMenu.permViewLocations == false))
+            if (loginMenu.permViewServers == false)
             {
-                btnHome.Top += 86;
-                btnManageUsers.Top += 86;
-                btnManageLocations.Visible = false;
-                btnManageServers.Visible = false;
+                btnManageServers.Enabled = false;
             }
-            else if (loginMenu.permControlServers == false)
-            {
-                btnHome.Top += 43;
-                btnManageUsers.Visible = false;
-            }
-            else if (loginMenu.permViewServers == false)
-            {
-                btnHome.Top += 43;
-                btnManageUsers.Top += 43;
-                btnManageServers.Visible = false;
-            }
-            else if (loginMenu.permViewLocations == false)
-            {
-                btnHome.Top += 43;
-                btnManageUsers.Top += 43;
-                btnManageServers.Top += 43;
-                btnManageLocations.Visible = false;
-            }
-
             if (loginMenu.permChangeEmail == false)
             {
                 btnChangeEmailAddress.Enabled = false;

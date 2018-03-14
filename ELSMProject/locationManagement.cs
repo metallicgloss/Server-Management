@@ -76,6 +76,18 @@ namespace ELSM_Project
             {
                 btnManageServers.Enabled = false;
             }
+            if (loginMenu.permEditLocations == false)
+            {
+                btnEditLocation.Enabled = false;
+            }
+            if (loginMenu.permDeleteLocations == false)
+            {
+                btnDeleteLocation.Enabled = false;
+            }
+            if (loginMenu.permCreateLocation == false)
+            {
+                btnCreateTicket.Enabled = false;
+            }
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             try

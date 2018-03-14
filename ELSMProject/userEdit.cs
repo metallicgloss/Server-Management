@@ -17,6 +17,14 @@ namespace ELSM_Project
 
         private void manageusersEdit_Load(object sender, EventArgs e)
         {
+            if (loginMenu.permAdminForcePassReset == false)
+            {
+                txtPassword.Enabled = false;
+            }
+            if (loginMenu.permAdminChangePermissions == false)
+            {
+                cmboUserPerm.Enabled = false;
+            }
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
             MySqlCommand userCMD = new MySqlCommand("SELECT * FROM userAccounts", connectionMySQL);
@@ -49,7 +57,14 @@ namespace ELSM_Project
             txtSurname.Text = Convert.ToString(userAccountsRDR[4]);
             txtEmailAddress.Text = Convert.ToString(userAccountsRDR[5]);
             txtProfileImage.Text = Convert.ToString(userAccountsRDR[6]);
+            cmboUserPerm.Text = Convert.ToString(userAccountsRDR[8]);
             userAccountsRDR.Close();
+            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions WHERE roleID = @roleID", connectionMySQL);
+            permCMD.Parameters.AddWithValue("@roleID", cmboUserPerm.Text);
+            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
+            permRDR.Read(); // Read data from the reader to become usable
+            cmboUserPerm.Text = Convert.ToString(permRDR[1]);
+            permRDR.Close();
             connectionMySQL.Close();
         }
 
