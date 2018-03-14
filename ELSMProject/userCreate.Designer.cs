@@ -42,6 +42,8 @@
             this.txtProfileImage = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
+            this.lblUserRole = new System.Windows.Forms.Label();
+            this.cmboUserPerm = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -51,7 +53,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(283, 253);
+            this.btnCancel.Location = new System.Drawing.Point(283, 300);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(207, 31);
             this.btnCancel.TabIndex = 45;
@@ -66,7 +68,7 @@
             this.btnNewUser.FlatAppearance.BorderSize = 0;
             this.btnNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewUser.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewUser.Location = new System.Drawing.Point(38, 253);
+            this.btnNewUser.Location = new System.Drawing.Point(38, 300);
             this.btnNewUser.Name = "btnNewUser";
             this.btnNewUser.Size = new System.Drawing.Size(206, 31);
             this.btnNewUser.TabIndex = 44;
@@ -201,14 +203,36 @@
             this.txtSurname.Size = new System.Drawing.Size(310, 20);
             this.txtSurname.TabIndex = 73;
             // 
+            // lblUserRole
+            // 
+            this.lblUserRole.AutoSize = true;
+            this.lblUserRole.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserRole.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserRole.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblUserRole.Location = new System.Drawing.Point(35, 241);
+            this.lblUserRole.Name = "lblUserRole";
+            this.lblUserRole.Size = new System.Drawing.Size(79, 18);
+            this.lblUserRole.TabIndex = 74;
+            this.lblUserRole.Text = "User Role:";
+            // 
+            // cmboUserPerm
+            // 
+            this.cmboUserPerm.FormattingEnabled = true;
+            this.cmboUserPerm.Location = new System.Drawing.Point(180, 238);
+            this.cmboUserPerm.Name = "cmboUserPerm";
+            this.cmboUserPerm.Size = new System.Drawing.Size(310, 21);
+            this.cmboUserPerm.TabIndex = 76;
+            // 
             // userCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ELSM_Project.Properties.Resources.imgBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(542, 325);
+            this.ClientSize = new System.Drawing.Size(542, 363);
             this.ControlBox = false;
+            this.Controls.Add(this.cmboUserPerm);
+            this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtProfileImage);
@@ -229,6 +253,7 @@
             this.Name = "userCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New User";
+            this.Load += new System.EventHandler(this.userCreate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +275,7 @@
         private System.Windows.Forms.TextBox txtProfileImage;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtSurname;
+        private System.Windows.Forms.Label lblUserRole;
+        private System.Windows.Forms.ComboBox cmboUserPerm;
     }
 }
