@@ -77,7 +77,7 @@
             // txtCurrentEmail
             // 
             this.txtCurrentEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentEmail.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtCurrentEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCurrentEmail.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentEmail.Name = "txtCurrentEmail";
             this.txtCurrentEmail.ReadOnly = true;
@@ -87,6 +87,7 @@
             // txtNewEmail
             // 
             this.txtNewEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNewEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNewEmail.Location = new System.Drawing.Point(178, 71);
             this.txtNewEmail.Name = "txtNewEmail";
             this.txtNewEmail.Size = new System.Drawing.Size(310, 20);
@@ -95,6 +96,7 @@
             // txtConfirmEmail
             // 
             this.txtConfirmEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfirmEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirmEmail.Location = new System.Drawing.Point(178, 109);
             this.txtConfirmEmail.Name = "txtConfirmEmail";
             this.txtConfirmEmail.Size = new System.Drawing.Size(310, 20);

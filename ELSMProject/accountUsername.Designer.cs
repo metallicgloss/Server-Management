@@ -78,7 +78,7 @@
             // txtCurrentUsername
             // 
             this.txtCurrentUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentUsername.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtCurrentUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCurrentUsername.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentUsername.Name = "txtCurrentUsername";
             this.txtCurrentUsername.ReadOnly = true;
@@ -88,6 +88,7 @@
             // txtNewUsername
             // 
             this.txtNewUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNewUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNewUsername.Location = new System.Drawing.Point(178, 71);
             this.txtNewUsername.Name = "txtNewUsername";
             this.txtNewUsername.Size = new System.Drawing.Size(310, 20);
@@ -96,6 +97,7 @@
             // txtConfirmNewUsername
             // 
             this.txtConfirmNewUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfirmNewUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirmNewUsername.Location = new System.Drawing.Point(178, 109);
             this.txtConfirmNewUsername.Name = "txtConfirmNewUsername";
             this.txtConfirmNewUsername.Size = new System.Drawing.Size(310, 20);
@@ -105,7 +107,7 @@
             // 
             this.btnChangeUsername.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeUsername.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
             this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeUsername.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeUsername.Location = new System.Drawing.Point(36, 145);
@@ -120,7 +122,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 145);
@@ -131,7 +133,7 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // manageAccountUsername
+            // accountUsername
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,7 +154,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
-            this.Name = "manageAccountUsername";
+            this.Name = "accountUsername";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Username";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountUsername_FormClosing);

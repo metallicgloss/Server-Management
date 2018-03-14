@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accountForename));
             this.lblCurrentUsername = new System.Windows.Forms.Label();
             this.lblNewUsername = new System.Windows.Forms.Label();
             this.lblConfirmUsername = new System.Windows.Forms.Label();
@@ -47,7 +46,7 @@
             this.lblCurrentUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCurrentUsername.Location = new System.Drawing.Point(33, 34);
             this.lblCurrentUsername.Name = "lblCurrentUsername";
-            this.lblCurrentUsername.Size = new System.Drawing.Size(105, 18);
+            this.lblCurrentUsername.Size = new System.Drawing.Size(138, 18);
             this.lblCurrentUsername.TabIndex = 26;
             this.lblCurrentUsername.Text = "Current Forename:";
             // 
@@ -59,7 +58,7 @@
             this.lblNewUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblNewUsername.Location = new System.Drawing.Point(33, 73);
             this.lblNewUsername.Name = "lblNewUsername";
-            this.lblNewUsername.Size = new System.Drawing.Size(86, 18);
+            this.lblNewUsername.Size = new System.Drawing.Size(119, 18);
             this.lblNewUsername.TabIndex = 27;
             this.lblNewUsername.Text = "New Forename:";
             // 
@@ -71,14 +70,14 @@
             this.lblConfirmUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblConfirmUsername.Location = new System.Drawing.Point(33, 110);
             this.lblConfirmUsername.Name = "lblConfirmUsername";
-            this.lblConfirmUsername.Size = new System.Drawing.Size(108, 18);
+            this.lblConfirmUsername.Size = new System.Drawing.Size(141, 18);
             this.lblConfirmUsername.TabIndex = 28;
             this.lblConfirmUsername.Text = "Confirm Forename:";
             // 
             // txtCurrentForename
             // 
             this.txtCurrentForename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCurrentForename.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtCurrentForename.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCurrentForename.Location = new System.Drawing.Point(178, 33);
             this.txtCurrentForename.Name = "txtCurrentForename";
             this.txtCurrentForename.ReadOnly = true;
@@ -88,6 +87,7 @@
             // txtNewForename
             // 
             this.txtNewForename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNewForename.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNewForename.Location = new System.Drawing.Point(178, 71);
             this.txtNewForename.Name = "txtNewForename";
             this.txtNewForename.Size = new System.Drawing.Size(310, 20);
@@ -96,6 +96,7 @@
             // txtConfirmForename
             // 
             this.txtConfirmForename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfirmForename.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirmForename.Location = new System.Drawing.Point(178, 109);
             this.txtConfirmForename.Name = "txtConfirmForename";
             this.txtConfirmForename.Size = new System.Drawing.Size(310, 20);
@@ -105,7 +106,7 @@
             // 
             this.btnChangeForename.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnChangeForename.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeForename.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnChangeForename.FlatAppearance.BorderSize = 0;
             this.btnChangeForename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeForename.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeForename.Location = new System.Drawing.Point(36, 145);
@@ -120,7 +121,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 145);
@@ -148,7 +149,6 @@
             this.Controls.Add(this.lblNewUsername);
             this.Controls.Add(this.lblCurrentUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
