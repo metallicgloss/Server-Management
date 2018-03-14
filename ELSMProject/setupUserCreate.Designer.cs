@@ -248,7 +248,7 @@
             this.lblProfileImage.TabIndex = 65;
             this.lblProfileImage.Text = "Profile Image URL:";
             // 
-            // createUser
+            // setupUserCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -276,7 +276,7 @@
             this.Controls.Add(this.logoImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(544, 178);
-            this.Name = "createUser";
+            this.Name = "setupUserCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initial Setup";
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
