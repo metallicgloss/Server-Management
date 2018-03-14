@@ -71,6 +71,7 @@
             // txtLatitude
             // 
             this.txtLatitude.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLatitude.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLatitude.Location = new System.Drawing.Point(178, 109);
             this.txtLatitude.Name = "txtLatitude";
             this.txtLatitude.Size = new System.Drawing.Size(310, 20);
@@ -79,6 +80,7 @@
             // txtLongitude
             // 
             this.txtLongitude.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLongitude.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLongitude.Location = new System.Drawing.Point(178, 71);
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.Size = new System.Drawing.Size(310, 20);
@@ -87,7 +89,7 @@
             // txtLocationName
             // 
             this.txtLocationName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLocationName.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtLocationName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLocationName.Location = new System.Drawing.Point(178, 33);
             this.txtLocationName.Name = "txtLocationName";
             this.txtLocationName.Size = new System.Drawing.Size(310, 20);
