@@ -39,7 +39,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(579, 111);
@@ -54,7 +54,7 @@
             // 
             this.btnEditCommand.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEditCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditCommand.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnEditCommand.FlatAppearance.BorderSize = 0;
             this.btnEditCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditCommand.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCommand.Location = new System.Drawing.Point(36, 111);
@@ -87,6 +87,7 @@
             // 
             // cmboCommands
             // 
+            this.cmboCommands.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cmboCommands.FormattingEnabled = true;
             this.cmboCommands.Location = new System.Drawing.Point(271, 29);
             this.cmboCommands.Name = "cmboCommands";
@@ -94,7 +95,7 @@
             this.cmboCommands.TabIndex = 51;
             this.cmboCommands.SelectedIndexChanged += new System.EventHandler(this.cmboCommands_SelectedIndexChanged);
             // 
-            // serverControlEdit
+            // controlCommandEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,7 +110,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEditCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "serverControlEdit";
+            this.Name = "controlCommandEdit";
             this.Text = "Edit Command";
             this.Load += new System.EventHandler(this.serverControlEdit_Load);
             this.ResumeLayout(false);

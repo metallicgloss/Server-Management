@@ -111,9 +111,8 @@
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(178, 142);
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Location = new System.Drawing.Point(178, 138);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(310, 20);
@@ -122,8 +121,7 @@
             // txtUsername
             // 
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsername.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtUsername.Enabled = false;
+            this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.Location = new System.Drawing.Point(178, 104);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(310, 20);
@@ -135,7 +133,7 @@
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword.Location = new System.Drawing.Point(33, 144);
+            this.lblPassword.Location = new System.Drawing.Point(33, 140);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(77, 18);
             this.lblPassword.TabIndex = 47;
@@ -156,8 +154,7 @@
             // txtIP
             // 
             this.txtIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIP.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtIP.Enabled = false;
+            this.txtIP.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIP.Location = new System.Drawing.Point(178, 211);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(310, 20);
@@ -268,8 +265,7 @@
             // txtProcessor
             // 
             this.txtProcessor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProcessor.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtProcessor.Enabled = false;
+            this.txtProcessor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtProcessor.Location = new System.Drawing.Point(178, 248);
             this.txtProcessor.Name = "txtProcessor";
             this.txtProcessor.Size = new System.Drawing.Size(310, 20);
@@ -278,8 +274,7 @@
             // txtRAM
             // 
             this.txtRAM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRAM.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtRAM.Enabled = false;
+            this.txtRAM.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtRAM.Location = new System.Drawing.Point(178, 285);
             this.txtRAM.Name = "txtRAM";
             this.txtRAM.Size = new System.Drawing.Size(310, 20);
@@ -288,8 +283,7 @@
             // txtTransfer
             // 
             this.txtTransfer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTransfer.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtTransfer.Enabled = false;
+            this.txtTransfer.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTransfer.Location = new System.Drawing.Point(178, 360);
             this.txtTransfer.Name = "txtTransfer";
             this.txtTransfer.Size = new System.Drawing.Size(310, 20);
@@ -307,8 +301,7 @@
             // txtBackupPath
             // 
             this.txtBackupPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBackupPath.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtBackupPath.Enabled = false;
+            this.txtBackupPath.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBackupPath.Location = new System.Drawing.Point(178, 397);
             this.txtBackupPath.Name = "txtBackupPath";
             this.txtBackupPath.Size = new System.Drawing.Size(310, 20);

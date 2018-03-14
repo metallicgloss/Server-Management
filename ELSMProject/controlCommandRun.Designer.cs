@@ -39,7 +39,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(579, 111);
@@ -54,7 +54,7 @@
             // 
             this.btnRunCommand.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnRunCommand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRunCommand.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnRunCommand.FlatAppearance.BorderSize = 0;
             this.btnRunCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRunCommand.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRunCommand.Location = new System.Drawing.Point(36, 111);
@@ -87,13 +87,14 @@
             // 
             // cmboCommands
             // 
+            this.cmboCommands.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cmboCommands.FormattingEnabled = true;
             this.cmboCommands.Location = new System.Drawing.Point(271, 29);
             this.cmboCommands.Name = "cmboCommands";
             this.cmboCommands.Size = new System.Drawing.Size(849, 21);
             this.cmboCommands.TabIndex = 51;
             // 
-            // serverControlRunCommand
+            // controlCommandRun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +109,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRunCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "serverControlRunCommand";
+            this.Name = "controlCommandRun";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Run Command";
             this.Load += new System.EventHandler(this.serverControlRunCommand_Load);
