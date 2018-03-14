@@ -55,6 +55,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSurname = new System.Windows.Forms.Button();
             this.btnForename = new System.Windows.Forms.Button();
+            this.btnCreateTicket = new System.Windows.Forms.Button();
+            this.btnTicketReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.largeProfileImage)).BeginInit();
@@ -80,7 +82,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Location = new System.Drawing.Point(36, 203);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(216, 50);
             this.lblTitle.TabIndex = 14;
@@ -176,7 +178,7 @@
             this.ELHSLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ELHSLogo.BackgroundImage = global::ELSM_Project.Properties.Resources.imgLogoPurple;
             this.ELHSLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ELHSLogo.Location = new System.Drawing.Point(75, 66);
+            this.ELHSLogo.Location = new System.Drawing.Point(75, 85);
             this.ELHSLogo.Name = "ELHSLogo";
             this.ELHSLogo.Size = new System.Drawing.Size(129, 115);
             this.ELHSLogo.TabIndex = 17;
@@ -386,6 +388,33 @@
             this.btnForename.UseVisualStyleBackColor = true;
             this.btnForename.Click += new System.EventHandler(this.btnForename_Click);
             // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
+            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTicket.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTicket.Location = new System.Drawing.Point(0, -1);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.Size = new System.Drawing.Size(149, 43);
+            this.btnCreateTicket.TabIndex = 56;
+            this.btnCreateTicket.Text = "New Ticket";
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
+            // 
+            // btnTicketReply
+            // 
+            this.btnTicketReply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTicketReply.FlatAppearance.BorderSize = 0;
+            this.btnTicketReply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicketReply.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicketReply.Location = new System.Drawing.Point(148, -1);
+            this.btnTicketReply.Name = "btnTicketReply";
+            this.btnTicketReply.Size = new System.Drawing.Size(145, 43);
+            this.btnTicketReply.TabIndex = 55;
+            this.btnTicketReply.Text = "View Tickets";
+            this.btnTicketReply.UseVisualStyleBackColor = true;
+            // 
             // accountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +423,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCreateTicket);
+            this.Controls.Add(this.btnTicketReply);
             this.Controls.Add(this.btnSurname);
             this.Controls.Add(this.btnForename);
             this.Controls.Add(this.pictureBox2);
@@ -466,5 +497,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSurname;
         private System.Windows.Forms.Button btnForename;
+        private System.Windows.Forms.Button btnCreateTicket;
+        private System.Windows.Forms.Button btnTicketReply;
     }
 }

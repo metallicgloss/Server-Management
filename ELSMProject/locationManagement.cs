@@ -209,5 +209,18 @@ namespace ELSM_Project
                 Close();
             }
         }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            ticketNew ticket = new ticketNew();
+            ticket.ShowDialog();
+        }
+
+        private void btnTicketReply_Click(object sender, EventArgs e)
+        {
+            Hide(); //Hide form
+            ticketView ticket = new ticketView();
+            ticket.ShowDialog();
+        }
     }
 }

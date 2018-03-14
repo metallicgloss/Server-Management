@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMetallicGloss = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -45,6 +45,8 @@
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnCreateUser = new System.Windows.Forms.Button();
+            this.btnCreateTicket = new System.Windows.Forms.Button();
+            this.btnTicketReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -70,7 +72,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Location = new System.Drawing.Point(36, 203);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(216, 50);
             this.lblTitle.TabIndex = 14;
@@ -166,7 +168,7 @@
             this.ELHSLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ELHSLogo.BackgroundImage = global::ELSM_Project.Properties.Resources.imgLogoPurple;
             this.ELHSLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ELHSLogo.Location = new System.Drawing.Point(75, 66);
+            this.ELHSLogo.Location = new System.Drawing.Point(75, 85);
             this.ELHSLogo.Name = "ELHSLogo";
             this.ELHSLogo.Size = new System.Drawing.Size(129, 115);
             this.ELHSLogo.TabIndex = 27;
@@ -213,14 +215,14 @@
             this.userListDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userListDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.userListDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.userListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userListDGV.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.userListDGV.Location = new System.Drawing.Point(361, 163);
@@ -279,6 +281,34 @@
             this.btnCreateUser.UseVisualStyleBackColor = true;
             this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
             // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
+            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTicket.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTicket.Location = new System.Drawing.Point(0, -1);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.Size = new System.Drawing.Size(149, 43);
+            this.btnCreateTicket.TabIndex = 52;
+            this.btnCreateTicket.Text = "New Ticket";
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
+            // 
+            // btnTicketReply
+            // 
+            this.btnTicketReply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTicketReply.FlatAppearance.BorderSize = 0;
+            this.btnTicketReply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicketReply.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicketReply.Location = new System.Drawing.Point(148, -1);
+            this.btnTicketReply.Name = "btnTicketReply";
+            this.btnTicketReply.Size = new System.Drawing.Size(145, 43);
+            this.btnTicketReply.TabIndex = 51;
+            this.btnTicketReply.Text = "View Tickets";
+            this.btnTicketReply.UseVisualStyleBackColor = true;
+            this.btnTicketReply.Click += new System.EventHandler(this.btnTicketReply_Click);
+            // 
             // userList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +317,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCreateTicket);
+            this.Controls.Add(this.btnTicketReply);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.btnCreateUser);
@@ -338,5 +370,7 @@
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnCreateUser;
+        private System.Windows.Forms.Button btnCreateTicket;
+        private System.Windows.Forms.Button btnTicketReply;
     }
 }

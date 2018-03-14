@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMetallicGloss = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -42,6 +42,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblManageServers = new System.Windows.Forms.Label();
             this.ticketViewDGV = new System.Windows.Forms.DataGridView();
+            this.btnCreateTicket = new System.Windows.Forms.Button();
+            this.btnTicketReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,7 +69,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTitle.Font = new System.Drawing.Font("Raleway SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(36, 184);
+            this.lblTitle.Location = new System.Drawing.Point(36, 203);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(216, 50);
             this.lblTitle.TabIndex = 14;
@@ -163,7 +165,7 @@
             this.ELHSLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ELHSLogo.BackgroundImage = global::ELSM_Project.Properties.Resources.imgLogoPurple;
             this.ELHSLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ELHSLogo.Location = new System.Drawing.Point(75, 66);
+            this.ELHSLogo.Location = new System.Drawing.Point(75, 85);
             this.ELHSLogo.Name = "ELHSLogo";
             this.ELHSLogo.Size = new System.Drawing.Size(129, 115);
             this.ELHSLogo.TabIndex = 27;
@@ -210,14 +212,14 @@
             this.ticketViewDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ticketViewDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ticketViewDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ticketViewDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ticketViewDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ticketViewDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ticketViewDGV.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.ticketViewDGV.Location = new System.Drawing.Point(361, 163);
@@ -235,6 +237,34 @@
             this.ticketViewDGV.VirtualMode = true;
             this.ticketViewDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ticketViewDGV_CellClick);
             // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
+            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTicket.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTicket.Location = new System.Drawing.Point(0, -1);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.Size = new System.Drawing.Size(149, 43);
+            this.btnCreateTicket.TabIndex = 49;
+            this.btnCreateTicket.Text = "New Ticket";
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
+            // 
+            // btnTicketReply
+            // 
+            this.btnTicketReply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTicketReply.FlatAppearance.BorderSize = 0;
+            this.btnTicketReply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicketReply.Font = new System.Drawing.Font("Raleway SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicketReply.Location = new System.Drawing.Point(148, -1);
+            this.btnTicketReply.Name = "btnTicketReply";
+            this.btnTicketReply.Size = new System.Drawing.Size(145, 43);
+            this.btnTicketReply.TabIndex = 48;
+            this.btnTicketReply.Text = "View Tickets";
+            this.btnTicketReply.UseVisualStyleBackColor = true;
+            this.btnTicketReply.Click += new System.EventHandler(this.btnTicketReply_Click);
+            // 
             // ticketView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +273,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 601);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCreateTicket);
+            this.Controls.Add(this.btnTicketReply);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblManageServers);
             this.Controls.Add(this.ticketViewDGV);
@@ -288,5 +320,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblManageServers;
         private System.Windows.Forms.DataGridView ticketViewDGV;
+        private System.Windows.Forms.Button btnCreateTicket;
+        private System.Windows.Forms.Button btnTicketReply;
     }
 }

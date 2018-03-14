@@ -161,5 +161,11 @@ namespace ELSM_Project
             accountSurname surname = new accountSurname();
             surname.ShowDialog();
         }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            ticketNew ticket = new ticketNew();
+            ticket.ShowDialog();
+        }
     }
 }
