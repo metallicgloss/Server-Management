@@ -62,7 +62,7 @@ namespace ELSM_Project
         {
             if (loginMenu.permControlServers == false)
             {
-                btnManageUsers.Enabled = false;
+                btnControlServers.Enabled = false;
             }
             if (loginMenu.permViewLocations == false)
             {
@@ -75,6 +75,10 @@ namespace ELSM_Project
             if (loginMenu.permViewServers == false)
             {
                 btnManageServers.Enabled = false;
+            }
+            if (loginMenu.permCreateTicket == false)
+            {
+                btnCreateTicket.Enabled = false;
             }
             if (loginMenu.permCreateServer == false)
             {
@@ -91,6 +95,10 @@ namespace ELSM_Project
             if (loginMenu.permDeleteServers == false)
             {
                 btnDeleteServer.Enabled = false;
+            }
+            if (loginMenu.permManageBackupSystem == false)
+            {
+                btnBackupCentre.Enabled = false;
             }
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();

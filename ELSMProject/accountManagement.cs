@@ -70,10 +70,6 @@ namespace ELSM_Project
             lblProfileURL.Text = "URL: " + loginMenu.ProfileImage;
             lblCompany.Text = "Company: " + loginMenu.CompanyName;
             lblCompanyPosition.Text = "Position: " + loginMenu.Role;
-            if (loginMenu.permControlServers == false)
-            {
-                btnManageUsers.Enabled = false;
-            }
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -85,6 +81,10 @@ namespace ELSM_Project
             if (loginMenu.permViewServers == false)
             {
                 btnManageServers.Enabled = false;
+            }
+            if (loginMenu.permCreateTicket == false)
+            {
+                btnCreateTicket.Enabled = false;
             }
             if (loginMenu.permChangeEmail == false)
             {
