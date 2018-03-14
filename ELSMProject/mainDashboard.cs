@@ -5,7 +5,6 @@ namespace ELSM_Project
 {
     public partial class mainDashboard : Form
     {
-
         public mainDashboard()
         {
             InitializeComponent();
@@ -16,62 +15,49 @@ namespace ELSM_Project
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
             lblCurrentCompany.Text = "Company: " + loginMenu.CompanyName;
-            if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
+            if (loginMenu.permControlServers == false)
             {
-                btnHome.Top += 129;
-                btnManageLocations.Visible = false;
-                btnManageServers.Visible = false;
-                pictureBoxMenu.Visible = false;
+                btnManageUsers.Enabled = false;
             }
-            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false))
+            if (loginMenu.permViewLocations == false)
             {
-                btnHome.Top += 129;
-                btnManageServers.Top += 86;
-                pictureBoxMenu.Visible = false;
-                btnManageLocations.Visible = false;
+                btnManageLocations.Enabled = false;
             }
-            else if ((loginMenu.permControlServers == false) && (loginMenu.permViewServers == false))
+            if (loginMenu.permAdminViewUsers == false)
             {
-                btnHome.Top += 86;
-                pictureBoxMenu.Visible = false;
-                btnManageServers.Visible = false;
+                btnManageUsers.Enabled = false;
             }
-            else if ((loginMenu.permViewServers == false) && (loginMenu.permViewLocations == false))
+            if (loginMenu.permViewServers == false)
             {
-                btnHome.Top += 86;
-                pictureBoxMenu.Top += 86;
-                btnManageLocations.Visible = false;
-                btnManageServers.Visible = false;
-            }
-            else if (loginMenu.permControlServers == false)
-            {
-                btnHome.Top += 43;
-                pictureBoxMenu.Visible = false;
-            }
-            else if (loginMenu.permViewServers == false)
-            {
-                btnHome.Top += 43;
-                pictureBoxMenu.Top += 43;
-                btnManageServers.Visible = false;
-            }
-            else if (loginMenu.permViewLocations == false)
-            {
-                btnHome.Top += 43;
-                pictureBoxMenu.Top += 43;
-                btnManageServers.Top += 43;
-                btnManageLocations.Visible = false;
+                btnManageServers.Enabled = false;
             }
         }
 
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
+        private void btnCreateTicket_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");//www.metallicgloss.com");
+            ticketNew ticket = new ticketNew();
+            ticket.ShowDialog();
+        }
+
+        private void btnTicketReply_Click(object sender, EventArgs e)
+        {
+            Hide(); //Hide form
+            ticketView ticket = new ticketView();
+            ticket.ShowDialog();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            Hide(); //Hide form
+            userList userListForm = new userList();
+            userListForm.ShowDialog();
+        }
+
         private void btnManageServers_Click(object sender, EventArgs e)
         {
             Hide(); //Hide form
@@ -101,24 +87,12 @@ namespace ELSM_Project
             }
         }
 
-        private void btnCreateTicket_Click(object sender, EventArgs e)
-        {
-            ticketNew ticket = new ticketNew();
-            ticket.ShowDialog();
-        }
+        
 
-        private void btnTicketReply_Click(object sender, EventArgs e)
+        
+        private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
-            ticketView ticket = new ticketView();
-            ticket.ShowDialog();
-        }
-
-        private void btnManageUsers_Click(object sender, EventArgs e)
-        {
-            Hide(); //Hide form
-            userList userListForm = new userList();
-            userListForm.ShowDialog();
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");//www.metallicgloss.com");
         }
     }
 }

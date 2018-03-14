@@ -100,7 +100,6 @@ namespace ELSM_Project
                         accountCMD.Parameters.AddWithValue("@attemptIP", loginMenu.IPAddress); // Replace string in query with variable
                         accountCMD.Parameters.AddWithValue("@attemptTimeStamp", DateTime.Now); // Replace string in query with variable
                         accountCMD.ExecuteNonQuery();
-
                         MySqlCommand permissionCommand = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permid", connectionMySQL);
                         permissionCommand.Parameters.AddWithValue("@permid", Role); // Replace string in query with variable
                         MySqlDataReader permissionRDR = permissionCommand.ExecuteReader(); // Execute MySQL reader query
@@ -131,16 +130,12 @@ namespace ELSM_Project
                         permControlServers = Convert.ToBoolean(permissionRDR[25]); // Set variable equal to item in reader
                         permManageBackupSystem = Convert.ToBoolean(permissionRDR[26]); // Set variable equal to item in reader
                         permissionRDR.Close(); // Close reader
-
                         MySqlCommand companyCMD = new MySqlCommand("SELECT * FROM userCompanies WHERE companyID = @companyID", connectionMySQL);
                         companyCMD.Parameters.AddWithValue("@companyID", CompanyID); // Replace string in query with variable
                         MySqlDataReader companyRDR = companyCMD.ExecuteReader(); // Execute MySQL reader query
                         companyRDR.Read(); // Read data from the reader to become usable
                         CompanyName = Convert.ToString(companyRDR[2]); // Set variable equal to item in reader
                         companyRDR.Close(); // Close reader
-
-
-
                         Hide(); //Hide form
                         try
                         {
@@ -166,7 +161,6 @@ namespace ELSM_Project
             else
             {
                 System.Windows.Forms.MessageBox.Show("The username or password cannot be blank.");
-
             }
             
         }
