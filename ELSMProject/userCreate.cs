@@ -19,21 +19,39 @@ namespace ELSM_Project
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
            userCreate.password = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);
-
-
-
-            MySqlCommand userInfoUpdateCMD = new MySqlCommand("INSERT INTO userAccounts (userForename, userSurname, userLogin, userPassword, userEmailAddress, userImage) VALUES (@userForename, @userSurname, @userLogin, @userPassword, @userEmailAddress, @userImage)", connectionMySQL);
+            MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
+            permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
+            MySqlDataReader permRDR = permRoleCMD.ExecuteReader(); // Execute MySQL reader query
+            permRDR.Read();
+            string permID = Convert.ToString(permRDR.GetString("permID"));
+            permRDR.Close();
+            MySqlCommand userInfoUpdateCMD = new MySqlCommand("INSERT INTO userAccounts (userForename, userSurname, userLogin, userPassword, userEmailAddress, userImage, userCompany, userRole) VALUES (@userForename, @userSurname, @userLogin, @userPassword, @userEmailAddress, @userImage, @userCompany, @userPerm)", connectionMySQL);
             userInfoUpdateCMD.Parameters.AddWithValue("@userForename", txtForename.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userSurname", txtSurname.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userLogin", txtUsername.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userPassword", password);
             userInfoUpdateCMD.Parameters.AddWithValue("@userEmailAddress", txtEmailAddress.Text);
             userInfoUpdateCMD.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
+            userInfoUpdateCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
+            userInfoUpdateCMD.Parameters.AddWithValue("@userPerm", permID);
             userInfoUpdateCMD.ExecuteNonQuery();
 
             connectionMySQL.Close();
 
             Hide(); //Hide form
+        }
+
+        private void userCreate_Load(object sender, EventArgs e)
+        {
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+            connectionMySQL.Open();
+            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
+            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
+            while (permRDR.Read()) // While rows in reader
+            {
+                cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
+            }
+            connectionMySQL.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
