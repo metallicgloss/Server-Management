@@ -62,10 +62,6 @@ namespace ELSM_Project
 
         private void manageServers_Load(object sender, EventArgs e)
         {
-            if (loginMenu.permControlServers == false)
-            {
-                btnManageUsers.Enabled = false;
-            }
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;

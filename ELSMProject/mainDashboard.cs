@@ -15,10 +15,6 @@ namespace ELSM_Project
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
             lblCurrentCompany.Text = "Company: " + loginMenu.CompanyName;
-            if (loginMenu.permControlServers == false)
-            {
-                btnManageUsers.Enabled = false;
-            }
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -30,6 +26,10 @@ namespace ELSM_Project
             if (loginMenu.permViewServers == false)
             {
                 btnManageServers.Enabled = false;
+            }
+            if (loginMenu.permCreateTicket == false)
+            {
+                btnCreateTicket.Enabled = false;
             }
         }
 

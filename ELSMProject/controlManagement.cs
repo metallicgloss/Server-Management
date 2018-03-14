@@ -31,6 +31,22 @@ namespace ELSM_Project
                 MessageBox.Show(ex.Message);
                 Close();
             }
+            if (loginMenu.permAddAction == false)
+            {
+                btnCreateCommand.Enabled = false;
+            }
+            if (loginMenu.permEditAction == false)
+            {
+                btnEditCommand.Enabled = false;
+            }
+            if (loginMenu.permDeleteAction == false)
+            {
+                btnDeleteCommand.Enabled = false;
+            }
+            if (loginMenu.permRunCustomAction == false)
+            {
+                btnRunCommand.Enabled = false;
+            }
         }
 
         private void btnCreateCommand_Click(object sender, EventArgs e)

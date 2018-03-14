@@ -62,10 +62,6 @@ namespace ELSM_Project
 
         private void manageServers_Load(object sender, EventArgs e)
         {
-            if (loginMenu.permControlServers == false)
-            {
-                btnManageUsers.Enabled = false;
-            }
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -77,6 +73,10 @@ namespace ELSM_Project
             if (loginMenu.permViewServers == false)
             {
                 btnManageServers.Enabled = false;
+            }
+            if (loginMenu.permCreateTicket == false)
+            {
+                btnCreateTicket.Enabled = false;
             }
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
