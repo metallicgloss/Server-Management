@@ -159,7 +159,6 @@
             // txtSubject
             // 
             this.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSubject.Enabled = false;
             this.txtSubject.Location = new System.Drawing.Point(178, 108);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(310, 20);

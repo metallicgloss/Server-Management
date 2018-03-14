@@ -105,6 +105,7 @@ namespace ELSM_Project
                         permissionCommand.Parameters.AddWithValue("@permid", Role); // Replace string in query with variable
                         MySqlDataReader permissionRDR = permissionCommand.ExecuteReader(); // Execute MySQL reader query
                         permissionRDR.Read(); // Read data from the reader to become usable
+                        loginMenu.Role = Convert.ToString(permissionRDR[1]); // Set variable equal to item in reader
                         permChangePassword = Convert.ToBoolean(permissionRDR[3]); // Set variable equal to item in reader
                         permChangeUsername = Convert.ToBoolean(permissionRDR[4]); // Set variable equal to item in reader
                         permChangeEmail = Convert.ToBoolean(permissionRDR[5]); // Set variable equal to item in reader
@@ -138,6 +139,8 @@ namespace ELSM_Project
                         CompanyName = Convert.ToString(companyRDR[2]); // Set variable equal to item in reader
                         companyRDR.Close(); // Close reader
 
+
+
                         Hide(); //Hide form
                         try
                         {
@@ -151,7 +154,7 @@ namespace ELSM_Project
                         Show();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     System.Windows.Forms.MessageBox.Show("Login Denied. The username or password you have entered do not match any account we have on record.");
                     rdr.Close();

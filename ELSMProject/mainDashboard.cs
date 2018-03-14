@@ -15,6 +15,7 @@ namespace ELSM_Project
         {
             lblCurrentIP.Text = "IP Address: " + loginMenu.IPAddress;
             lblPosition.Text = "Position: " + loginMenu.Role;
+            lblCurrentCompany.Text = "Company: " + loginMenu.CompanyName;
             if ((loginMenu.permControlServers == false) && (loginMenu.permViewLocations == false) && (loginMenu.permViewServers == false))
             {
                 btnHome.Top += 129;
