@@ -104,7 +104,6 @@
             // 
             this.txtForename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtForename.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtForename.Enabled = false;
             this.txtForename.Location = new System.Drawing.Point(178, 142);
             this.txtForename.Name = "txtForename";
             this.txtForename.Size = new System.Drawing.Size(310, 20);
@@ -114,7 +113,6 @@
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtPassword.Enabled = false;
             this.txtPassword.Location = new System.Drawing.Point(178, 104);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -149,7 +147,6 @@
             // 
             this.txtEmailAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmailAddress.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtEmailAddress.Enabled = false;
             this.txtEmailAddress.Location = new System.Drawing.Point(178, 215);
             this.txtEmailAddress.Name = "txtEmailAddress";
             this.txtEmailAddress.Size = new System.Drawing.Size(310, 20);
@@ -195,7 +192,6 @@
             // 
             this.txtProfileImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProfileImage.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtProfileImage.Enabled = false;
             this.txtProfileImage.Location = new System.Drawing.Point(178, 252);
             this.txtProfileImage.Name = "txtProfileImage";
             this.txtProfileImage.Size = new System.Drawing.Size(310, 20);
@@ -214,7 +210,6 @@
             // 
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtUsername.Enabled = false;
             this.txtUsername.Location = new System.Drawing.Point(178, 71);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(310, 20);
@@ -224,7 +219,6 @@
             // 
             this.txtSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSurname.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtSurname.Enabled = false;
             this.txtSurname.Location = new System.Drawing.Point(178, 180);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(310, 20);
