@@ -25,13 +25,22 @@ namespace ELSM_Project
         {
             if (txtNewEmail.Text == txtConfirmEmail.Text)
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
-                conn.Open();
-                MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userEmailAddress = @email", conn);
-                command.Parameters.AddWithValue("@email", txtNewEmail.Text);
-                command.ExecuteNonQuery();
-                loginMenu.EmailAddress = txtNewEmail.Text;
-                Hide(); //Hide form
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(txtNewEmail.Text);
+                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+                    conn.Open();
+                    MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userEmailAddress = @email", conn);
+                    command.Parameters.AddWithValue("@email", txtNewEmail.Text);
+                    command.ExecuteNonQuery();
+                    loginMenu.EmailAddress = txtNewEmail.Text;
+                    Hide(); //Hide form
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("You must enter an email address in the correct format.");
+                }
+                
             }
             else
             {

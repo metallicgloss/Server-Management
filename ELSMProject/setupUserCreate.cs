@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net;
 using System.Net.Mail;
-using CodeShare.Cryptography;
+using Hashing.PasswordManagement;
 
 namespace ELSM_Project
 {
@@ -18,21 +18,21 @@ namespace ELSM_Project
         {
             if (txtPassword.Text == txtConfirmPass.Text)
             {
-                    MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString); // Open MySQL connection 
-                    connectionMySQL.Open(); // Open MySQL connection
-                    MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
+                MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString); // Open MySQL connection 
+                connectionMySQL.Open(); // Open MySQL connection
+                MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
 
-                    String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text); // Decrypt Password
-                    createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
-                    createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
-                    createAdmin.Parameters.AddWithValue("@userForename", txtForename.Text);
-                    createAdmin.Parameters.AddWithValue("@userSurname", txtSurname.Text);
-                    createAdmin.Parameters.AddWithValue("@userEmailAddress", txtEmail.Text);
-                    createAdmin.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
-                    createAdmin.Parameters.AddWithValue("@userCompany", "1");
-                    createAdmin.Parameters.AddWithValue("@userRole", "1");
+                String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text); // Decrypt Password
+                createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
+                createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
+                createAdmin.Parameters.AddWithValue("@userForename", txtForename.Text);
+                createAdmin.Parameters.AddWithValue("@userSurname", txtSurname.Text);
+                createAdmin.Parameters.AddWithValue("@userEmailAddress", txtEmail.Text);
+                createAdmin.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
+                createAdmin.Parameters.AddWithValue("@userCompany", "1");
+                createAdmin.Parameters.AddWithValue("@userRole", "1");
                 string fromEmail = txtEmail.Text;
-                
+
                 try
                 {
                     MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "Body");
@@ -46,17 +46,19 @@ namespace ELSM_Project
                 {
                     System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
                 }
-                 createAdmin.ExecuteNonQuery();
-                        connectionMySQL.Close();
-                        Hide();
-                        loginMenu login = new loginMenu();
-                        login.ShowDialog();
+                createAdmin.ExecuteNonQuery();
+                connectionMySQL.Close();
+                Hide();
+                loginMenu login = new loginMenu();
+                login.ShowDialog();
 
 
-            } else {
+            }
+            else
+            {
                 System.Windows.Forms.MessageBox.Show("Passwords did not match.");
             }
-            
+
         }
     }
 }

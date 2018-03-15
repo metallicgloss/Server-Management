@@ -23,7 +23,7 @@ namespace ELSM_Project
 
         private void btnChangeForename_Click(object sender, EventArgs e)
         {
-            if (txtNewForename.Text == txtConfirmForename.Text)
+            if ((txtNewForename.Text == txtConfirmForename.Text) && (txtNewForename.Text != ""))
             {
                 MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
                 conn.Open();
@@ -35,7 +35,7 @@ namespace ELSM_Project
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your Forename address and try again.");
+                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match and not blank. Please check your forename field and try again.");
             }
 
         }

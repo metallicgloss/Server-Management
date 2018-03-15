@@ -23,7 +23,7 @@ namespace ELSM_Project
 
         private void btnChangeSurname_Click(object sender, EventArgs e)
         {
-            if (txtNewSurname.Text == txtConfirmSurname.Text)
+            if ((txtNewSurname.Text == txtConfirmSurname.Text) && (txtNewSurname.Text != ""))
             {
                 MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
                 conn.Open();
@@ -35,7 +35,7 @@ namespace ELSM_Project
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your Surname address and try again.");
+                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match or is blank. Please check your Surname and try again.");
             }
 
         }

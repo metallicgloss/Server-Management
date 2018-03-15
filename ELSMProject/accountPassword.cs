@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
+using Hashing.PasswordManagement;
 
 
 namespace ELSM_Project
@@ -27,13 +26,10 @@ namespace ELSM_Project
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            String Currentpassword = loginMenu.EncryptString(txtCurrentPassword.Text, loginMenu.key, loginMenu.iv);
-            String NewPassword = loginMenu.EncryptString(txtNewPassword.Text, loginMenu.key, loginMenu.iv);
-            String NewPasswordConfirm = loginMenu.EncryptString(txtConfirmPassword.Text, loginMenu.key, loginMenu.iv);
-            if (Currentpassword == loginMenu.Password)
+            String NewPassword = SHA.GenerateSHA512String(txtNewPassword.Text);
+            String NewPasswordConfirm = SHA.GenerateSHA512String(txtConfirmPassword.Text);
+            if (NewPassword == NewPasswordConfirm)
             {
-                if (NewPassword == NewPasswordConfirm)
-                {
                     MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
                     conn.Open();
                     MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
@@ -41,22 +37,11 @@ namespace ELSM_Project
                     command.ExecuteNonQuery();
                     loginMenu.Password = txtNewPassword.Text;
                     Hide(); //Hide form
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("The new password you have entered was not done so correctly. Please make sure you've type it correctly.");
-                }
-                
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your email address and try again.");
             }
-        }
-
-        private void manageAccountPassword_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

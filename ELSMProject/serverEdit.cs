@@ -96,31 +96,29 @@ namespace ELSM_Project
             serverNetworkPortDisplayRDR.Close();
 
             connectionMySQL.Close();
-
-            cmboLocation.Enabled = true;
-            txtUsername.Enabled = true;
-            txtPassword.Enabled = true;
-            cmboOS.Enabled = true;
-            txtIP.Enabled = true;
-            txtProcessor.Enabled = true;
-            txtRAM.Enabled = true;
-            cmboNetwork.Enabled = true;
-            txtTransfer.Enabled = true;
-            cmboLocation.Cursor = Cursors.Hand;
-            cmboLocation.Cursor = Cursors.Hand;
-            txtUsername.Cursor = Cursors.Hand;
-            txtPassword.Cursor = Cursors.Hand;
-            cmboOS.Cursor = Cursors.Hand;
-            txtIP.Cursor = Cursors.Hand;
-            txtProcessor.Cursor = Cursors.Hand;
-            txtRAM.Cursor = Cursors.Hand;
-            cmboNetwork.Cursor = Cursors.Hand;
-            txtTransfer.Cursor = Cursors.Hand;
         }
 
         private void btnNewServer_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            if (cmboHostNames.Text != "")
+            {
+                if (txtIP.Text != "")
+                {
+                    if (txtProcessor.Text != "")
+                    {
+                        if (txtRAM.Text != "")
+                        {
+                            if (txtTransfer.Text != "")
+                            {
+                                if (txtUsername.Text != "")
+                                {
+                                    if (cmboLocation.Text != "")
+                                    {
+                                        if (cmboNetwork.Text != "")
+                                        {
+                                            if (cmboOS.Text != "")
+                                            {
+                                                MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             connectionMySQL.Open();
 
             MySqlCommand locationsdCMD = new MySqlCommand("SELECT * FROM serverLocations WHERE locationName = @location", connectionMySQL);
@@ -170,6 +168,51 @@ namespace ELSM_Project
             connectionMySQL.Close();
 
             Hide(); //Hide form
+                                            }
+                                            else
+                                            {
+                                                System.Windows.Forms.MessageBox.Show("You haven't selected sn operating system. Please do so.");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            System.Windows.Forms.MessageBox.Show("You haven't selected a network port. Please do so.");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        System.Windows.Forms.MessageBox.Show("You haven't selected a location. Please do so.");
+                                    }
+                                }
+                                else
+                                {
+                                    System.Windows.Forms.MessageBox.Show("The user entered is blank. Please enter data.");
+                                }
+                            }
+                            else
+                            {
+                                System.Windows.Forms.MessageBox.Show("The transfer amount entered is blank. Please enter data.");
+                            }
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("The RAM amount entered is blank. Please enter data.");
+                        }
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("The processor entered is blank. Please enter data.");
+                    }
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("The IP entered is blank. Please enter data.");
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Your hostname is blank.");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

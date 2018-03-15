@@ -33,7 +33,13 @@ namespace ELSM_Project
 
         private void btnEditLocation_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            if (txtLocationName.Text != "")
+            {
+                if (txtLongitude.Text != "")
+                {
+                    if (txtLatitude.Text != "")
+                    {
+                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("UPDATE serverLocations SET locationName = @locationName, locationLongitude = @locationLongitude, locationLatitude = @locationLatitude WHERE locationName = @oldLocationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
@@ -53,6 +59,21 @@ namespace ELSM_Project
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
             }
             conn.Close();
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("The latitude is blank. Please enter data.");
+                    }
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("The longitude entered is blank. Please enter data.");
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Your location name is blank.");
+            }
         }
 
         private void LocationDetails(string name)

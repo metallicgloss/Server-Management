@@ -129,7 +129,6 @@
             this.Name = "createCompany";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initial Setup";
-            this.Load += new System.EventHandler(this.createCompany_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

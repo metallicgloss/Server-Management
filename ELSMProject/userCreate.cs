@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using CodeShare.Cryptography;
+using Hashing.PasswordManagement;
 
 namespace ELSM_Project
 {

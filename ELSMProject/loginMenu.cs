@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.IO;
 using System.Text;
-using CodeShare.Cryptography;
+using Hashing.PasswordManagement;
 
 namespace ELSM_Project
 {
@@ -216,7 +216,7 @@ namespace ELSM_Project
 
     }
 }
-namespace CodeShare.Cryptography
+namespace Hashing.PasswordManagement
 {
     public static class SHA
     {
