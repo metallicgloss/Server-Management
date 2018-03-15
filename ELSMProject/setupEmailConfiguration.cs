@@ -14,7 +14,9 @@ namespace ELSM_Project
 
         private void btnInstall_Click(object sender, EventArgs e)
         {
-            SMTPPort = txtSMTPPort.Text;
+            if ((txtSMTPPort.Text != "") && (txtSMTPServer.Text != "") && (txtEmailPassword.Text != "") && (txtEmailUsername.Text != ""))
+            {
+                SMTPPort = txtSMTPPort.Text;
             SMTPServer = txtSMTPServer.Text;
             EmailPass = txtEmailPassword.Text;
             EmailUsername = txtEmailUsername.Text;
@@ -22,6 +24,11 @@ namespace ELSM_Project
             Hide();
             setupCompanyCreate company = new setupCompanyCreate();
             company.ShowDialog();
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Please enter data into the form.");
+            }
         }
     }
 }

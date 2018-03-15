@@ -153,7 +153,6 @@
             this.Name = "locationCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Location";
-            this.Load += new System.EventHandler(this.manageLocationsCreate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,7 +28,7 @@ namespace ELSM_Project
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
-            if (txtNewUsername.Text == txtConfirmNewUsername.Text)
+            if ((txtNewUsername.Text == txtConfirmNewUsername.Text) && (txtNewUsername.Text != ""))
             {
                 MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
                 conn.Open();
@@ -40,7 +40,7 @@ namespace ELSM_Project
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your username and try again.");
+                System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match or is blank. Please check your username and try again.");
             }
         }
     }
