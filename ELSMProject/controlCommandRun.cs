@@ -15,46 +15,45 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        //  Declare Variables For Use  //
         private static int loopNum, activeLoop = 0;
         private static string os, ip, username, password, chkBoxName, checkBoxText, commandData, value;
         private string[] operatingSystemsID = new string[100], operatingSystems = new string[100], commandOSID = new string[100], commandText = new string[100];
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void btnRunCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection runCommandConnection = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL Connection 
-            runCommandConnection.Open(); // Open MySQL Connection 
-            while (loopNum != activeLoop) // While lookNum is not equal to activeLoop
+            MySqlConnection runCommandConnection = new MySqlConnection(loginMenu.ConnectionString);     
+            runCommandConnection.Open();     
+            while (loopNum != activeLoop)        
             {
-                chkBoxName = "chkServer" + Convert.ToString(activeLoop); // Set variable to a combination of string and number
-                var checkBox = this.Controls.Find(chkBoxName, true).FirstOrDefault() as CheckBox; // Convert variable to be able to target CheckBox element.
-                checkBoxText = checkBox.Text; // Set variable to value
-                if (checkBox.Checked == true) // If box is checked, execute code
+                chkBoxName = "chkServer" + Convert.ToString(activeLoop);          
+                var checkBox = this.Controls.Find(chkBoxName, true).FirstOrDefault() as CheckBox;          
+                checkBoxText = checkBox.Text;     
+                if (checkBox.Checked == true)       
                 {
                     MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverHostname = @hostname", runCommandConnection);
-                    serverCMD.Parameters.AddWithValue("@hostname", checkBoxText); // Replace string in query with variable
-                    MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader(); // Execute MySQL reader query
-                    serverInformationRDR.Read(); // Read data from the reader to become usable
-                    ip = Convert.ToString(serverInformationRDR[7]); // Set variable to data from reader
-                    username = Convert.ToString(serverInformationRDR[4]); // Set variable to data from reader
-                    password = Convert.ToString(serverInformationRDR[5]); // Set variable to data from reader
-                    os = Convert.ToString(serverInformationRDR[6]); // Set variable to data from reader
-                    serverInformationRDR.Close(); // Close Reader
+                    serverCMD.Parameters.AddWithValue("@hostname", checkBoxText);       
+                    MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader();     
+                    serverInformationRDR.Read();         
+                    ip = Convert.ToString(serverInformationRDR[7]);       
+                    username = Convert.ToString(serverInformationRDR[4]);       
+                    password = Convert.ToString(serverInformationRDR[5]);       
+                    os = Convert.ToString(serverInformationRDR[6]);       
+                    serverInformationRDR.Close();   
                     MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
-                    osCMD.Parameters.AddWithValue("@os", os); // Replace string in query with variable
-                    osCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text); // Replace string in query with variable
-                    MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query
-                    osRDR.Read(); // Read data from the reader to become usable
-                    commandData = Convert.ToString(osRDR[4]); // Set variable to data from reader
-                    new Thread(() => // Create new thread to run in background
+                    osCMD.Parameters.AddWithValue("@os", os);       
+                    osCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text);       
+                    MySqlDataReader osRDR = osCMD.ExecuteReader();     
+                    osRDR.Read();         
+                    commandData = Convert.ToString(osRDR[4]);       
+                    new Thread(() =>        
                     {
-                        Thread.CurrentThread.IsBackground = true; // Run in background
-                        try // Try to connect to node using connection details and to run a command stored in a variable
+                        Thread.CurrentThread.IsBackground = true;    
+                        try                  
                         {
                             using (var client = new SshClient(ip, username, password))
                             {
@@ -65,69 +64,69 @@ namespace ELSM_Project
                         }
                         catch (Exception)
                         {
-                            System.Windows.Forms.MessageBox.Show("Error"); // If error print out error
+                            System.Windows.Forms.MessageBox.Show("Error");      
                         }
                     }).Start();
-                    osRDR.Close(); // Close reader
+                    osRDR.Close();   
                 }
-                activeLoop += 1; // Add the value of 1 to the variable
+                activeLoop += 1;         
             }
-            runCommandConnection.Close(); // Close MySQL connection
-            Hide(); //Hide form
+            runCommandConnection.Close();    
+            Hide();  
         }
 
         private void serverControlRunCommand_Load(object sender, EventArgs e)
         {
-            MySqlConnection commandLoadConnection = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL Connection 
-            commandLoadConnection.Open(); // Open MySQL Connection 
+            MySqlConnection commandLoadConnection = new MySqlConnection(loginMenu.ConnectionString);     
+            commandLoadConnection.Open();     
 
             MySqlCommand commandName = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", commandLoadConnection);
-            commandName.Parameters.AddWithValue("@company", loginMenu.CompanyID); // Replace string in query with variable
-            MySqlDataReader commandNameRDR = commandName.ExecuteReader(); // Execute MySQL reader query 
-            while (commandNameRDR.Read()) // While rows in reader
+            commandName.Parameters.AddWithValue("@company", loginMenu.CompanyID);       
+            MySqlDataReader commandNameRDR = commandName.ExecuteReader();      
+            while (commandNameRDR.Read())     
             {
                 cmboCommands.Items.Add(commandNameRDR.GetString("commandName"));
             }
-            commandNameRDR.Close(); // Close reader
+            commandNameRDR.Close();   
             
             MySqlCommand osIDCommand = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC", commandLoadConnection);
-            osIDCommand.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); // Replace string in query with variable
-            MySqlDataReader operatingSystemRDR = osIDCommand.ExecuteReader(); // Execute MySQL reader query 
-            loopNum = 0; // Set variable to 0
-            while (operatingSystemRDR.Read()) // While rows in reader
+            osIDCommand.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);       
+            MySqlDataReader operatingSystemRDR = osIDCommand.ExecuteReader();      
+            loopNum = 0;     
+            while (operatingSystemRDR.Read())     
             {
-                operatingSystemsID[loopNum] = Convert.ToString(operatingSystemRDR[3]); // Set array value to data from reader
-                loopNum += 1; // Add the value of 1 to the variable
+                operatingSystemsID[loopNum] = Convert.ToString(operatingSystemRDR[3]);        
+                loopNum += 1;         
             }
-            operatingSystemRDR.Close(); // Close reader
+            operatingSystemRDR.Close();   
 
             MySqlCommand cmdIDCommand = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @company ORDER BY serverID", commandLoadConnection);
-            cmdIDCommand.Parameters.AddWithValue("@company", loginMenu.CompanyID);  // Replace string in query with variable
-            MySqlDataReader commandIDRDR = cmdIDCommand.ExecuteReader(); // Execute MySQL reader query 
-            loopNum = 0; // Set variable to 0
-            while (commandIDRDR.Read()) // While rows in reader
+            cmdIDCommand.Parameters.AddWithValue("@company", loginMenu.CompanyID);        
+            MySqlDataReader commandIDRDR = cmdIDCommand.ExecuteReader();      
+            loopNum = 0;     
+            while (commandIDRDR.Read())     
             {
-                commandOSID[loopNum] = Convert.ToString(commandIDRDR[2]); // Set array value to data from reader
-                loopNum += 1; // Add the value of 1 to the variable
+                commandOSID[loopNum] = Convert.ToString(commandIDRDR[2]);        
+                loopNum += 1;         
             }
-            commandIDRDR.Close(); // Close reader
+            commandIDRDR.Close();   
 
-            while (operatingSystemsID[loopNum] != null) // While values in array
+            while (operatingSystemsID[loopNum] != null)     
             {
-                value = Convert.ToString(operatingSystemsID[loopNum]); // Set variable to array value
-                CheckBox box = new CheckBox(); // Create checkbox
-                box.Name = "chkServer" + Convert.ToString(loopNum); // Set checkbox name
-                box.Text = value; // Set display text to variable
-                box.AutoSize = true; // Enable autosoze
-                box.Location = new Point(10, (loopNum + 1) * 20); // Set location of checkbox
-                pnlConfiguration.Controls.Add(box); // Add checkbox to screen
-                loopNum += 1; // Add the value of 1 to the variable
+                value = Convert.ToString(operatingSystemsID[loopNum]);      
+                CheckBox box = new CheckBox();   
+                box.Name = "chkServer" + Convert.ToString(loopNum);    
+                box.Text = value;      
+                box.AutoSize = true;   
+                box.Location = new Point(10, (loopNum + 1) * 20);     
+                pnlConfiguration.Controls.Add(box);     
+                loopNum += 1;         
             }
-            this.Height += (loopNum * 20) + 40; // Set window height
-            pnlConfiguration.Height += (loopNum * 20) + 40; // Set panel height
-            loopNum += 1; // Add the value of 1 to the variable
-            btnRunCommand.Top += loopNum * 23; // Set button position
-            btnCancel.Top += loopNum * 23; // Set button position
+            this.Height += (loopNum * 20) + 40;    
+            pnlConfiguration.Height += (loopNum * 20) + 40;    
+            loopNum += 1;         
+            btnRunCommand.Top += loopNum * 23;    
+            btnCancel.Top += loopNum * 23;    
         }
     }
 }

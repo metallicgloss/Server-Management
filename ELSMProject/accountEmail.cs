@@ -13,7 +13,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void manageAccountEmail_Load(object sender, EventArgs e)
@@ -28,13 +28,13 @@ namespace ELSM_Project
                 try
                 {
                     var addr = new System.Net.Mail.MailAddress(txtNewEmail.Text);
-                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
                     conn.Open();
                     MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userEmailAddress = @email", conn);
                     command.Parameters.AddWithValue("@email", txtNewEmail.Text);
                     command.ExecuteNonQuery();
                     loginMenu.EmailAddress = txtNewEmail.Text;
-                    Hide(); //Hide form
+                    Hide();  
                 }
                 catch
                 {

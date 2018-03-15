@@ -19,7 +19,7 @@ namespace ELSM_Project
                 {
                     if (txtLatitude.Text != "")
                     {
-                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
                         conn.Open();
                         MySqlCommand locationCMD = new MySqlCommand("INSERT INTO serverLocations (locationName, companyID, locationLongitude, locationLatitude) VALUES (@locationName, @companyID, @locationLongitude, @locationLatitude)", conn);
                         locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
@@ -48,7 +48,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
     }
 }

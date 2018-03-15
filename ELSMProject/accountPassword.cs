@@ -16,12 +16,12 @@ namespace ELSM_Project
         
         private void manageAccountPassword_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -30,13 +30,13 @@ namespace ELSM_Project
             String NewPasswordConfirm = SHA.GenerateSHA512String(txtConfirmPassword.Text);
             if (NewPassword == NewPasswordConfirm)
             {
-                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
                     conn.Open();
                     MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
                     command.Parameters.AddWithValue("@pass", NewPassword);
                     command.ExecuteNonQuery();
                     loginMenu.Password = txtNewPassword.Text;
-                    Hide(); //Hide form
+                    Hide();  
             }
             else
             {

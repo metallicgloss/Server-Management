@@ -13,18 +13,18 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void manageLocationsEdit_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlDataReader rdr = cmd.ExecuteReader();      
+            while (rdr.Read())     
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
             }
@@ -39,7 +39,7 @@ namespace ELSM_Project
                 {
                     if (txtLatitude.Text != "")
                     {
-                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("UPDATE serverLocations SET locationName = @locationName, locationLongitude = @locationLongitude, locationLatitude = @locationLatitude WHERE locationName = @oldLocationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
@@ -53,8 +53,8 @@ namespace ELSM_Project
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlDataReader rdr = cmd.ExecuteReader();      
+            while (rdr.Read())     
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
             }
@@ -78,13 +78,13 @@ namespace ELSM_Project
 
         private void LocationDetails(string name)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE locationName = @locationName"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@locationName", name); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlDataReader rdr = cmd.ExecuteReader();      
+            while (rdr.Read())     
             {
                 if (!rdr.HasRows)
                     return;

@@ -14,7 +14,7 @@ namespace ELSM_Project
         
         private void serverControl_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
             {

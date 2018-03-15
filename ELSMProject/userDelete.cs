@@ -13,17 +13,17 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void manageUsersDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand UserInformationCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @companyID", connectionMySQL);
             UserInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (UserInformationRDR.Read()) // While rows in reader
+            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();      
+            while (UserInformationRDR.Read())     
             {
                 cmboUserID.Items.Add(UserInformationRDR.GetString("userID"));
             }
@@ -32,7 +32,7 @@ namespace ELSM_Project
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand deleteUserCMD = new MySqlCommand("DELETE FROM userAccounts WHERE userID = @userID", connectionMySQL);
             deleteUserCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
@@ -41,8 +41,8 @@ namespace ELSM_Project
 
             MySqlCommand UserInformationCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @companyID", connectionMySQL);
             UserInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (UserInformationRDR.Read()) // While rows in reader
+            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();      
+            while (UserInformationRDR.Read())     
             {
                 cmboUserID.Items.Add(UserInformationRDR.GetString("userID"));
             }

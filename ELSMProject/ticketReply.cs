@@ -23,31 +23,31 @@ namespace ELSM_Project
             string forename = "", surname = "";
 
             loopnum = 0;
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            connectionMySQL.Open(); // Open MySQL Connection
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+            connectionMySQL.Open();    
 
             MySqlCommand systemRepliesCMD = new MySqlCommand("SELECT * FROM systemReplies WHERE ticketID = @ticketID", connectionMySQL);
-            systemRepliesCMD.Parameters.AddWithValue("@ticketID", ticketView.ticketID);  // Replace string in query with variable
-            MySqlDataReader repliesReader = systemRepliesCMD.ExecuteReader(); // Execute MySQL reader query 
+            systemRepliesCMD.Parameters.AddWithValue("@ticketID", ticketView.ticketID);        
+            MySqlDataReader repliesReader = systemRepliesCMD.ExecuteReader();      
 
-            while (repliesReader.Read()) // While rows in reader
+            while (repliesReader.Read())     
             {
-                userIDList[loopnum] = Convert.ToString(repliesReader[2]); // Set array value to reader value - the command ID number
-                replyContent[loopnum] = Convert.ToString(repliesReader[3]); // Set array value to reader value - the command ID number
+                userIDList[loopnum] = Convert.ToString(repliesReader[2]);            
+                replyContent[loopnum] = Convert.ToString(repliesReader[3]);            
                 loopnum = loopnum + 1;
             }
-            repliesReader.Close(); // Close reader
+            repliesReader.Close();   
 
             int totalloop = loopnum;
             loopnum = 0;
             
             pnlConfiguration.Height += 40;
             this.Height += 40;
-            while (loopnum != totalloop) // While rows in reader
+            while (loopnum != totalloop)     
             {
                 MySqlCommand userDetailsCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userID = @userID", connectionMySQL);
-                userDetailsCMD.Parameters.AddWithValue("@userID", userIDList[loopnum]);  // Replace string in query with variable
-                MySqlDataReader userDetailReader = userDetailsCMD.ExecuteReader(); // Execute MySQL reader query 
+                userDetailsCMD.Parameters.AddWithValue("@userID", userIDList[loopnum]);        
+                MySqlDataReader userDetailReader = userDetailsCMD.ExecuteReader();      
                 userDetailReader.Read();
                 forename = Convert.ToString(userDetailReader[3]);
                 surname = Convert.ToString(userDetailReader[4]);
@@ -59,12 +59,12 @@ namespace ELSM_Project
                 box.Location = new Point(10, loopnum * 20);
                 box.ForeColor = Color.White;
                 pnlConfiguration.Controls.Add(box);
-                loopnum += 1; // Add the value of 1 to the variable
+                loopnum += 1;         
             }
             int pointX = 235;
             int pointY = 0;
-            int loopnum2 = 0; // Set variable to 0
-            for (int i = 0; i < loopnum; i++)  // Set variable to 0
+            int loopnum2 = 0;     
+            for (int i = 0; i < loopnum; i++)      
             {
                 Label a = new Label();
                 a.Location = new Point(pointX, pointY);
@@ -75,22 +75,22 @@ namespace ELSM_Project
                 pnlConfiguration.Controls.Add(a);
                 pnlConfiguration.Show();
                 pointY += 20;
-                loopnum2 += 1; // Add the value of 1 to the variable
+                loopnum2 += 1;         
             }
             this.Height += loopnum2 * 5;
             pnlConfiguration.Height += (loopnum2 * 5);
-            connectionMySQL.Close(); // Open MySQL Connection
+            connectionMySQL.Close();    
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
        
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
 
             MySqlCommand newTicketReply = new MySqlCommand("INSERT INTO systemReplies (ticketID, userID, replyContent) VALUES (@ticketID, @userID, @replyContent)", connectionMySQL);

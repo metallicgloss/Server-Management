@@ -16,12 +16,12 @@ namespace ELSM_Project
 
         private void btnNewuser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
            userCreate.password = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);
             MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
             permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
-            MySqlDataReader permRDR = permRoleCMD.ExecuteReader(); // Execute MySQL reader query
+            MySqlDataReader permRDR = permRoleCMD.ExecuteReader();     
             permRDR.Read();
             string permID = Convert.ToString(permRDR.GetString("permID"));
             permRDR.Close();
@@ -38,16 +38,16 @@ namespace ELSM_Project
 
             connectionMySQL.Close();
 
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void userCreate_Load(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);    
             connectionMySQL.Open();
             MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
-            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (permRDR.Read()) // While rows in reader
+            MySqlDataReader permRDR = permCMD.ExecuteReader();      
+            while (permRDR.Read())     
             {
                 cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
             }
@@ -56,7 +56,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
     }
 }

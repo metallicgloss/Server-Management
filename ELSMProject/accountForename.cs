@@ -13,7 +13,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void accountForename_Load(object sender, EventArgs e)
@@ -25,13 +25,13 @@ namespace ELSM_Project
         {
             if ((txtNewForename.Text == txtConfirmForename.Text) && (txtNewForename.Text != ""))
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userForename = @Forename", conn);
                 command.Parameters.AddWithValue("@Forename", txtNewForename.Text);
                 command.ExecuteNonQuery();
                 loginMenu.Forename = txtNewForename.Text;
-                Hide(); //Hide form
+                Hide();  
             }
             else
             {
