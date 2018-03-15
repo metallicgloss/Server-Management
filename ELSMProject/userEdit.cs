@@ -25,18 +25,18 @@ namespace ELSM_Project
             {
                 cmboUserPerm.Enabled = false;
             }
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
             MySqlCommand userCMD = new MySqlCommand("SELECT * FROM userAccounts", connectionMySQL);
-            MySqlDataReader userRDR = userCMD.ExecuteReader();      
-            while (userRDR.Read())     
+            MySqlDataReader userRDR = userCMD.ExecuteReader();
+            while (userRDR.Read())
             {
                 cmboUserID.Items.Add(userRDR.GetString("userID"));
             }
             userRDR.Close();
             MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
-            MySqlDataReader permRDR = permCMD.ExecuteReader();      
-            while (permRDR.Read())     
+            MySqlDataReader permRDR = permCMD.ExecuteReader();
+            while (permRDR.Read())
             {
                 cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
             }
@@ -45,12 +45,12 @@ namespace ELSM_Project
 
         private void cmboHostNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-            MySqlCommand userAccountsCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @userCompany", connectionMySQL);
-            userAccountsCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
-            MySqlDataReader userAccountsRDR = userAccountsCMD.ExecuteReader();      
-            userAccountsRDR.Read();         
+            MySqlCommand userAccountsCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userID = @userID", connectionMySQL);
+            userAccountsCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
+            MySqlDataReader userAccountsRDR = userAccountsCMD.ExecuteReader();
+            userAccountsRDR.Read();
             txtUsername.Text = Convert.ToString(userAccountsRDR[1]);
             userEdit.password = Convert.ToString(userAccountsRDR[2]);
             txtForename.Text = Convert.ToString(userAccountsRDR[3]);
@@ -59,10 +59,10 @@ namespace ELSM_Project
             txtProfileImage.Text = Convert.ToString(userAccountsRDR[6]);
             cmboUserPerm.Text = Convert.ToString(userAccountsRDR[8]);
             userAccountsRDR.Close();
-            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions WHERE roleID = @roleID", connectionMySQL);
-            permCMD.Parameters.AddWithValue("@roleID", cmboUserPerm.Text);
-            MySqlDataReader permRDR = permCMD.ExecuteReader();      
-            permRDR.Read();         
+            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions WHERE permID = @permID", connectionMySQL);
+            permCMD.Parameters.AddWithValue("@permID", cmboUserPerm.Text);
+            MySqlDataReader permRDR = permCMD.ExecuteReader();
+            permRDR.Read();
             cmboUserPerm.Text = Convert.ToString(permRDR[1]);
             permRDR.Close();
             connectionMySQL.Close();
@@ -70,42 +70,92 @@ namespace ELSM_Project
 
         private void btnNewuser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
-            connectionMySQL.Open();
-            string tmppassword;
-            if (txtPassword.Text == "")
+            if (cmboUserID.Text != "")
             {
-                tmppassword = userEdit.password;
+                if (txtForename.Text != "")
+                {
+                    if (txtSurname.Text != "")
+                    {
+                        if (txtUsername.Text != "")
+                        {
+                            if (txtEmailAddress.Text != "")
+                            {
+                                try
+                                {
+                                    var addr = new System.Net.Mail.MailAddress(txtEmailAddress.Text);
+                                    if (txtProfileImage.Text != "")
+                                    {
+                                        MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
+                                        connectionMySQL.Open();
+                                        string tmppassword;
+                                        if (txtPassword.Text == "")
+                                        {
+                                            tmppassword = userEdit.password;
+                                        }
+                                        else
+                                        {
+                                            tmppassword = txtPassword.Text;
+                                            userEdit.password = SHA.GenerateSHA512String(loginMenu.userSalt + tmppassword);
+                                        }
+                                        MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
+                                        permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
+                                        MySqlDataReader permRDR = permRoleCMD.ExecuteReader();
+                                        permRDR.Read();
+                                        string permID = Convert.ToString(permRDR.GetString("permID"));
+                                        permRDR.Close();
+                                        MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userAccounts SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userForename", txtForename.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userSurname", txtSurname.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userLogin", txtUsername.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userPassword", password);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userEmailAddress", txtEmailAddress.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
+                                        userInfoUpdateCMD.Parameters.AddWithValue("@userPerm", permID);
+                                        userInfoUpdateCMD.ExecuteNonQuery();
+                                        connectionMySQL.Close();
+                                        Hide();
+                                    }
+                                    else
+                                    {
+                                        System.Windows.Forms.MessageBox.Show("Please enter a valid profile photo link.");
+                                    }
+                                }
+                                catch
+                                {
+                                    System.Windows.Forms.MessageBox.Show("You must enter an email address in the correct format.");
+                                }
+                            }
+                            else
+                            {
+                                System.Windows.Forms.MessageBox.Show("Please enter an email address.");
+                            }
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Please enter a username.");
+                        }
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("Please enter a surname.");
+                    }
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Please enter a forename.");
+                }
             }
             else
             {
-                tmppassword = txtPassword.Text;
-                userEdit.password = SHA.GenerateSHA512String(loginMenu.userSalt + tmppassword);
+                System.Windows.Forms.MessageBox.Show("Please select a user.");
             }
-            MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
-            permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
-            MySqlDataReader permRDR = permRoleCMD.ExecuteReader();     
-            permRDR.Read();
-            string permID = Convert.ToString(permRDR.GetString("permID"));
-            permRDR.Close();
-            MySqlCommand userInfoUpdateCMD = new MySqlCommand("UPDATE userAccounts SET userForename = @userForename, userSurname = @userSurname, userLogin = @userLogin, userPassword = @userPassword, userEmailAddress = @userEmailAddress, userImage = @userImage WHERE userID = @userID", connectionMySQL);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userForename", txtForename.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userSurname", txtSurname.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userLogin", txtUsername.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userPassword", password);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userEmailAddress", txtEmailAddress.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userImage", txtProfileImage.Text);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
-            userInfoUpdateCMD.Parameters.AddWithValue("@userPerm", permID);
-            userInfoUpdateCMD.ExecuteNonQuery();
-            connectionMySQL.Close();
-            Hide();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            Hide();
         }
     }
 }
