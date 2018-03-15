@@ -17,28 +17,28 @@ namespace ELSM_Project
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             serverManagement manageS = new serverManagement();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }

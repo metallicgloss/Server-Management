@@ -15,11 +15,11 @@ namespace ELSM_Project
         {
             txtName.Text = loginMenu.Forename + " " + loginMenu.Surname;
             txtEmail.Text = loginMenu.EmailAddress;
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation", connectionMySQL);
-            MySqlDataReader serverRDR = serverCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (serverRDR.Read()) // While rows in reader
+            MySqlDataReader serverRDR = serverCMD.ExecuteReader();      
+            while (serverRDR.Read())     
             {
                 cmboRegarding.Items.Add(serverRDR.GetString("serverHostname"));
             }
@@ -34,7 +34,7 @@ namespace ELSM_Project
 
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
 
             MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding, userCompanyID, ticketSubject) VALUES (@ticketCustomer, @ticketRegarding, @userCompanyID, @ticketSubject);", connectionMySQL);

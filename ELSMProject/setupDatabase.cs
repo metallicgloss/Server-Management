@@ -42,13 +42,13 @@ namespace ELSM_Project
                 Username = txtDatabaseUsername.Text;
                 Password = txtDatabasePassword.Text;
                 Connection = "SERVER=" + Hostname + ";DATABASE=" + Name + ";UID=" + Username + ";PASSWORD=" + Password + ";";
-                MySqlConnection connectionMySQL = new MySqlConnection(Connection); // Open MySQL connection 
-                connectionMySQL.Open(); // Open MySQL connection
+                MySqlConnection connectionMySQL = new MySqlConnection(Connection);     
+                connectionMySQL.Open();    
 
                 try
                 {
                     MySqlCommand checkIfExists = new MySqlCommand("SELECT * FROM serverOperatingSystems", connectionMySQL);
-                    MySqlDataReader rdr = checkIfExists.ExecuteReader(); // Execute MySQL reader query 
+                    MySqlDataReader rdr = checkIfExists.ExecuteReader();      
                 }
                 catch (Exception)
                 {

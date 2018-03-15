@@ -41,7 +41,7 @@ namespace ELSM_Project
 
         private void btnTicketReply_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
@@ -53,28 +53,28 @@ namespace ELSM_Project
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             serverManagement manageServers = new serverManagement();
             manageServers.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             accountManagement manageAccount = new accountManagement();
             manageAccount.ShowDialog();
         }
@@ -92,7 +92,7 @@ namespace ELSM_Project
         
         private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");//www.metallicgloss.com");
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
         }
     }
 }

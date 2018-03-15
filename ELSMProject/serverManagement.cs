@@ -19,14 +19,14 @@ namespace ELSM_Project
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
@@ -38,14 +38,14 @@ namespace ELSM_Project
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             accountManagement Account = new accountManagement();
             Account.ShowDialog();
         }
@@ -100,7 +100,7 @@ namespace ELSM_Project
             {
                 btnBackupCentre.Enabled = false;
             }
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
             {
@@ -123,7 +123,7 @@ namespace ELSM_Project
         {
             serverCreate Create = new serverCreate();
             Create.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
             {
@@ -149,7 +149,7 @@ namespace ELSM_Project
         {
             serverEdit Edit = new serverEdit();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
             {
@@ -175,7 +175,7 @@ namespace ELSM_Project
         {
             serverDelete Edit = new serverDelete();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
             {
@@ -219,7 +219,7 @@ namespace ELSM_Project
 
         private void btnTicketReply_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }

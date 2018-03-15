@@ -24,106 +24,106 @@ namespace ELSM_Project
         private void serverControlEdit_Load(object sender, EventArgs e)
         {
             firstrun = true;
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            conn.Open(); // Open MySQL connection
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
+            conn.Open();    
 
             MySqlCommand serverCommandCMD = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
-            serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID); // Replace string in query with variable
-            MySqlDataReader serverCommandRDR = serverCommandCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (serverCommandRDR.Read()) // While rows in reader
+            serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);       
+            MySqlDataReader serverCommandRDR = serverCommandCMD.ExecuteReader();      
+            while (serverCommandRDR.Read())     
             {
-                cmboCommands.Items.Add(serverCommandRDR.GetString("commandName")); // Add item to dropdown box
+                cmboCommands.Items.Add(serverCommandRDR.GetString("commandName"));      
             }
-            serverCommandRDR.Close(); // Close reader
+            serverCommandRDR.Close();   
 
             MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID ASC", conn);
-            MySqlDataReader osRDR = osCMD.ExecuteReader(); // Execute MySQL reader query 
-            loopnum = 0; // Set variable to 0
-            while (osRDR.Read()) // While rows in reader
+            MySqlDataReader osRDR = osCMD.ExecuteReader();      
+            loopnum = 0;     
+            while (osRDR.Read())     
             {
-                operatingSystemsID[loopnum] = Convert.ToString(osRDR[0]); // Set variable to reader value
-                operatingSystems[loopnum] = Convert.ToString(osRDR[1]); // Set variable to reader value
-                loopnum += 1; // Add the value of 1 to the variable
+                operatingSystemsID[loopnum] = Convert.ToString(osRDR[0]);      
+                operatingSystems[loopnum] = Convert.ToString(osRDR[1]);      
+                loopnum += 1;         
             }
-            osRDR.Close(); // Close reader
-            finished = false; // Set value to false
+            osRDR.Close();   
+            finished = false;     
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void valueChecked(object sender, EventArgs e)
         {
             if (finished == true)
             {
-                string name = ((CheckBox)sender).Name; // Set variable to name of checkbox checked
-                name = name.Replace("chkOS", string.Empty); // Get number contained within the name of the checkbox
-                int OSNumber = Convert.ToInt16(name); // Convert number from string to int
-                OSNumber -= 1; // Take 1 from number to counter dodgey code written originally
-                string inputname = "txtInput" + OSNumber; // Combine number and string
-                var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox; // Using combined string find textbox
+                string name = ((CheckBox)sender).Name;        
+                name = name.Replace("chkOS", string.Empty);          
+                int OSNumber = Convert.ToInt16(name);       
+                OSNumber -= 1;           
+                string inputname = "txtInput" + OSNumber;     
+                var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;      
 
-                CheckBox chbxName = (CheckBox)sender; // Target sender checkbox
+                CheckBox chbxName = (CheckBox)sender;    
                 if (chbxName.Checked == true)
                 {
-                    text.Enabled = true; // If its enabled turn on the textbox
+                    text.Enabled = true;        
                 }
                 else
                 {
-                    text.Enabled = false; // If it is disabled turn off the textbox
-                    text.Text = "";// Clear the checkbox
+                    text.Enabled = false;         
+                    text.Text = "";   
                 }
             } 
         }
 
         private void cmboCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
-            connectionMySQL.Open(); // Open MySQL Connection
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+            connectionMySQL.Open();    
             
             MySqlCommand serverCommandCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", connectionMySQL);
-            serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);  // Replace string in query with variable
-            serverCommandCMD.Parameters.AddWithValue("@Name", cmboCommands.Text);  // Replace string in query with variable
-            MySqlDataReader setCommandIDS = serverCommandCMD.ExecuteReader(); // Execute MySQL reader query 
-            loopnum = 0; // Set variable to 0
-            while (setCommandIDS.Read()) // While rows in reader
+            serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);        
+            serverCommandCMD.Parameters.AddWithValue("@Name", cmboCommands.Text);        
+            MySqlDataReader setCommandIDS = serverCommandCMD.ExecuteReader();      
+            loopnum = 0;     
+            while (setCommandIDS.Read())     
             {
-                commandOSID[loopnum] = Convert.ToString(setCommandIDS[2]); // Set array value to reader value - the command ID number
-                loopnum += 1; // Add the value of 1 to the variable
+                commandOSID[loopnum] = Convert.ToString(setCommandIDS[2]);            
+                loopnum += 1;         
             }
-            setCommandIDS.Close(); // Close reader
+            setCommandIDS.Close();   
 
-            MySqlDataReader setCommandText = serverCommandCMD.ExecuteReader(); // Execute MySQL reader query 
-            loopnum = 0; // Set variable to 0
-            while (setCommandText.Read()) // While rows in reader
+            MySqlDataReader setCommandText = serverCommandCMD.ExecuteReader();      
+            loopnum = 0;     
+            while (setCommandText.Read())     
             {
-                commandText[loopnum] = Convert.ToString(setCommandText[4]); // Set array value to reader value - the command string
-                loopnum += 1; // Add the value of 1 to the variable
+                commandText[loopnum] = Convert.ToString(setCommandText[4]);           
+                loopnum += 1;         
             }
-            setCommandText.Close(); // Close reader
+            setCommandText.Close();   
 
-            loopnum = 0; // Set variable to 0
+            loopnum = 0;     
             pointX = 235;
             pointY = 20;
             pnlConfiguration.Controls.Clear();
             while (operatingSystemsID[loopnum] != null)
             {
                 value = Convert.ToString(operatingSystems[loopnum]);
-                temploop = 0; // Set variable to 0
-                CheckBox dynamicCheckbox = new CheckBox(); // Create a checkbox
-                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum); // Set checkbox name
-                dynamicCheckbox.Text = value; // Set display text of checkbox to variable
-                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked); // Add an event handler to checkbox
-                dynamicCheckbox.AutoSize = true; // Set auto size to true
-                dynamicCheckbox.Location = new Point(10, (loopnum + 1) * 20); // Set location of checkbox
-                pnlConfiguration.Controls.Add(dynamicCheckbox); // Add checkbox to dscreen
-                TextBox dynamicTextbox = new TextBox(); // Create textbox
-                dynamicTextbox.Location = new Point(pointX, pointY); // Set position of textbox
-                dynamicTextbox.Name = "txtInput" + (loopnum - 1); // Set name of textbox
-                dynamicTextbox.Width = 800; // Set width of textbox
-                pnlConfiguration.Controls.Add(dynamicTextbox); // Display textbox on screen
+                temploop = 0;     
+                CheckBox dynamicCheckbox = new CheckBox();    
+                dynamicCheckbox.Name = "chkOS" + Convert.ToString(loopnum);    
+                dynamicCheckbox.Text = value;        
+                dynamicCheckbox.CheckedChanged += new System.EventHandler(valueChecked);       
+                dynamicCheckbox.AutoSize = true;      
+                dynamicCheckbox.Location = new Point(10, (loopnum + 1) * 20);     
+                pnlConfiguration.Controls.Add(dynamicCheckbox);     
+                TextBox dynamicTextbox = new TextBox();   
+                dynamicTextbox.Location = new Point(pointX, pointY);     
+                dynamicTextbox.Name = "txtInput" + (loopnum - 1);     
+                dynamicTextbox.Width = 800;     
+                pnlConfiguration.Controls.Add(dynamicTextbox);     
                 pnlConfiguration.Show();
                 while (commandOSID[temploop] != null)
                 {
@@ -134,17 +134,17 @@ namespace ELSM_Project
                         dynamicTextbox.Text = Convert.ToString(commandText[temploop]);
                         yes = "Yes";
                     }
-                    temploop += 1; // Add the value of 1 to the variable
+                    temploop += 1;         
                 }
                 if (yes != "Yes")
                 {
                     dynamicCheckbox.Checked = false;
                     dynamicTextbox.Enabled = false;
                 }
-                yes = "No"; // Reset the variable yes to no
-                loopnum += 1; // Add the value of 1 to the variable
-                pointY += 20; // Add the value of 20 to the variable
-                boxnum += 1; // Add the value of 1 to the variable
+                yes = "No";       
+                loopnum += 1;         
+                pointY += 20;         
+                boxnum += 1;         
 
             }
             if (firstrun != false)
@@ -162,13 +162,13 @@ namespace ELSM_Project
 
         private void btnNewCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
-            createloop = 0; // Set variable to 0
+            createloop = 0;     
             MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn); 
-            newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text); // Replace string in query with variable
-            newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID); // Replace string in query with variable
-            newDeleteCommand.ExecuteNonQuery();// Run query 
+            newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);       
+            newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);       
+            newDeleteCommand.ExecuteNonQuery();   
             while (loopnum != createloop)
             {
                 string chkname = "chkOS" + Convert.ToString(createloop);
@@ -179,23 +179,23 @@ namespace ELSM_Project
                     string checkBoxText = checkBox.Text;
                     MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
                     oscmd.Parameters.AddWithValue("@os", checkBoxText);
-                    MySqlDataReader osrdr = oscmd.ExecuteReader(); // Execute MySQL reader query
-                    osrdr.Read(); // Read data from the reader to become usable
+                    MySqlDataReader osrdr = oscmd.ExecuteReader();     
+                    osrdr.Read();         
                     os = Convert.ToString(osrdr[0]);
                     osrdr.Close();
                     if (text.Text != "")
                     {
                         MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn); 
-                        newCommand.Parameters.AddWithValue("@serverCommand", text.Text); // Replace string in query with variable
-                        newCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text); // Replace string in query with variable
-                         newCommand.Parameters.AddWithValue("@serverOS", os); // Replace string in query with variable
-                         newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID); // Replace string in query with variable
-                         newCommand.ExecuteNonQuery(); // Run query
+                        newCommand.Parameters.AddWithValue("@serverCommand", text.Text);       
+                        newCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);       
+                         newCommand.Parameters.AddWithValue("@serverOS", os);       
+                         newCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);       
+                         newCommand.ExecuteNonQuery();   
                     }
-                createloop += 1; // Add the value of 1 to the variable
+                createloop += 1;         
             }
             conn.Close();
-            Hide(); //Hide form
+            Hide();  
         }
     }
 }

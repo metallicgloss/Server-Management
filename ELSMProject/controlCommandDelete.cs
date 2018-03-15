@@ -13,17 +13,17 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void serverControlDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand commandNameCMD = new MySqlCommand("SELECT DISTINCT commandName FROM serverCommands WHERE serverCompany = @companyID", connectionMySQL);
             commandNameCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (commandNameRDR.Read()) // While rows in reader
+            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader();      
+            while (commandNameRDR.Read())     
             {
                 cmboName.Items.Add(commandNameRDR.GetString("commandName"));
             }
@@ -32,7 +32,7 @@ namespace ELSM_Project
 
         private void btnDeleteCommand_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand deleteCommandCMD = new MySqlCommand("DELETE FROM serverCommands WHERE commandName = @Name, serverCompany = @Company", connectionMySQL);
             deleteCommandCMD.Parameters.AddWithValue("@Name", cmboName.Text);
@@ -42,8 +42,8 @@ namespace ELSM_Project
 
             MySqlCommand commandNameCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @companyID", connectionMySQL);
             commandNameCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (commandNameRDR.Read()) // While rows in reader
+            MySqlDataReader commandNameRDR = commandNameCMD.ExecuteReader();      
+            while (commandNameRDR.Read())     
             {
                 cmboName.Items.Add(commandNameRDR.GetString("commandName"));
             }

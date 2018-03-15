@@ -17,13 +17,13 @@ namespace ELSM_Project
             if ((txtSMTPPort.Text != "") && (txtSMTPServer.Text != "") && (txtEmailPassword.Text != "") && (txtEmailUsername.Text != ""))
             {
                 SMTPPort = txtSMTPPort.Text;
-            SMTPServer = txtSMTPServer.Text;
-            EmailPass = txtEmailPassword.Text;
-            EmailUsername = txtEmailUsername.Text;
+                SMTPServer = txtSMTPServer.Text;
+                EmailPass = txtEmailPassword.Text;
+                EmailUsername = txtEmailUsername.Text;
 
-            Hide();
-            setupCompanyCreate company = new setupCompanyCreate();
-            company.ShowDialog();
+                Hide();
+                setupCompanyCreate company = new setupCompanyCreate();
+                company.ShowDialog();
             }
             else
             {

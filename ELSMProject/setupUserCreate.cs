@@ -18,11 +18,11 @@ namespace ELSM_Project
         {
             if (txtPassword.Text == txtConfirmPass.Text)
             {
-                MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString); // Open MySQL connection 
-                connectionMySQL.Open(); // Open MySQL connection
+                MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);     
+                connectionMySQL.Open();    
                 MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
 
-                String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text); // Decrypt Password
+                String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);   
                 createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
                 createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
                 createAdmin.Parameters.AddWithValue("@userForename", txtForename.Text);

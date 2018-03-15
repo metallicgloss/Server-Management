@@ -13,13 +13,13 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
             
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn); 
             locationCMD.Parameters.AddWithValue("@locationName", cmboExisting.Text);
@@ -31,18 +31,18 @@ namespace ELSM_Project
 
         private void manageLocationsDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             string sql = "SELECT * FROM serverLocations WHERE companyID = @companyID"; 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@companyID", loginMenu.CompanyID); 
-            MySqlDataReader rdr = cmd.ExecuteReader(); // Execute MySQL reader query 
-            while (rdr.Read()) // While rows in reader
+            MySqlDataReader rdr = cmd.ExecuteReader();      
+            while (rdr.Read())     
             {
                 cmboExisting.Items.Add(rdr.GetString("locationName"));
             }
             conn.Close();
-            Hide(); //Hide form
+            Hide();  
         }
     }
 }

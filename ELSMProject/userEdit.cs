@@ -25,18 +25,18 @@ namespace ELSM_Project
             {
                 cmboUserPerm.Enabled = false;
             }
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand userCMD = new MySqlCommand("SELECT * FROM userAccounts", connectionMySQL);
-            MySqlDataReader userRDR = userCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (userRDR.Read()) // While rows in reader
+            MySqlDataReader userRDR = userCMD.ExecuteReader();      
+            while (userRDR.Read())     
             {
                 cmboUserID.Items.Add(userRDR.GetString("userID"));
             }
             userRDR.Close();
             MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
-            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
-            while (permRDR.Read()) // While rows in reader
+            MySqlDataReader permRDR = permCMD.ExecuteReader();      
+            while (permRDR.Read())     
             {
                 cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
             }
@@ -45,12 +45,12 @@ namespace ELSM_Project
 
         private void cmboHostNames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             MySqlCommand userAccountsCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @userCompany", connectionMySQL);
             userAccountsCMD.Parameters.AddWithValue("@userCompany", loginMenu.CompanyID);
-            MySqlDataReader userAccountsRDR = userAccountsCMD.ExecuteReader(); // Execute MySQL reader query 
-            userAccountsRDR.Read(); // Read data from the reader to become usable
+            MySqlDataReader userAccountsRDR = userAccountsCMD.ExecuteReader();      
+            userAccountsRDR.Read();         
             txtUsername.Text = Convert.ToString(userAccountsRDR[1]);
             userEdit.password = Convert.ToString(userAccountsRDR[2]);
             txtForename.Text = Convert.ToString(userAccountsRDR[3]);
@@ -61,8 +61,8 @@ namespace ELSM_Project
             userAccountsRDR.Close();
             MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions WHERE roleID = @roleID", connectionMySQL);
             permCMD.Parameters.AddWithValue("@roleID", cmboUserPerm.Text);
-            MySqlDataReader permRDR = permCMD.ExecuteReader(); // Execute MySQL reader query 
-            permRDR.Read(); // Read data from the reader to become usable
+            MySqlDataReader permRDR = permCMD.ExecuteReader();      
+            permRDR.Read();         
             cmboUserPerm.Text = Convert.ToString(permRDR[1]);
             permRDR.Close();
             connectionMySQL.Close();
@@ -70,7 +70,7 @@ namespace ELSM_Project
 
         private void btnNewuser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString); // Open MySQL connection 
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
             connectionMySQL.Open();
             string tmppassword;
             if (txtPassword.Text == "")
@@ -84,7 +84,7 @@ namespace ELSM_Project
             }
             MySqlCommand permRoleCMD = new MySqlCommand("SELECT permID, permRole FROM userPermissions WHERE permRole = @permRole", connectionMySQL);
             permRoleCMD.Parameters.AddWithValue("@permRole", cmboUserPerm.Text);
-            MySqlDataReader permRDR = permRoleCMD.ExecuteReader(); // Execute MySQL reader query
+            MySqlDataReader permRDR = permRoleCMD.ExecuteReader();     
             permRDR.Read();
             string permID = Convert.ToString(permRDR.GetString("permID"));
             permRDR.Close();
@@ -100,12 +100,12 @@ namespace ELSM_Project
             userInfoUpdateCMD.Parameters.AddWithValue("@userPerm", permID);
             userInfoUpdateCMD.ExecuteNonQuery();
             connectionMySQL.Close();
-            Hide(); //Hide form
+            Hide();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide(); //Hide form
+            Hide();  
         }
     }
 }
