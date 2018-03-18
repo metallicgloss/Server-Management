@@ -32,26 +32,32 @@ namespace ELSM_Project
             runCommandConnection.Open();
             while (loopNum != activeLoop)
             {
+				//Compile a string with the loopnum and then target the checbox.
                 chkBoxName = "chkServer" + Convert.ToString(activeLoop);
                 var checkBox = this.Controls.Find(chkBoxName, true).FirstOrDefault() as CheckBox;
                 checkBoxText = checkBox.Text;
+				//If checked execute.
                 if (checkBox.Checked == true)
                 {
+					//Run SQL to get the hostname of the server that the hostname matches.
                     MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverHostname = @hostname", runCommandConnection);
                     serverCMD.Parameters.AddWithValue("@hostname", checkBoxText);
                     MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader();
                     serverInformationRDR.Read();
+					//Store output from SQL as variables.
                     ip = Convert.ToString(serverInformationRDR[7]);
                     username = Convert.ToString(serverInformationRDR[4]);
                     password = Convert.ToString(serverInformationRDR[5]);
                     os = Convert.ToString(serverInformationRDR[6]);
                     serverInformationRDR.Close();
+					//SQL Select the command where the commandname matches that selected and the OS matches - to ensure that the OS has been configured.
                     MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
                     osCMD.Parameters.AddWithValue("@os", os);
                     osCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
                     MySqlDataReader osRDR = osCMD.ExecuteReader();
                     osRDR.Read();
                     commandData = Convert.ToString(osRDR[4]);
+					//Create new thread to run in the background. Attempt to SSH into the node with the hostname selected in the loop, execute the command that matches the OS then disconnect.
                     new Thread(() =>
                     {
                         Thread.CurrentThread.IsBackground = true;
@@ -81,7 +87,7 @@ namespace ELSM_Project
         {
             MySqlConnection commandLoadConnection = new MySqlConnection(loginMenu.ConnectionString);
             commandLoadConnection.Open();
-
+			//Connect to MySQL, execute SQL and set output as items of cmboCommands.
             MySqlCommand commandName = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", commandLoadConnection);
             commandName.Parameters.AddWithValue("@company", loginMenu.CompanyID);
             MySqlDataReader commandNameRDR = commandName.ExecuteReader();
@@ -90,7 +96,7 @@ namespace ELSM_Project
                 cmboCommands.Items.Add(commandNameRDR.GetString("commandName"));
             }
             commandNameRDR.Close();
-
+			//Run SQL statement to get the names of the operating systems used
             MySqlCommand osIDCommand = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @companyID ORDER BY serverID ASC", commandLoadConnection);
             osIDCommand.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
             MySqlDataReader operatingSystemRDR = osIDCommand.ExecuteReader();
@@ -101,7 +107,7 @@ namespace ELSM_Project
                 loopNum += 1;
             }
             operatingSystemRDR.Close();
-
+			//Run SQL statement to get the IDs of the operating systems used.
             MySqlCommand cmdIDCommand = new MySqlCommand("SELECT * FROM serverInformation WHERE serverCompany = @company ORDER BY serverID", commandLoadConnection);
             cmdIDCommand.Parameters.AddWithValue("@company", loginMenu.CompanyID);
             MySqlDataReader commandIDRDR = cmdIDCommand.ExecuteReader();
@@ -112,7 +118,7 @@ namespace ELSM_Project
                 loopNum += 1;
             }
             commandIDRDR.Close();
-
+			//While values, dynamically create checkboxes for servers.
             while (operatingSystemsID[loopNum] != null)
             {
                 value = Convert.ToString(operatingSystemsID[loopNum]);

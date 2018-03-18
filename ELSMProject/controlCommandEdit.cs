@@ -27,7 +27,7 @@ namespace ELSM_Project
             firstrun = true;
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
             conn.Open();
-
+			//Run SQL to get the name of commands that are unique and set the output as items of cmboCommands.
             MySqlCommand serverCommandCMD = new MySqlCommand("SELECT DISTINCT * FROM serverCommands WHERE serverCompany = @company GROUP BY commandName", conn);
             serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);
             MySqlDataReader serverCommandRDR = serverCommandCMD.ExecuteReader();
@@ -36,7 +36,7 @@ namespace ELSM_Project
                 cmboCommands.Items.Add(serverCommandRDR.GetString("commandName"));
             }
             serverCommandRDR.Close();
-
+			//Run SQL to list the name and Id of the operating system in array.
             MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverOperatingSystems ORDER BY operatingSystemsID ASC", conn);
             MySqlDataReader osRDR = osCMD.ExecuteReader();
             loopnum = 0;
@@ -60,13 +60,15 @@ namespace ELSM_Project
         {
             if (finished == true)
             {
+				//Get the name of the checkbox, split it to get the ID.
                 string name = ((CheckBox)sender).Name;
                 name = name.Replace("chkOS", string.Empty);
                 int OSNumber = Convert.ToInt16(name);
                 OSNumber -= 1;
+				//Get the name of the textbox, split it to get the ID.
                 string inputname = "txtInput" + OSNumber;
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
-
+				//Target the checkbox, if it is checked, enable the textbox. If it is not checked, disable and clear the checkbox.
                 CheckBox chbxName = (CheckBox)sender;
                 if (chbxName.Checked == true)
                 {
@@ -84,7 +86,7 @@ namespace ELSM_Project
         {
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-
+			//Execute SQL to get the OS ID for different operating systems where it matches the commandname.
             MySqlCommand serverCommandCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverCompany = @company AND commandName = @Name", connectionMySQL);
             serverCommandCMD.Parameters.AddWithValue("@company", loginMenu.CompanyID);
             serverCommandCMD.Parameters.AddWithValue("@Name", cmboCommands.Text);
@@ -96,7 +98,7 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setCommandIDS.Close();
-
+			//Execute SQL to get the command content for different operating systems where it matches the commandname.
             MySqlDataReader setCommandText = serverCommandCMD.ExecuteReader();
             loopnum = 0;
             while (setCommandText.Read())
@@ -105,13 +107,13 @@ namespace ELSM_Project
                 loopnum += 1;
             }
             setCommandText.Close();
-
             loopnum = 0;
             pointX = 235;
             pointY = 20;
             pnlConfiguration.Controls.Clear();
             while (operatingSystemsID[loopnum] != null)
             {
+				//Create a dynamic checkbox, set different properties such as the location, event handler and size. Named with the ID of the loop.
                 value = Convert.ToString(operatingSystems[loopnum]);
                 temploop = 0;
                 CheckBox dynamicCheckbox = new CheckBox();
@@ -121,6 +123,7 @@ namespace ELSM_Project
                 dynamicCheckbox.AutoSize = true;
                 dynamicCheckbox.Location = new Point(10, (loopnum + 1) * 20);
                 pnlConfiguration.Controls.Add(dynamicCheckbox);
+				//Create a dynamic textbox, set different properties such as the location and width. Named with the ID of the loop.
                 TextBox dynamicTextbox = new TextBox();
                 dynamicTextbox.Location = new Point(pointX, pointY);
                 dynamicTextbox.Name = "txtInput" + (loopnum - 1);
@@ -149,6 +152,7 @@ namespace ELSM_Project
                 boxnum += 1;
 
             }
+			//If not the first time loading the page, set the window height accordingly.
             if (firstrun != false)
             {
                 this.Height += loopnum * 5;
@@ -167,24 +171,28 @@ namespace ELSM_Project
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
             conn.Open();
             createloop = 0;
+			//Delete all entries for the command with different OS configurations.
             MySqlCommand newDeleteCommand = new MySqlCommand("DELETE FROM `serverCommands` WHERE `commandName` = @commandName AND serverCompany = @serverCompany", conn);
             newDeleteCommand.Parameters.AddWithValue("@commandName", cmboCommands.Text);
             newDeleteCommand.Parameters.AddWithValue("@serverCompany", loginMenu.CompanyID);
             newDeleteCommand.ExecuteNonQuery();
             while (loopnum != createloop)
             {
+				//For each operating system selected, combine string to be able to target the textbox and the checkbox.
                 string chkname = "chkOS" + Convert.ToString(createloop);
                 string inputname = "txtInput" + Convert.ToString(createloop - 1);
                 var os = "";
                 var text = this.Controls.Find(inputname, true).FirstOrDefault() as TextBox;
                 var checkBox = this.Controls.Find(chkname, true).FirstOrDefault() as CheckBox;
                 string checkBoxText = checkBox.Text;
+				//Get the ID of the operating system that is selected in the checkbox selected.
                 MySqlCommand oscmd = new MySqlCommand("SELECT * FROM serverOperatingSystems WHERE operatingSystemsName = @os", conn);
                 oscmd.Parameters.AddWithValue("@os", checkBoxText);
                 MySqlDataReader osrdr = oscmd.ExecuteReader();
                 osrdr.Read();
                 os = Convert.ToString(osrdr[0]);
                 osrdr.Close();
+				//If the command text isn't equal to blank, insert into the table.
                 if (text.Text != "")
                 {
                     MySqlCommand newCommand = new MySqlCommand("INSERT INTO `serverCommands` (`serverCompany`, `serverOS`, `commandName`, `serverCommand`) VALUES (@serverCompany, @serverOS, @commandName, @serverCommand)", conn);

@@ -33,11 +33,14 @@ namespace ELSM_Project
             runCommandConnection.Open();
             while (loopNum != activeLoop)
             {
+				//Create string to combine the ID and the name to be able to target the checkbox.
                 chkBoxName = "chkServer" + Convert.ToString(activeLoop);
                 var checkBox = this.Controls.Find(chkBoxName, true).FirstOrDefault() as CheckBox;
                 checkBoxText = checkBox.Text;
+				//If Checkbox is ticked, execute code.
                 if (checkBox.Checked == true)
                 {
+					//Run SQL to get data about servers stored in the table serverInformation and save output as variables to be used.
                     MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation WHERE serverHostname = @hostname", runCommandConnection);
                     serverCMD.Parameters.AddWithValue("@hostname", checkBoxText);
                     MySqlDataReader serverInformationRDR = serverCMD.ExecuteReader();
@@ -48,6 +51,7 @@ namespace ELSM_Project
                     os = Convert.ToString(serverInformationRDR[6]);
                     location = Convert.ToString(serverInformationRDR[2]);
                     serverInformationRDR.Close();
+					//Try to get the login details to a backup node in the same location as the server selected. Else, try to find a backup node available. If nothing available, output error.
                     try
                     {
                         MySqlCommand osCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @backupNodeCompany AND backupNodeLocation = @backupNodeLocation", runCommandConnection);
@@ -80,6 +84,7 @@ namespace ELSM_Project
                             System.Windows.Forms.MessageBox.Show("Please configure a backup node.");
                         }
                     }
+					//If a backup node has been found, create a background thread to execute an rsync command to backup a node to a the backup server.
                     if (proceed == true)
                     {
                         new Thread(() =>
@@ -112,7 +117,7 @@ namespace ELSM_Project
         {
             MySqlConnection commandLoadConnection = new MySqlConnection(loginMenu.ConnectionString);
             commandLoadConnection.Open();
-
+			//Execute SQL command to get the IDs of the operating systems used.
             MySqlCommand osIDCommand = new MySqlCommand("SELECT * FROM serverInformation", commandLoadConnection);
             osIDCommand.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
             MySqlDataReader operatingSystemRDR = osIDCommand.ExecuteReader();
@@ -124,6 +129,7 @@ namespace ELSM_Project
             }
             operatingSystemRDR.Close();
             loopNum = 0;
+			//Create a checkbox for each server.
             while (operatingSystemsID[loopNum] != null)
             {
                 value = Convert.ToString(operatingSystemsID[loopNum]);
