@@ -83,7 +83,6 @@
             this.cmboUserID.Name = "cmboUserID";
             this.cmboUserID.Size = new System.Drawing.Size(310, 21);
             this.cmboUserID.TabIndex = 46;
-            this.cmboUserID.SelectedIndexChanged += new System.EventHandler(this.cmboHostname_SelectedIndexChanged);
             // 
             // userDelete
             // 

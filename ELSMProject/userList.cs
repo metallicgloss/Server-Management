@@ -13,14 +13,9 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
+		private void btnHome_Click(object sender, EventArgs e)
         {
-            //Create process to open the link www.metallicgloss.com in the default browser.
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
+			//On button event, hide current form and open mainDashboard.
             Hide();  
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
@@ -28,19 +23,21 @@ namespace ELSM_Project
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-
+			//Display message box informing the user that they're already on the page that they attempted to navigate to.
             MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();  
-            serverManagement serverManagementForm = new serverManagement();
-            serverManagementForm.ShowDialog();
+			//On button event, hide current form and open serverManagement.
+			Hide();  
+            serverManagement manageS = new serverManagement();
+            manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
+            //On button event, hide current form and open locationManagement.
             Hide();  
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
@@ -63,8 +60,15 @@ namespace ELSM_Project
             }
         }
 
+		private void lblMetallicGloss_Click(object sender, EventArgs e)
+        {
+            //Create process to open the link www.metallicgloss.com in the default browser.
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+        }
+
         private void manageServers_Load(object sender, EventArgs e)
         {
+			//Initialize permissions by using boolean variables on the loginMenu form to disable buttons if the permission is not granted.
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -93,81 +97,36 @@ namespace ELSM_Project
             {
                 btnEditUser.Enabled = false;
             }
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT userID, userLogin, userForename, userSurname, userEmailAddress FROM userAccounts WHERE userCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-                userListDGV.DataSource = bSource;
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
+			//Open userCreate, when form closed clear datagridview and repopulate with new data.
             userCreate Create = new userCreate();
             Create.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT userID, userLogin, userForename, userSurname, userEmailAddress FROM userAccounts WHERE userCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                userListDGV.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
+			//Open userEdit, when form closed clear datagridview and repopulate with new data.
             userEdit Edit = new userEdit();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT userID, userLogin, userForename, userSurname, userEmailAddress FROM userAccounts WHERE userCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                userListDGV.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
+			//Open userDelete, when form closed clear datagridview and repopulate with new data.
             userDelete delete = new userDelete();
             delete.ShowDialog();
+            UpdateData();
+        }
+		
+		public void UpdateData()
+        {
+			//Connect to MySQL and fill datagridview with data outputted from the SQL command.
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
@@ -186,12 +145,13 @@ namespace ELSM_Project
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
-                Close();
             }
+            conn.Close();
         }
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            //On button event open ticketNew.
             ticketNew ticket = new ticketNew();
             ticket.ShowDialog();
         }
@@ -203,5 +163,6 @@ namespace ELSM_Project
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
+		
     }
 }

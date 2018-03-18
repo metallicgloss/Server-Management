@@ -156,6 +156,7 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //On button event, hide the form.
             Hide();
         }
     }

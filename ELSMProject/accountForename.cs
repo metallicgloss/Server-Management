@@ -14,25 +14,29 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
 
         private void accountForename_Load(object sender, EventArgs e)
         {
+            //Set the forename text box to the variable.
             txtCurrentForename.Text = loginMenu.Forename;
         }
 
         private void btnChangeForename_Click(object sender, EventArgs e)
         {
+            //If the two new values are the same, and aren't blank execute.
             if ((txtNewForename.Text == txtConfirmForename.Text) && (txtNewForename.Text != ""))
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
+                //Update user forename.
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userForename = @Forename", conn);
                 command.Parameters.AddWithValue("@Forename", txtNewForename.Text);
                 command.ExecuteNonQuery();
                 loginMenu.Forename = txtNewForename.Text;
-                Hide();  
+                Hide();
             }
             else
             {
