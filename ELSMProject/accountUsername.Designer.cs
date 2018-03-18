@@ -157,7 +157,6 @@
             this.Name = "accountUsername";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Username";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountUsername_FormClosing);
             this.Load += new System.EventHandler(this.manageAccountUsername_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

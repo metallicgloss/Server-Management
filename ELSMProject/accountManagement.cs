@@ -58,6 +58,12 @@ namespace ELSM_Project
             }
         }
 
+		private void lblMetallicGloss_Click(object sender, EventArgs e)
+        {
+            //Create process to open the link www.metallicgloss.com in the default browser.
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+        }
+
         private void manageAccount_Load(object sender, EventArgs e)
         {
             largeProfileImage.ImageLocation = loginMenu.ProfileImage;

@@ -156,7 +156,6 @@
             this.Name = "accountPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Password";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.manageAccountPassword_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
