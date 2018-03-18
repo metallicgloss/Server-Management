@@ -18,7 +18,7 @@ namespace ELSM_Project
         private void btnCreate_Click(object sender, EventArgs e)
         {
 			//If two values entered match, and txtPassword is not blank execute. Else output messagebox.
-            if ((txtPassword.Text == txtConfirmPass.Text) && (txtPassword.Text =! ""))
+            if ((txtPassword.Text == txtConfirmPass.Text) && (txtPassword.Text != ""))
             {
 				//Connect to MySQL and insert row into userAccounts as admin.
                 MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);     
