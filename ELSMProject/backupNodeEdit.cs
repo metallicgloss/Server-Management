@@ -8,6 +8,7 @@ namespace ELSM_Project
     {
         public backupNodeEdit()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

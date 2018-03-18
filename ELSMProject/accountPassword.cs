@@ -11,6 +11,7 @@ namespace ELSM_Project
     {
         public accountPassword()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
         

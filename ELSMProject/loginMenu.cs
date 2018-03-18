@@ -25,6 +25,7 @@ namespace ELSM_Project
 
         public loginMenu()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

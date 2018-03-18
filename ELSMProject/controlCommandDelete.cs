@@ -8,6 +8,7 @@ namespace ELSM_Project
     {
         public controlCommandDelete()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

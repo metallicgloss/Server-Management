@@ -11,6 +11,7 @@ namespace ELSM_Project
     {
         public setupUserCreate()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

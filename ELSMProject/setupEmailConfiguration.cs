@@ -7,6 +7,7 @@ namespace ELSM_Project
     {
         public setupEmailConfiguration()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

@@ -9,13 +9,29 @@ namespace ELSM_Project
     {
         public userCreate()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 
-        public static string password, key;
+        public static string password;
 
+		 private void userCreate_Load(object sender, EventArgs e)
+        {
+			//Connect to MySQL, run SQL command and output result of the field 'permRole' to cmboUserPerm.
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
+            connectionMySQL.Open();
+            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
+            MySqlDataReader permRDR = permCMD.ExecuteReader();
+            while (permRDR.Read())
+            {
+                cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
+            }
+            connectionMySQL.Close();
+        }
+		
         private void btnNewuser_Click(object sender, EventArgs e)
         {
+			//If a field required is blank, output error message informing the user that they need to enter data.
             if (txtForename.Text != "")
             {
                 if (txtSurname.Text != "")
@@ -24,11 +40,13 @@ namespace ELSM_Project
                     {
                         if (txtEmailAddress.Text != "")
                         {
+							//Attempt to parse the address data into the format of an email address. If it fails & errors, output error message informing the user that they need to enter data.
                             try
                             {
                                 var addr = new System.Net.Mail.MailAddress(txtEmailAddress.Text);
                                 if (txtProfileImage.Text != "")
                                 {
+									//Connect to MySQL. Proceed with running an SQL command to get the ID of the role selected in the combo box, hash and salt the password entered and then inserting a field into the userAccounts table.
                                     MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
                                     connectionMySQL.Open();
                                     userCreate.password = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);
@@ -84,22 +102,10 @@ namespace ELSM_Project
                 System.Windows.Forms.MessageBox.Show("Please enter a forename.");
             }
         }
-
-        private void userCreate_Load(object sender, EventArgs e)
-        {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
-            connectionMySQL.Open();
-            MySqlCommand permCMD = new MySqlCommand("SELECT * FROM userPermissions", connectionMySQL);
-            MySqlDataReader permRDR = permCMD.ExecuteReader();
-            while (permRDR.Read())
-            {
-                cmboUserPerm.Items.Add(permRDR.GetString("permRole"));
-            }
-            connectionMySQL.Close();
-        }
-
+		
         private void btnCancel_Click(object sender, EventArgs e)
         {
+			//On button event, hide the form.
             Hide();
         }
     }

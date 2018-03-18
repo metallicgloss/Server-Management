@@ -10,6 +10,7 @@ namespace ELSM_Project
     {
         public controlCommandEdit()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

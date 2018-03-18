@@ -9,16 +9,13 @@ namespace ELSM_Project
     {
         public serverManagement()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
-
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
-        }
-
+		
         private void btnHome_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open mainDashboard.
             Hide();  
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
@@ -26,6 +23,7 @@ namespace ELSM_Project
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open userList.
             Hide();  
             userList userListForm = new userList();
             userListForm.ShowDialog();
@@ -33,11 +31,13 @@ namespace ELSM_Project
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
+			//Display message box informing the user that they're already on the page that they attempted to navigate to.
             MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open locationManagement.
             Hide();  
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
@@ -45,21 +45,30 @@ namespace ELSM_Project
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open accountManagement.
+            Hide();
             accountManagement Account = new accountManagement();
             Account.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //On button event, trigger a message box confirming logout. If the user input is Yes, close the form.
             if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo) != DialogResult.No)
             {
                 this.Close();
             }
         }
 
+		private void lblMetallicGloss_Click(object sender, EventArgs e)
+        {
+            //Create process to open the link www.metallicgloss.com in the default browser.
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+        }
+
         private void manageServers_Load(object sender, EventArgs e)
         {
+			//Initialize permissions by using boolean variables on the loginMenu form to disable buttons if the permission is not granted.
             if (loginMenu.permControlServers == false)
             {
                 btnControlServers.Enabled = false;
@@ -100,6 +109,7 @@ namespace ELSM_Project
             {
                 btnBackupCentre.Enabled = false;
             }
+			//Connect to MySQL, run SQL command and output result to datagridview.
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
@@ -112,6 +122,7 @@ namespace ELSM_Project
                 bSource.DataSource = table;
                 dataGridView1.DataSource = bSource;
             }
+			//If MySQL error, display messagebox with error.
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -121,8 +132,10 @@ namespace ELSM_Project
 
         private void btnCreateServer_Click(object sender, EventArgs e)
         {
+			//On button event, open serverCreate form.
             serverCreate Create = new serverCreate();
             Create.ShowDialog();
+			//When serverCreate form is closed, connect to MySQL, run SQL command and output result to datagridview.
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
@@ -138,6 +151,7 @@ namespace ELSM_Project
                 dataGridView1.DataSource = bSource;
 
             }
+			//If MySQL error, display messagebox with error.
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -147,8 +161,10 @@ namespace ELSM_Project
 
         private void btnEditServer_Click(object sender, EventArgs e)
         {
+			//On button event, open serverEdit form.
             serverEdit Edit = new serverEdit();
             Edit.ShowDialog();
+			//When serverEdit form is closed, connect to MySQL, run SQL command and output result to datagridview.
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
@@ -164,6 +180,7 @@ namespace ELSM_Project
                 dataGridView1.DataSource = bSource;
 
             }
+			//If MySQL error, display messagebox with error.
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -173,8 +190,10 @@ namespace ELSM_Project
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
-            serverDelete Edit = new serverDelete();
-            Edit.ShowDialog();
+			//On button event, open serverDelete form.
+            serverDelete Delete = new serverDelete();
+            Delete.ShowDialog();
+			//When serverDelete form is closed, connect to MySQL, run SQL command and output result to datagridview.
             MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
             conn.Open();
             try
@@ -190,6 +209,7 @@ namespace ELSM_Project
                 dataGridView1.DataSource = bSource;
 
             }
+			//If MySQL error, display messagebox with error.
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -199,6 +219,7 @@ namespace ELSM_Project
 
         private void btnControlServers_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open controlManagement.
             Hide();
             controlManagement controlServerFRM = new controlManagement();
             controlServerFRM.ShowDialog();
@@ -206,6 +227,7 @@ namespace ELSM_Project
 
         private void btnBackupCentre_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open backupNodeList.
             Hide();
             backupNodeList backupNodeListForm = new backupNodeList();
             backupNodeListForm.ShowDialog();
@@ -213,13 +235,15 @@ namespace ELSM_Project
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+			//On button event, hide current form and open ticketNew.
             ticketNew ticket = new ticketNew();
             ticket.ShowDialog();
         }
 
         private void btnTicketReply_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open ticketView.
+            Hide();
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
