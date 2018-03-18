@@ -14,30 +14,29 @@ namespace ELSM_Project
 
         private void manageAccountUsername_Load(object sender, EventArgs e)
         {
+            //Set the username text box to the variable.
             txtCurrentUsername.Text = loginMenu.Username;
-        }
-
-        private void manageAccountUsername_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Hide();  
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
+            //If the two new values are the same, and aren't blank execute.
             if ((txtNewUsername.Text == txtConfirmNewUsername.Text) && (txtNewUsername.Text != ""))
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
+                //Update user username.
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userLogin = @newUsername", conn);
                 command.Parameters.AddWithValue("@newUsername", txtNewUsername.Text);
                 command.ExecuteNonQuery();
                 loginMenu.Username = txtNewUsername.Text;
-                Hide();  
+                Hide();
             }
             else
             {

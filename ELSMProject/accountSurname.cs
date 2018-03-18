@@ -14,25 +14,29 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
 
         private void accountSurname_Load(object sender, EventArgs e)
         {
+            //Set the surname text box to the variable.
             txtCurrentSurname.Text = loginMenu.Surname;
         }
 
         private void btnChangeSurname_Click(object sender, EventArgs e)
         {
+            //If the two new values are the same, and aren't blank execute.
             if ((txtNewSurname.Text == txtConfirmSurname.Text) && (txtNewSurname.Text != ""))
             {
-                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
+                //Update user surname.
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                 conn.Open();
                 MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userSurname = @Surname", conn);
                 command.Parameters.AddWithValue("@Surname", txtNewSurname.Text);
                 command.ExecuteNonQuery();
                 loginMenu.Surname = txtNewSurname.Text;
-                Hide();  
+                Hide();
             }
             else
             {

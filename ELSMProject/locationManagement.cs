@@ -13,35 +13,33 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
-        {
-            //Create process to open the link www.metallicgloss.com in the default browser.
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
-        }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open mainDashboard.
+            Hide();
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open userList.
+            Hide();
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open serverManagement.
+            Hide();
             serverManagement manageS = new serverManagement();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
+            //Display message box informing the user that they're already on the page that they attempted to navigate to.
             MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
 
@@ -62,8 +60,15 @@ namespace ELSM_Project
             }
         }
 
+        private void lblMetallicGloss_Click(object sender, EventArgs e)
+        {
+            //Create process to open the link www.metallicgloss.com in the default browser.
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+        }
+
         private void manageLocations_Load(object sender, EventArgs e)
         {
+            //Initialize permissions by using boolean variables on the loginMenu form to disable buttons if the permission is not granted.
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -92,113 +97,37 @@ namespace ELSM_Project
             {
                 btnCreateTicket.Enabled = false;
             }
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
-        private void lblManageAccountTitle_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
+            //Open locationCreate, when form closed clear datagridview and repopulate with new data.
             locationCreate Create = new locationCreate();
             Create.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnEditLocation_Click(object sender, EventArgs e)
         {
+            //Open locationEdit, when form closed clear datagridview and repopulate with new data.
             locationEdit Edit = new locationEdit();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
+            //Open locationDelete, when form closed clear datagridview and repopulate with new data.
             locationDelete Delete = new locationDelete();
             Delete.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            //On button event open ticketNew.
             ticketNew ticket = new ticketNew();
             ticket.ShowDialog();
         }
@@ -209,6 +138,31 @@ namespace ELSM_Project
             Hide();
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
+        }
+
+        public void UpdateData()
+        {
+            //Connect to MySQL and fill datagridview with data outputted from the SQL command.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
+            conn.Open();
+            try
+            {
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand("SELECT locationID, locationName, locationLongitude, locationLatitude FROM serverLocations WHERE companyID = " + loginMenu.CompanyID + "", conn);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+
+                dataGridView1.DataSource = bSource;
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            conn.Close();
         }
     }
 }

@@ -14,13 +14,15 @@ namespace ELSM_Project
 
         private void btnNewLocation_Click(object sender, EventArgs e)
         {
+            //If input is blank, output messagebox error informing the user that the field is blank.
             if (txtLocationName.Text != "")
             {
                 if (txtLongitude.Text != "")
                 {
                     if (txtLatitude.Text != "")
                     {
-                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
+                        //Insert row into the database with the new location information.
+                        MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
                         conn.Open();
                         MySqlCommand locationCMD = new MySqlCommand("INSERT INTO serverLocations (locationName, companyID, locationLongitude, locationLatitude) VALUES (@locationName, @companyID, @locationLongitude, @locationLatitude)", conn);
                         locationCMD.Parameters.AddWithValue("@locationName", txtLocationName.Text);
@@ -30,6 +32,7 @@ namespace ELSM_Project
                         locationCMD.ExecuteNonQuery();
                         conn.Close();
                         System.Windows.Forms.MessageBox.Show("Location Created.");
+                        Hide();
                     }
                     else
                     {
@@ -49,7 +52,8 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
     }
 }

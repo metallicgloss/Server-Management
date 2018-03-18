@@ -13,36 +13,34 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
-        {
-            //Create process to open the link www.metallicgloss.com in the default browser.
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
-        }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open mainDashboard.
+            Hide();
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open userList.
+            Hide();
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open serverManagement.
+            Hide();
             serverManagement serverManagementForm = new serverManagement();
             serverManagementForm.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open locationManagement.
+            Hide();
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }
@@ -64,8 +62,15 @@ namespace ELSM_Project
             }
         }
 
+        private void lblMetallicGloss_Click(object sender, EventArgs e)
+        {
+            //Create process to open the link www.metallicgloss.com in the default browser.
+            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
+        }
+
         private void manageServers_Load(object sender, EventArgs e)
         {
+            //Initialize permissions by using boolean variables on the loginMenu form to disable buttons if the permission is not granted.
             if (loginMenu.permViewLocations == false)
             {
                 btnManageLocations.Enabled = false;
@@ -82,82 +87,37 @@ namespace ELSM_Project
             {
                 btnCreateTicket.Enabled = false;
             }
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM backupNodeInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-                dataGridView1.DataSource = bSource;
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnCreateServer_Click(object sender, EventArgs e)
         {
+            //On button event open backupNodeCreate.
             backupNodeCreate Create = new backupNodeCreate();
             Create.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM backupNodeInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnEditServer_Click(object sender, EventArgs e)
         {
+            //On button event open backupNodeEdit.
             backupNodeEdit Edit = new backupNodeEdit();
             Edit.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
-            conn.Open();
-            try
-            {
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM serverInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-                dataGridView1.DataSource = bSource;
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Close();
-            }
+            UpdateData();
         }
 
         private void btnDeleteServer_Click(object sender, EventArgs e)
         {
+            //On button event open backupNodeDelete.
             backupNodeDelete delete = new backupNodeDelete();
             delete.ShowDialog();
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);     
+            UpdateData();
+        }
+
+        public void UpdateData()
+        {
+            //Connect to MySQL and fill datagridview with data outputted from the SQL command.
+            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
             conn.Open();
             try
             {
@@ -177,16 +137,19 @@ namespace ELSM_Project
                 MessageBox.Show(ex.Message);
                 Close();
             }
+            conn.Close();
         }
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
+            //On button event open backupRunProcess.
             backupRunProcess backupRunProcessForm = new backupRunProcess();
             backupRunProcessForm.ShowDialog();
         }
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            //On button event open ticketNew.
             ticketNew ticket = new ticketNew();
             ticket.ShowDialog();
         }

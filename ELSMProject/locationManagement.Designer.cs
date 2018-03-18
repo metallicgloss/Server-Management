@@ -281,7 +281,6 @@
             this.lblManageLocations.Size = new System.Drawing.Size(366, 29);
             this.lblManageLocations.TabIndex = 43;
             this.lblManageLocations.Text = "Manage Datacentre Locations";
-            this.lblManageLocations.Click += new System.EventHandler(this.lblManageAccountTitle_Click);
             // 
             // btnCreateTicket
             // 

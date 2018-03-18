@@ -14,13 +14,15 @@ namespace ELSM_Project
 
         private void newTicket_Load(object sender, EventArgs e)
         {
+			//Set textboxes to customised text.
             txtName.Text = loginMenu.Forename + " " + loginMenu.Surname;
             txtEmail.Text = loginMenu.EmailAddress;
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+			//Connect to MySQL, set output from sql and set as items of cmboRegarding.
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
             MySqlCommand serverCMD = new MySqlCommand("SELECT * FROM serverInformation", connectionMySQL);
-            MySqlDataReader serverRDR = serverCMD.ExecuteReader();      
-            while (serverRDR.Read())     
+            MySqlDataReader serverRDR = serverCMD.ExecuteReader();
+            while (serverRDR.Read())
             {
                 cmboRegarding.Items.Add(serverRDR.GetString("serverHostname"));
             }
@@ -30,23 +32,24 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //On button event, hide the form.
             Hide();
         }
 
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+			//Insert row into systemTickets using values.
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-
             MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding, userCompanyID, ticketSubject) VALUES (@ticketCustomer, @ticketRegarding, @userCompanyID, @ticketSubject);", connectionMySQL);
             newTicket.Parameters.AddWithValue("@ticketCustomer", loginMenu.UserID);
             newTicket.Parameters.AddWithValue("@ticketRegarding", cmboRegarding.Text);
             newTicket.Parameters.AddWithValue("@ticketSubject", txtSubject.Text);
             newTicket.Parameters.AddWithValue("@userCompanyID", loginMenu.CompanyID);
             newTicket.ExecuteNonQuery();
+			//Get the LastInsertId of the last insert.
             var ticketID = newTicket.LastInsertedId;
-
-
+			//Insert row into systemReplies using values.
             MySqlCommand newTicketReply = new MySqlCommand("INSERT INTO systemReplies (ticketID, userID, replyContent) VALUES (@ticketID, @userID, @replyContent)", connectionMySQL);
             newTicketReply.Parameters.AddWithValue("@ticketID", ticketID);
             newTicketReply.Parameters.AddWithValue("@userID", loginMenu.UserID);

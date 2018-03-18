@@ -11,19 +11,18 @@ namespace ELSM_Project
             //On form load initialize component.
             InitializeComponent();
         }
-        
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            //If entered text isn't blank, insert new row into the database table userCompanies. Else, output messagebox.
             if (txtName.Text != "")
             {
-                MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);     
-                connectionMySQL.Open();    
+                MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);
+                connectionMySQL.Open();
                 MySqlCommand createCompany = new MySqlCommand("INSERT INTO userCompanies (companyName, OwnerID) VALUES (@companyName, '1')", connectionMySQL);
                 createCompany.Parameters.AddWithValue("@companyName", txtName.Text);
                 createCompany.ExecuteNonQuery();
                 connectionMySQL.Close();
-
                 Hide();
                 setupUserCreate user = new setupUserCreate();
                 user.ShowDialog();

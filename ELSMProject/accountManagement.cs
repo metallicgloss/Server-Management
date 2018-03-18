@@ -11,42 +11,41 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        private void lblMetallicGloss_Click(object sender, EventArgs e)
-        {
-            //Create process to open the link www.metallicgloss.com in the default browser.
-            System.Diagnostics.Process.Start("https://www.metallicgloss.com");
-        }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open mainDashboard.
+            Hide();
             mainDashboard Dashboard = new mainDashboard();
             Dashboard.ShowDialog();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open userList.
+            Hide();
             userList userListForm = new userList();
             userListForm.ShowDialog();
         }
 
         private void btnManageServers_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open serverManagement.
+            Hide();
             serverManagement manageS = new serverManagement();
             manageS.ShowDialog();
         }
 
         private void btnManageLocations_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open locationManagement.
+            Hide();
             locationManagement manageL = new locationManagement();
             manageL.ShowDialog();
         }
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
+            //Display message box informing the user that they're already on the page that they attempted to navigate to.
             MessageBox.Show("You're already here!", "Notce", MessageBoxButtons.OK);
         }
 
@@ -105,6 +104,7 @@ namespace ELSM_Project
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
+            //On button event open accountUsername & Update after form closure.
             accountUsername username = new accountUsername();
             username.ShowDialog();
             lblUsername.Text = "Username: " + loginMenu.Username;
@@ -112,12 +112,14 @@ namespace ELSM_Project
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
+            //On button event open accountPassword.
             accountPassword password = new accountPassword();
             password.ShowDialog();
         }
 
         private void btnChangeEmailAddress_Click(object sender, EventArgs e)
         {
+            //On button event open accountEmail & Update after form closure.
             accountEmail Email = new accountEmail();
             Email.ShowDialog();
             lblEmailAddress.Text = "Email Address: " + loginMenu.EmailAddress;
@@ -125,19 +127,30 @@ namespace ELSM_Project
 
         private void btnForename_Click(object sender, EventArgs e)
         {
+            //On button event open accountForename.
             accountForename forename = new accountForename();
             forename.ShowDialog();
         }
 
         private void btnSurname_Click(object sender, EventArgs e)
         {
+            //On button event open accountSurname.
             accountSurname surname = new accountSurname();
             surname.ShowDialog();
         }
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
+            //On button event open ticketNew.
             ticketNew ticket = new ticketNew();
+            ticket.ShowDialog();
+        }
+
+        private void btnTicketReply_Click(object sender, EventArgs e)
+        {
+            //On button event, hide current form and open ticketView.
+            Hide();
+            ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
     }

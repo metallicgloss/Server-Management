@@ -17,12 +17,13 @@ namespace ELSM_Project
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtConfirmPass.Text)
+			//If two values entered match, and txtPassword is not blank execute. Else output messagebox.
+            if ((txtPassword.Text == txtConfirmPass.Text) && (txtPassword.Text =! ""))
             {
+				//Connect to MySQL and insert row into userAccounts as admin.
                 MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);     
                 connectionMySQL.Open();    
                 MySqlCommand createAdmin = new MySqlCommand("INSERT INTO userAccounts (userLogin, userPassword, userForename, userSurname, userEmailAddress, userImage, userCompany, userRole) VALUES (@userLogin, @userPassword, @userForename, @userSurname, @userEmailAddress, @userImage, @userCompany, @userRole)", connectionMySQL);
-
                 String EnteredPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtPassword.Text);   
                 createAdmin.Parameters.AddWithValue("@userLogin", txtUsername.Text);
                 createAdmin.Parameters.AddWithValue("@userPassword", EnteredPassword);
@@ -33,10 +34,10 @@ namespace ELSM_Project
                 createAdmin.Parameters.AddWithValue("@userCompany", "1");
                 createAdmin.Parameters.AddWithValue("@userRole", "1");
                 string fromEmail = txtEmail.Text;
-
+				// Try emailing user with login details for SMTP server. Else display messagebox.
                 try
                 {
-                    MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "Body");
+                    MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "This is confirmation that your installation of your server management panel has been completed.");
                     SmtpClient smtpClient = new SmtpClient(setupEmailConfiguration.SMTPServer, Convert.ToInt16(setupEmailConfiguration.SMTPPort));
                     smtpClient.EnableSsl = true;
                     smtpClient.UseDefaultCredentials = false;
@@ -52,8 +53,6 @@ namespace ELSM_Project
                 Hide();
                 loginMenu login = new loginMenu();
                 login.ShowDialog();
-
-
             }
             else
             {

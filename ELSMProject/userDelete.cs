@@ -14,17 +14,19 @@ namespace ELSM_Project
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
 
         private void manageUsersDelete_Load(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+			//Connect to MySQL and set output as items of cmboUserID.
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
             MySqlCommand UserInformationCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @companyID", connectionMySQL);
             UserInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();      
-            while (UserInformationRDR.Read())     
+            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();
+            while (UserInformationRDR.Read())
             {
                 cmboUserID.Items.Add(UserInformationRDR.GetString("userID"));
             }
@@ -33,26 +35,22 @@ namespace ELSM_Project
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);     
+			//Delete row from userAccounts where userID matches selected.
+            MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
             MySqlCommand deleteUserCMD = new MySqlCommand("DELETE FROM userAccounts WHERE userID = @userID", connectionMySQL);
             deleteUserCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
             deleteUserCMD.ExecuteNonQuery();
             cmboUserID.Items.Clear();
-
+			//Update information. Connect to MySQL and set output as items of cmboUserID.
             MySqlCommand UserInformationCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @companyID", connectionMySQL);
             UserInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
-            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();      
-            while (UserInformationRDR.Read())     
+            MySqlDataReader UserInformationRDR = UserInformationCMD.ExecuteReader();
+            while (UserInformationRDR.Read())
             {
                 cmboUserID.Items.Add(UserInformationRDR.GetString("userID"));
             }
             connectionMySQL.Close();
-        }
-
-        private void cmboHostname_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

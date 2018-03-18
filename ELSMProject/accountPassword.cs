@@ -14,30 +14,29 @@ namespace ELSM_Project
             //On form load initialize component.
             InitializeComponent();
         }
-        
-        private void manageAccountPassword_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Hide();  
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide the form.
+            Hide();
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            String NewPassword = SHA.GenerateSHA512String(txtNewPassword.Text);
-            String NewPasswordConfirm = SHA.GenerateSHA512String(txtConfirmPassword.Text);
-            if (NewPassword == NewPasswordConfirm)
+            //Hash and salt the two new passwords.
+            String NewPassword = SHA.GenerateSHA512String(loginMenu.userSalt + txtNewPassword.Text);
+            String NewPasswordConfirm = SHA.GenerateSHA512String(loginMenu.userSalt + txtConfirmPassword.Text);
+            //If the two new values are the same, and aren't blank execute.
+            if ((NewPassword == NewPasswordConfirm) && (txtNewPassword.Text != ""))
             {
-                    MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);    
-                    conn.Open();
-                    MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
-                    command.Parameters.AddWithValue("@pass", NewPassword);
-                    command.ExecuteNonQuery();
-                    loginMenu.Password = txtNewPassword.Text;
-                    Hide();  
+                //Update user password.
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
+                conn.Open();
+                MySqlCommand command = new MySqlCommand("UPDATE `userAccounts` SET userPassword = @pass", conn);
+                command.Parameters.AddWithValue("@pass", NewPassword);
+                command.ExecuteNonQuery();
+                loginMenu.Password = txtNewPassword.Text;
+                Hide();
             }
             else
             {
