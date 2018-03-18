@@ -8,6 +8,7 @@ namespace ELSM_Project
     {
         public serverDelete()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

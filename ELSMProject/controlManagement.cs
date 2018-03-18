@@ -9,6 +9,7 @@ namespace ELSM_Project
     {
         public controlManagement()
         {
+            //On form load initialize component.
             InitializeComponent();
         }       
         

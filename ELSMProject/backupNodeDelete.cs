@@ -8,6 +8,7 @@ namespace ELSM_Project
     {
         public backupNodeDelete()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

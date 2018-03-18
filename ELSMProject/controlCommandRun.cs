@@ -12,6 +12,7 @@ namespace ELSM_Project
     {
         public controlCommandRun()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

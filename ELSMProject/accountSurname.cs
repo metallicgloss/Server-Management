@@ -8,6 +8,7 @@ namespace ELSM_Project
     {
         public accountSurname()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

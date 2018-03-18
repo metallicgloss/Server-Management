@@ -12,6 +12,7 @@ namespace ELSM_Project
     {
         public backupRunProcess()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 

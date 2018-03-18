@@ -9,11 +9,13 @@ namespace ELSM_Project
     {
         public locationManagement()
         {
+            //On form load initialize component.
             InitializeComponent();
         }
 
         private void lblMetallicGloss_Click(object sender, EventArgs e)
         {
+            //Create process to open the link www.metallicgloss.com in the default browser.
             System.Diagnostics.Process.Start("https://www.metallicgloss.com");
         }
 
@@ -45,13 +47,15 @@ namespace ELSM_Project
 
         private void btnManageAccount_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open accountManagement.
+            Hide();
             accountManagement Account = new accountManagement();
             Account.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //On button event, trigger a message box confirming logout. If the user input is Yes, close the form.
             if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo) != DialogResult.No)
             {
                 this.Close();
@@ -201,7 +205,8 @@ namespace ELSM_Project
 
         private void btnTicketReply_Click(object sender, EventArgs e)
         {
-            Hide();  
+            //On button event, hide current form and open ticketView.
+            Hide();
             ticketView ticket = new ticketView();
             ticket.ShowDialog();
         }
