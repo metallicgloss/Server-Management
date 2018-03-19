@@ -198,7 +198,7 @@
     <Compile Include="locationCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageLocationsCreate.Designer.cs">
+    <Compile Include="locationCreate.Designer.cs">
       <DependentUpon>locationCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="locationDelete.cs">
@@ -228,7 +228,7 @@
     <Compile Include="serverDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageServersDelete.Designer.cs">
+    <Compile Include="serverDelete.Designer.cs">
       <DependentUpon>serverDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="serverEdit.cs">
@@ -254,19 +254,19 @@
     <Compile Include="controlManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControl.Designer.cs">
+    <Compile Include="controlManagement.Designer.cs">
       <DependentUpon>controlManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="controlCommandCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControlCreate.Designer.cs">
+    <Compile Include="controlCommandCreate.Designer.cs">
       <DependentUpon>controlCommandCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="controlCommandDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControlDelete.Designer.cs">
+    <Compile Include="controlCommandDelete.Designer.cs">
       <DependentUpon>controlCommandDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="controlCommandEdit.cs">
@@ -284,7 +284,7 @@
     <Compile Include="controlServerStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="serverControlStatus.Designer.cs">
+    <Compile Include="controlServerStatus.Designer.cs">
       <DependentUpon>controlServerStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="ticketView.cs">
