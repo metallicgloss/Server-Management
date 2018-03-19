@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setupDatabase));
             this.logoImage = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -180,7 +181,7 @@
             this.btnInstall.UseVisualStyleBackColor = false;
             this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
-            // initialSetup
+            // setupDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -201,8 +202,9 @@
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.logoImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(544, 178);
-            this.Name = "initialSetup";
+            this.Name = "setupDatabase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Initial Setup";
             this.Load += new System.EventHandler(this.initialSetup_Load);

@@ -118,7 +118,8 @@ namespace ELSM_Project
                 loopNum += 1;
             }
             commandIDRDR.Close();
-			//While values, dynamically create checkboxes for servers.
+            //While values, dynamically create checkboxes for servers.
+            loopNum = 0;
             while (operatingSystemsID[loopNum] != null)
             {
                 value = Convert.ToString(operatingSystemsID[loopNum]);

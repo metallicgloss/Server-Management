@@ -143,8 +143,8 @@ namespace ELSM_Project
             }
             this.Height += (loopNum * 20) + 40;
             pnlConfiguration.Height += (loopNum * 20) + 40;
-            btnRunBackup.Top += loopNum * 23;
-            btnCancel.Top += loopNum * 23;
+            btnRunBackup.Top += (loopNum * 20) + 40;
+            btnCancel.Top += (loopNum * 20) + 40;
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(controlManagement));
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDeleteCommand = new System.Windows.Forms.Button();
             this.btnEditCommand = new System.Windows.Forms.Button();
@@ -200,6 +201,7 @@
             this.Controls.Add(this.btnRunCommand);
             this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1146, 640);
             this.Name = "controlManagement";

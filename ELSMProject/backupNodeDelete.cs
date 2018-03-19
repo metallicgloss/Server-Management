@@ -23,12 +23,12 @@ namespace ELSM_Project
 			//Connect to MySQL and set output as items of cmboHostname.
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-            MySqlCommand serverInformationCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE serverCompany = @companyID", connectionMySQL);
+            MySqlCommand serverInformationCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @companyID", connectionMySQL);
             serverInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);
             MySqlDataReader serverInformationRDR = serverInformationCMD.ExecuteReader();
             while (serverInformationRDR.Read())
             {
-                cmboHostname.Items.Add(serverInformationRDR.GetString("serverHostname"));
+                cmboHostname.Items.Add(serverInformationRDR.GetString("backupNodeHostname"));
             }
             connectionMySQL.Close();
         }
