@@ -122,7 +122,7 @@ namespace ELSM_Project
             try
             {
                 MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM serverInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
+                MyDA.SelectCommand = new MySqlCommand("SELECT backupNodeID, backupNodeHostname, backupNodeOS, backupNodeIP FROM backupNodeInformation WHERE backupNodeCompany = " + loginMenu.CompanyID + "", conn);
                 DataTable table = new DataTable();
                 MyDA.Fill(table);
 

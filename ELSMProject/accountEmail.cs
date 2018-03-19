@@ -46,13 +46,11 @@ namespace ELSM_Project
                 {
                     System.Windows.Forms.MessageBox.Show("You must enter an email address in the correct format.");
                 }
-
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match. Please check your email address and try again.");
             }
-
         }
     }
 }

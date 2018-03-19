@@ -232,8 +232,7 @@
             // 
             // cmboLocation
             // 
-            this.cmboLocation.Cursor = System.Windows.Forms.Cursors.No;
-            this.cmboLocation.Enabled = false;
+            this.cmboLocation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmboLocation.FormattingEnabled = true;
             this.cmboLocation.Location = new System.Drawing.Point(178, 70);
             this.cmboLocation.Name = "cmboLocation";
@@ -242,8 +241,7 @@
             // 
             // cmboOS
             // 
-            this.cmboOS.Cursor = System.Windows.Forms.Cursors.No;
-            this.cmboOS.Enabled = false;
+            this.cmboOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmboOS.FormattingEnabled = true;
             this.cmboOS.Location = new System.Drawing.Point(178, 177);
             this.cmboOS.Name = "cmboOS";

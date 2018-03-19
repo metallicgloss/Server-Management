@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(setupEmailConfiguration));
             this.logoImage = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -201,6 +202,7 @@
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.logoImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(544, 178);
             this.Name = "setupEmailConfiguration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

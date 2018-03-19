@@ -42,7 +42,6 @@ namespace ELSM_Project
             {
                 System.Windows.Forms.MessageBox.Show("The data you have entered doesn't match and not blank. Please check your forename field and try again.");
             }
-
         }
     }
 }

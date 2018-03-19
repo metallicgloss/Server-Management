@@ -174,7 +174,7 @@
     <Compile Include="accountEmail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="manageAccountEmail.Designer.cs">
+    <Compile Include="accountEmail.Designer.cs">
       <DependentUpon>accountEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="accountPassword.cs">
