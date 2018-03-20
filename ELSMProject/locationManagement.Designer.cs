@@ -40,7 +40,7 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.ELHSLogo = new System.Windows.Forms.PictureBox();
             this.menuBackground = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridLocation = new System.Windows.Forms.DataGridView();
             this.btnDeleteLocation = new System.Windows.Forms.Button();
             this.btnEditLocation = new System.Windows.Forms.Button();
             this.btnAddLocation = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             this.btnTicketReply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,17 +184,17 @@
             this.menuBackground.TabIndex = 38;
             this.menuBackground.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridLocation
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridLocation.AllowUserToAddRows = false;
+            this.dataGridLocation.AllowUserToDeleteRows = false;
+            this.dataGridLocation.AllowUserToResizeColumns = false;
+            this.dataGridLocation.AllowUserToResizeRows = false;
+            this.dataGridLocation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridLocation.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridLocation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridLocation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,22 +202,22 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(361, 163);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(723, 300);
-            this.dataGridView1.TabIndex = 39;
-            this.dataGridView1.VirtualMode = true;
+            this.dataGridLocation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLocation.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridLocation.Location = new System.Drawing.Point(361, 163);
+            this.dataGridLocation.Name = "dataGridLocation";
+            this.dataGridLocation.ReadOnly = true;
+            this.dataGridLocation.RowHeadersVisible = false;
+            this.dataGridLocation.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridLocation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridLocation.ShowCellErrors = false;
+            this.dataGridLocation.ShowCellToolTips = false;
+            this.dataGridLocation.ShowEditingIcon = false;
+            this.dataGridLocation.ShowRowErrors = false;
+            this.dataGridLocation.Size = new System.Drawing.Size(723, 300);
+            this.dataGridLocation.TabIndex = 39;
+            this.dataGridLocation.VirtualMode = true;
             // 
             // btnDeleteLocation
             // 
@@ -325,7 +325,7 @@
             this.Controls.Add(this.btnDeleteLocation);
             this.Controls.Add(this.btnEditLocation);
             this.Controls.Add(this.btnAddLocation);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridLocation);
             this.Controls.Add(this.lblMetallicGloss);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnLogout);
@@ -347,7 +347,7 @@
             this.Load += new System.EventHandler(this.manageLocations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -366,7 +366,7 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox ELHSLogo;
         private System.Windows.Forms.PictureBox menuBackground;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridLocation;
         private System.Windows.Forms.Button btnDeleteLocation;
         private System.Windows.Forms.Button btnEditLocation;
         private System.Windows.Forms.Button btnAddLocation;
