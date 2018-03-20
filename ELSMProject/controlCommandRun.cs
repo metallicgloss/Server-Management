@@ -51,12 +51,12 @@ namespace ELSM_Project
                     os = Convert.ToString(serverInformationRDR[6]);
                     serverInformationRDR.Close();
 					//SQL Select the command where the commandname matches that selected and the OS matches - to ensure that the OS has been configured.
-                    MySqlCommand osCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
-                    osCMD.Parameters.AddWithValue("@os", os);
-                    osCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
-                    MySqlDataReader osRDR = osCMD.ExecuteReader();
-                    osRDR.Read();
-                    commandData = Convert.ToString(osRDR[4]);
+                    MySqlCommand serverCommandCMD = new MySqlCommand("SELECT * FROM serverCommands WHERE serverOS = @os AND commandName = @CommandName", runCommandConnection);
+                    serverCommandCMD.Parameters.AddWithValue("@os", os);
+                    serverCommandCMD.Parameters.AddWithValue("@CommandName", cmboCommands.Text);
+                    MySqlDataReader serverCommandRDR = serverCommandCMD.ExecuteReader();
+                    serverCommandRDR.Read();
+                    commandData = Convert.ToString(serverCommandRDR[4]);
 					//Create new thread to run in the background. Attempt to SSH into the node with the hostname selected in the loop, execute the command that matches the OS then disconnect.
                     new Thread(() =>
                     {
@@ -75,7 +75,7 @@ namespace ELSM_Project
                             System.Windows.Forms.MessageBox.Show("Error");
                         }
                     }).Start();
-                    osRDR.Close();
+                    serverCommandRDR.Close();
                 }
                 activeLoop += 1;
             }

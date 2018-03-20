@@ -155,7 +155,7 @@ namespace ELSM_Project
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = table;
 
-                dataGridView1.DataSource = bSource;
+                dataGridLocation.DataSource = bSource;
 
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)

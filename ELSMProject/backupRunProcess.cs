@@ -54,29 +54,29 @@ namespace ELSM_Project
 					//Try to get the login details to a backup node in the same location as the server selected. Else, try to find a backup node available. If nothing available, output error.
                     try
                     {
-                        MySqlCommand osCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @backupNodeCompany AND backupNodeLocation = @backupNodeLocation", runCommandConnection);
-                        osCMD.Parameters.AddWithValue("@backupNodeCompany", loginMenu.CompanyID);
-                        osCMD.Parameters.AddWithValue("@backupNodeLocation", location);
-                        MySqlDataReader osRDR = osCMD.ExecuteReader();
-                        osRDR.Read();
-                        backupIP = Convert.ToString(osRDR[7]);
-                        backupUsername = Convert.ToString(osRDR[4]);
-                        backupPassword = Convert.ToString(osRDR[5]);
-                        backupPath = Convert.ToString(osRDR[12]);
+                        MySqlCommand backupNodeCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @backupNodeCompany AND backupNodeLocation = @backupNodeLocation", runCommandConnection);
+                        backupNodeCMD.Parameters.AddWithValue("@backupNodeCompany", loginMenu.CompanyID);
+                        backupNodeCMD.Parameters.AddWithValue("@backupNodeLocation", location);
+                        MySqlDataReader backupNodeRDR = backupNodeCMD.ExecuteReader();
+                        backupNodeRDR.Read();
+                        backupIP = Convert.ToString(backupNodeRDR[7]);
+                        backupUsername = Convert.ToString(backupNodeRDR[4]);
+                        backupPassword = Convert.ToString(backupNodeRDR[5]);
+                        backupPath = Convert.ToString(backupNodeRDR[12]);
                         proceed = true;
                     }
                     catch
                     {
                         try
                         {
-                            MySqlCommand osCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @backupNodeCompany", runCommandConnection);
-                            osCMD.Parameters.AddWithValue("@backupNodeCompany", loginMenu.CompanyID);
-                            MySqlDataReader osRDR = osCMD.ExecuteReader();
-                            osRDR.Read();
-                            backupIP = Convert.ToString(osRDR[7]);
-                            backupUsername = Convert.ToString(osRDR[4]);
-                            backupPassword = Convert.ToString(osRDR[5]);
-                            backupPath = Convert.ToString(osRDR[12]);
+                            MySqlCommand backupNodeCMD = new MySqlCommand("SELECT * FROM backupNodeInformation WHERE backupNodeCompany = @backupNodeCompany", runCommandConnection);
+                            backupNodeCMD.Parameters.AddWithValue("@backupNodeCompany", loginMenu.CompanyID);
+                            MySqlDataReader backupNodeRDR = backupNodeCMD.ExecuteReader();
+                            backupNodeRDR.Read();
+                            backupIP = Convert.ToString(backupNodeRDR[7]);
+                            backupUsername = Convert.ToString(backupNodeRDR[4]);
+                            backupPassword = Convert.ToString(backupNodeRDR[5]);
+                            backupPath = Convert.ToString(backupNodeRDR[12]);
                             proceed = true;
                         }
                         catch
