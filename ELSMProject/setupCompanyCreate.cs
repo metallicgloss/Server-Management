@@ -19,7 +19,7 @@ namespace ELSM_Project
             {
                 MySqlConnection connectionMySQL = new MySqlConnection(setupDatabase.ConnectionString);
                 connectionMySQL.Open();
-                MySqlCommand createCompany = new MySqlCommand("INSERT INTO userCompanies (companyName, OwnerID) VALUES (@companyName, '1')", connectionMySQL);
+                MySqlCommand createCompany = new MySqlCommand("INSERT INTO userCompanies (companyName, ownerID) VALUES (@companyName, '1')", connectionMySQL);
                 createCompany.Parameters.AddWithValue("@companyName", txtName.Text);
                 createCompany.ExecuteNonQuery();
                 connectionMySQL.Close();

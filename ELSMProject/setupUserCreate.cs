@@ -44,9 +44,9 @@ namespace ELSM_Project
                     smtpClient.Credentials = new NetworkCredential(fromEmail, setupEmailConfiguration.EmailPass);
                     smtpClient.Send(mailMessage);
                 }
-                catch (Exception ex)
+                catch
                 {
-                    System.Windows.Forms.MessageBox.Show(Convert.ToString(ex));
+                    System.Windows.Forms.MessageBox.Show("There was a failure in connecting to the SMTP server to send installation confirmation.");
                 }
                 createAdmin.ExecuteNonQuery();
                 connectionMySQL.Close();
@@ -58,6 +58,11 @@ namespace ELSM_Project
             {
                 System.Windows.Forms.MessageBox.Show("Passwords did not match.");
             }
+
+        }
+
+        private void setupUserCreate_Load(object sender, EventArgs e)
+        {
 
         }
     }

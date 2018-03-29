@@ -12,7 +12,7 @@ namespace ELSM_Project
             InitializeComponent();
         }
 
-        public static string password, key;
+        public static string password;
 
         private void managebackupNodesEdit_Load(object sender, EventArgs e)
         {

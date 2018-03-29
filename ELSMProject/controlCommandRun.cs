@@ -30,6 +30,7 @@ namespace ELSM_Project
         {
             MySqlConnection runCommandConnection = new MySqlConnection(loginMenu.ConnectionString);
             runCommandConnection.Open();
+            activeLoop = 0;
             while (loopNum != activeLoop)
             {
 				//Compile a string with the loopnum and then target the checbox.
@@ -80,6 +81,7 @@ namespace ELSM_Project
                 activeLoop += 1;
             }
             runCommandConnection.Close();
+            System.Windows.Forms.MessageBox.Show("Command execution started.");
             Hide();
         }
 
@@ -133,9 +135,8 @@ namespace ELSM_Project
             }
             this.Height += (loopNum * 20) + 40;
             pnlConfiguration.Height += (loopNum * 20) + 40;
-            loopNum += 1;
-            btnRunCommand.Top += loopNum * 23;
-            btnCancel.Top += loopNum * 23;
+            btnRunCommand.Top += (loopNum +1) * 23;
+            btnCancel.Top += (loopNum + 1) * 23;
         }
     }
 }

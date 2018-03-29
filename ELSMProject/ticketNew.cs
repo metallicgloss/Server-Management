@@ -38,12 +38,15 @@ namespace ELSM_Project
 
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
-			//Insert row into systemTickets using values.
+            //Convert datetime to format for MySQL.
+            string dateValue = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //Insert row into systemTickets using values.
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-            MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding, userCompanyID, ticketSubject) VALUES (@ticketCustomer, @ticketRegarding, @userCompanyID, @ticketSubject);", connectionMySQL);
+            MySqlCommand newTicket = new MySqlCommand("INSERT INTO systemTickets (ticketCustomer, ticketRegarding, 	ticketUpdated, userCompanyID, ticketSubject) VALUES (@ticketCustomer, @ticketRegarding, @ticketUpdated, @userCompanyID, @ticketSubject);", connectionMySQL);
             newTicket.Parameters.AddWithValue("@ticketCustomer", loginMenu.UserID);
             newTicket.Parameters.AddWithValue("@ticketRegarding", cmboRegarding.Text);
+            newTicket.Parameters.AddWithValue("@ticketUpdated", dateValue);
             newTicket.Parameters.AddWithValue("@ticketSubject", txtSubject.Text);
             newTicket.Parameters.AddWithValue("@userCompanyID", loginMenu.CompanyID);
             newTicket.ExecuteNonQuery();
