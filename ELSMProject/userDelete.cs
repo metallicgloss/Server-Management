@@ -38,10 +38,17 @@ namespace ELSM_Project
 			//Delete row from userAccounts where userID matches selected.
             MySqlConnection connectionMySQL = new MySqlConnection(loginMenu.ConnectionString);
             connectionMySQL.Open();
-            MySqlCommand deleteUserCMD = new MySqlCommand("DELETE FROM userAccounts WHERE userID = @userID", connectionMySQL);
-            deleteUserCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
-            deleteUserCMD.ExecuteNonQuery();
-            cmboUserID.Items.Clear();
+            try
+            {
+                MySqlCommand deleteUserCMD = new MySqlCommand("DELETE FROM userAccounts WHERE userID = @userID", connectionMySQL);
+                deleteUserCMD.Parameters.AddWithValue("@userID", cmboUserID.Text);
+                deleteUserCMD.ExecuteNonQuery();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("You can't delete the company owner");
+            }
+                cmboUserID.Items.Clear();
 			//Update information. Connect to MySQL and set output as items of cmboUserID.
             MySqlCommand UserInformationCMD = new MySqlCommand("SELECT * FROM userAccounts WHERE userCompany = @companyID", connectionMySQL);
             UserInformationCMD.Parameters.AddWithValue("@companyID", loginMenu.CompanyID);

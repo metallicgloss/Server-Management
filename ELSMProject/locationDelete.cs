@@ -21,12 +21,20 @@ namespace ELSM_Project
         private void btnDeleteLocation_Click(object sender, EventArgs e)
         {
             //Delete row from table serverLocations where the locationName matches the one that has been set.
-            MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
-            conn.Open();
-            MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn);
-            locationCMD.Parameters.AddWithValue("@locationName", cmboExisting.Text);
-            locationCMD.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(loginMenu.ConnectionString);
+                conn.Open();
+                MySqlCommand locationCMD = new MySqlCommand("DELETE FROM serverLocations WHERE locationName = @locationName", conn);
+                locationCMD.Parameters.AddWithValue("@locationName", cmboExisting.Text);
+                locationCMD.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("You can't delete a location while there are servers or backup nodes assigned to it.");
+            }
+
         }
 
         private void manageLocationsDelete_Load(object sender, EventArgs e)
