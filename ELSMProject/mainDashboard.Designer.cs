@@ -310,7 +310,7 @@
             this.MinimumSize = new System.Drawing.Size(1146, 640);
             this.Name = "mainDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mainDashboard";
+            this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.DashboardFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ELHSLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).EndInit();

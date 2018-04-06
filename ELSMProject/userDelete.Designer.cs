@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userDelete));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.lblUserID = new System.Windows.Forms.Label();
@@ -97,6 +98,7 @@
             this.Controls.Add(this.lblUserID);
             this.Controls.Add(this.cmboUserID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(544, 178);
             this.MinimumSize = new System.Drawing.Size(544, 178);
             this.Name = "userDelete";

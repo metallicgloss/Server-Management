@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(locationCreate));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewLocation = new System.Windows.Forms.Button();
             this.txtLatitude = new System.Windows.Forms.TextBox();
@@ -148,6 +149,7 @@
             this.Controls.Add(this.lblLongitude);
             this.Controls.Add(this.lblLocationName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "locationCreate";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ticketNew));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewTicket = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -197,6 +198,7 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "ticketNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

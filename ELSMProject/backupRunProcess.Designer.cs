@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backupRunProcess));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRunBackup = new System.Windows.Forms.Button();
             this.pnlConfiguration = new System.Windows.Forms.Panel();
@@ -84,6 +85,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRunBackup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "backupRunProcess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Run Command";

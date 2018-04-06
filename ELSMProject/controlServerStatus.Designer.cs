@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(controlServerStatus));
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlConfiguration = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -67,6 +68,7 @@
             this.Controls.Add(this.pnlConfiguration);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "controlServerStatus";
             this.Text = "Server Status";
             this.Load += new System.EventHandler(this.serverControlStatus_Load);

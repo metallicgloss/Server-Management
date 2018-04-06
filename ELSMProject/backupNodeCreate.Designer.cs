@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backupNodeCreate));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewServer = new System.Windows.Forms.Button();
             this.txtHostname = new System.Windows.Forms.TextBox();
@@ -346,6 +347,7 @@
             this.Controls.Add(this.lblHostname);
             this.Controls.Add(this.lblLocation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "backupNodeCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

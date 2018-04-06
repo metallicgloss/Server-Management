@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(backupNodeDelete));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDeleteServer = new System.Windows.Forms.Button();
             this.lblHostname = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(281, 84);
@@ -53,7 +54,7 @@
             // 
             this.btnDeleteServer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDeleteServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteServer.FlatAppearance.BorderSize = 0; // Set variable to 0
+            this.btnDeleteServer.FlatAppearance.BorderSize = 0;
             this.btnDeleteServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteServer.Font = new System.Drawing.Font("Raleway", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteServer.Location = new System.Drawing.Point(36, 84);
@@ -97,6 +98,7 @@
             this.Controls.Add(this.lblHostname);
             this.Controls.Add(this.cmboHostname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(544, 178);
             this.MinimumSize = new System.Drawing.Size(544, 178);
             this.Name = "backupNodeDelete";

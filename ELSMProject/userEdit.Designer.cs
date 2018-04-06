@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userEdit));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
             this.lblUserID = new System.Windows.Forms.Label();
@@ -273,6 +274,7 @@
             this.Controls.Add(this.lblUserID);
             this.Controls.Add(this.lblLocation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(558, 542);
             this.MinimumSize = new System.Drawing.Size(544, 242);
             this.Name = "userEdit";

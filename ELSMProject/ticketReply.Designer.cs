@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ticketReply));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPostReply = new System.Windows.Forms.Button();
             this.pnlConfiguration = new System.Windows.Forms.Panel();
@@ -121,6 +122,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnPostReply);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1182, 688);
             this.MinimumSize = new System.Drawing.Size(1182, 688);
             this.Name = "ticketReply";

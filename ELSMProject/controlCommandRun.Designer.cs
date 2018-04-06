@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(controlCommandRun));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRunCommand = new System.Windows.Forms.Button();
             this.lblCommandName = new System.Windows.Forms.Label();
@@ -109,6 +110,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRunCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "controlCommandRun";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Run Command";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(controlCommandCreate));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewCommand = new System.Windows.Forms.Button();
             this.txtCommandName = new System.Windows.Forms.TextBox();
@@ -109,6 +110,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNewCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "controlCommandCreate";
             this.Text = "Create Command";
             this.Load += new System.EventHandler(this.serverControlCreate_Load);

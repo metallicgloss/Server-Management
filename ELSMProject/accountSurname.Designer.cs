@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accountSurname));
             this.lblCurrentUsername = new System.Windows.Forms.Label();
             this.lblNewUsername = new System.Windows.Forms.Label();
             this.lblConfirmUsername = new System.Windows.Forms.Label();
@@ -149,6 +150,7 @@
             this.Controls.Add(this.lblNewUsername);
             this.Controls.Add(this.lblCurrentUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(544, 242);
             this.MinimumSize = new System.Drawing.Size(544, 242);

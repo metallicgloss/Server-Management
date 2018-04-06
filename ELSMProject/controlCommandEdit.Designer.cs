@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(controlCommandEdit));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEditCommand = new System.Windows.Forms.Button();
             this.lblCommandName = new System.Windows.Forms.Label();
@@ -110,6 +111,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEditCommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "controlCommandEdit";
             this.Text = "Edit Command";
             this.Load += new System.EventHandler(this.serverControlEdit_Load);
