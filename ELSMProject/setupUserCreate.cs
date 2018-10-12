@@ -34,7 +34,9 @@ namespace ELSM_Project
                 createAdmin.Parameters.AddWithValue("@userCompany", "1");
                 createAdmin.Parameters.AddWithValue("@userRole", "1");
                 string fromEmail = txtEmail.Text;
-				// Try emailing user with login details for SMTP server. Else display messagebox.
+                createAdmin.ExecuteNonQuery();
+                connectionMySQL.Close();
+                // Try emailing user with login details for SMTP server. Else display messagebox.
                 try
                 {
                     MailMessage mailMessage = new MailMessage(fromEmail, txtEmail.Text, "ELSM Management System Installed", "This is confirmation that your installation of your server management panel has been completed.");
@@ -48,8 +50,6 @@ namespace ELSM_Project
                 {
                     System.Windows.Forms.MessageBox.Show("There was a failure in connecting to the SMTP server to send installation confirmation.");
                 }
-                createAdmin.ExecuteNonQuery();
-                connectionMySQL.Close();
                 Hide();
                 loginMenu login = new loginMenu();
                 login.ShowDialog();

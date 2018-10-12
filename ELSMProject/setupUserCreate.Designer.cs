@@ -129,6 +129,7 @@
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.Location = new System.Drawing.Point(245, 286);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(413, 20);
             this.txtPassword.TabIndex = 56;
             // 
@@ -150,6 +151,7 @@
             this.txtConfirmPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirmPass.Location = new System.Drawing.Point(245, 312);
             this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '•';
             this.txtConfirmPass.Size = new System.Drawing.Size(413, 20);
             this.txtConfirmPass.TabIndex = 58;
             // 
