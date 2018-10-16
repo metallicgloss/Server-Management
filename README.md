@@ -42,6 +42,7 @@ This program currently features:
   * Hashed User Passwords (Method of salting needs improving)
   * Background Command & Backup Thread Processes
   
+## Additional Notes
 As of the 20th April 2018, this college project finished. The attached PDF file named `Submission_Document.pdf` is a public copy of that which was submitted for this program detailing the investigation, design, prototyping, development, testing and evaluation aspects of the software development project. While the PDF is in no way required as part of the software, I felt it might be interesting for some to view the reasoning and design that went into creating it as part of my A-Level computer science coursework. Please feel free to delete it from the download if you don't wish to read through.
 
 After reading through the document since the deadline passed and it was submitted, it is painful to note the number of grammatical mistakes that slipped past being corrected when being proofread. While I have been itching to correct these mistakes, the document remains unedited.
